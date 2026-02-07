@@ -127,6 +127,27 @@ export const PRODUCTS: Product[] = [
   },
 ];
 
+export const CMS_DEFAULT_SETTINGS = {
+  seo: {
+    title: 'Amalis Cafetería | Pan artesanal en Santa Pola',
+    description: 'Panadería y cafetería artesanal en Santa Pola. Cocas tradicionales, bollería casera y café de especialidad.'
+  },
+  hero: {
+    title: 'El Corazón de Santa Pola, Sin Atajos.',
+    subtitle: 'Aquí huele a pan recién hecho desde bien temprano.',
+    quote: 'La verdadera artesanía no tiene modo rápido.'
+  },
+  contact: {
+    address: 'Visítanos en Santa Pola',
+    hours: 'Lunes - Domingo · 07:00 - 21:00'
+  },
+  social: {
+    instagram: 'https://instagram.com/amaliscafeteria',
+    facebook: 'https://facebook.com/amaliscafeteria',
+    twitter: 'https://twitter.com/amaliscafeteria'
+  }
+};
+
 export const CATEGORY_TRANSLATIONS: Record<string, string> = {
   Bread: 'Pan',
   Pastry: 'Bollería',

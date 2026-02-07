@@ -3,6 +3,7 @@ import { renderHook, act } from '@testing-library/react'
 import { useMenu } from '../hooks/useMenu'
 import { useScroll } from '../hooks/useScroll'
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll'
+import { useCMS } from '../hooks/useCMS'
 
 describe('useMenu', () => {
     it('should start closed', () => {
@@ -164,5 +165,17 @@ describe('useLockBodyScroll', () => {
 
         unmount()
         document.body.style.overflow = original
+    })
+})
+
+describe('useCMS', () => {
+    it('returns fallback data immediately', async () => {
+        const { result } = renderHook(() => useCMS())
+        expect(result.current.menuProducts.length).toBeGreaterThan(0)
+        expect(result.current.featuredProducts.length).toBeGreaterThan(0)
+        expect(result.current.settings.seo.title).toBeTruthy()
+        await act(async () => {
+            await Promise.resolve()
+        })
     })
 })
