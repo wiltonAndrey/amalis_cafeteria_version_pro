@@ -8,6 +8,7 @@ describe('Menu Integration', () => {
         Element.prototype.scrollIntoView = vi.fn()
         Element.prototype.setPointerCapture = vi.fn()
         Element.prototype.releasePointerCapture = vi.fn()
+        vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')))
     })
 
     it('renders all products by default', () => {

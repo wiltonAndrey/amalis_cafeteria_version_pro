@@ -1,10 +1,10 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { MENU_CATEGORIES, MENU_PRODUCTS } from '../constants';
 import { MenuCategory, MenuProduct } from '../types';
 import { ProductCard } from '../components/ui/ProductCard';
 import ProductModal from '../components/ProductModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { handleError } from '../utils/error-handling';
+import { useCMS } from '../hooks/useCMS';
 import {
     BadgeCheck,
     Cake,
@@ -34,6 +34,7 @@ const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
 
 
 const Menu: React.FC = () => {
+    const { menuCategories, menuProducts } = useCMS();
     const [activeCategory, setActiveCategory] = useState<MenuCategory>('all');
     const [selectedProduct, setSelectedProduct] = useState<MenuProduct | null>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -49,9 +50,9 @@ const Menu: React.FC = () => {
 
     const filteredProducts = useMemo(() => {
         return activeCategory === 'all'
-            ? MENU_PRODUCTS
-            : MENU_PRODUCTS.filter(p => p.category === activeCategory);
-    }, [activeCategory]);
+            ? menuProducts
+            : menuProducts.filter(p => p.category === activeCategory);
+    }, [activeCategory, menuProducts]);
 
     const handleScroll = () => {
         if (sliderRef.current) {
@@ -179,7 +180,7 @@ const Menu: React.FC = () => {
                                 WebkitOverflowScrolling: 'touch'
                             }}
                         >
-                            {MENU_CATEGORIES.map((cat) => {
+                            {menuCategories.map((cat) => {
                                 const Icon = CATEGORY_ICONS[cat.id] || Coffee;
                                 return (
                                     <motion.button
