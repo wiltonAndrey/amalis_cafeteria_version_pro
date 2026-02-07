@@ -1,0 +1,7 @@
+{
+  "name": "Artisan Crumb & Bean",
+  "description": "A high-fidelity landing page for a modern artisanal bakery and café, featuring a warm palette, immersive galleries, and a professional Dribbble-inspired UI.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
