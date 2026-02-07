@@ -6,6 +6,7 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Menu from './pages/Menu';
 import { ScrollToTop } from './components/layout/ScrollToTop';
+import Admin from './pages/Admin';
 
 const App: React.FC = () => {
   return (
@@ -16,6 +17,7 @@ const App: React.FC = () => {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/carta" element={<Menu />} />
+          <Route path="/admin" element={<Admin />} />
         </Routes>
       </main>
       <Footer />
