@@ -1,5 +1,5 @@
-
-import React from 'react';
+﻿import React from 'react';
+import { useCMS } from '../hooks/useCMS';
 
 // Iconos SVG de redes sociales
 const InstagramIcon = () => (
@@ -20,12 +20,6 @@ const TwitterIcon = () => (
   </svg>
 );
 
-const SOCIAL_LINKS = [
-  { name: 'Instagram', icon: InstagramIcon, href: 'https://instagram.com/amaliscafeteria' },
-  { name: 'Facebook', icon: FacebookIcon, href: 'https://facebook.com/amaliscafeteria' },
-  { name: 'Twitter', icon: TwitterIcon, href: 'https://twitter.com/amaliscafeteria' },
-];
-
 const FOOTER_LINKS = {
   explora: [
     { name: 'Carta', href: '/carta' },
@@ -33,18 +27,30 @@ const FOOTER_LINKS = {
     { name: 'Galería', href: '/#gallery' },
     { name: 'Ubicación', href: '/#location' },
   ],
-  contacto: [
-    { name: 'Visítanos en Santa Pola', href: '/#location' },
-    { name: 'Contacto', href: '/#location' },
-  ],
 };
 
-const HORARIO = [
-  { dia: 'Lunes - Domingo', hora: '07:00 - 21:00' },
-];
-
 const Footer: React.FC = () => {
+  const { settings } = useCMS();
   const currentYear = new Date().getFullYear();
+  const contact = settings.contact;
+  const social = settings.social;
+
+  const socialLinks = [
+    { name: 'Instagram', icon: InstagramIcon, href: social.instagram },
+    { name: 'Facebook', icon: FacebookIcon, href: social.facebook },
+    { name: 'Twitter', icon: TwitterIcon, href: social.twitter },
+  ];
+
+  const contactoLinks = [
+    { name: contact.address, href: '/#location' },
+    { name: 'Contacto', href: '/#location' },
+  ];
+
+  const defaultHours = 'Lunes - Domingo · 07:00 - 21:00';
+  const hoursText = contact.hours || defaultHours;
+  const splitByDot = hoursText.includes('·') ? hoursText.split('·') : hoursText.split('Â·');
+  const dayPart = (splitByDot[0] || 'Lunes - Domingo').trim();
+  const timePart = (splitByDot[1] || '07:00 - 21:00').trim();
 
   return (
     <footer className="bg-transparent pt-20 pb-10 px-6">
@@ -63,16 +69,16 @@ const Footer: React.FC = () => {
               No dejes que te lo cuenten. Ven a probar la diferencia de lo recién hecho.
             </p>
             <div className="flex space-x-4">
-              {SOCIAL_LINKS.map(social => (
+              {socialLinks.map(socialItem => (
                 <a
-                  key={social.name}
-                  href={social.href}
+                  key={socialItem.name}
+                  href={socialItem.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-cream hover:bg-caramel hover:text-white transition-all"
-                  aria-label={`Síguenos en ${social.name}`}
+                  aria-label={`Síguenos en ${socialItem.name}`}
                 >
-                  <social.icon />
+                  <socialItem.icon />
                 </a>
               ))}
             </div>
@@ -92,7 +98,7 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-cream mb-6 uppercase tracking-widest text-sm">Contacto</h4>
             <ul className="space-y-4">
-              {FOOTER_LINKS.contacto.map(item => (
+              {contactoLinks.map(item => (
                 <li key={item.name}>
                   <a href={item.href} className="text-cream/60 hover:text-caramel transition-colors">{item.name}</a>
                 </li>
@@ -103,13 +109,11 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-cream mb-6 uppercase tracking-widest text-sm">Horario</h4>
             <ul className="space-y-4">
-              {HORARIO.map(item => (
-                <li key={item.dia} className="text-cream/60">
-                  <span className="font-medium text-cream">{item.dia}</span>
-                  <br />
-                  <span>{item.hora}</span>
-                </li>
-              ))}
+              <li className="text-cream/60">
+                <span className="font-medium text-cream">{dayPart}</span>
+                <br />
+                <span>{timePart}</span>
+              </li>
             </ul>
           </div>
         </div>

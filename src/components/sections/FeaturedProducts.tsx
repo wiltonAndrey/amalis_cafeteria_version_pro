@@ -1,11 +1,13 @@
 
 import React from 'react';
-import { PRODUCTS } from '../../constants';
 import { ProductCard } from '../ui/ProductCard';
 import { Reveal } from '../ui/Reveal';
 import { ResponsiveCarouselGrid } from '../ui/MobileCarousel';
+import { useCMS } from '../../hooks/useCMS';
 
 const FeaturedProducts: React.FC = () => {
+  const { featuredProducts } = useCMS();
+
   return (
     <div className="max-w-7xl mx-auto px-6">
       <div className="text-center mb-16">
@@ -23,7 +25,7 @@ const FeaturedProducts: React.FC = () => {
       </div>
 
       <ResponsiveCarouselGrid className="md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {PRODUCTS.map((product, idx) => (
+        {featuredProducts.map((product, idx) => (
           <Reveal key={product.id} delay={idx * 0.1} fullHeight width="100%">
             <ProductCard product={product} />
           </Reveal>
