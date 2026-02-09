@@ -25,4 +25,14 @@ dist-ssr
 *.sw?
 
 worktrees/
+api/db_config.local.php
+.npm-cache/
+vite_output.txt
+tmp_*.txt
+tmp_*.json
+test_output*.txt
+test_output*.log
+build_error*.log
+devserver.out.log
+devserver.err.log
 

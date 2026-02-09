@@ -1,0 +1,7 @@
+<?php
+return [
+  'host' => 'localhost',
+  'name' => 'amalis_cms',
+  'user' => 'root',
+  'pass' => 'replace-with-your-local-password',
+];

@@ -4,7 +4,6 @@ import userEvent from '@testing-library/user-event'
 import { Button } from '../components/ui/Button'
 import { Badge } from '../components/ui/Badge'
 import { MemoryRouter, Route, Routes } from 'react-router-dom'
-import Admin from '../pages/Admin'
 
 describe('Button', () => {
     it('renders with children', () => {
@@ -168,20 +167,6 @@ describe('Hero', () => {
 
         await user.click(screen.getByRole('button', { name: /explorar menú/i }))
         expect(screen.getByText('Menu Page')).toBeInTheDocument()
-    })
-})
-
-describe('CMS-backed components', () => {
-    it('renders hero title from fallback settings', () => {
-        render(<MemoryRouter><Hero /></MemoryRouter>)
-        expect(screen.getByText(/El Corazón de/i)).toBeInTheDocument()
-    })
-})
-
-describe('Admin page', () => {
-    it('renders admin heading', () => {
-        render(<MemoryRouter><Admin /></MemoryRouter>)
-        expect(screen.getByRole('heading', { name: /panel de administración/i })).toBeInTheDocument()
     })
 })
 

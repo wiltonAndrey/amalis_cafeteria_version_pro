@@ -1,5 +1,6 @@
 <?php
 require __DIR__ . '/bootstrap.php';
+require __DIR__ . '/promotions/list.php';
 
 $pdo = get_pdo();
 
@@ -8,7 +9,7 @@ $categories = $pdo->query(
 )->fetchAll();
 
 $menuRows = $pdo->query(
-  'SELECT id, name, price, category, description, image, ingredients, allergens, featured
+  'SELECT id, name, price, category, description, image, alt_text, image_title, ingredients, allergens, featured
    FROM menu_products
    WHERE active = 1
    ORDER BY sort_order, id'
@@ -22,6 +23,8 @@ $menuProducts = array_map(function (array $row): array {
     'category' => $row['category'],
     'description' => $row['description'],
     'image' => $row['image'],
+    'alt_text' => $row['alt_text'] ?? '',
+    'image_title' => $row['image_title'] ?? '',
     'ingredients' => json_decode($row['ingredients'], true) ?: [],
     'allergens' => json_decode($row['allergens'], true) ?: [],
     'featured' => (bool) $row['featured'],
@@ -51,4 +54,5 @@ echo json_encode([
   'menuCategories' => $categories,
   'menuProducts' => $menuProducts,
   'featuredProducts' => $featuredProducts,
+  'promotionCards' => promotions_list_cards($pdo),
 ], JSON_UNESCAPED_UNICODE);

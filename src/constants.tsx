@@ -1,5 +1,5 @@
 
-import { Product, Testimonial, GalleryItem, MenuCategoryItem, MenuProduct } from './types';
+import { Product, Testimonial, GalleryItem, MenuCategoryItem, MenuProduct, PromotionCard } from './types';
 
 export const MENU_CATEGORIES: MenuCategoryItem[] = [
   { id: 'all', label: 'Todos' },
@@ -88,6 +88,51 @@ export const MENU_PRODUCTS: MenuProduct[] = [
   }
 ];
 
+export const PROMOTION_CARDS: PromotionCard[] = [
+  {
+    id: 'promo-breakfast',
+    badge: 'Mananas',
+    image: '/images/sections/editada-04.webp',
+    image_alt: 'Desayuno completo con cafe, zumo y tostada artesanal',
+    image_title: 'Pack desayuno completo Amalis',
+    title: 'Desayuno Completo',
+    price: 3.5,
+    description: 'Empieza el dia con energia. Cafe de especialidad y zumo natural.',
+    items: ['Cafe de especialidad', 'Zumo de naranja', 'Tostada artesana'],
+    availability_text: 'Hasta 12:00',
+    cta_url: '/carta',
+    cta_label: 'Ver desayuno',
+  },
+  {
+    id: 'promo-lunch',
+    badge: 'Mediodia',
+    image: '/images/products/pizza-york.webp',
+    image_alt: 'Almuerzo con bocadillo artesanal y bebida fria',
+    image_title: 'Pack almuerzo Amalis',
+    title: 'Almuerzo',
+    price: 5,
+    description: 'La pausa perfecta con bocadillo en pan artesano y bebida fria.',
+    items: ['Bocadillo artesano', 'Cerveza o Refresco'],
+    availability_text: 'Lun - Vie',
+    cta_url: '/carta',
+    cta_label: 'Ver almuerzo',
+  },
+  {
+    id: 'promo-snack',
+    badge: 'Tardes',
+    image: '/images/products/Bizcocho.webp',
+    image_alt: 'Merienda dulce con granizado natural y fartons',
+    image_title: 'Pack merienda dulce Amalis',
+    title: 'Merienda Dulce',
+    price: 4,
+    description: 'Granizado de limon natural con una seleccion dulce para la tarde.',
+    items: ['Granizado natural', '3 Fartons tiernos'],
+    availability_text: 'Tardes',
+    cta_url: '/carta',
+    cta_label: 'Ver merienda',
+  },
+];
+
 export const PRODUCTS: Product[] = [
   {
     id: '1',
@@ -126,27 +171,6 @@ export const PRODUCTS: Product[] = [
     imageAlt: 'Bizcocho casero esponjoso de naranja y chocolate',
   },
 ];
-
-export const CMS_DEFAULT_SETTINGS = {
-  seo: {
-    title: 'Amalis Cafetería | Pan artesanal en Santa Pola',
-    description: 'Panadería y cafetería artesanal en Santa Pola. Cocas tradicionales, bollería casera y café de especialidad.'
-  },
-  hero: {
-    title: 'El Corazón de Santa Pola, Sin Atajos.',
-    subtitle: 'Aquí huele a pan recién hecho desde bien temprano.',
-    quote: 'La verdadera artesanía no tiene modo rápido.'
-  },
-  contact: {
-    address: 'Visítanos en Santa Pola',
-    hours: 'Lunes - Domingo · 07:00 - 21:00'
-  },
-  social: {
-    instagram: 'https://instagram.com/amaliscafeteria',
-    facebook: 'https://facebook.com/amaliscafeteria',
-    twitter: 'https://twitter.com/amaliscafeteria'
-  }
-};
 
 export const CATEGORY_TRANSLATIONS: Record<string, string> = {
   Bread: 'Pan',

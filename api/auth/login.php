@@ -11,12 +11,14 @@ $email = trim((string) ($body['email'] ?? ''));
 $password = (string) ($body['password'] ?? '');
 
 if ($email === '' || $password === '') {
-  json_response(['ok' => false, 'error' => 'missing_credentials'], 400);
+  Response::json(['ok' => false, 'error' => 'missing_credentials'], 400);
+  return;
 }
 
 $result = login_admin(get_pdo(), $email, $password);
 if (!$result['ok']) {
-  json_response(['ok' => false, 'error' => 'invalid_credentials'], 401);
+  Response::json(['ok' => false, 'error' => 'invalid_credentials'], 401);
+  return;
 }
 
-json_response($result);
+Response::json($result);

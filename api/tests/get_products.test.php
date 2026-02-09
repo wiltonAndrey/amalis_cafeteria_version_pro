@@ -19,4 +19,9 @@ if (empty($data['featuredProducts'])) {
   exit(1);
 }
 
+if (empty($data['promotionCards'])) {
+  fwrite(STDERR, "FAIL: missing promotion cards\n");
+  exit(1);
+}
+
 echo "PASS\n";

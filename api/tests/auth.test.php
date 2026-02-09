@@ -1,14 +1,17 @@
 <?php
 require __DIR__ . '/../bootstrap.php';
 require __DIR__ . '/../auth/_auth.php';
+require __DIR__ . '/../setup_admin.php';
 
 $pdo = get_pdo();
 $email = 'admin@example.com';
 $password = 'ChangeMe123!';
 
-$pdo->prepare('DELETE FROM admins WHERE email = ?')->execute([$email]);
-$hash = password_hash($password, PASSWORD_DEFAULT);
-$pdo->prepare('INSERT INTO admins (email, password_hash) VALUES (?, ?)')->execute([$email, $hash]);
+$result = upsert_admin($pdo, $email, $password);
+if (empty($result['ok'])) {
+  fwrite(STDERR, "FAIL: setup admin failed\n");
+  exit(1);
+}
 
 session_start();
 $result = login_admin($pdo, $email, $password);

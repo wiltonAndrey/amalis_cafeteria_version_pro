@@ -4,7 +4,7 @@ import { ProductCard } from '../components/ui/ProductCard';
 import ProductModal from '../components/ProductModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { handleError } from '../utils/error-handling';
-import { useCMS } from '../hooks/useCMS';
+import { useMenuProducts } from '../hooks/useMenuProducts';
 import {
     BadgeCheck,
     Cake,
@@ -34,7 +34,7 @@ const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
 
 
 const Menu: React.FC = () => {
-    const { menuCategories, menuProducts } = useCMS();
+    const { menuCategories, menuProducts } = useMenuProducts();
     const [activeCategory, setActiveCategory] = useState<MenuCategory>('all');
     const [selectedProduct, setSelectedProduct] = useState<MenuProduct | null>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);

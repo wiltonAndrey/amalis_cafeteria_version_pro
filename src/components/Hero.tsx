@@ -1,13 +1,11 @@
-﻿import React from 'react';
+
+import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Reveal } from './ui/Reveal';
 import { Button } from './ui/Button';
-import { useCMS } from '../hooks/useCMS';
 
 const Hero: React.FC = () => {
   const navigate = useNavigate();
-  const { settings } = useCMS();
-  const hero = settings.hero;
 
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
@@ -33,16 +31,16 @@ const Hero: React.FC = () => {
       <div className="relative z-10 text-center px-6 max-w-5xl pt-24 md:pt-0">
         <Reveal width="100%">
           <h1 className="font-serif text-white mb-6 leading-tight drop-shadow-lg tracking-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold">
-            {hero.title}
+            El Corazón de<br />Santa Pola,<br />Sin Atajos.
           </h1>
         </Reveal>
         <Reveal width="100%" delay={0.4}>
           <div className="flex flex-col gap-2 mb-10 max-w-2xl mx-auto">
             <p className="text-lg md:text-xl text-white font-sans font-medium drop-shadow-md">
-              {hero.subtitle}
+              Aquí huele a pan recién hecho desde bien temprano.
             </p>
             <p className="text-lg md:text-xl text-white/90 font-sans font-light drop-shadow-md italic">
-              "{hero.quote}"
+              "La verdadera artesanía no tiene modo rápido."
             </p>
           </div>
         </Reveal>

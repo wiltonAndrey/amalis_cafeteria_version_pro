@@ -8,7 +8,7 @@ if (session_status() !== PHP_SESSION_ACTIVE) {
 
 $result = require_auth();
 if (!$result['ok']) {
-  json_response(['ok' => false], 401);
+  return;
 }
 
-json_response($result);
+Response::json($result);
