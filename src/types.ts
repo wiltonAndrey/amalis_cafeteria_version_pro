@@ -60,3 +60,27 @@ export interface PromotionCard {
   cta_url: string;
   cta_label: string;
 }
+
+export interface FeatureCard {
+  title: string;
+  desc: string;
+  img: string;
+  imgAlt: string;
+}
+
+export interface LocationInfo {
+  address: string[];
+  mapUrl: string;
+  hours: string;
+  phone?: string;
+}
+
+export interface CoffeeExperienceData {
+  badge: string;
+  title: string;
+  highlight: string;
+  description: string[];
+  temperature: string;
+  image: string;
+  imageAlt: string;
+}

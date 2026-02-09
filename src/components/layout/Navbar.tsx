@@ -1,8 +1,7 @@
 import React, { useEffect, useRef } from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useScroll } from '../../hooks/useScroll';
 import { useMenu } from '../../hooks/useMenu';
-import { Button } from '../ui/Button';
 
 const NAV_LINKS = [
   { name: 'Inicio', href: '/#home' },
@@ -18,7 +17,6 @@ export const Navbar: React.FC = () => {
   const drawerRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
   const location = useLocation();
-  const navigate = useNavigate();
 
   // Focus trap: when drawer opens, focus first link
   useEffect(() => {
@@ -81,11 +79,6 @@ export const Navbar: React.FC = () => {
     }
   };
 
-  const handleOrderClick = () => {
-    close();
-    navigate('/carta');
-  };
-
   return (
     <>
       {/* Skip Link for keyboard navigation */}
@@ -112,7 +105,7 @@ export const Navbar: React.FC = () => {
                 key={link.name}
                 to={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className={`font-medium transition-colors text-sm uppercase tracking-widest relative group ${isScrolled ? 'text-cream/90' : 'text-white/90'
+                className={`font-bold transition-all duration-300 text-sm uppercase tracking-widest relative group ${isScrolled ? 'text-cream/90' : 'text-white drop-shadow-md'
                   } hover:text-caramel`}
               >
                 {link.name}

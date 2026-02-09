@@ -263,7 +263,7 @@ import Testimonials from '../components/Testimonials'
 describe('Testimonials', () => {
     it('renders section heading', () => {
         render(<Testimonials />)
-        expect(screen.getByText('Lo que dicen nuestros clientes')).toBeInTheDocument()
+        expect(screen.getByRole('heading', { name: /lo que dicen nuestros/i })).toBeInTheDocument()
     })
 
     it('renders testimonial cards', () => {
@@ -280,8 +280,7 @@ describe('Testimonials', () => {
 
     it('renders testimonial names', () => {
         render(<Testimonials />)
-        // Names may appear multiple times due to responsive carousel
-        expect(screen.getAllByText('María Gómez').length).toBeGreaterThan(0)
+        expect(screen.getAllByText(/Mar[ií]a G[oó]mez/i).length).toBeGreaterThan(0)
         expect(screen.getAllByText('Jorge Rocamora').length).toBeGreaterThan(0)
     })
 
@@ -297,41 +296,39 @@ import WhyChooseUs from '../components/WhyChooseUs'
 
 describe('WhyChooseUs', () => {
     it('renders section heading', () => {
-        render(<WhyChooseUs />)
-        expect(screen.getByText('Nuestra Filosofía')).toBeInTheDocument()
+        render(<MemoryRouter><WhyChooseUs /></MemoryRouter>)
+        expect(screen.getByRole('heading', { name: /nuestra filosofia/i })).toBeInTheDocument()
     })
 
-    it('renders Tradición feature', () => {
-        render(<WhyChooseUs />)
-        // Features may appear multiple times due to responsive carousel
-        expect(screen.getAllByText('Tradición').length).toBeGreaterThan(0)
-        expect(screen.getAllByText(/Creemos que la tradición/i).length).toBeGreaterThan(0)
+    it('renders Tradicion feature', () => {
+        render(<MemoryRouter><WhyChooseUs /></MemoryRouter>)
+        expect(screen.getAllByText('Tradicion').length).toBeGreaterThan(0)
+        expect(screen.getAllByText(/Creemos que la tradicion/i).length).toBeGreaterThan(0)
     })
 
     it('renders Sin Atajos feature', () => {
-        render(<WhyChooseUs />)
+        render(<MemoryRouter><WhyChooseUs /></MemoryRouter>)
         expect(screen.getAllByText('Sin Atajos').length).toBeGreaterThan(0)
         expect(screen.getAllByText(/Cero procesos industriales/i).length).toBeGreaterThan(0)
     })
 
     it('renders 100% Manos Vecinas feature', () => {
-        render(<WhyChooseUs />)
+        render(<MemoryRouter><WhyChooseUs /></MemoryRouter>)
         expect(screen.getAllByText('100% Manos Vecinas').length).toBeGreaterThan(0)
         expect(screen.getAllByText(/Amasamos, horneamos y servimos/i).length).toBeGreaterThan(0)
     })
 
     it('renders feature images', () => {
-        render(<WhyChooseUs />)
+        render(<MemoryRouter><WhyChooseUs /></MemoryRouter>)
         expect(screen.getAllByAltText(/Panadero artesano trabajando la masa tradicional/i).length).toBeGreaterThan(0)
         expect(screen.getAllByAltText(/Proceso de horneado lento y cuidado/i).length).toBeGreaterThan(0)
-        expect(screen.getAllByAltText(/Manos artesanas preparando café y repostería/i).length).toBeGreaterThan(0)
+        expect(screen.getAllByAltText(/Manos artesanas preparando cafe y reposteria/i).length).toBeGreaterThan(0)
     })
 
-    it('renders "Saber más" buttons', () => {
-        render(<WhyChooseUs />)
-        const buttons = screen.getAllByRole('button', { name: /saber más/i })
-        // 3 features x 2 (desktop + mobile) = 6 buttons, but at least 3
-        expect(buttons.length).toBeGreaterThanOrEqual(3)
+    it('renders "Saber mas" links', () => {
+        render(<MemoryRouter><WhyChooseUs /></MemoryRouter>)
+        const links = screen.getAllByRole('link', { name: /saber mas/i })
+        expect(links.length).toBeGreaterThanOrEqual(3)
     })
 })
 
@@ -415,32 +412,31 @@ import FeaturedProducts from '../components/sections/FeaturedProducts'
 
 describe('FeaturedProducts', () => {
     it('renders section subtitle', () => {
-        render(<FeaturedProducts />)
+        render(<MemoryRouter><FeaturedProducts /></MemoryRouter>)
         expect(screen.getByText('Nuestras Especialidades')).toBeInTheDocument()
     })
 
     it('renders section title', () => {
-        render(<FeaturedProducts />)
-        expect(screen.getByText('Los 4 Pilares')).toBeInTheDocument()
+        render(<MemoryRouter><FeaturedProducts /></MemoryRouter>)
+        expect(screen.getByRole('heading', { name: /los 4 pilares/i })).toBeInTheDocument()
     })
 
     it('renders section description', () => {
-        render(<FeaturedProducts />)
+        render(<MemoryRouter><FeaturedProducts /></MemoryRouter>)
         expect(screen.getByText(/Frescura diaria, paciencia infinita/i)).toBeInTheDocument()
     })
 
     it('renders product cards', () => {
-        render(<FeaturedProducts />)
-        // Products may render multiple times due to responsive carousel
+        render(<MemoryRouter><FeaturedProducts /></MemoryRouter>)
         expect(screen.getAllByText('Pan de Masa Madre').length).toBeGreaterThan(0)
         expect(screen.getAllByText(/Cocas Artesanas/i).length).toBeGreaterThan(0)
         expect(screen.getAllByText('Rollos Tradicionales').length).toBeGreaterThan(0)
         expect(screen.getAllByText('Bizcochos Caseros').length).toBeGreaterThan(0)
     })
 
-    it('renders "Ver Carta Completa" button', () => {
-        render(<FeaturedProducts />)
-        expect(screen.getByRole('button', { name: /ver carta completa/i })).toBeInTheDocument()
+    it('renders "Ver Carta Completa" link', () => {
+        render(<MemoryRouter><FeaturedProducts /></MemoryRouter>)
+        expect(screen.getByRole('link', { name: /ver carta completa/i })).toBeInTheDocument()
     })
 })
 
@@ -455,12 +451,12 @@ describe('LocationSection', () => {
 
     it('renders section description', () => {
         render(<LocationSection />)
-        expect(screen.getByText(/Comparte tu ubicación para encontrar/i)).toBeInTheDocument()
+        expect(screen.getByText(/Comparte tu ubicacion para encontrar/i)).toBeInTheDocument()
     })
 
-    it('renders location button', () => {
+    it('renders location link', () => {
         render(<LocationSection />)
-        expect(screen.getByRole('button', { name: /compartir ubicación/i })).toBeInTheDocument()
+        expect(screen.getByRole('link', { name: /compartir ubicacion/i })).toBeInTheDocument()
     })
 
     it('renders main store info', () => {
@@ -477,17 +473,17 @@ describe('LocationSection', () => {
 
     it('renders map card', () => {
         render(<LocationSection />)
-        expect(screen.getByText('¡Estamos aquí!')).toBeInTheDocument()
+        expect(screen.getByText(/Estamos aqui/i)).toBeInTheDocument()
     })
 
-    it('renders "Cómo llegar" link', () => {
+    it('renders "Como llegar" link', () => {
         render(<LocationSection />)
-        expect(screen.getByRole('button', { name: /cómo llegar/i })).toBeInTheDocument()
+        expect(screen.getByRole('link', { name: /como llegar/i })).toBeInTheDocument()
     })
 
     it('renders location map image', () => {
         render(<LocationSection />)
-        expect(screen.getByAltText(/vista aérea de la costa de Santa Pola/i)).toBeInTheDocument()
+        expect(screen.getByAltText(/vista aerea de la costa de santa pola/i)).toBeInTheDocument()
     })
 })
 

@@ -249,12 +249,14 @@ npm run test:run -- src/test/components.test.tsx
 - Modificar: `src/test/components.test.tsx`
 
 **Micro-tareas:**
-1. Ajustar grid desktop de 4 a 3 columnas (o ancho maximo equivalente).
-2. Revisar altura de cards para evitar exceso de verticalidad.
-3. Unificar hover de avatar con lenguaje de Filosofia (borde verde + sombra).
-4. Confirmar que animaciones no generan solapamientos en cards altas.
-5. Actualizar test para nuevo layout esperado (3 columnas en `lg`).
-6. Ejecutar tests.
+**Micro-tareas:**
+1. Cambiar layout de Grid a **Flex Row** horizontal (`flex-nowrap`, `overflow-x-auto` o Carousel).
+2. Asegurar que todas las tarjetas se vean en **una sola línea** (sin salto de línea).
+3. Implementar scroll suave o controles de navegación si exceden el ancho.
+4. Unificar hover de avatar con lenguaje de Filosofia (borde verde + sombra).
+5. Confirmar que las tarjetas mantienen ancho consistente.
+6. Actualizar test para validar estructura horizontal.
+7. Ejecutar tests.
 
 **Comando:**
 ```bash

@@ -11,11 +11,13 @@ type ProductCardItem = Product | MenuProduct;
 interface ProductCardProps {
   product: ProductCardItem;
   onClick?: (product: ProductCardItem) => void;
+  showPrice?: boolean;
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, showPrice = true }) => {
   const imageUrl = 'imageUrl' in product ? product.imageUrl : product.image;
-  const priceDisplay = typeof product.price === 'number' ? `${product.price.toFixed(2)}€` : product.price;
+  const imageAlt = 'imageAlt' in product && product.imageAlt ? product.imageAlt : product.name;
+  const priceDisplay = typeof product.price === 'number' ? `${product.price.toFixed(2)} EUR` : product.price;
   const categoryLabel = CATEGORY_TRANSLATIONS[product.category] || product.category;
   const isInteractive = Boolean(onClick);
 
@@ -40,7 +42,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) =>
       <div className="aspect-[4/3] overflow-hidden relative">
         <motion.img
           src={imageUrl}
-          alt={product.imageAlt || product.name}
+          alt={imageAlt}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
           loading="lazy"
           decoding="async"
@@ -64,11 +66,11 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick }) =>
       </div>
 
       <div className="p-6 flex flex-col flex-1 bg-gradient-to-b from-transparent to-white/5">
-        <div className="flex justify-between items-start mb-3">
+        <div className="flex justify-between items-start mb-3 gap-4">
           <h4 className="text-xl font-serif font-bold text-cream group-hover:text-caramel transition-colors tracking-tight">
             {product.name}
           </h4>
-          <span className="text-caramel font-black text-xl font-serif">{priceDisplay}</span>
+          {showPrice ? <span className="text-caramel font-black text-xl font-serif whitespace-nowrap">{priceDisplay}</span> : null}
         </div>
         <p className="text-beige/60 text-sm leading-relaxed flex-grow font-sans font-light line-clamp-2">
           {product.description}

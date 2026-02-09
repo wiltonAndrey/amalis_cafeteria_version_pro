@@ -1,5 +1,5 @@
 
-import { Product, Testimonial, GalleryItem, MenuCategoryItem, MenuProduct, PromotionCard } from './types';
+import { Product, Testimonial, GalleryItem, MenuCategoryItem, MenuProduct, PromotionCard, FeatureCard, LocationInfo, CoffeeExperienceData } from './types';
 
 export const MENU_CATEGORIES: MenuCategoryItem[] = [
   { id: 'all', label: 'Todos' },
@@ -133,6 +133,7 @@ export const PROMOTION_CARDS: PromotionCard[] = [
   },
 ];
 
+
 export const PRODUCTS: Product[] = [
   {
     id: '1',
@@ -220,3 +221,53 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   { id: 'g7', url: '/images/products/Bizcocho-Chocolate-Pepitas.webp', alt: 'Muffins de arándanos', span: 'md:col-span-1 md:row-span-1' },
   { id: 'g8', url: '/images/sections/editada-15.webp', alt: 'Café latte art', span: 'md:col-span-1 md:row-span-1' },
 ];
+
+export const WHY_CHOOSE_US_FEATURES: FeatureCard[] = [
+  {
+    title: 'Tradicion',
+    desc: 'Creemos que la tradicion merece un lugar privilegiado. Aqui huele a pan recien hecho desde bien temprano.',
+    img: '/images/filosofia/filosofia_tradicion.png',
+    imgAlt: 'Panadero artesano trabajando la masa tradicional',
+  },
+  {
+    title: 'Sin Atajos',
+    desc: 'Cero procesos industriales. La verdadera artesania no tiene modo rapido.',
+    img: '/images/filosofia/filosofia_horno_panadero.png',
+    imgAlt: 'Proceso manual de amasado sin maquinaria industrial',
+  },
+  {
+    title: '100% Manos Vecinas',
+    desc: 'Amasamos, horneamos y servimos cada dia para que recuperes el placer honesto de lo autentico.',
+    img: '/images/filosofia/filosofia_cafe_barista.png',
+    imgAlt: 'Manos artesanas preparando cafe y reposteria',
+  },
+  {
+    title: 'Placer Honesto',
+    desc: 'Lejos de lo industrial. Ingredientes reales para un sabor que conecta con lo local.',
+    img: '/images/filosofia/filosofia_bodegon_honesto.png',
+    imgAlt: 'Cliente disfrutando de un producto artesanal honesto',
+  },
+];
+
+export const LOCATION_INFO: LocationInfo = {
+  address: [
+    'Carrer Almirante Antequera, 11',
+    'Santa Pola, Alicante, 03130'
+  ],
+  mapUrl: 'https://www.google.com/maps?q=38.19156,-0.55558',
+  hours: '7:00 AM - 9:00 PM'
+};
+
+export const COFFEE_EXPERIENCE_DATA: CoffeeExperienceData = {
+  badge: 'Sensory experience',
+  title: 'La pausa',
+  highlight: 'Perfecta.',
+  description: [
+    'El cafe no es solo una bebida, es un ritual. Trabajamos exclusivamente con <strong className="text-white font-medium">grano 100% Arabica</strong> de origen unico, molido segundos antes de la extraccion.',
+    'Notas de chocolate negro, una crema densa y avellana, y la temperatura exacta para despertar tus sentidos sin quemarlos.'
+  ],
+  temperature: '93°C',
+  image: '/images/sections/editada-15.webp',
+  imageAlt: 'Arte latte en proceso'
+};
+
