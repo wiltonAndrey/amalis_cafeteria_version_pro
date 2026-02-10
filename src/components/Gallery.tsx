@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { GALLERY_ITEMS } from '../constants';
+import { GALLERY_ITEMS, GALLERY_SECTION } from '../constants';
 import { Reveal } from './ui/Reveal';
 import { GalleryCarousel } from './ui/GalleryCarousel';
 
@@ -10,10 +10,10 @@ const Gallery: React.FC = () => {
       <div className="flex flex-col md:flex-row items-end justify-between mb-12 gap-6">
         <div className="max-w-xl">
           <Reveal width="100%">
-            <h2 className="text-caramel font-accent text-3xl mb-2 tracking-wide">Nuestra Galería</h2>
+            <h2 className="text-caramel font-accent text-3xl mb-2 tracking-wide">{GALLERY_SECTION.eyebrow}</h2>
           </Reveal>
           <Reveal width="100%" delay={0.2}>
-            <h3 className="text-4xl md:text-5xl font-serif text-cream font-bold">Sumérgete en nuestra atmósfera</h3>
+            <h3 className="text-4xl md:text-5xl font-serif text-cream font-bold">{GALLERY_SECTION.title}</h3>
           </Reveal>
         </div>
 

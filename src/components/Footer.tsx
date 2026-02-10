@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { FOOTER_CONTENT } from '../constants';
 
 // Iconos SVG de redes sociales
 const InstagramIcon = () => (
@@ -26,21 +27,8 @@ const SOCIAL_LINKS = [
   { name: 'Twitter', icon: TwitterIcon, href: 'https://twitter.com/amaliscafeteria' },
 ];
 
-const FOOTER_LINKS = {
-  explora: [
-    { name: 'Carta', href: '/carta' },
-    { name: 'Sobre Nosotros', href: '/#about' },
-    { name: 'Galería', href: '/#gallery' },
-    { name: 'Ubicación', href: '/#location' },
-  ],
-  contacto: [
-    { name: 'Visítanos en Santa Pola', href: '/#location' },
-    { name: 'Contacto', href: '/#location' },
-  ],
-};
-
 const HORARIO = [
-  { dia: 'Lunes - Domingo', hora: '07:00 - 21:00' },
+  { dia: FOOTER_CONTENT.links.horario.dia, hora: FOOTER_CONTENT.links.horario.hora },
 ];
 
 const Footer: React.FC = () => {
@@ -60,7 +48,7 @@ const Footer: React.FC = () => {
               </span>
             </div>
             <p className="text-cream/60 leading-relaxed mb-6">
-              No dejes que te lo cuenten. Ven a probar la diferencia de lo recién hecho.
+              {FOOTER_CONTENT.slogan}
             </p>
             <div className="flex space-x-4">
               {SOCIAL_LINKS.map(social => (
@@ -79,9 +67,9 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-cream mb-6 uppercase tracking-widest text-sm">Explora</h4>
+            <h4 className="font-bold text-cream mb-6 uppercase tracking-widest text-sm">{FOOTER_CONTENT.links.explora.title}</h4>
             <ul className="space-y-4">
-              {FOOTER_LINKS.explora.map(item => (
+              {FOOTER_CONTENT.links.explora.items.map(item => (
                 <li key={item.name}>
                   <a href={item.href} className="text-cream/60 hover:text-caramel transition-colors">{item.name}</a>
                 </li>
@@ -90,9 +78,9 @@ const Footer: React.FC = () => {
           </div>
 
           <div>
-            <h4 className="font-bold text-cream mb-6 uppercase tracking-widest text-sm">Contacto</h4>
+            <h4 className="font-bold text-cream mb-6 uppercase tracking-widest text-sm">{FOOTER_CONTENT.links.contacto.title}</h4>
             <ul className="space-y-4">
-              {FOOTER_LINKS.contacto.map(item => (
+              {FOOTER_CONTENT.links.contacto.items.map(item => (
                 <li key={item.name}>
                   <a href={item.href} className="text-cream/60 hover:text-caramel transition-colors">{item.name}</a>
                 </li>
@@ -116,7 +104,7 @@ const Footer: React.FC = () => {
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
           <p className="text-cream/40 text-sm">
-            © {currentYear} Amalis Cafetería. Todos los derechos reservados.
+            © {currentYear} {FOOTER_CONTENT.copyright}
           </p>
           <div className="flex space-x-8 text-sm text-cream/40">
             <a href="#" className="hover:text-brownie">Privacidad</a>

@@ -32,6 +32,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
   return (
     <motion.div
       whileHover={{ y: -10 }}
+      whileTap={{ scale: 0.98 }}
       transition={{ type: 'spring', stiffness: 300 }}
       onClick={() => onClick?.(product)}
       onKeyDown={handleKeyDown}
@@ -52,15 +53,17 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
           }}
         />
         <div className="absolute top-4 left-4 z-10">
-          <Badge className="bg-espresso/80 backdrop-blur-md border-white/10 text-caramel">
-            {categoryLabel}
+          <Badge className="bg-espresso/80 backdrop-blur-md border-white/10 text-caramel uppercase tracking-widest text-[10px] py-1 px-3">
+            {('badge' in product && product.badge) ? product.badge : categoryLabel}
           </Badge>
         </div>
 
         <div className="absolute inset-0 bg-gradient-to-t from-espresso/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
-          <div className="bg-caramel text-white px-4 py-2 rounded-full flex items-center space-x-2 shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+          <div className="bg-caramel text-white px-5 py-2.5 rounded-full flex items-center space-x-2 shadow-xl transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
             <Eye className="w-4 h-4" />
-            <span className="text-xs font-bold uppercase tracking-wider">Ver detalles</span>
+            <span className="text-xs font-bold uppercase tracking-widest">
+              {('ctaLabel' in product && product.ctaLabel) ? product.ctaLabel : 'Ver detalles'}
+            </span>
           </div>
         </div>
       </div>
@@ -72,7 +75,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
           </h4>
           {showPrice ? <span className="text-caramel font-black text-xl font-serif whitespace-nowrap">{priceDisplay}</span> : null}
         </div>
-        <p className="text-beige/60 text-sm leading-relaxed flex-grow font-sans font-light line-clamp-2">
+        <p className="text-beige/60 text-sm leading-relaxed flex-grow font-sans font-light">
           {product.description}
         </p>
       </div>

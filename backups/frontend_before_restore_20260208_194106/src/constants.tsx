@@ -100,11 +100,11 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: '2',
-    name: 'Cocas Artesanas "De la Terreta"',
+    name: 'Cocas Artesanas',
     description: 'Nuestras reinas. Desde la clásica de sardinas hasta las de verduras frescas sobre masa fina. Sabor tradicional de Santa Pola.',
     price: 'Consultar', // Price not in copy, keeping placeholder or remove if needed. Kept generic.
     category: 'Pastry',
-    imageUrl: '/images/Coca-Sardina.webp', // Need a coca image, using a placeholder savory tart/pizza style
+    imageUrl: '/images/', // Need a coca image, using a placeholder savory tart/pizza style
     imageAlt: 'Coca artesana tradicional con verduras frescas y sardinas',
   },
   {

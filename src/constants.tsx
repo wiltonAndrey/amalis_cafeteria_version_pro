@@ -1,6 +1,47 @@
 
 import { Product, Testimonial, GalleryItem, MenuCategoryItem, MenuProduct, PromotionCard, FeatureCard, LocationInfo, CoffeeExperienceData } from './types';
 
+export const HERO_CONTENT = {
+  title: 'Panadería, cafetería y pastelería en Santa Pola',
+  highlight: '(a dos calles del Castillo)',
+  subtitle: 'Pan y bollería recién horneados cada mañana, dulces de vitrina y café para tu paseo.',
+  ctaPrimary: 'Ver carta',
+  ctaSecondary: 'Cómo llegar',
+  microcopy: 'Abierto desde primera hora · Para llevar y para disfrutar aquí'
+};
+
+export const HISTORY_SECTION = {
+  eyebrow: 'Esencia de obrador',
+  title: 'Nuestra',
+  highlight: 'historia',
+  description: 'Nos gusta lo simple bien hecho: pan y bollería recién horneados, café y pastelería para el día a día. Sin prisas y sin atajos. Y sí: estamos en Santa Pola, a dos calles del Castillo.',
+  footer: 'Si vienes al Castillo, te cae un café. Si vienes por el café, te llevas un pastel. Así de simple.',
+  ctaButton: 'Ver carta completa'
+};
+
+export const FEATURED_PRODUCTS_SECTION = {
+  eyebrow: 'Lo que más se pide',
+  title: 'Los 4',
+  highlight: 'Pilares',
+  description: 'Pan, salado y dulce del día, recién horneado y listo para disfrutar. Estamos en Santa Pola, a dos calles del Castillo.',
+  ctaFooter: 'Ver carta completa'
+};
+
+export const PROMOTIONS_SECTION_CONTENT = {
+  eyebrow: 'Promociones · L–V',
+  title: 'Packs del',
+  highlight: 'Día',
+  description: 'Tres packs a precio cerrado para acertar sin pensar demasiado. Solo de lunes a viernes.',
+  note: 'Elige tu momento: mañanas, mediodía o tardes.',
+  ctaFooter: 'Ver carta completa'
+};
+
+export const TESTIMONIALS_SECTION = {
+  title: 'Lo que se dice de nosotros en',
+  highlight: 'Santa Pola',
+  description: 'Reseñas reales en Google. Sin filtros. Sin inventos.'
+};
+
 export const MENU_CATEGORIES: MenuCategoryItem[] = [
   { id: 'all', label: 'Todos' },
   { id: 'cocas', label: 'Cocas' },
@@ -30,7 +71,7 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     price: 2.50,
     category: 'cocas',
     description: 'Deliciosa masa artesanal cubierta con pimiento, tomate y cebolla asada.',
-    image: '/images/products/Coca-Pisto.webp',
+    image: '/images/los_4_pilares/cocas_variedad.webp',
     ingredients: ['Harina', 'Pimiento rojo', 'Tomate', 'Cebolla', 'Aceite'],
     allergens: ['Gluten'],
     featured: true
@@ -91,42 +132,42 @@ export const MENU_PRODUCTS: MenuProduct[] = [
 export const PROMOTION_CARDS: PromotionCard[] = [
   {
     id: 'promo-breakfast',
-    badge: 'Mananas',
+    badge: 'MAÑANAS · L–V · Hasta 12:00',
     image: '/images/sections/editada-04.webp',
-    image_alt: 'Desayuno completo con cafe, zumo y tostada artesanal',
+    image_alt: 'Desayuno completo con café, zumo y tostada artesanal',
     image_title: 'Pack desayuno completo Amalis',
-    title: 'Desayuno Completo',
+    title: 'Desayuno completo',
     price: 3.5,
-    description: 'Empieza el dia con energia. Cafe de especialidad y zumo natural.',
-    items: ['Cafe de especialidad', 'Zumo de naranja', 'Tostada artesana'],
+    description: 'Tu clásico bien hecho: café + zumo + tostada. Arrancas el día como toca.',
+    items: ['Café', 'Zumo de naranja', 'Tostada'],
     availability_text: 'Hasta 12:00',
     cta_url: '/carta',
     cta_label: 'Ver desayuno',
   },
   {
     id: 'promo-lunch',
-    badge: 'Mediodia',
+    badge: 'MEDIODÍA · L–V',
     image: '/images/products/pizza-york.webp',
-    image_alt: 'Almuerzo con bocadillo artesanal y bebida fria',
+    image_alt: 'Almuerzo con bocadillo artesanal y bebida fría',
     image_title: 'Pack almuerzo Amalis',
     title: 'Almuerzo',
     price: 5,
-    description: 'La pausa perfecta con bocadillo en pan artesano y bebida fria.',
-    items: ['Bocadillo artesano', 'Cerveza o Refresco'],
+    description: 'Pausa rápida y rica: bocadillo en pan recién horneado + bebida fría.',
+    items: ['Bocadillo', 'Cerveza o refresco'],
     availability_text: 'Lun - Vie',
     cta_url: '/carta',
     cta_label: 'Ver almuerzo',
   },
   {
     id: 'promo-snack',
-    badge: 'Tardes',
+    badge: 'TARDES · L–V',
     image: '/images/products/Bizcocho.webp',
     image_alt: 'Merienda dulce con granizado natural y fartons',
     image_title: 'Pack merienda dulce Amalis',
-    title: 'Merienda Dulce',
+    title: 'Merienda dulce',
     price: 4,
-    description: 'Granizado de limon natural con una seleccion dulce para la tarde.',
-    items: ['Granizado natural', '3 Fartons tiernos'],
+    description: 'Dulce + fresquito: granizado de limón y compañía para la tarde.',
+    items: ['Granizado de limón', '3 fartones tiernos'],
     availability_text: 'Tardes',
     cta_url: '/carta',
     cta_label: 'Ver merienda',
@@ -137,47 +178,56 @@ export const PROMOTION_CARDS: PromotionCard[] = [
 export const PRODUCTS: Product[] = [
   {
     id: '1',
-    name: 'Pan de Masa Madre',
-    description: 'Pan honesto. Harina, agua, y el ingrediente secreto: paciencia. Fermentación lenta para una corteza dorada y miga tierna.',
-    price: 'Consultar', // Price not in copy, keeping placeholder or remove if needed. Kept generic.
+    name: 'Pan del día',
+    description: 'Corteza dorada, miga tierna y pan recién horneado para llevar o acompañar el café. En vitrina, todos los días: barra tradicional, barras caseras, pan de agua, cereales, integral y bambis.',
+    price: 'Consultar',
     category: 'Bread',
     imageUrl: '/images/sections/editada-09.webp',
     imageAlt: 'Hogaza de pan de masa madre artesanal con corteza rústica dorada',
+    badge: 'PAN',
+    ctaLabel: 'Ver panes'
   },
   {
     id: '2',
-    name: 'Cocas Artesanas "De la Terreta"',
-    description: 'Nuestras reinas. Desde la clásica de sardinas hasta las de verduras frescas sobre masa fina. Sabor tradicional de Santa Pola.',
-    price: 'Desde 3,50 €',
+    name: 'Cocas de Santa Pola',
+    description: 'El “sí o sí” de la casa: mollitas con sardina, jamón york y queso, verduras y coca rellena de atún y pisto. Salado de vitrina… y muy de aquí.',
+    price: 'Consultar',
     category: 'Pastry',
-    imageUrl: '/images/Coca-Sardina.webp', // Need a coca image, using a placeholder savory tart/pizza style
+    imageUrl: '/images/los_4_pilares/cocas_varieda.webp',
     imageAlt: 'Coca artesana tradicional con verduras frescas y sardinas',
+    badge: 'BOLLERÍA SALADA',
+    ctaLabel: 'Ver cocas'
   },
   {
     id: '3',
-    name: 'Rollos Tradicionales',
-    description: 'El dulce que nos define. Receta heredada, hecha a mano. Anís, Vino, Naranja y Huevo. El acompañante perfecto.',
-    price: '1,50 €',
+    name: 'Dulces para el café',
+    description: 'Piezas dulces y bizcochos para desayunar o merendar. Los más pedidos: naranja, piña, canela, zanahoria, pistacho, chocolate con almendra, pepitas de chocolate y bizcocho de donuts.',
+    price: 'Consultar',
     category: 'Pastry',
-    imageUrl: '/images/editada-1458-2.webp', // Rollos/Donut style
+    imageUrl: '/images/editada-1458-2.webp',
     imageAlt: 'Rollos tradicionales de anís y naranja recién hechos',
+    badge: 'BOLLERÍA DULCE',
+    ctaLabel: 'Ver bollería dulce'
   },
   {
     id: '4',
-    name: 'Bizcochos Caseros',
-    description: 'Merendar como antes. Naranja, Chocolate con Nuez, Canela... Sin conservantes. Solo ingredientes reales.',
-    price: '3,50 €',
+    name: 'Pasteles y tartas',
+    description: 'Porciones para hoy y tartas por encargo. En vitrina suelen volar: pastel de almendra, borrachos, tetas y medias lunas. El final perfecto… o el motivo principal.',
+    price: 'Consultar',
     category: 'Cake',
     imageUrl: '/images/products/Bizcocho.webp',
     imageAlt: 'Bizcocho casero esponjoso de naranja y chocolate',
+    badge: 'PASTELERÍA',
+    ctaLabel: 'Ver pastelería'
   },
 ];
 
 export const CATEGORY_TRANSLATIONS: Record<string, string> = {
   Bread: 'Pan',
+  Coffee: 'Café',
   Pastry: 'Bollería',
-  Cake: 'Tartas',
-  Coffee: 'Café'
+  Cake: 'Tartas'
+
 };
 
 export const TESTIMONIALS: Testimonial[] = [
@@ -224,50 +274,101 @@ export const GALLERY_ITEMS: GalleryItem[] = [
 
 export const WHY_CHOOSE_US_FEATURES: FeatureCard[] = [
   {
-    title: 'Tradicion',
-    desc: 'Creemos que la tradicion merece un lugar privilegiado. Aqui huele a pan recien hecho desde bien temprano.',
+    title: 'Tradición',
+    desc: 'Respetamos el oficio de siempre: harina, manos y tiempo. Aquí el pan sale temprano y se nota desde la primera mordida.',
     img: '/images/filosofia/filosofia_tradicion.png',
     imgAlt: 'Panadero artesano trabajando la masa tradicional',
   },
   {
-    title: 'Sin Atajos',
-    desc: 'Cero procesos industriales. La verdadera artesania no tiene modo rapido.',
+    title: 'Sin atajos',
+    desc: 'Lo bueno no se corre: horneado en su punto, tiempos bien medidos y el mimo de hacerlo cada día, sin prisa',
     img: '/images/filosofia/filosofia_horno_panadero.png',
     imgAlt: 'Proceso manual de amasado sin maquinaria industrial',
   },
   {
-    title: '100% Manos Vecinas',
-    desc: 'Amasamos, horneamos y servimos cada dia para que recuperes el placer honesto de lo autentico.',
+    title: 'Manos vecinas',
+    desc: 'Somos de aquí y trabajamos para los de aquí. Lo preparamos cada mañana y lo servimos cada día para que Santa Pola empiece el día con buen pan.',
     img: '/images/filosofia/filosofia_cafe_barista.png',
     imgAlt: 'Manos artesanas preparando cafe y reposteria',
   },
   {
-    title: 'Placer Honesto',
-    desc: 'Lejos de lo industrial. Ingredientes reales para un sabor que conecta con lo local.',
+    title: 'Placer honesto',
+    desc: 'Sin postureo: recetas cuidadas, equilibrio y ese dulce “uno más y ya” que te llevas de paseo (o te comes antes).',
     img: '/images/filosofia/filosofia_bodegon_honesto.png',
     imgAlt: 'Cliente disfrutando de un producto artesanal honesto',
   },
 ];
 
 export const LOCATION_INFO: LocationInfo = {
+  title: 'Encuéntranos en Santa Pola',
+  description: 'Activa tu ubicación y te abrimos la ruta más rápida hasta nuestra puerta. Estamos en el centro, a dos calles del Castillo de Santa Pola.',
+  ctaLabel: 'Descubre nuestra ubicación',
   address: [
     'Carrer Almirante Antequera, 11',
-    'Santa Pola, Alicante, 03130'
+    '03130 Santa Pola, Alicante'
   ],
+  reference: 'A 2 calles del Castillo de Santa Pola',
   mapUrl: 'https://www.google.com/maps?q=38.19156,-0.55558',
-  hours: '7:00 AM - 9:00 PM'
+  hours: '7:00–21:00',
+  phone: '656 91 35 39',
+  contactCard: {
+    title: '¿Necesitas un encargo?',
+    description: 'Llámanos y te confirmamos disponibilidad al momento.',
+    ctaLabel: 'Llamar ahora'
+  }
 };
 
 export const COFFEE_EXPERIENCE_DATA: CoffeeExperienceData = {
-  badge: 'Sensory experience',
+  badge: 'EXPERIENCIA DE CAFÉ',
   title: 'La pausa',
   highlight: 'Perfecta.',
   description: [
-    'El cafe no es solo una bebida, es un ritual. Trabajamos exclusivamente con <strong className="text-white font-medium">grano 100% Arabica</strong> de origen unico, molido segundos antes de la extraccion.',
-    'Notas de chocolate negro, una crema densa y avellana, y la temperatura exacta para despertar tus sentidos sin quemarlos.'
+    'Tu momento del día. Café con cuerpo y crema, servido a 93°C para que lo disfrutes con calma.',
+    'Siéntate un minuto y acompáñalo con algo de vitrina: bizcocho, pastel o ese “uno más y ya” que siempre cae.'
   ],
   temperature: '93°C',
   image: '/images/sections/editada-15.webp',
   imageAlt: 'Arte latte en proceso'
 };
 
+
+export const GALLERY_SECTION = {
+  eyebrow: 'Nuestra Galería',
+  title: 'Sumérgete en nuestra atmósfera'
+};
+
+export const FOOTER_CONTENT = {
+  slogan: 'No dejes que te lo cuenten. Ven a probar la diferencia de lo recién hecho.',
+  copyright: 'Amalis Cafetería. Todos los derechos reservados.',
+  links: {
+    explora: {
+      title: 'Explora',
+      items: [
+        { name: 'Carta', href: '/carta' },
+        { name: 'Sobre Nosotros', href: '/#about' },
+        { name: 'Galería', href: '/#gallery' },
+        { name: 'Ubicación', href: '/#location' }
+      ]
+    },
+    contacto: {
+      title: 'Contacto',
+      items: [
+        { name: 'Visítanos en Santa Pola', href: '/#location' },
+        { name: 'Contacto', href: '/#location' }
+      ]
+    },
+    horario: {
+      title: 'Horario',
+      dia: 'Lunes - Domingo',
+      hora: '07:00 - 21:00'
+    }
+  }
+};
+
+export const NAV_LINKS = [
+  { name: 'Inicio', href: '/#home' },
+  { name: 'Carta', href: '/carta' },
+  { name: 'Nosotros', href: '/#about' },
+  { name: 'Galería', href: '/#gallery' },
+  { name: 'Contacto', href: '/#location' },
+];

@@ -7,6 +7,8 @@ export interface Product {
   category: 'Bread' | 'Pastry' | 'Cake' | 'Coffee';
   imageUrl: string;
   imageAlt?: string;
+  badge?: string;
+  ctaLabel?: string;
 }
 
 export interface Testimonial {
@@ -69,10 +71,19 @@ export interface FeatureCard {
 }
 
 export interface LocationInfo {
+  title: string;
+  description: string;
+  ctaLabel: string;
   address: string[];
+  reference: string;
   mapUrl: string;
   hours: string;
-  phone?: string;
+  phone: string;
+  contactCard: {
+    title: string;
+    description: string;
+    ctaLabel: string;
+  };
 }
 
 export interface CoffeeExperienceData {

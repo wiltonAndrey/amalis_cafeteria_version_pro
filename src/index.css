@@ -30,11 +30,21 @@
 
 /* Google Fonts are imported in index.html */
 
+html,
 body {
+  margin: 0;
+  padding: 0;
   background-color: var(--color-espresso);
   color: var(--color-cream);
+  min-height: 100vh;
   scroll-behavior: smooth;
 }
+
+.snap-section {
+  /* Scroll snap removed per user request */
+  position: relative;
+}
+
 
 .custom-scroll::-webkit-scrollbar {
   width: 8px;

@@ -1,5 +1,5 @@
 import React from 'react';
-import { TESTIMONIALS } from '../constants';
+import { TESTIMONIALS, TESTIMONIALS_SECTION } from '../constants';
 import { Reveal } from './ui/Reveal';
 import { motion } from 'framer-motion';
 import { ResponsiveCarouselGrid } from './ui/MobileCarousel';
@@ -7,6 +7,18 @@ import { SectionHeading } from './ui/SectionHeading';
 
 const Testimonials: React.FC = () => {
   const scrollRef = React.useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = React.useState(0);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const container = scrollRef.current;
+      const scrollPosition = container.scrollLeft;
+      // Approximate item width including gap
+      const itemWidth = container.clientWidth * 0.85;
+      const index = Math.round(scrollPosition / itemWidth);
+      setActiveIndex(Math.min(Math.max(0, index), TESTIMONIALS.length - 1));
+    }
+  };
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -21,7 +33,11 @@ const Testimonials: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6 py-20 relative">
       <Reveal width="100%">
-        <SectionHeading title="Lo que dicen nuestros" highlight="clientes" />
+        <SectionHeading
+          title={TESTIMONIALS_SECTION.title}
+          highlight={TESTIMONIALS_SECTION.highlight}
+          description={TESTIMONIALS_SECTION.description}
+        />
       </Reveal>
 
       <div className="relative group/slider">
@@ -48,7 +64,8 @@ const Testimonials: React.FC = () => {
 
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto gap-6 pb-12 -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar snap-x snap-mandatory touch-pan-x"
+          onScroll={handleScroll}
+          className="flex items-stretch overflow-x-auto gap-6 pb-4 -mx-6 px-6 md:mx-0 md:px-0 no-scrollbar snap-x snap-mandatory touch-pan-x"
         >
           {TESTIMONIALS.map((t, index) => (
             <motion.div
@@ -58,7 +75,7 @@ const Testimonials: React.FC = () => {
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.6, delay: index * 0.15, ease: 'easeOut' }}
               whileHover={{ y: -10 }}
-              className="flex-shrink-0 w-[85vw] md:w-[450px] lg:w-[32%] snap-center group relative mt-14 bg-white/5 hover:bg-white/10 backdrop-blur-md p-7 pb-8 rounded-[2rem] shadow-lg hover:shadow-[0_20px_50px_-12px_rgba(196,167,125,0.15)] border border-white/10 hover:border-caramel/30 transition-all duration-500 pt-20 flex flex-col h-full"
+              className="flex-shrink-0 w-[85vw] md:w-[450px] lg:w-[32%] snap-center group relative mt-14 bg-white/5 hover:bg-white/10 backdrop-blur-md p-7 pb-8 rounded-[2rem] shadow-lg hover:shadow-[0_20px_50px_-12px_rgba(196,167,125,0.15)] border border-white/10 hover:border-caramel/30 transition-all duration-500 pt-20 flex flex-col h-auto min-h-[420px]"
             >
               <div className="absolute -top-12 left-1/2 -translate-x-1/2 w-full flex justify-center">
                 <div className="relative">
@@ -106,6 +123,17 @@ const Testimonials: React.FC = () => {
           ))}
           {/* Spacer for last item */}
           <div className="flex-shrink-0 w-4 snap-center" aria-hidden="true" />
+        </div>
+
+        {/* Mobile Indicators */}
+        <div className="flex md:hidden justify-center gap-2 mt-6">
+          {TESTIMONIALS.map((_, idx) => (
+            <div
+              key={idx}
+              className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex ? 'w-6 bg-caramel' : 'w-1.5 bg-caramel/30'
+                }`}
+            />
+          ))}
         </div>
       </div>
     </div>

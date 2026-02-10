@@ -6,17 +6,17 @@ import { SectionHeading } from './ui/SectionHeading';
 
 
 
-import { WHY_CHOOSE_US_FEATURES } from '../constants';
+import { WHY_CHOOSE_US_FEATURES, HISTORY_SECTION } from '../constants';
 
 const WhyChooseUs: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto px-6">
       <Reveal width="100%">
         <SectionHeading
-          eyebrow="Esencia Artesanal"
-          title="Nuestra"
-          highlight="Filosofía"
-          description="Pan, cafe y oficio diario con procesos lentos, ingredientes reales y sabor local."
+          eyebrow={HISTORY_SECTION.eyebrow}
+          title={HISTORY_SECTION.title}
+          highlight={HISTORY_SECTION.highlight}
+          description={HISTORY_SECTION.description}
         />
       </Reveal>
 
@@ -36,10 +36,16 @@ const WhyChooseUs: React.FC = () => {
         ))}
       </ResponsiveCarouselGrid>
 
-      <div className="mt-16 text-center">
+      <div className="mt-16 text-center flex flex-col items-center gap-8">
+        <Reveal width="100%" delay={0.4}>
+          <p className="text-xl md:text-2xl text-caramel font-serif italic max-w-2xl mx-auto opacity-90 leading-relaxed underline decoration-caramel/20 underline-offset-8">
+            "{HISTORY_SECTION.footer}"
+          </p>
+        </Reveal>
+
         <Reveal width="100%" delay={0.6}>
-          <Link to="/carta" className="text-cream font-bold text-lg inline-flex items-center gap-2 group cursor-pointer">
-            Ver Carta Completa
+          <Link to="/carta" className="text-cream font-bold text-lg inline-flex items-center gap-2 group cursor-pointer hover:text-caramel transition-colors">
+            {HISTORY_SECTION.ctaButton}
             <span className="w-8 h-8 rounded-full bg-caramel/20 flex items-center justify-center text-caramel group-hover:translate-x-2 transition-transform duration-200">
               <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />

@@ -1,15 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { useScroll } from '../../hooks/useScroll';
 import { useMenu } from '../../hooks/useMenu';
 
-const NAV_LINKS = [
-  { name: 'Inicio', href: '/#home' },
-  { name: 'Carta', href: '/carta' },
-  { name: 'Nosotros', href: '/#about' },
-  { name: 'Galería', href: '/#gallery' },
-  { name: 'Contacto', href: '/#contact' },
-];
+const MotionLink = motion(Link);
+import { NAV_LINKS } from '../../constants';
 
 export const Navbar: React.FC = () => {
   const isScrolled = useScroll();
@@ -101,16 +97,17 @@ export const Navbar: React.FC = () => {
 
           <nav className="hidden lg:flex items-center space-x-8" aria-label="Navegación principal">
             {NAV_LINKS.map(link => (
-              <Link
+              <MotionLink
                 key={link.name}
                 to={link.href}
-                onClick={(e) => handleNavClick(e, link.href)}
+                whileTap={{ scale: 0.95 }}
+                onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
                 className={`font-bold transition-all duration-300 text-sm uppercase tracking-widest relative group ${isScrolled ? 'text-cream/90' : 'text-white drop-shadow-md'
                   } hover:text-caramel`}
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-caramel transition-all group-hover:w-full" />
-              </Link>
+              </MotionLink>
             ))}
           </nav>
 
@@ -139,16 +136,17 @@ export const Navbar: React.FC = () => {
           className={`absolute top-0 right-0 w-[85%] h-full bg-beige transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col pt-32 px-10`}
         >
           {NAV_LINKS.map((link, idx) => (
-            <Link
+            <MotionLink
               key={link.name}
               to={link.href}
-              onClick={(e) => handleNavClick(e, link.href)}
+              whileTap={{ scale: 0.95 }}
+              onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
               ref={idx === 0 ? firstLinkRef : null}
               className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
               style={{ transitionDelay: `${100 + idx * 75}ms` }}
             >
               {link.name}
-            </Link>
+            </MotionLink>
           ))}
         </div>
       </div>

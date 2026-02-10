@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 
 interface MobileCarouselProps {
     children: React.ReactNode;
@@ -12,15 +12,27 @@ export const MobileCarousel: React.FC<MobileCarouselProps> = ({
     itemClassName = ""
 }) => {
     const scrollRef = useRef<HTMLDivElement>(null);
+    const [activeIndex, setActiveIndex] = useState(0);
 
     // Convert children to array to process them
     const items = React.Children.toArray(children);
 
+    const handleScroll = () => {
+        if (scrollRef.current) {
+            const container = scrollRef.current;
+            const scrollPosition = container.scrollLeft;
+            const itemWidth = container.clientWidth * 0.85; // 85vw
+            const index = Math.round(scrollPosition / itemWidth);
+            setActiveIndex(Math.min(Math.max(0, index), items.length - 1));
+        }
+    };
+
     return (
-        <div className={`w-full ${className}`}>
+        <div className={`w-full ${className} relative group`}>
             {/* Mobile View: Horizontal Scroll */}
             <div
                 ref={scrollRef}
+                onScroll={handleScroll}
                 className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-6 px-6 scrollbar-hide"
                 style={{ scrollBehavior: 'smooth' }}
             >
@@ -36,22 +48,18 @@ export const MobileCarousel: React.FC<MobileCarouselProps> = ({
                 <div className="flex-shrink-0 w-2 snap-center" />
             </div>
 
-            {/* Desktop View: Regular Grid (Render children normally using the parent's grid layout) */}
-            {/* The parent is responsible for grid layout on desktop, so we just return a fragment or container that doesn't interfere. 
-          Actually, for this pattern to work seamlessly, we often want the parent to control the grid.
-          However, since this component *replaces* the grid on mobile, on desktop it should probably just act as a fragment 
-          OR render a grid container if we want to enforce it.
-          
-          Better strategy: This component renders the MOBILE version. The DESKTOP version is usually a grid.
-          If we want to use this wrapper for BOTH, we need to know the desktop grid classes.
-          
-          Let's make this component exclusively for the SCROLL container logic. 
-          The interactions with the parent grid are tricky if we just return children fragment on desktop because the parent div has the grid classes.
-          
-          So: We will render TWO versions in the DOM? No, that duplicates content.
-          We will use CSS to toggle between flex (mobile) and grid (desktop).
-      */}
+            {/* Scroll Indicators (Dots) */}
+            <div className="md:hidden flex justify-center gap-2 mt-2 mb-6">
+                {items.map((_, idx) => (
+                    <div
+                        key={idx}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex ? 'w-6 bg-caramel' : 'w-1.5 bg-caramel/30'
+                            }`}
+                    />
+                ))}
+            </div>
 
+            {/* Desktop View: Regular Grid */}
             <div className={`hidden md:grid ${className}`}>
                 {children}
             </div>
@@ -59,25 +67,31 @@ export const MobileCarousel: React.FC<MobileCarouselProps> = ({
     );
 };
 
-/* 
-   Refined Approach:
-   Instead of duplicating DOM or complex conditional rendering, we can use a single container that switches styled.
-   
-   Mobile: flex overflow-x-auto snap-x ...
-   Desktop: grid grid-cols-X ... (passed via className)
-*/
-
 export const ResponsiveCarouselGrid: React.FC<MobileCarouselProps> = ({
     children,
     className = "", // Should contain the desktop grid classes, e.g. "md:grid-cols-4"
     itemClassName = ""
 }) => {
     const items = React.Children.toArray(children);
+    const [activeIndex, setActiveIndex] = useState(0);
+    const scrollRef = useRef<HTMLDivElement>(null);
+
+    const handleScroll = () => {
+        if (scrollRef.current) {
+            const container = scrollRef.current;
+            const scrollPosition = container.scrollLeft;
+            const itemWidth = container.clientWidth * 0.85;
+            const index = Math.round(scrollPosition / itemWidth);
+            setActiveIndex(Math.min(Math.max(0, index), items.length - 1));
+        }
+    };
 
     return (
         <>
             {/* Mobile View: Horizontal Scroll - visible only on mobile */}
             <div
+                ref={scrollRef}
+                onScroll={handleScroll}
                 className="md:hidden flex overflow-x-auto snap-x snap-mandatory gap-4 pb-6 -mx-6 px-6"
                 style={{ scrollBehavior: 'smooth', WebkitOverflowScrolling: 'touch' }}
             >
@@ -91,6 +105,17 @@ export const ResponsiveCarouselGrid: React.FC<MobileCarouselProps> = ({
                 ))}
                 {/* Spacer to allow visualizing the last item fully */}
                 <div className="flex-shrink-0 w-4 snap-center" aria-hidden="true" />
+            </div>
+
+            {/* Mobile Indicators */}
+            <div className="md:hidden flex justify-center gap-2 mt-2 mb-8">
+                {items.map((_, idx) => (
+                    <div
+                        key={idx}
+                        className={`h-1.5 rounded-full transition-all duration-300 ${idx === activeIndex ? 'w-6 bg-caramel' : 'w-1.5 bg-caramel/30'
+                            }`}
+                    />
+                ))}
             </div>
 
             {/* Desktop View: Grid - hidden on mobile, visible on md and up */}

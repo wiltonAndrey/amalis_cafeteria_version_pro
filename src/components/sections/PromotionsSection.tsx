@@ -4,6 +4,8 @@ import { ResponsiveCarouselGrid } from '../ui/MobileCarousel';
 import { Badge } from '../ui/Badge';
 import { usePromotionCards } from '../../hooks/usePromotionCards';
 import { SectionHeading } from '../ui/SectionHeading';
+import { PROMOTIONS_SECTION_CONTENT } from '../../constants';
+import { Link } from 'react-router-dom';
 
 const PRICE_FORMATTER = new Intl.NumberFormat('es-ES', {
   style: 'currency',
@@ -37,11 +39,16 @@ const PromotionsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <Reveal width="100%">
           <SectionHeading
-            eyebrow="Promociones"
-            title="Packs del"
-            highlight="Dia"
-            description="Combinaciones perfectas a un precio cerrado. Disfruta de la experiencia completa."
+            eyebrow={PROMOTIONS_SECTION_CONTENT.eyebrow}
+            title={PROMOTIONS_SECTION_CONTENT.title}
+            highlight={PROMOTIONS_SECTION_CONTENT.highlight}
+            description={PROMOTIONS_SECTION_CONTENT.description}
           />
+          <div className="text-center -mt-8 mb-12">
+            <p className="text-caramel/90 font-serif italic text-lg md:text-xl opacity-0 animate-in fade-in slide-in-from-bottom-4 duration-1000 fill-mode-forwards">
+              {PROMOTIONS_SECTION_CONTENT.note}
+            </p>
+          </div>
         </Reveal>
 
         <ResponsiveCarouselGrid className="md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -77,7 +84,7 @@ const PromotionsSection: React.FC = () => {
                       </div>
                     </div>
 
-                    <p className="text-cream/80 text-sm leading-relaxed mb-4 line-clamp-3">
+                    <p className="text-cream/80 text-sm leading-relaxed mb-4">
                       {promo.description}
                     </p>
 
@@ -109,6 +116,18 @@ const PromotionsSection: React.FC = () => {
             );
           })}
         </ResponsiveCarouselGrid>
+        <div className="mt-20 text-center">
+          <Reveal width="100%" delay={0.4}>
+            <Link to="/carta" className="text-cream font-bold text-lg inline-flex items-center gap-2 group cursor-pointer hover:text-caramel transition-colors">
+              {PROMOTIONS_SECTION_CONTENT.ctaFooter}
+              <span className="w-8 h-8 rounded-full bg-caramel/20 flex items-center justify-center text-caramel group-hover:translate-x-2 transition-transform duration-200">
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
+          </Reveal>
+        </div>
       </div>
     </div>
   );
