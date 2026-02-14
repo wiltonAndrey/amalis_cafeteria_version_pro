@@ -28,6 +28,8 @@ const CoffeeExperience: React.FC = () => {
                   className="relative z-10 w-full rounded-[2rem] border border-white/5 shadow-[0_20px_45px_-18px_rgba(0,0,0,0.6)] group-hover:shadow-[0_28px_60px_-16px_rgba(0,0,0,0.75)] grayscale-[20%] group-hover:grayscale-0 transition-all duration-700 ease-out transform group-hover:-translate-y-2"
                   loading="lazy"
                   decoding="async"
+                  width={600}
+                  height={400}
                 />
 
                 <div className="absolute -right-8 bottom-12 z-20 hidden md:block">
@@ -57,7 +59,7 @@ const CoffeeExperience: React.FC = () => {
 
             <Reveal width="100%" delay={0.4}>
               <div className="space-y-8 text-lg md:text-xl text-white/80 font-light leading-relaxed max-w-2xl pl-4 border-l border-white/10">
-                <p dangerouslySetInnerHTML={{ __html: COFFEE_EXPERIENCE_DATA.description[0] }} />
+                <p>{COFFEE_EXPERIENCE_DATA.description[0]}</p>
                 <p>{COFFEE_EXPERIENCE_DATA.description[1]}</p>
               </div>
             </Reveal>

@@ -51,7 +51,7 @@ const PromotionsSection: React.FC = () => {
           </div>
         </Reveal>
 
-        <ResponsiveCarouselGrid className="md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        <ResponsiveCarouselGrid className="md:grid-cols-3 gap-8 max-w-6xl mx-auto" desktopMode="carousel">
           {cards.map((promo, idx) => {
             const ctaUrl = getSafeCtaUrl(promo.cta_url);
             const isExternal = /^https?:\/\//.test(ctaUrl);

@@ -39,5 +39,5 @@ export const handleError = (error: any, context: string): AppError => {
 };
 
 export const getFallbackProductImage = () => {
-    return '/images/sections/editada-01.webp';
+    return '/images/sections/pan-artesano-horneado.webp';
 };

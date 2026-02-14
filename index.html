@@ -1,15 +1,18 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="es">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description"
-    content="Descubre Amalis en Santa Pola: cafetería, panadería y pastelería artesanal. Desayunos, meriendas y productos frescos cada día cerca del Castillo." />
+    content="Descubre Amalis en Santa Pola: cafeteria, panaderia y pasteleria artesanal. Desayunos, meriendas y productos frescos cada dia cerca del Castillo." />
   <meta name="keywords"
-    content="cafetería Santa Pola, panadería artesanal, pastelería artesanal, desayunos Santa Pola, café de especialidad" />
-  <meta name="author" content="Amalis Cafetería" />
-  <title>Amalis Cafetería | Panadería y Café Artesanal en Santa Pola</title>
+    content="cafeteria Santa Pola, panaderia artesanal, pasteleria artesanal, desayunos Santa Pola, cafe de especialidad" />
+  <meta name="author" content="Amalis Cafeteria" />
+  <meta name="theme-color" content="#3E2723" />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <title>Amalis Cafeteria | Panaderia y Cafe Artesanal en Santa Pola</title>
+  <link rel="canonical" href="https://amalis.cafe/" />
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml"
@@ -20,31 +23,177 @@
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://amalis.cafe/" />
-  <meta property="og:title" content="Amalis Cafetería | Panadería y Café Artesanal" />
+  <meta property="og:title" content="Amalis Cafeteria | Panaderia y Cafe Artesanal" />
   <meta property="og:description"
-    content="Pan recién horneado, pasteles caseros y café de especialidad. Visítanos en Santa Pola." />
-  <meta property="og:image" content="/images/sections/editada-01.webp" />
+    content="Pan recien horneado, pasteles caseros y cafe de especialidad. Visitanos en Santa Pola." />
+  <meta property="og:image" content="https://amalis.cafe/images/sections/pan-artesano-horneado.webp" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://amalis.cafe/" />
-  <meta name="twitter:title" content="Amalis Cafetería | Panadería y Café Artesanal" />
+  <meta name="twitter:title" content="Amalis Cafeteria | Panaderia y Cafe Artesanal" />
   <meta name="twitter:description"
-    content="Pan recién horneado, pasteles caseros y café de especialidad. Visítanos en Santa Pola." />
-  <meta name="twitter:image" content="/images/editada-01.webp" />
+    content="Pan recien horneado, pasteles caseros y cafe de especialidad. Visitanos en Santa Pola." />
+  <meta name="twitter:image" content="https://amalis.cafe/images/sections/pan-artesano-horneado.webp" />
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Amalis Cafeteria","description":"Cafeteria, panaderia y pasteleria artesanal en Santa Pola. Pan recien horneado, bolleria, pasteles y cafe de especialidad.","url":"https://amalis.cafe","telephone":"+34656913539","address":{"@type":"PostalAddress","streetAddress":"Carrer Almirante Antequera, 11","addressLocality":"Santa Pola","addressRegion":"Alicante","postalCode":"03130","addressCountry":"ES"},"geo":{"@type":"GeoCoordinates","latitude":38.19156,"longitude":-0.55558},"openingHoursSpecification":{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],"opens":"07:00","closes":"21:00"},"image":"https://amalis.cafe/images/sections/pan-artesano-horneado.webp","priceRange":"EUR","servesCuisine":["Cafe","Panaderia","Pasteleria"],"hasMenu":"https://amalis.cafe/carta"}</script>
 
-  <!-- Fonts optimized loading -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style"
-    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cabin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cabin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    media="print" onload="this.media='all'" />
-  <noscript>
-    <link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Cabin:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" />
-  </noscript>
+  <style id="critical-home-css">
+    html,
+    body,
+    #root {
+      margin: 0;
+      min-height: 100%;
+      background: #1a1512;
+      color: #fff;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    header.fixed {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 60;
+      padding: 1rem 1.5rem;
+      background: rgba(0, 0, 0, 0.45);
+      backdrop-filter: blur(8px);
+    }
+
+    header .max-w-7xl {
+      max-width: 80rem;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header a.flex {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      text-decoration: none;
+      color: #fff;
+    }
+
+    header a.flex>div {
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 9999px;
+      background: #5d4037;
+      color: #f5efe7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font: 700 1.125rem/1 Georgia, serif;
+    }
+
+    header a.flex>span {
+      font-size: 1.125rem;
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.01em;
+    }
+
+    header a.flex>span>span {
+      color: #c4a77d;
+    }
+
+    section#home>div.relative {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: #3e2723;
+    }
+
+    section#home>div.relative>div.absolute {
+      position: absolute;
+      inset: 0;
+    }
+
+    section#home img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.58);
+    }
+
+    section#home .relative.z-10 {
+      position: relative;
+      z-index: 10;
+      max-width: 64rem;
+      padding: 6rem 1.5rem 0;
+      text-align: center;
+    }
+
+    section#home h1 {
+      margin: 0 0 2rem;
+      color: #fff;
+      font: 700 clamp(1.75rem, 5vw, 5rem)/1.06 Georgia, "Times New Roman", serif;
+      letter-spacing: -0.015em;
+      -webkit-text-stroke: 0.6px rgba(245, 239, 231, 0.18);
+      paint-order: stroke fill;
+      text-shadow: 0 3px 14px rgba(0, 0, 0, 0.38);
+    }
+
+    section#home h1 span {
+      display: block;
+      margin-top: 0.5rem;
+      color: #d4a574;
+      font-style: italic;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.28);
+    }
+
+    section#home .flex.flex-col.gap-3 {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 36rem;
+      margin: 0 auto 2.5rem;
+    }
+
+    section#home p {
+      margin: 0;
+    }
+
+    section#home .flex.flex-col.sm\:flex-row {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    section#home button {
+      min-height: 3rem;
+      border-radius: 9999px;
+      border: 1px solid transparent;
+      padding: 0.75rem 1.5rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    @media (min-width: 640px) {
+      section#home .flex.flex-col.sm\:flex-row {
+        flex-direction: row;
+      }
+
+      header.fixed {
+        padding: 1rem 3rem;
+      }
+
+      header a.flex>span {
+        font-size: 1.25rem;
+      }
+    }
+  </style>
+
+  <!-- Preload hero image for faster LCP -->
+  <link rel="preload" as="image" href="/images/nuestra_historia/pan-recien-horneado-santa-pola.webp" type="image/webp" />
 </head>
 
 <body>

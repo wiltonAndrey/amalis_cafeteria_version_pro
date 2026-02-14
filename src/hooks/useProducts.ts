@@ -21,7 +21,7 @@ interface UseProductsOptions {
   autoRefresh?: boolean;
 }
 
-const DEFAULT_IMAGE = '/images/sections/editada-01.webp';
+const DEFAULT_IMAGE = '/images/sections/pan-artesano-horneado.webp';
 
 const buildProduct = (payload: ProductPayload, id: string): MenuProduct => ({
   id,

@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { FOOTER_CONTENT } from '../constants';
+import { FOOTER_CONTENT } from '../constants/core';
 
 // Iconos SVG de redes sociales
 const InstagramIcon = () => (
@@ -103,12 +103,12 @@ const Footer: React.FC = () => {
         </div>
 
         <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-          <p className="text-cream/40 text-sm">
+          <p className="text-cream/65 text-sm">
             © {currentYear} {FOOTER_CONTENT.copyright}
           </p>
-          <div className="flex space-x-8 text-sm text-cream/40">
-            <a href="#" className="hover:text-brownie">Privacidad</a>
-            <a href="#" className="hover:text-brownie">Cookies</a>
+          <div className="flex space-x-8 text-sm text-cream/65">
+            <button type="button" className="text-cream/65 hover:text-caramel cursor-pointer transition-colors">Privacidad</button>
+            <button type="button" className="text-cream/65 hover:text-caramel cursor-pointer transition-colors">Cookies</button>
           </div>
         </div>
       </div>

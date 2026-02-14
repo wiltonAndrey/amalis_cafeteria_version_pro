@@ -21,7 +21,7 @@ export const Button: React.FC<ButtonProps> = ({
     secondary: `bg-caramel text-brownie hover:bg-brownie hover:text-white shadow-md`,
     outline: `border-2 border-caramel text-cream hover:bg-caramel hover:text-white`,
     ghost: `bg-white/20 backdrop-blur-md text-white border border-white/30 hover:bg-white/30`,
-    honey: `bg-honey text-brownie hover:bg-amber-400 shadow-lg font-bold`,
+    honey: `bg-honey text-espresso hover:bg-amber-400 shadow-lg font-bold`,
   };
 
   const sizes = {

@@ -160,7 +160,7 @@ const Menu: React.FC = () => {
                         </h1>
                     </header>
 
-                    <nav className="relative max-w-5xl mx-auto px-4 select-none group">
+                    <nav className="relative max-w-5xl mx-auto px-4 select-none group" aria-label="Categorías del menú">
                         <div className={`absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[var(--color-espresso)] to-transparent z-20 pointer-events-none transition-opacity duration-500 ${showLeftArrow ? 'opacity-100' : 'opacity-0'}`}></div>
                         <div className={`absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[var(--color-espresso)] to-transparent z-20 pointer-events-none transition-opacity duration-500 ${showRightArrow ? 'opacity-100' : 'opacity-0'}`}></div>
 

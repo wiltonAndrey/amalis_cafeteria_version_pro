@@ -17,12 +17,15 @@ export interface Testimonial {
   role: string;
   content: string;
   avatarUrl: string;
+  avatarAlt?: string;
+  avatarTitle?: string;
 }
 
 export interface GalleryItem {
   id: string;
   url: string;
   alt: string;
+  title?: string;
   span?: string;
 }
 

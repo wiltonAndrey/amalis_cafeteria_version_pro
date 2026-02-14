@@ -1,5 +1,4 @@
-import React, { useEffect, useRef } from 'react';
-import { motion, useInView, useAnimation } from 'framer-motion';
+import React, { useEffect, useRef, useState } from 'react';
 
 interface RevealProps {
     children: React.ReactNode;
@@ -18,39 +17,55 @@ export const Reveal: React.FC<RevealProps> = ({
     className = '',
     fullHeight = false
 }) => {
-    const ref = useRef(null);
-    const isInView = useInView(ref, { once: true });
-    const mainControls = useAnimation();
+    const ref = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        if (isInView) {
-            mainControls.start('visible');
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setIsVisible(true);
+                    observer.disconnect();
+                }
+            },
+            { threshold: 0.1 }
+        );
+        if (ref.current) {
+            observer.observe(ref.current);
         }
-    }, [isInView, mainControls]);
+        return () => observer.disconnect();
+    }, []);
 
-    const getHiddenVariant = () => {
+    const getInitialTransform = () => {
         switch (direction) {
-            case 'left': return { opacity: 0, x: -75 };
-            case 'right': return { opacity: 0, x: 75 };
-            case 'down': return { opacity: 0, y: -75 };
-            case 'up': default: return { opacity: 0, y: 75 };
+            case 'left': return 'translateX(-75px)';
+            case 'right': return 'translateX(75px)';
+            case 'down': return 'translateY(-75px)';
+            case 'up': default: return 'translateY(75px)';
         }
     };
 
     return (
-        <div ref={ref} style={{ position: 'relative', width, overflow: 'visible' }} className={`${className} ${fullHeight ? 'h-full' : ''}`}>
-            <motion.div
-                variants={{
-                    hidden: getHiddenVariant(),
-                    visible: { opacity: 1, x: 0, y: 0 },
+        <div
+            ref={ref}
+            style={{
+                position: 'relative',
+                width,
+                overflow: 'visible',
+            }}
+            className={`${className} ${fullHeight ? 'h-full' : ''}`}
+        >
+            <div
+                style={{
+                    opacity: isVisible ? 1 : 0,
+                    transform: isVisible ? 'translate(0, 0)' : getInitialTransform(),
+                    transition: `opacity 0.5s ease ${delay}s, transform 0.5s ease ${delay}s`,
+                    willChange: isVisible ? 'auto' : 'opacity, transform',
                 }}
-                initial="hidden"
-                animate={mainControls}
-                transition={{ duration: 0.5, delay: delay }}
                 className={fullHeight ? 'h-full' : ''}
             >
                 {children}
-            </motion.div>
+            </div>
         </div>
     );
 };

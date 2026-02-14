@@ -91,7 +91,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               <X className="w-5 h-5" />
             </button>
 
-            <div className="w-full md:w-1/2 relative h-[250px] md:h-auto shrink-0 bg-coffee">
+            <div className="w-full md:w-1/2 relative aspect-video md:aspect-auto md:h-auto shrink-0 bg-coffee">
               <img
                 src={product.image}
                 alt={product.name}

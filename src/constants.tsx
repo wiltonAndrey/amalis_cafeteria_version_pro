@@ -11,7 +11,7 @@ export const HERO_CONTENT = {
 };
 
 export const HISTORY_SECTION = {
-  eyebrow: 'Esencia de obrador',
+  eyebrow: 'Hecho cada día',
   title: 'Nuestra',
   highlight: 'historia',
   description: 'Nos gusta lo simple bien hecho: pan y bollería recién horneados, café y pastelería para el día a día. Sin prisas y sin atajos. Y sí: estamos en Santa Pola, a dos calles del Castillo.',
@@ -31,7 +31,7 @@ export const PROMOTIONS_SECTION_CONTENT = {
   eyebrow: 'Promociones · L–V',
   title: 'Packs del',
   highlight: 'Día',
-  description: 'Tres packs a precio cerrado para acertar sin pensar demasiado. Solo de lunes a viernes.',
+  description: 'Cuatro packs exclusivos diseñados para acompañar cada momento de tu jornada. Calidad y frescura a un precio cerrado.',
   note: 'Elige tu momento: mañanas, mediodía o tardes.',
   ctaFooter: 'Ver carta completa'
 };
@@ -70,7 +70,7 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     name: 'Coca de Verdura',
     price: 2.50,
     category: 'cocas',
-    description: 'Deliciosa masa artesanal cubierta con pimiento, tomate y cebolla asada.',
+    description: 'Deliciosa masa clásica cubierta con pimiento, tomate y cebolla asada.',
     image: '/images/los_4_pilares/cocas_variedad.webp',
     ingredients: ['Harina', 'Pimiento rojo', 'Tomate', 'Cebolla', 'Aceite'],
     allergens: ['Gluten'],
@@ -91,7 +91,7 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     name: 'Croissant de Mantequilla',
     price: 1.40,
     category: 'bolleria',
-    description: 'Hojaldre artesanal con auténtica mantequilla, crujiente por fuera y tierno por dentro.',
+    description: 'Hojaldre de calidad con auténtica mantequilla, crujiente por fuera y tierno por dentro.',
     image: '/images/products/Croissant-Mantequilla.webp',
     ingredients: ['Harina', 'Mantequilla', 'Leche', 'Azúcar'],
     allergens: ['Gluten', 'Lácteos']
@@ -111,9 +111,9 @@ export const MENU_PRODUCTS: MenuProduct[] = [
     name: 'Tostada de Tomate y AOVE',
     price: 2.80,
     category: 'tostadas',
-    description: 'Pan artesanal tostado con tomate natural rallado y aceite de oliva virgen extra.',
+    description: 'Pan de la casa tostado con tomate natural rallado y aceite de oliva virgen extra.',
     image: '/images/products/Tostada-Tomate.webp',
-    ingredients: ['Pan artesanal', 'Tomate', 'Aceite de oliva', 'Sal'],
+    ingredients: ['Pan de la casa', 'Tomate', 'Aceite de oliva', 'Sal'],
     allergens: ['Gluten']
   },
   {
@@ -132,43 +132,57 @@ export const MENU_PRODUCTS: MenuProduct[] = [
 export const PROMOTION_CARDS: PromotionCard[] = [
   {
     id: 'promo-breakfast',
-    badge: 'MAÑANAS · L–V · Hasta 12:00',
-    image: '/images/sections/editada-04.webp',
-    image_alt: 'Desayuno completo con café, zumo y tostada artesanal',
-    image_title: 'Pack desayuno completo Amalis',
-    title: 'Desayuno completo',
+    badge: 'TODOS LOS DÍAS',
+    image: 'https://images.pexels.com/photos/103124/pexels-photo-103124.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+    image_alt: 'Desayuno completo con café, zumo de naranja natural y tostada recién hecha',
+    image_title: 'Desayuno Completo Amalis',
+    title: 'Desayuno Completo',
     price: 3.5,
-    description: 'Tu clásico bien hecho: café + zumo + tostada. Arrancas el día como toca.',
-    items: ['Café', 'Zumo de naranja', 'Tostada'],
-    availability_text: 'Hasta 12:00',
+    description: 'Un despertar con el mejor sabor. Café de especialidad, zumo de naranja recién exprimido y nuestra clásica tostada de pan del día.',
+    items: ['Café de especialidad', 'Zumo de naranja natural', 'Tostada o Bollería'],
+    availability_text: 'Válido todos los días',
     cta_url: '/carta',
     cta_label: 'Ver desayuno',
   },
   {
     id: 'promo-lunch',
-    badge: 'MEDIODÍA · L–V',
-    image: '/images/products/pizza-york.webp',
-    image_alt: 'Almuerzo con bocadillo artesanal y bebida fría',
-    image_title: 'Pack almuerzo Amalis',
-    title: 'Almuerzo',
+    badge: 'L-V · TODO EL DÍA',
+    image: 'https://images.pexels.com/photos/376464/pexels-photo-376464.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+    image_alt: 'Bocadillo de la casa con tomate, atún y aceituna junto a una cerveza fría',
+    image_title: 'Pack Almuerzo Amalis',
+    title: 'Bocadillo + Cerveza',
     price: 5,
-    description: 'Pausa rápida y rica: bocadillo en pan recién horneado + bebida fría.',
-    items: ['Bocadillo', 'Cerveza o refresco'],
-    availability_text: 'Lun - Vie',
+    description: 'El almuerzo perfecto para tu pausa. Bocadillo crujiente con tomate natural, atún y aceitunas, acompañado de una cerveza bien fría.',
+    items: ['Bocadillo (Atún, Tomate, Aceituna)', 'Bote de cerveza'],
+    availability_text: 'Lunes a viernes todo el día',
     cta_url: '/carta',
     cta_label: 'Ver almuerzo',
   },
   {
+    id: 'promo-coffee-time',
+    badge: 'L-V · HORA DEL CAFÉ',
+    image: 'https://images.pexels.com/photos/3671151/pexels-photo-3671151.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+    image_alt: 'Café con leche cremoso y un dulce de vitrina',
+    image_title: 'La Hora del Café Amalis',
+    title: 'La Hora del Café',
+    price: 3.5,
+    description: 'Disfruta de un momento de calma. La suavidad de un café con leche cremoso junto a uno de nuestros dulces seleccionados de vitrina.',
+    items: ['Cremoso café con leche', 'Dulce de vitrina'],
+    availability_text: 'De lunes a viernes',
+    cta_url: '/carta',
+    cta_label: 'Ver pausa',
+  },
+  {
     id: 'promo-snack',
-    badge: 'TARDES · L–V',
-    image: '/images/products/Bizcocho.webp',
-    image_alt: 'Merienda dulce con granizado natural y fartons',
-    image_title: 'Pack merienda dulce Amalis',
-    title: 'Merienda dulce',
+    badge: 'L-V · MERIENDA',
+    image: 'https://images.pexels.com/photos/5946635/pexels-photo-5946635.jpeg?auto=compress&cs=tinysrgb&w=800&h=600&dpr=1',
+    image_alt: 'Granizado de limón refrescante con tres fartons',
+    image_title: 'Pack Merienda Amalis',
+    title: 'Granizado + Fartons',
     price: 4,
-    description: 'Dulce + fresquito: granizado de limón y compañía para la tarde.',
-    items: ['Granizado de limón', '3 fartones tiernos'],
-    availability_text: 'Tardes',
+    description: 'La merienda más fresca de Santa Pola. Granizado de limón natural y tres fartons tiernos servidos al momento.',
+    items: ['Granizado de limón', '3 Fartons tiernos'],
+    availability_text: 'De lunes a viernes',
     cta_url: '/carta',
     cta_label: 'Ver merienda',
   },
@@ -182,8 +196,8 @@ export const PRODUCTS: Product[] = [
     description: 'Corteza dorada, miga tierna y pan recién horneado para llevar o acompañar el café. En vitrina, todos los días: barra tradicional, barras caseras, pan de agua, cereales, integral y bambis.',
     price: 'Consultar',
     category: 'Bread',
-    imageUrl: '/images/sections/editada-09.webp',
-    imageAlt: 'Hogaza de pan de masa madre artesanal con corteza rústica dorada',
+    imageUrl: '/images/los-4-pilares/pan-artesano-santa-pola.webp',
+    imageAlt: 'Variedad de pan recién horneado en los estantes de Amalis Cafetería en Santa Pola',
     badge: 'PAN',
     ctaLabel: 'Ver panes'
   },
@@ -193,8 +207,8 @@ export const PRODUCTS: Product[] = [
     description: 'El “sí o sí” de la casa: mollitas con sardina, jamón york y queso, verduras y coca rellena de atún y pisto. Salado de vitrina… y muy de aquí.',
     price: 'Consultar',
     category: 'Pastry',
-    imageUrl: '/images/los_4_pilares/cocas_varieda.webp',
-    imageAlt: 'Coca artesana tradicional con verduras frescas y sardinas',
+    imageUrl: '/images/los-4-pilares/cocas-saladas-santapoleras.webp',
+    imageAlt: 'Surtido de cocas tradicionales de Santa Pola, incluyendo coca de verduras y mollitas',
     badge: 'BOLLERÍA SALADA',
     ctaLabel: 'Ver cocas'
   },
@@ -204,8 +218,8 @@ export const PRODUCTS: Product[] = [
     description: 'Piezas dulces y bizcochos para desayunar o merendar. Los más pedidos: naranja, piña, canela, zanahoria, pistacho, chocolate con almendra, pepitas de chocolate y bizcocho de donuts.',
     price: 'Consultar',
     category: 'Pastry',
-    imageUrl: '/images/editada-1458-2.webp',
-    imageAlt: 'Rollos tradicionales de anís y naranja recién hechos',
+    imageUrl: '/images/los-4-pilares/bolleria-dulce-artesana.webp',
+    imageAlt: 'Selección de bollería dulce: croissants, donuts y pasteles recién hechos',
     badge: 'BOLLERÍA DULCE',
     ctaLabel: 'Ver bollería dulce'
   },
@@ -215,8 +229,8 @@ export const PRODUCTS: Product[] = [
     description: 'Porciones para hoy y tartas por encargo. En vitrina suelen volar: pastel de almendra, borrachos, tetas y medias lunas. El final perfecto… o el motivo principal.',
     price: 'Consultar',
     category: 'Cake',
-    imageUrl: '/images/products/Bizcocho.webp',
-    imageAlt: 'Bizcocho casero esponjoso de naranja y chocolate',
+    imageUrl: '/images/los-4-pilares/pasteleria-fina-y-tartas.webp',
+    imageAlt: 'Exposición de pastelería fina, tartas individuales y café cappuccino',
     badge: 'PASTELERÍA',
     ctaLabel: 'Ver pastelería'
   },
@@ -236,66 +250,122 @@ export const TESTIMONIALS: Testimonial[] = [
     name: 'María Gómez',
     role: 'Cliente Habitual',
     content: 'Me encanta este sitio: el trato amable y el ambiente acogedor lo convierten en un imprescindible en Santa Pola. Sus bocadillos son tremendos.',
-    avatarUrl: '/images/testimonials/editada-1407-2.webp',
+    avatarUrl: '/images/testimonials/testimonio-maria-gomez.webp',
+    avatarAlt: 'María Gómez, cliente habitual disfrutando en Amalis Cafetería',
+    avatarTitle: 'Testimonio de María Gómez - Amalis Cafetería'
   },
   {
     id: '2',
     name: 'Jorge Rocamora',
     role: 'Primera Visita',
     content: 'Cafetería Amalis superó todas mis expectativas. Buscaba un desayuno sencillo pero delicioso, y encontré un ambiente acogedor y un servicio tan amable que sin duda repetiré.',
-    avatarUrl: '/images/testimonials/editada-1415-3.webp',
+    avatarUrl: '/images/testimonials/testimonio-jorge-rocamora.webp',
+    avatarAlt: 'Jorge Rocamora en su primera visita a Amalis Cafetería Santa Pola',
+    avatarTitle: 'Opinión de Jorge Rocamora sobre Amalis'
   },
   {
     id: '3',
     name: 'Laura Jiménez',
     role: 'Local Guide',
-    content: 'Cada mañana es un auténtico placer; su variada oferta de pastelería artesanal dulce y salada, junto a un café de calidad, hacen de este rincón el lugar perfecto.',
-    avatarUrl: '/images/testimonials/editada-1421-2.webp',
+    content: 'Cada mañana es un auténtico placer; su variada oferta de pastelería dulce y salada, junto a un café de calidad, hacen de este rincón el lugar perfecto.',
+    avatarUrl: '/images/testimonials/testimonio-laura-jimenez.webp',
+    avatarAlt: 'Laura Jiménez, Local Guide de Santa Pola, recomendando Amalis Cafetería',
+    avatarTitle: 'Reseña de Laura Jiménez - Pastelería Amalis',
   },
   {
     id: '4',
     name: 'BJ N',
     role: 'Cliente',
-    content: 'Tiene un ambiente limpio y espacioso, un personal muy amable y una excelente selección de pastelería artesanal. Ideal tanto para disfrutar en el local o para llevar.',
-    avatarUrl: '/images/testimonials/editada-1424-2.webp',
+    content: 'Tiene un ambiente limpio y espacioso, un personal muy amable y una excelente selección de pastelería. Ideal tanto para disfrutar en el local o para llevar.',
+    avatarUrl: '/images/testimonials/testimonio-bj-n.webp',
+    avatarAlt: 'Cliente BJ N destacando el ambiente y la pastelería de Amalis',
+    avatarTitle: 'Comentario de BJ N sobre el servicio en Amalis'
   },
 ];
 
 export const GALLERY_ITEMS: GalleryItem[] = [
-  { id: 'g1', url: '/images/sections/editada-01.webp', alt: 'Pan recién horneado', span: 'md:col-span-2 md:row-span-2' },
-  { id: 'g2', url: '/images/sections/editada-07.webp', alt: 'Vertido de café', span: 'md:col-span-1 md:row-span-1' },
-  { id: 'g3', url: '/images/sections/editada-10.webp', alt: 'Expositor de tartas', span: 'md:col-span-1 md:row-span-1' },
-  { id: 'g4', url: '/images/sections/editada-12.webp', alt: 'Interior de la panadería', span: 'md:col-span-1 md:row-span-2' },
-  { id: 'g5', url: '/images/products/Croissant-Choco.webp', alt: 'Croissants dorados', span: 'md:col-span-1 md:row-span-1' },
-  { id: 'g6', url: '/images/products/Bizcocho-Canela.webp', alt: 'Rollos de canela', span: 'md:col-span-1 md:row-span-1' },
-  { id: 'g7', url: '/images/products/Bizcocho-Chocolate-Pepitas.webp', alt: 'Muffins de arándanos', span: 'md:col-span-1 md:row-span-1' },
-  { id: 'g8', url: '/images/sections/editada-15.webp', alt: 'Café latte art', span: 'md:col-span-1 md:row-span-1' },
+  {
+    id: 'g1',
+    url: '/images/gallery/mini-croissant-chocolate-azucar-glass.webp',
+    alt: 'Mini croissants rellenos de chocolate y espolvoreados con azúcar',
+    title: 'Mini Croissants de Chocolate',
+    span: 'md:col-span-2 md:row-span-2'
+  },
+  {
+    id: 'g2',
+    url: '/images/gallery/bizcocho-doble-chocolate-artesano.webp',
+    alt: 'Bizcocho de chocolate con pepitas de chocolate y chocolate blanco',
+    title: 'Bizcocho Doble Chocolate',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 'g3',
+    url: '/images/gallery/empanadilla-pisto-artesana-santa-pola.webp',
+    alt: 'Empanadillas rellenas de pisto casero',
+    title: 'Empanadilla de Pisto Casero',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 'g4',
+    url: '/images/gallery/bizcocho-naranja-confitada-santa-pola.webp',
+    alt: 'Bizcocho de naranja con azúcar perlado y naranja confitada',
+    title: 'Bizcocho de Naranja Confitada',
+    span: 'md:col-span-1 md:row-span-2'
+  },
+  {
+    id: 'g5',
+    url: '/images/gallery/media-luna-crema-santa-pola.webp',
+    alt: 'Media luna rellena de crema pastelera',
+    title: 'Media Luna de Crema',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 'g6',
+    url: '/images/gallery/ensaimada-tradicional-santa-pola.webp',
+    alt: 'Ensaimada tradicional espolvoreada con azúcar glass',
+    title: 'Ensaimada Tradicional',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 'g7',
+    url: '/images/gallery/napolitana-chocolate-artesana.webp',
+    alt: 'Napolitana de chocolate artesana recién horneada',
+    title: 'Napolitana de Chocolate',
+    span: 'md:col-span-1 md:row-span-1'
+  },
+  {
+    id: 'g8',
+    url: '/images/gallery/tetas-de-monja-crema-santa-pola.webp',
+    alt: 'Pastel tradicional Tetas de Monja relleno de crema',
+    title: 'Tetas de Monja',
+    span: 'md:col-span-1 md:row-span-1'
+  },
 ];
 
 export const WHY_CHOOSE_US_FEATURES: FeatureCard[] = [
   {
     title: 'Tradición',
     desc: 'Respetamos el oficio de siempre: harina, manos y tiempo. Aquí el pan sale temprano y se nota desde la primera mordida.',
-    img: '/images/filosofia/filosofia_tradicion.png',
-    imgAlt: 'Panadero artesano trabajando la masa tradicional',
+    img: '/images/nuestra_historia/panaderia-artesana-santa-pola-amasando.webp',
+    imgAlt: 'Panadero preparando pan tradicional en Santa Pola',
   },
   {
     title: 'Sin atajos',
-    desc: 'Lo bueno no se corre: horneado en su punto, tiempos bien medidos y el mimo de hacerlo cada día, sin prisa',
-    img: '/images/filosofia/filosofia_horno_panadero.png',
-    imgAlt: 'Proceso manual de amasado sin maquinaria industrial',
+    desc: 'horneado en su punto, tiempos bien medidos y el mimo de hacerlo cada día, sin prisa.',
+    img: '/images/nuestra_historia/pan-recien-horneado-santa-pola.webp',
+    imgAlt: 'Barras de pan recién horneadas con corteza crujiente en Santa Pola',
   },
   {
     title: 'Manos vecinas',
     desc: 'Somos de aquí y trabajamos para los de aquí. Lo preparamos cada mañana y lo servimos cada día para que Santa Pola empiece el día con buen pan.',
-    img: '/images/filosofia/filosofia_cafe_barista.png',
-    imgAlt: 'Manos artesanas preparando cafe y reposteria',
+    img: '/images/nuestra_historia/cafeteria-especialidad-santa-pola-barista.webp',
+    imgAlt: 'Barista preparando café de especialidad en cafetería Amalis de Santa Pola',
   },
   {
     title: 'Placer honesto',
     desc: 'Sin postureo: recetas cuidadas, equilibrio y ese dulce “uno más y ya” que te llevas de paseo (o te comes antes).',
-    img: '/images/filosofia/filosofia_bodegon_honesto.png',
-    imgAlt: 'Cliente disfrutando de un producto artesanal honesto',
+    img: '/images/nuestra_historia/pasteleria-artesanal-tarta-cafe-santa-pola.webp',
+    imgAlt: 'Merienda de pastelería con tarta casera y café en Santa Pola',
   },
 ];
 
@@ -327,7 +397,7 @@ export const COFFEE_EXPERIENCE_DATA: CoffeeExperienceData = {
     'Siéntate un minuto y acompáñalo con algo de vitrina: bizcocho, pastel o ese “uno más y ya” que siempre cae.'
   ],
   temperature: '93°C',
-  image: '/images/sections/editada-15.webp',
+  image: '/images/sections/latte-art-cafe-especialidad.webp',
   imageAlt: 'Arte latte en proceso'
 };
 

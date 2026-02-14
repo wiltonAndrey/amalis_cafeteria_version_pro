@@ -1,5 +1,6 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
+import { MemoryRouter } from 'react-router-dom';
 import PromotionsSection from '../components/sections/PromotionsSection';
 import type { PromotionCard } from '../types';
 
@@ -52,7 +53,7 @@ describe('PromotionsSection', () => {
   });
 
   it('renders cards, prices, cta links and seo attributes from hook data', () => {
-    render(<PromotionsSection />);
+    render(<MemoryRouter><PromotionsSection /></MemoryRouter>);
 
     expect(screen.getAllByText('Promo Test 1').length).toBeGreaterThan(0);
     expect(screen.getAllByText('Promo Test 2').length).toBeGreaterThan(0);
@@ -77,7 +78,7 @@ describe('PromotionsSection', () => {
       },
     ];
 
-    render(<PromotionsSection />);
+    render(<MemoryRouter><PromotionsSection /></MemoryRouter>);
 
     const images = screen.getAllByRole('img', { name: 'Promo Test 1' });
     expect(images.length).toBeGreaterThan(0);

@@ -6,10 +6,10 @@ import Menu from '../pages/Menu'
 const originalFetch = global.fetch
 
 const mockResponse = (ok: boolean, payload: any): Response =>
-  ({
-    ok,
-    json: async () => payload,
-  } as Response)
+({
+  ok,
+  json: async () => payload,
+} as Response)
 
 describe('Menu Integration', () => {
   beforeEach(() => {
@@ -38,7 +38,7 @@ describe('Menu Integration', () => {
             price: 4.2,
             category: 'cocas',
             description: 'Desde API',
-            image: '/images/sections/editada-01.webp',
+            image: '/images/sections/pan-artesano-horneado.webp',
             ingredients: ['Harina'],
             allergens: ['Gluten'],
             featured: false,

@@ -22,7 +22,7 @@ interface AdminProductModalProps {
   isSaving?: boolean;
 }
 
-const DEFAULT_IMAGE = '/images/sections/editada-01.webp';
+const DEFAULT_IMAGE = '/images/sections/pan-artesano-horneado.webp';
 
 const AdminProductModal: React.FC<AdminProductModalProps> = ({
   isOpen,
@@ -274,11 +274,11 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 </label>
 
                 {form.image && (
-                  <div className="overflow-hidden rounded-xl border border-white/10">
+                  <div className="overflow-hidden rounded-xl border border-white/10 aspect-video">
                     <img
                       src={form.image}
                       alt={form.name || 'Vista previa del producto'}
-                      className="h-36 w-full object-cover"
+                      className="w-full h-full object-cover"
                     />
                   </div>
                 )}

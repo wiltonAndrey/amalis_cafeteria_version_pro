@@ -1,18 +1,13 @@
 import React, { useEffect, useRef } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { motion } from 'framer-motion';
 import { useScroll } from '../../hooks/useScroll';
 import { useMenu } from '../../hooks/useMenu';
-
-const MotionLink = motion(Link);
-import { NAV_LINKS } from '../../constants';
+import { NAV_LINKS } from '../../constants/core';
 
 export const Navbar: React.FC = () => {
   const isScrolled = useScroll();
   const { isOpen, toggle, close } = useMenu();
   const drawerRef = useRef<HTMLDivElement>(null);
   const firstLinkRef = useRef<HTMLAnchorElement>(null);
-  const location = useLocation();
 
   // Focus trap: when drawer opens, focus first link
   useEffect(() => {
@@ -64,14 +59,13 @@ export const Navbar: React.FC = () => {
     if (href.startsWith('/#')) {
       const targetId = href.split('#')[1];
 
-      if (location.pathname === '/') {
+      if (window.location.pathname === '/') {
         e.preventDefault();
         const element = document.getElementById(targetId);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }
-      // If not on home page, Link will handle navigation to /#id
     }
   };
 
@@ -88,26 +82,27 @@ export const Navbar: React.FC = () => {
       <header className={`fixed top-0 left-0 right-0 z-[60] transition-all duration-500 px-6 md:px-12 py-4 ${isScrolled || isOpen ? 'bg-black/50 backdrop-blur-md shadow-sm border-b border-white/5' : 'bg-transparent'
         }`}>
         <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link to="/" onClick={close} className="flex items-center space-x-2 z-[70]">
+          <a href="/" onClick={close} className="flex items-center space-x-2 z-[70]">
             <div className="w-10 h-10 bg-brownie rounded-full flex items-center justify-center text-beige font-serif text-xl font-bold">A</div>
-            <span className={`text-lg sm:text-xl md:text-2xl font-accent font-bold transition-colors ${isScrolled || isOpen ? 'text-cream' : 'text-white'}`}>
+            <span
+              className={`text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors ${isScrolled || isOpen ? 'text-cream' : 'text-white'}`}
+              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+            >
               Amalis <span className="text-caramel">Cafetería</span>
             </span>
-          </Link>
+          </a>
 
           <nav className="hidden lg:flex items-center space-x-8" aria-label="Navegación principal">
             {NAV_LINKS.map(link => (
-              <MotionLink
-                key={link.name}
-                to={link.href}
-                whileTap={{ scale: 0.95 }}
+              <a key={link.name}
+                href={link.href}
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
-                className={`font-bold transition-all duration-300 text-sm uppercase tracking-widest relative group ${isScrolled ? 'text-cream/90' : 'text-white drop-shadow-md'
+                className={`font-bold transition-all duration-300 text-sm uppercase tracking-widest relative group active:scale-95 ${isScrolled ? 'text-cream/90' : 'text-white drop-shadow-md'
                   } hover:text-caramel`}
               >
                 {link.name}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-caramel transition-all group-hover:w-full" />
-              </MotionLink>
+              </a>
             ))}
           </nav>
 
@@ -136,17 +131,15 @@ export const Navbar: React.FC = () => {
           className={`absolute top-0 right-0 w-[85%] h-full bg-beige transition-transform duration-500 ${isOpen ? 'translate-x-0' : 'translate-x-full'} flex flex-col pt-32 px-10`}
         >
           {NAV_LINKS.map((link, idx) => (
-            <MotionLink
-              key={link.name}
-              to={link.href}
-              whileTap={{ scale: 0.95 }}
+            <a key={link.name}
+              href={link.href}
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
               ref={idx === 0 ? firstLinkRef : null}
-              className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
+              className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all active:scale-95 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
               style={{ transitionDelay: `${100 + idx * 75}ms` }}
             >
               {link.name}
-            </MotionLink>
+            </a>
           ))}
         </div>
       </div>

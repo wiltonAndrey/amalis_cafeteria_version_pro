@@ -70,11 +70,16 @@ export const GalleryCarousel: React.FC<GalleryCarouselProps> = ({
                             key={idx}
                             onClick={() => scrollToIndex(idx)}
                             aria-label={`Ir a imagen ${idx + 1}`}
-                            className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${idx === activeIndex
-                                    ? 'bg-caramel w-6'
-                                    : 'bg-brownie/30 hover:bg-brownie/50'
-                                }`}
-                        />
+                            className="h-6 w-6 inline-flex items-center justify-center rounded-full transition-colors duration-300"
+                        >
+                            <span
+                                aria-hidden="true"
+                                className={`h-2.5 rounded-full transition-all duration-300 ${idx === activeIndex
+                                        ? 'bg-caramel w-6'
+                                        : 'bg-brownie/30 w-2.5 hover:bg-brownie/50'
+                                    }`}
+                            />
+                        </button>
                     ))}
                 </div>
             </div>

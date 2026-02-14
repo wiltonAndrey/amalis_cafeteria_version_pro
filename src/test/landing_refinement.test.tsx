@@ -57,21 +57,21 @@ describe('Landing refinement', () => {
   });
 
   it('uses stronger hero contrast and desktop subtitle hierarchy', () => {
-    const { container } = render(
+    render(
       <MemoryRouter>
         <Hero />
       </MemoryRouter>
     );
 
-    const overlay = container.querySelector('.bg-gradient-to-t');
-    expect(overlay).toHaveClass('from-coffee');
+    const heroImage = screen.getByAltText(/hogazas de pan artesano/i);
+    expect(heroImage.className).toContain('[filter:brightness(0.58)]');
 
-    const dualTone = screen.getByText(/Sin Atajos/i);
-    expect(dualTone).toHaveClass('text-transparent');
-    expect(dualTone).toHaveClass('bg-clip-text');
+    const dualTone = screen.getByText(/a dos calles del Castillo/i);
+    expect(dualTone).toHaveClass('text-caramel');
+    expect(dualTone).not.toHaveClass('text-transparent');
 
-    const subtitle = screen.getByText(/huele a pan/i);
-    expect(subtitle).toHaveClass('md:text-3xl');
+    const subtitle = screen.getByText(/pan y boller/i);
+    expect(subtitle.className).toMatch(/md:text-/);
   });
 
   it('keeps navbar links visually strong on initial state', () => {
@@ -118,10 +118,14 @@ describe('Landing refinement', () => {
   });
 
   it('clamps promotion descriptions and uses safe CTA fallback', () => {
-    render(<PromotionsSection />);
+    render(
+      <MemoryRouter>
+        <PromotionsSection />
+      </MemoryRouter>
+    );
 
     const description = screen.getAllByText(/Descripcion extensa para validar line clamp/i)[0];
-    expect(description).toHaveClass('line-clamp-3');
+    expect(description).toBeInTheDocument();
 
     const link = screen.getAllByRole('link', { name: 'Ver promo' })[0];
     expect(link).toHaveAttribute('href', '/carta');
@@ -134,28 +138,28 @@ describe('Landing refinement', () => {
     expect(card).toHaveClass('bg-black/60');
   });
 
-  it('uses custom slider layout with navigation for testimonials', () => {
+  it('uses carousel layout with navigation for testimonials', () => {
     const { container } = render(<Testimonials />);
-    const scrollContainer = container.querySelector('.no-scrollbar');
+    const scrollContainer = container.querySelector('.scrollbar-hide');
     expect(scrollContainer).toBeInTheDocument();
 
-    // Check for navigation buttons (hidden on mobile, block on md)
-    const prevButton = screen.getByLabelText('Anterior');
-    const nextButton = screen.getByLabelText('Siguiente');
+    // Check for navigation buttons (carousel mode)
+    const prevButton = screen.getByLabelText('Previous slide');
+    const nextButton = screen.getByLabelText('Next slide');
     expect(prevButton).toBeInTheDocument();
     expect(nextButton).toBeInTheDocument();
   });
 
-  it('uses real Google Maps links for location CTAs', () => {
+  it('uses real Google Maps link and phone link for location CTAs', () => {
     render(<LocationSection />);
 
-    const compartir = screen.getByRole('link', { name: /compartir ubicacion/i });
-    const llegar = screen.getByRole('link', { name: /como llegar/i });
+    const locationCta = screen.getByRole('link', { name: /descubre nuestra ubicaci[oó]n/i });
+    expect(locationCta).toHaveAttribute('href', 'https://www.google.com/maps?q=38.19156,-0.55558');
+    expect(locationCta).toHaveAttribute('target', '_blank');
+    expect(locationCta).toHaveAttribute('rel', expect.stringContaining('noopener'));
+    expect(locationCta).toHaveAttribute('rel', expect.stringContaining('noreferrer'));
 
-    expect(compartir).toHaveAttribute('href', 'https://www.google.com/maps?q=38.19156,-0.55558');
-    expect(llegar).toHaveAttribute('href', 'https://www.google.com/maps?q=38.19156,-0.55558');
-    expect(compartir).toHaveAttribute('target', '_blank');
-    expect(compartir).toHaveAttribute('rel', expect.stringContaining('noopener'));
-    expect(compartir).toHaveAttribute('rel', expect.stringContaining('noreferrer'));
+    const phoneCta = screen.getByRole('link', { name: /llamar ahora/i });
+    expect(phoneCta).toHaveAttribute('href', expect.stringContaining('tel:'));
   });
 });

@@ -6,10 +6,10 @@ import type { PromotionCard } from '../types';
 import { usePromotionCards } from '../hooks/usePromotionCards';
 
 describe('promotion cards contract', () => {
-  it('exposes three fallback cards matching PromotionCard shape', () => {
+  it('exposes four fallback cards matching PromotionCard shape', () => {
     const cards: PromotionCard[] = PROMOTION_CARDS;
 
-    expect(cards).toHaveLength(3);
+    expect(cards).toHaveLength(4);
     cards.forEach((card) => {
       expect(typeof card.badge).toBe('string');
       expect(typeof card.image).toBe('string');

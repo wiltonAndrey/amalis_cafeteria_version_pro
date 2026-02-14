@@ -13,10 +13,10 @@
   --color-matcha: #E4E9D5;
   --color-espresso: #1a1512;
 
-  --font-family-sans: 'Cabin', sans-serif;
-  --font-family-serif: 'Playfair Display', serif;
-  --font-family-accent: 'Amatic SC', cursive;
-  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-sans: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --font-family-serif: Georgia, 'Times New Roman', serif;
+  --font-family-accent: 'Trebuchet MS', 'Segoe UI', sans-serif;
+  --font-family-montserrat: 'Segoe UI', system-ui, sans-serif;
 }
 
 .img-unified {
@@ -95,4 +95,24 @@ body {
   /* IE and Edge */
   scrollbar-width: none;
   /* Firefox */
+}
+
+/* Hide scrollbar utility (used by carousels) */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Float animation for LocationSection contact card */
+@keyframes float {
+  0%, 100% { transform: translateY(-5px); }
+  50% { transform: translateY(5px); }
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
 }
