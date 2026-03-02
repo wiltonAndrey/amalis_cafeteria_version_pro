@@ -30,7 +30,28 @@ export interface GalleryItem {
 }
 
 // Menu Specific Types
-export type MenuCategory = 'all' | 'cocas' | 'empanadillas' | 'bolleria' | 'bizcochos' | 'pasteles' | 'tostadas' | 'ofertas' | 'bebidas';
+export type VisibleMenuCategory =
+  | 'all'
+  | 'ofertas'
+  | 'tostadas'
+  | 'bolleria-salada'
+  | 'bolleria-dulce'
+  | 'pasteleria';
+
+export type PublicMenuCategory = Exclude<VisibleMenuCategory, 'all'>;
+
+export type AdminMenuCategory = PublicMenuCategory | 'bebidas';
+
+export type LegacyMenuCategory =
+  | 'cocas'
+  | 'empanadillas'
+  | 'bolleria'
+  | 'bizcochos'
+  | 'pasteles'
+  | 'bolleria_salada'
+  | 'bolleria_dulce';
+
+export type MenuCategory = AdminMenuCategory | LegacyMenuCategory;
 
 export interface MenuProduct {
   id: string;
@@ -48,7 +69,7 @@ export interface MenuProduct {
 }
 
 export interface MenuCategoryItem {
-  id: MenuCategory;
+  id: VisibleMenuCategory;
   label: string;
 }
 

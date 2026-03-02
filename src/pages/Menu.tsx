@@ -1,18 +1,16 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
-import { MenuCategory, MenuProduct } from '../types';
+import { MenuProduct, VisibleMenuCategory } from '../types';
 import { ProductCard } from '../components/ui/ProductCard';
 import ProductModal from '../components/ProductModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { handleError } from '../utils/error-handling';
 import { useMenuProducts } from '../hooks/useMenuProducts';
+import { matchesVisibleMenuCategory } from '../utils/menu-categories';
 import {
     BadgeCheck,
     Cake,
-    Coffee,
     Cookie,
     Flame,
-    Pizza,
-    PieChart,
     Star,
     Tag,
     Utensils,
@@ -20,23 +18,20 @@ import {
     type LucideIcon
 } from 'lucide-react';
 
-const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
+const CATEGORY_ICONS: Record<VisibleMenuCategory, LucideIcon> = {
     all: Star,
-    cocas: Pizza,
-    empanadillas: PieChart,
-    bolleria: Cookie,
-    bizcochos: Cake,
-    pasteles: UtensilsCrossed,
-    tostadas: Flame,
     ofertas: Tag,
-    bebidas: Coffee
+    tostadas: Flame,
+    'bolleria-salada': UtensilsCrossed,
+    'bolleria-dulce': Cookie,
+    pasteleria: Cake
 };
 
 
 
 const Menu: React.FC = () => {
     const { menuCategories, menuProducts } = useMenuProducts();
-    const [activeCategory, setActiveCategory] = useState<MenuCategory>('all');
+    const [activeCategory, setActiveCategory] = useState<VisibleMenuCategory>('all');
     const [selectedProduct, setSelectedProduct] = useState<MenuProduct | null>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
     const [showRightArrow, setShowRightArrow] = useState(true);
@@ -47,12 +42,12 @@ const Menu: React.FC = () => {
     const lastMoveRef = useRef(0);
 
     const sliderRef = useRef<HTMLDivElement>(null);
-    const pendingCategoryRef = useRef<MenuCategory | null>(null);
+    const pendingCategoryRef = useRef<VisibleMenuCategory | null>(null);
 
     const filteredProducts = useMemo(() => {
         return activeCategory === 'all'
             ? menuProducts
-            : menuProducts.filter(p => p.category === activeCategory);
+            : menuProducts.filter((product) => matchesVisibleMenuCategory(product.category, activeCategory));
     }, [activeCategory, menuProducts]);
 
     const handleScroll = () => {
@@ -69,7 +64,7 @@ const Menu: React.FC = () => {
         // Capturamos la categoría sobre la que se inicia el toque (Manejo de Errores: Preservar Contexto)
         const target = e.target as HTMLElement;
         const btn = target.closest('[data-category]');
-        pendingCategoryRef.current = btn?.getAttribute('data-category') as MenuCategory || null;
+        pendingCategoryRef.current = btn?.getAttribute('data-category') as VisibleMenuCategory || null;
 
         startXRef.current = e.pageX - sliderRef.current.offsetLeft;
         scrollLeftRef.current = sliderRef.current.scrollLeft;
@@ -182,7 +177,7 @@ const Menu: React.FC = () => {
                             }}
                         >
                             {menuCategories.map((cat) => {
-                                const Icon = CATEGORY_ICONS[cat.id] || Coffee;
+                                const Icon = CATEGORY_ICONS[cat.id];
                                 return (
                                     <motion.button
                                         key={cat.id}

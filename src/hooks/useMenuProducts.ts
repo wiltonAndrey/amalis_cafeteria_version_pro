@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react';
 import { MENU_CATEGORIES, MENU_PRODUCTS } from '../constants';
-import type { MenuCategoryItem, MenuProduct } from '../types';
+import type { MenuProduct } from '../types';
 
 const mergeById = <T extends { id: string }>(fallback: T[], incoming: T[]): T[] => {
   const fallbackIds = new Set(fallback.map((item) => item.id));
@@ -29,7 +29,6 @@ const parseJson = async (response: Response): Promise<any> => {
 };
 
 export const useMenuProducts = () => {
-  const [menuCategories, setMenuCategories] = useState<MenuCategoryItem[]>(MENU_CATEGORIES);
   const [menuProducts, setMenuProducts] = useState<MenuProduct[]>(MENU_PRODUCTS);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -55,10 +54,6 @@ export const useMenuProducts = () => {
           return;
         }
 
-        if (Array.isArray(data?.menuCategories) && data.menuCategories.length > 0) {
-          setMenuCategories((current) => mergeById(current, data.menuCategories as MenuCategoryItem[]));
-        }
-
         if (Array.isArray(data?.menuProducts) && data.menuProducts.length > 0) {
           setMenuProducts((current) => mergeById(current, data.menuProducts as MenuProduct[]));
         }
@@ -81,12 +76,12 @@ export const useMenuProducts = () => {
 
   return useMemo(
     () => ({
-      menuCategories,
+      menuCategories: MENU_CATEGORIES,
       menuProducts,
       loading,
       error,
     }),
-    [menuCategories, menuProducts, loading, error]
+    [menuProducts, loading, error]
   );
 };
 

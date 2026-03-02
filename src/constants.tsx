@@ -44,14 +44,11 @@ export const TESTIMONIALS_SECTION = {
 
 export const MENU_CATEGORIES: MenuCategoryItem[] = [
   { id: 'all', label: 'Todos' },
-  { id: 'ofertas', label: 'Ofertas' },
   { id: 'tostadas', label: 'Tostadas' },
-  { id: 'bolleria', label: 'Bollería' },
-  { id: 'bizcochos', label: 'Bizcochos' },
-  { id: 'pasteles', label: 'Pastelería' },
-  { id: 'cocas', label: 'Cocas' },
-  { id: 'empanadillas', label: 'Empanadillas' },
-  { id: 'bebidas', label: 'Bebidas' }
+  { id: 'bolleria-salada', label: 'Bollería salada' },
+  { id: 'bolleria-dulce', label: 'Bollería dulce' },
+  { id: 'pasteleria', label: 'Pastelería' },
+  { id: 'ofertas', label: 'Ofertas' }
 ];
 
 export const MENU_PRODUCTS: MenuProduct[] = [

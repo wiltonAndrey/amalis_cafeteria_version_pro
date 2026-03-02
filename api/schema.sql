@@ -131,21 +131,20 @@ CREATE TABLE IF NOT EXISTS testimonials (
 DELETE FROM menu_categories;
 INSERT INTO menu_categories (id, label, sort_order) VALUES
   ('all', 'Todos', 0),
-  ('cocas', 'Cocas', 1),
-  ('empanadillas', 'Empanadillas', 2),
-  ('bolleria', 'Bollería', 3),
-  ('bizcochos', 'Bizcochos', 4),
-  ('pasteles', 'Pasteles', 5),
-  ('tostadas', 'Tostadas', 6),
-  ('ofertas', 'Ofertas', 7);
+  ('tostadas', 'Tostadas', 1),
+  ('bolleria-salada', 'Bolleria salada', 2),
+  ('bolleria-dulce', 'Bolleria dulce', 3),
+  ('pasteleria', 'Pasteleria', 4),
+  ('ofertas', 'Ofertas', 5),
+  ('bebidas', 'Bebidas', 6);
 
 DELETE FROM menu_products;
 INSERT INTO menu_products (name, price, category, description, image, ingredients, allergens, featured, active, sort_order) VALUES
-  ('Coca de Mollitas', 1.50, 'cocas', 'La clásica coca alicantina con su característica capa crujiente de harina y aceite.', '/images/products/Coca-Sardina.webp', JSON_ARRAY('Harina de trigo', 'Aceite de oliva', 'Vino blanco', 'Sal'), JSON_ARRAY('Gluten'), 1, 1, 1),
-  ('Coca de Verdura', 2.50, 'cocas', 'Deliciosa masa artesanal cubierta con pimiento, tomate y cebolla asada.', '/images/products/Coca-Pisto.webp', JSON_ARRAY('Harina', 'Pimiento rojo', 'Tomate', 'Cebolla', 'Aceite'), JSON_ARRAY('Gluten'), 1, 1, 2),
-  ('Empanadilla de Pisto', 1.80, 'empanadillas', 'Rellena de nuestro pisto casero elaborado a fuego lento.', '/images/products/Empanada-Pisto.webp', JSON_ARRAY('Tomate', 'Pimiento', 'Huevo duro', 'Atún'), JSON_ARRAY('Gluten', 'Pescado', 'Huevo'), 0, 1, 3),
-  ('Croissant de Mantequilla', 1.40, 'bolleria', 'Hojaldre artesanal con auténtica mantequilla, crujiente por fuera y tierno por dentro.', '/images/products/Croissant-Mantequilla.webp', JSON_ARRAY('Harina', 'Mantequilla', 'Leche', 'Azúcar'), JSON_ARRAY('Gluten', 'Lácteos'), 0, 1, 4),
-  ('Bizcocho de Yogur y Limón', 12.00, 'bizcochos', 'Bizcocho esponjoso ideal para compartir en desayunos o meriendas.', '/images/products/Bizcocho.webp', JSON_ARRAY('Huevo', 'Yogur', 'Limón', 'Azúcar', 'Harina'), JSON_ARRAY('Gluten', 'Huevo', 'Lácteos'), 0, 1, 5),
+  ('Coca de Mollitas', 1.50, 'bolleria-salada', 'La clásica coca alicantina con su característica capa crujiente de harina y aceite.', '/images/products/Coca-Sardina.webp', JSON_ARRAY('Harina de trigo', 'Aceite de oliva', 'Vino blanco', 'Sal'), JSON_ARRAY('Gluten'), 1, 1, 1),
+  ('Coca de Verdura', 2.50, 'bolleria-salada', 'Deliciosa masa artesanal cubierta con pimiento, tomate y cebolla asada.', '/images/products/Coca-Pisto.webp', JSON_ARRAY('Harina', 'Pimiento rojo', 'Tomate', 'Cebolla', 'Aceite'), JSON_ARRAY('Gluten'), 1, 1, 2),
+  ('Empanadilla de Pisto', 1.80, 'bolleria-salada', 'Rellena de nuestro pisto casero elaborado a fuego lento.', '/images/products/Empanada-Pisto.webp', JSON_ARRAY('Tomate', 'Pimiento', 'Huevo duro', 'Atún'), JSON_ARRAY('Gluten', 'Pescado', 'Huevo'), 0, 1, 3),
+  ('Croissant de Mantequilla', 1.40, 'bolleria-dulce', 'Hojaldre artesanal con auténtica mantequilla, crujiente por fuera y tierno por dentro.', '/images/products/Croissant-Mantequilla.webp', JSON_ARRAY('Harina', 'Mantequilla', 'Leche', 'Azúcar'), JSON_ARRAY('Gluten', 'Lácteos'), 0, 1, 4),
+  ('Bizcocho de Yogur y Limón', 12.00, 'pasteleria', 'Bizcocho esponjoso ideal para compartir en desayunos o meriendas.', '/images/products/Bizcocho.webp', JSON_ARRAY('Huevo', 'Yogur', 'Limón', 'Azúcar', 'Harina'), JSON_ARRAY('Gluten', 'Huevo', 'Lácteos'), 0, 1, 5),
   ('Tostada de Tomate y AOVE', 2.80, 'tostadas', 'Pan artesanal tostado con tomate natural rallado y aceite de oliva virgen extra.', '/images/products/Tostada-Tomate.webp', JSON_ARRAY('Pan artesanal', 'Tomate', 'Aceite de oliva', 'Sal'), JSON_ARRAY('Gluten'), 0, 1, 6),
   ('Pack Desayuno Amalis', 4.50, 'ofertas', 'Café + Zumo de Naranja Natural + Tostada o Pieza de Bollería.', '/images/sections/editada-04.webp', JSON_ARRAY('Varios según elección'), JSON_ARRAY('Varios según elección'), 1, 1, 7);
 

@@ -65,11 +65,11 @@ describe('Menu Integration', () => {
   it('filtra productos por categoria', async () => {
     render(<MemoryRouter><Menu /></MemoryRouter>)
 
-    const cocasButton = screen.getByText('Cocas').closest('button')
-    if (cocasButton) {
+    const saladoButton = screen.getByText('Bollería salada').closest('button')
+    if (saladoButton) {
       await act(async () => {
-        fireEvent.pointerDown(cocasButton, { pageX: 100, pointerId: 1 })
-        fireEvent.pointerUp(cocasButton, { pageX: 100, pointerId: 1 })
+        fireEvent.pointerDown(saladoButton, { pageX: 100, pointerId: 1 })
+        fireEvent.pointerUp(saladoButton, { pageX: 100, pointerId: 1 })
         await new Promise(r => setTimeout(r, 200))
       })
     }

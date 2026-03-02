@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
-import { MenuCategory, MenuProduct } from '../../types';
-import { MENU_CATEGORIES } from '../../constants';
+import { AdminMenuCategory, MenuCategory, MenuProduct } from '../../types';
+import { ADMIN_MENU_CATEGORY_OPTIONS, normalizeAdminMenuCategory } from '../../utils/menu-categories';
 
 export interface AdminProductFormData {
   id?: string;
@@ -31,13 +31,14 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
   product,
   isSaving = false,
 }) => {
-  const categories = useMemo(() => MENU_CATEGORIES.filter(item => item.id !== 'all'), []);
+  const categories = useMemo(() => [...ADMIN_MENU_CATEGORY_OPTIONS], []);
+  const defaultCategory = (categories[0]?.id ?? 'tostadas') as AdminMenuCategory;
   const [error, setError] = useState<string | null>(null);
   const [uploading, setUploading] = useState(false);
   const [form, setForm] = useState({
     name: '',
     price: '',
-    category: categories[0]?.id ?? 'cocas',
+    category: defaultCategory,
     description: '',
     image: '',
     alt_text: '',
@@ -54,7 +55,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
     setForm({
       name: product?.name ?? '',
       price: product?.price != null ? String(product.price) : '',
-      category: product?.category ?? (categories[0]?.id ?? 'cocas'),
+      category: normalizeAdminMenuCategory(product?.category, defaultCategory),
       description: product?.description ?? '',
       image: product?.image ?? '',
       alt_text: product?.alt_text ?? '',
@@ -63,7 +64,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
       featured: Boolean(product?.featured),
     });
     setError(null);
-  }, [isOpen, product, categories]);
+  }, [isOpen, product, defaultCategory]);
 
   useEffect(() => {
     if (!isOpen) {

@@ -10,13 +10,15 @@ afterEach(() => {
 });
 
 describe('useMenuProducts', () => {
-  it('keeps fallback-only menu data when the CMS payload is incomplete', async () => {
+  it('keeps the visible category rail fixed even if the CMS returns extra categories', async () => {
     global.fetch = vi.fn().mockResolvedValue({
       ok: true,
       json: async () => ({
         menuCategories: [
           { id: 'all', label: 'Todos' },
-          { id: 'ofertas', label: 'Ofertas' },
+          { id: 'cocas', label: 'Cocas' },
+          { id: 'empanadillas', label: 'Empanadillas' },
+          { id: 'bebidas', label: 'Bebidas' },
         ],
         menuProducts: [
           {
@@ -40,7 +42,14 @@ describe('useMenuProducts', () => {
       expect(result.current.loading).toBe(false);
     });
 
-    expect(result.current.menuCategories.some((category) => category.id === 'bebidas')).toBe(true);
+    expect(result.current.menuCategories.map((category) => category.id)).toEqual([
+      'all',
+      'tostadas',
+      'bolleria-salada',
+      'bolleria-dulce',
+      'pasteleria',
+      'ofertas',
+    ]);
     expect(result.current.menuProducts.some((product) => product.category === 'bebidas')).toBe(true);
     expect(result.current.menuProducts.find((product) => product.id === '7')?.name).toBe('Pack Desayuno CMS');
   });
