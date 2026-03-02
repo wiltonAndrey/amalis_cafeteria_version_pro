@@ -48,7 +48,8 @@ export const MENU_CATEGORIES: MenuCategoryItem[] = [
   { id: 'bolleria-salada', label: 'Bollería salada' },
   { id: 'bolleria-dulce', label: 'Bollería dulce' },
   { id: 'pasteleria', label: 'Pastelería' },
-  { id: 'ofertas', label: 'Ofertas' }
+  { id: 'ofertas', label: 'Ofertas' },
+  { id: 'bebidas', label: 'Bebidas' }
 ];
 
 export const MENU_PRODUCTS: MenuProduct[] = [

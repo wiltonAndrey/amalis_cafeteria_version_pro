@@ -80,6 +80,24 @@ describe('Menu Integration', () => {
     })
   })
 
+  it('filtra bebidas por categoria', async () => {
+    render(<MemoryRouter><Menu /></MemoryRouter>)
+
+    const bebidasButton = screen.getByText('Bebidas').closest('button')
+    if (bebidasButton) {
+      await act(async () => {
+        fireEvent.pointerDown(bebidasButton, { pageX: 100, pointerId: 1 })
+        fireEvent.pointerUp(bebidasButton, { pageX: 100, pointerId: 1 })
+        await new Promise(r => setTimeout(r, 200))
+      })
+    }
+
+    expect(screen.getByText('Capuchino')).toBeInTheDocument()
+    await waitFor(() => {
+      expect(screen.queryByText('Coca de Mollitas')).not.toBeInTheDocument()
+    })
+  })
+
   it('abre modal de producto al hacer click', async () => {
     render(<MemoryRouter><Menu /></MemoryRouter>)
 

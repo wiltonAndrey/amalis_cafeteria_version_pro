@@ -9,6 +9,7 @@ import { matchesVisibleMenuCategory } from '../utils/menu-categories';
 import {
     BadgeCheck,
     Cake,
+    Coffee,
     Cookie,
     Flame,
     Star,
@@ -24,7 +25,8 @@ const CATEGORY_ICONS: Record<VisibleMenuCategory, LucideIcon> = {
     tostadas: Flame,
     'bolleria-salada': UtensilsCrossed,
     'bolleria-dulce': Cookie,
-    pasteleria: Cake
+    pasteleria: Cake,
+    bebidas: Coffee
 };
 
 

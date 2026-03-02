@@ -28,10 +28,6 @@ export const normalizeMenuCategory = (
   for (const [visibleCategory, aliases] of Object.entries(CATEGORY_GROUPS) as Array<
     [AdminMenuCategory, readonly MenuCategory[]]
   >) {
-    if (visibleCategory === 'bebidas') {
-      continue;
-    }
-
     if (aliases.includes(category as MenuCategory)) {
       return visibleCategory as VisibleMenuCategory;
     }

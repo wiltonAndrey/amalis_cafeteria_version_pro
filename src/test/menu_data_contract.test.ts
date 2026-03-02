@@ -11,6 +11,7 @@ describe('menu data contract', () => {
       'bolleria-dulce',
       'pasteleria',
       'ofertas',
+      'bebidas',
     ]);
 
     const espresso = MENU_PRODUCTS.find((item) => item.id === 'b1');

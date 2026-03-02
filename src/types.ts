@@ -36,11 +36,12 @@ export type VisibleMenuCategory =
   | 'tostadas'
   | 'bolleria-salada'
   | 'bolleria-dulce'
-  | 'pasteleria';
+  | 'pasteleria'
+  | 'bebidas';
 
 export type PublicMenuCategory = Exclude<VisibleMenuCategory, 'all'>;
 
-export type AdminMenuCategory = PublicMenuCategory | 'bebidas';
+export type AdminMenuCategory = PublicMenuCategory;
 
 export type LegacyMenuCategory =
   | 'cocas'

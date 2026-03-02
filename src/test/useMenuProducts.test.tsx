@@ -49,6 +49,7 @@ describe('useMenuProducts', () => {
       'bolleria-dulce',
       'pasteleria',
       'ofertas',
+      'bebidas',
     ]);
     expect(result.current.menuProducts.some((product) => product.category === 'bebidas')).toBe(true);
     expect(result.current.menuProducts.find((product) => product.id === '7')?.name).toBe('Pack Desayuno CMS');
