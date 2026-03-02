@@ -1,0 +1,1146 @@
+[
+    {
+        "id": 67,
+        "name": "Almojábena",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 1.05,
+        "image": "/images/products/almojabena.webp",
+        "description": "Un dulce clásico para acompañar tu café. Nuestra almojábena tiene masa tierna, borde dorado y el punto justo de azúcar. Una elección sencilla y apetecible para cualquier mañana.",
+        "alt_text": "Almojábena dulce horneada a diario para el desayuno en Amalis Cafetería.",
+        "image_title": "Almojábena - Dulce de Pastelería",
+        "chef_suggestion": "Pídela ligeramente templada y acompáñala con un café con leche para disfrutar mejor su textura.",
+        "ingredients": [
+            "Harina de trigo",
+            "aceite de girasol",
+            "agua",
+            "huevo",
+            "azúcar."
+        ],
+        "allergens": [
+            "Gluten",
+            "Huevo",
+            "(Trazas posibles: crustáceos, cacahuetes, frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 1
+    },
+    {
+        "id": 68,
+        "name": "Pizza de Jamón York y Queso",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 2.55,
+        "image": "/images/products/Pizza-York.webp",
+        "description": "Una opción salada que siempre funciona. Base crujiente, salsa de tomate, jamón york y queso mozzarella fundido en un bocado cómodo para almorzar o merendar.",
+        "alt_text": "Crujiente pizza de jamón york y queso mozzarella fundido, un clásico infalible en Amalis Cafetería.",
+        "image_title": "Pizza de Jamón York y Queso - Sabor Clásico",
+        "chef_suggestion": "Pídenos que te la calentemos un poco para que la mozzarella se funda mejor. Queda muy bien con una bebida refrescante.",
+        "ingredients": [
+            "Harina de trigo",
+            "aceite de oliva",
+            "tomate frito",
+            "auténtico queso mozzarella y jamón york extra."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Soja",
+            "(Puede contener trazas de huevo)."
+        ],
+        "featured": false,
+        "sort_order": 2
+    },
+    {
+        "id": 69,
+        "name": "Bizcocho de Canela",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 14.7,
+        "image": "/images/products/Bizcocho-Canela.webp",
+        "description": "Bizcocho de canela con miga esponjosa y aroma casero, rematado con azúcar perlado. Su formato grande va muy bien para compartir en casa o en una merienda.",
+        "alt_text": "Esponjoso bizcocho de canela entero con toques de azúcar perlado, ideal para compartir en Amalis Cafetería.",
+        "image_title": "Bizcocho Especial de Canela - Formato Familiar",
+        "chef_suggestion": "Córtalo en rebanadas y disfrútalo con chocolate caliente o café con leche espumoso. La canela se aprecia especialmente bien en caliente.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "leche",
+            "huevo",
+            "aceite de girasol",
+            "nuestra aromática canela y un irresistible toque de azúcar perlado."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Huevo"
+        ],
+        "featured": false,
+        "sort_order": 3
+    },
+    {
+        "id": 70,
+        "name": "Bizcocho de Naranja",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 16,
+        "image": "/images/products/Bizcocho-Naranja.webp",
+        "description": "Bizcocho de naranja con miga esponjosa, toque cítrico y discos de naranja confitada. El azúcar perlado aporta contraste y su formato grande lo convierte en una muy buena opción para compartir.",
+        "alt_text": "Esponjoso bizcocho de naranja entero decorado con discos de naranja y azúcar perlado en Amalis Cafetería.",
+        "image_title": "Bizcocho Extra Esponjoso de Naranja - Gran Formato",
+        "chef_suggestion": "Disfrútalo con café solo, té o una infusión de frutas. Si lo sirves templado, su aroma cítrico se aprecia todavía más.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "leche",
+            "huevo",
+            "aceite de girasol",
+            "irresistibles discos de naranja confitada y crujiente azúcar perlado."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Huevo",
+            "Sulfitos"
+        ],
+        "featured": false,
+        "sort_order": 4
+    },
+    {
+        "id": 71,
+        "name": "Bizcocho de Pepitas de Chocolate",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 18,
+        "image": "/images/products/Bizcocho-Chocolate-Pepitas.webp",
+        "description": "Bizcocho de chocolate con miga jugosa, sabor intenso a cacao y abundantes pepitas de chocolate en cada porción. Un formato grande para compartir o disfrutar durante varios días.",
+        "alt_text": "Bizcocho de chocolate entero con pepitas de chocolate en Amalis Cafetería.",
+        "image_title": "Bizcocho de Chocolate con Pepitas - Especial para Golosos",
+        "chef_suggestion": "Queda muy bien con leche fría o con café. Si lo calientas ligeramente, las pepitas se funden y la textura gana jugosidad.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "leche",
+            "huevo",
+            "cacao desgrasado en polvo",
+            "aceite de girasol y abundantes y deliciosas pepitas de chocolate."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Huevo"
+        ],
+        "featured": false,
+        "sort_order": 5
+    },
+    {
+        "id": 72,
+        "name": "Bizcocho de Piña",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 14.7,
+        "image": "/images/products/Bizcocho.webp",
+        "description": "Bizcocho de piña con miga tierna y jugosa gracias al jugo natural, rematado con rodajas de fruta y azúcar perlado. Una opción diferente y fresca para compartir.",
+        "alt_text": "Jugoso bizcocho de piña entero con rodajas de fruta tropical en Amalis Cafetería.",
+        "image_title": "Bizcocho Tropical de Piña - Ideal para Compartir",
+        "chef_suggestion": "Pruébalo con una infusión fría o un té helado en días cálidos. Su jugosidad lo hace agradable a cualquier hora.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "leche",
+            "huevo",
+            "aceite de girasol",
+            "jugo natural y rodajas de piña bañadas con nuestro azúcar perlado."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Huevo"
+        ],
+        "featured": false,
+        "sort_order": 6
+    },
+    {
+        "id": 73,
+        "name": "Bizcocho de Pistacho",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 26,
+        "image": "/images/products/Bizcocho-Pistacho.webp",
+        "description": "Nuestro bizcocho de pistacho 100% tostado destaca por su sabor intenso y elegante. La miga tierna y el aroma tostado lo convierten en una opción muy buena para momentos especiales.",
+        "alt_text": "Bizcocho de pistacho 100% tostado de formato entero en Amalis Cafetería.",
+        "image_title": "Bizcocho Premium de Pistacho - Sabor Intenso Tostado",
+        "chef_suggestion": "Acompáñalo con un café de especialidad o un espresso. El toque tostado del pistacho combina muy bien con el café.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "leche",
+            "huevo",
+            "aceite de girasol",
+            "deliciosa pasta de 100% pistacho tostado y nuestro toque de azúcar perlado."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Huevo",
+            "Frutos de cáscara (Pistacho)"
+        ],
+        "featured": false,
+        "sort_order": 7
+    },
+    {
+        "id": 74,
+        "name": "Bizcocho de Zanahoria",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 15.7,
+        "image": "/images/products/Bizcocho.webp",
+        "description": "Bizcocho de zanahoria con miga jugosa, dulzor suave y un toque de azúcar perlado. Un dulce reconfortante para quienes buscan sabores clásicos y equilibrados.",
+        "alt_text": "Bizcocho de zanahoria entero, esponjoso y horneado al estilo tradicional en Amalis Cafetería.",
+        "image_title": "Bizcocho Tradicional de Zanahoria - Sabor Casero",
+        "chef_suggestion": "Por su jugosidad, combina muy bien con café caliente o con un zumo natural en el desayuno. Una buena opción si buscas un dulce más suave.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "leche",
+            "huevo",
+            "aceite de girasol",
+            "zanahoria fresca rallada y crujiente azúcar perlado."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Huevo"
+        ],
+        "featured": false,
+        "sort_order": 8
+    },
+    {
+        "id": 75,
+        "name": "Borracho",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 2.5,
+        "image": "/images/products/Pastel-Borracho.webp",
+        "description": "Dulce tradicional de almendra molida, ralladura de naranja y jarabe de canela. Su textura húmeda y melosa lo convierte en una opción muy agradable para la sobremesa.",
+        "alt_text": "Dulce Borracho tradicional bañado en almíbar de canela con un toque de naranja en Amalis Cafetería.",
+        "image_title": "Dulce Borracho - Jugosidad Tradicional",
+        "chef_suggestion": "Queda muy bien con café solo o cortado. El amargor del café equilibra su dulzor amibarado.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "huevo y yema de gallina",
+            "almendra molida",
+            "raspadura de naranja y nuestro característico baño de jarabe de canela."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Huevo",
+            "Frutos de cáscara (Almendra)"
+        ],
+        "featured": false,
+        "sort_order": 9
+    },
+    {
+        "id": 76,
+        "name": "Coca de Jamón York y Queso",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 2.3,
+        "image": "/images/products/coca-jamon-york-y-queso.webp",
+        "description": "Coca salada de masa rústica con aceite de oliva, mollitas y jamón york con queso fundido. Una opción sabrosa para recargar energías a media mañana.",
+        "alt_text": "Tradicional coca salada con mollitas, jamón york y queso fundido horneada en Amalis Cafetería.",
+        "image_title": "Coca de Jamón York y Queso - Clásico Almuerzo",
+        "chef_suggestion": "Si pides que te la templemos ligeramente, notarás cómo el queso se funde con las mollitas crujientes. Queda muy bien con una cerveza bien fría o un refresco.",
+        "ingredients": [
+            "Harina de trigo",
+            "agua y manteca de cerdo en base y mollitas tradicionales de masa panadera horneada",
+            "aceite de oliva (virgen y orujo)",
+            "exquisito jamón york y queso fundido de leche pasteurizada."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Soja",
+            "(Puede contener trazas de pescado)."
+        ],
+        "featured": false,
+        "sort_order": 10
+    },
+    {
+        "id": 77,
+        "name": "Coca de Verdura",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 2.3,
+        "image": "/images/products/Pizza-Verduras.webp",
+        "description": "Coca de verdura sobre masa rústica con aceite de oliva y una cobertura de pimiento rojo, pimiento verde y cebolla pochada. Una opción sabrosa y más ligera para almuerzo o merienda.",
+        "alt_text": "Coca salada tradicional cubierta de tiernas verduras horneadas (pimientos y cebolla) en Amalis Cafetería.",
+        "image_title": "Coca de Verdura - Sabrosa y Tradicional",
+        "chef_suggestion": "Pruébala templada. El calor realza el aroma de la masa y la jugosidad de las verduras.",
+        "ingredients": [
+            "Harina de trigo",
+            "agua y manteca de cerdo en masa tradicional con aceite de oliva",
+            "cubierta con una generosa mezcla pochada de pimiento rojo",
+            "pimiento verde y cebolla dulce."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "(Puede contener trazas de pescado)."
+        ],
+        "featured": false,
+        "sort_order": 11
+    },
+    {
+        "id": 78,
+        "name": "Coca Rellena",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 2.3,
+        "image": "/images/products/Coca-Pisto.webp",
+        "description": "Hojaldre crujiente con relleno de pisto de verduras y atún claro, jugoso y con sabor equilibrado. Una opción salada que funciona bien cuando necesitas algo completo.",
+        "alt_text": "Coca de hojaldre rellena de pisto de verduras y atún claro en Amalis Cafetería.",
+        "image_title": "Coca Rellena de Pisto y Atún - Capricho Salado",
+        "chef_suggestion": "Muy buena para un almuerzo completo. El contraste entre el hojaldre dorado y el pisto jugoso funciona muy bien para tomar aquí o para llevar con un refresco.",
+        "ingredients": [
+            "Harina de trigo",
+            "agua y margarina en nuestro hojaldre crujiente horneado",
+            "relleno de una rica compota de hortalizas (tomate",
+            "cebolla",
+            "berenjena",
+            "calabacín",
+            "pimientos) y atún claro en aceite de girasol."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Pescado",
+            "Soja",
+            "Huevo",
+            "(Posibles trazas de: cacahuetes, leche, frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 12
+    },
+    {
+        "id": 79,
+        "name": "Coca Salada",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 2.3,
+        "image": "/images/products/Coca-Sardina.webp",
+        "description": "Una coca salada muy ligada al almuerzo tradicional. La masa con aceite de oliva y un toque de leche se hornea hasta quedar crujiente, y la sardina salada aporta el punto de carácter.",
+        "alt_text": "Tradicional coca salada valenciana con sardina salada en panadería Amalis Cafetería.",
+        "image_title": "Coca Salada con Sardina - Receta Tradicional",
+        "chef_suggestion": "Una opción clásica para almuerzo. Acompáñala con una bebida fría si te gusta el contraste con la sardina salada.",
+        "ingredients": [
+            "Harina de trigo",
+            "agua y manteca de cerdo en masa rústica de panadería con aceite de oliva (virgen y orujo)",
+            "leche",
+            "y el toque tradicional valenciano inconfundible de la sardina salada."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Pescado"
+        ],
+        "featured": false,
+        "sort_order": 13
+    },
+    {
+        "id": 80,
+        "name": "Croissant",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 1.65,
+        "image": "/images/products/Croissant-Mantequilla.webp",
+        "description": "Croissant clásico de hojaldre, crujiente por fuera y tierno por dentro, con miga alveolada y dorado uniforme. Una pieza sencilla que encaja en desayuno, almuerzo o merienda.",
+        "alt_text": "Croissant clásico horneado y hojaldrado, tierno por dentro y dorado por fuera, en Amalis Cafetería.",
+        "image_title": "Croissant Clásico - El Rey del Desayuno",
+        "chef_suggestion": "Va muy bien con café con leche. Si lo prefieres salado, puedes pedirlo a la plancha con jamón york y queso, o con mantequilla y mermelada.",
+        "ingredients": [
+            "Masa hojaldrada tradicional elaborada con harina de trigo y levadura",
+            "horneada al punto para conseguir esa corteza dorada y miga tierna inconfundible."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "(Posibles trazas de: Soja y Frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 14
+    },
+    {
+        "id": 81,
+        "name": "Mini Empanadilla de Atún y Huevo",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 1.05,
+        "image": "/images/products/mini-empanadilla-atun-y-huevo-2.webp",
+        "description": "Mini empanadilla de masa fina y dorada con relleno de atún y huevo. Un bocado salado práctico, sabroso y económico para cualquier hora.",
+        "alt_text": "Mini empanadilla salada dorada y hojaldrada, rellena de atún claro y huevo en Amalis Cafetería.",
+        "image_title": "Mini Empanadilla de Atún y Huevo - Bocado Tradicional",
+        "chef_suggestion": "Pide un par y tómalas ligeramente templadas junto a un refresco. Con un toque de calor el relleno recupera jugosidad.",
+        "ingredients": [
+            "Masa fina de harina de trigo",
+            "rellena de un sofrito casero tradicional",
+            "abundante atún claro y tiernos trozos de huevo."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Pescado",
+            "Leche",
+            "Soja",
+            "Huevo",
+            "(Posibles trazas de: crustáceos",
+            "cacahuetes",
+            "frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 15
+    },
+    {
+        "id": 82,
+        "name": "Mini Empanadilla de Atún y Cebolla",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 1.05,
+        "image": "/images/products/mini-empanadilla-atun-y-huevo-2-2.webp",
+        "description": "Masa fina horneada con relleno de atún claro y cebolla frita, con un punto dulce muy agradable. Un bocado sabroso para picar o acompañar una bebida.",
+        "alt_text": "Mini empanadilla salada dorada rellena de sofrito de atún y cebolla dulce frita en Amalis Cafetería.",
+        "image_title": "Mini Empanadilla de Atún y Cebolla - Sabor Extra",
+        "chef_suggestion": "La cebolla frita aporta un punto dulce que contrasta muy bien con una bebida amarga, como un vermut o una cerveza bien fría.",
+        "ingredients": [
+            "Masa fina de harina de trigo",
+            "rellena del clásico sofrito",
+            "atún claro extra y un delicioso contraste de cebolla frita."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Pescado",
+            "Leche",
+            "Soja",
+            "Huevo",
+            "(Posibles trazas de: crustáceos",
+            "cacahuetes",
+            "frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 16
+    },
+    {
+        "id": 83,
+        "name": "Empanadilla de Pisto y Atún",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 1.55,
+        "image": "/images/products/Empanada-Pisto.webp",
+        "description": "Empanadilla clásica de buen tamaño, con masa tierna y relleno de pisto de verduras con atún. Muy buena para almorzar o merendar cuando buscas algo salado y completo.",
+        "alt_text": "Empanadilla salada grande rellena de pisto tradicional de verduras y atún claro, horneada en Amalis Cafetería.",
+        "image_title": "Empanadilla de Pisto y Atún - Sabor Casero",
+        "chef_suggestion": "Una opción práctica para media mañana o media tarde. Si puedes, pídela templada para potenciar el sabor del sofrito.",
+        "ingredients": [
+            "Masa tradicional a base de harina de trigo",
+            "agua y aceite de girasol",
+            "rellena abundantemente de una compota de hortalizas (tomate",
+            "berenjena",
+            "calabacín",
+            "pimientos) y atún claro."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Pescado",
+            "Soja",
+            "(Posibles trazas de: crustáceos, huevo, leche, cacahuetes, frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 17
+    },
+    {
+        "id": 84,
+        "name": "Ensaimada",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 1.6,
+        "image": "/images/products/Ensaimada.webp",
+        "description": "Ensaimada clásica, ligera y esponjosa, con forma en espiral y dulzor suave. Su miga muy alveolada y el toque de azúcar la hacen una opción tradicional para desayunar.",
+        "alt_text": "Ensaimada clásica tradicional, esponjosa y espolvoreada con azúcar en Amalis Cafetería.",
+        "image_title": "Ensaimada Clásica - Esponjosidad Tradicional",
+        "chef_suggestion": "Va muy bien con café con leche para el desayuno, cortándola a pellizcos y mojando. Si te gusta más golosa, puedes pedirla con mantequilla y mermelada.",
+        "ingredients": [
+            "Harina de trigo",
+            "manteca de cerdo",
+            "agua",
+            "azúcar",
+            "levadura",
+            "huevo y margarina",
+            "formando su característica masa hojaldrada dulce."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Huevo",
+            "(Posibles trazas de: soja, leche, sésamo)."
+        ],
+        "featured": false,
+        "sort_order": 18
+    },
+    {
+        "id": 111,
+        "name": "Media Lunas",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 2.7,
+        "image": "/images/products/Pastel-MediaLuna.webp",
+        "description": "Bocado de repostería fina con almendra, ralladura de naranja y jarabe de canela. Su textura tierna y jugosa la convierte en una muy buena opción para merienda o sobremesa.",
+        "alt_text": "Media luna dulce y jugosa elaborada con almendra, naranja y almíbar de canela en Amalis Cafetería.",
+        "image_title": "Media Lunas de Almendra - Repostería Fina",
+        "chef_suggestion": "Van muy bien como final dulce o para una merienda especial. Las notas cítricas y de almendra combinan bien con tés e infusiones.",
+        "ingredients": [
+            "Harina de trigo",
+            "azúcar",
+            "huevo y yemas de gallina",
+            "almendra molida",
+            "raspadura de naranja y todo delicadamente bañado en jarabe de canela."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Huevo",
+            "Frutos de cáscara (Almendra)"
+        ],
+        "featured": false,
+        "sort_order": 19
+    },
+    {
+        "id": 86,
+        "name": "Milhoja de Crema",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 2.5,
+        "image": "/images/products/Miloha-Crema.webp",
+        "description": "Capas de hojaldre dorado y crujiente con una crema suave y generosa en el centro, terminadas con azúcar glas y canela. Un clásico de textura marcada y sabor redondo.",
+        "alt_text": "Milhoja clásica de crujiente hojaldre rellena de abundante crema pastelera dulce en Amalis Cafetería.",
+        "image_title": "Milhoja de Crema Pastelera - Clásico Crujiente",
+        "chef_suggestion": "Queda muy bien con café solo o cortado. El amargor del café equilibra la dulzura de la crema.",
+        "ingredients": [
+            "Crujientes capas de hojaldre horneado (elaboradas con harina de trigo",
+            "agua y margarina)",
+            "rellenas de una abundante y suave crema láctea",
+            "coronadas con azúcar glas y un sutil toque de canela."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Soja"
+        ],
+        "featured": false,
+        "sort_order": 20
+    },
+    {
+        "id": 87,
+        "name": "Milhoja de Merengue",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 3.5,
+        "image": "/images/products/milhoja-merengue.webp",
+        "description": "Láminas de hojaldre crujiente con un relleno abundante de merengue suave y ligero, aromatizado con vainilla. El contraste de texturas la convierte en una de las piezas más llamativas de la vitrina.",
+        "alt_text": "Milhoja de hojaldre rellena de merengue montado en Amalis Cafetería.",
+        "image_title": "Milhoja de Merengue - El Rey de la Pastelería",
+        "chef_suggestion": "Es una gran opción para ocasiones especiales. Gracias a lo liviano del merengue, no resulta pesado. Te recomiendo disfrutarlo con un té negro suave o un café largo.",
+        "ingredients": [
+            "Crujientes tapas de hojaldre (harina de trigo",
+            "agua y margarina vegetal) unidas por un merengue montado con albúmina de huevo y un suave aroma a vainilla",
+            "con un toque final de canela y azúcar glas."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Huevo",
+            "Soja",
+            "(y derivados)."
+        ],
+        "featured": false,
+        "sort_order": 21
+    },
+    {
+        "id": 88,
+        "name": "Napolitana de Chocolate",
+        "category": "bolleria-dulce",
+        "subcategory": null,
+        "price": 1.8,
+        "image": "/images/products/Napolitana-Choco.webp",
+        "description": "Napolitana clásica de hojaldre crujiente con relleno de crema de cacao y avellana. Un dulce fácil de elegir para desayuno o merienda.",
+        "alt_text": "Clásica napolitana de hojaldre crujiente rellena de crema de cacao y avellana en Amalis Cafetería.",
+        "image_title": "Napolitana de Chocolate - Puro Placer",
+        "chef_suggestion": "Pídela templada si quieres que el relleno quede más fundente. Combina muy bien con leche fría o con un capuchino.",
+        "ingredients": [
+            "Harina de trigo",
+            "agua y margarina en capas para crear una masa hojaldrada crujiente y dorada",
+            "con un corazón abundante de una deliciosa crema de cacao con toques de pasta de avellana."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Frutos de cáscara (Avellana)",
+            "Soja",
+            "(Posibles trazas de: leche, huevo, mostaza)."
+        ],
+        "featured": false,
+        "sort_order": 22
+    },
+    {
+        "id": 89,
+        "name": "Napolitana de Jamón York y Queso",
+        "category": "bolleria-salada",
+        "subcategory": null,
+        "price": 1.85,
+        "image": "/images/products/napolitana-jamon-york-y-queso-2.webp",
+        "description": "Napolitana salada de hojaldre con relleno de jamón york y crema de queso. Una opción cómoda y sabrosa para desayuno o almuerzo.",
+        "alt_text": "Napolitana salada de hojaldre dorada y crujiente, rellena de jamón york y queso fundido en Amalis Cafetería.",
+        "image_title": "Napolitana de Jamón York y Queso - Salado Perfecto",
+        "chef_suggestion": "Pídela templada unos segundos para que el queso termine de fundir. Combina muy bien con un zumo de naranja recién exprimido.",
+        "ingredients": [
+            "Masa hojaldrada crujiente (harina de trigo",
+            "agua y margarina)",
+            "rellena de jugoso jamón york y una suave crema de queso que se funde con cada bocado."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "Soja",
+            "(Posibles trazas de: huevo",
+            "frutos de cáscara",
+            "mostaza)."
+        ],
+        "featured": false,
+        "sort_order": 23
+    },
+    {
+        "id": 90,
+        "name": "Teta de Monja",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 2.6,
+        "image": "/images/products/TetaMonja.webp",
+        "description": "Dulce tradicional de merengue suave con yema confitada en la parte superior. Llamativo en vitrina y ligero en boca.",
+        "alt_text": "Dulce tradicional Teta de Monja hecho de merengue suave y yema confitada en Amalis Cafetería.",
+        "image_title": "Teta de Monja - Dulce Tradicional de Merengue",
+        "chef_suggestion": "Es un postre para disfrutar despacio. Su textura espumosa combina muy bien con un café solo o un té verde.",
+        "ingredients": [
+            "Exquisito y suave merengue montado con albúmina de huevo y un toque de vainilla",
+            "coronado magistralmente con yema de huevo confitada dulce."
+        ],
+        "allergens": [
+            "Huevo"
+        ],
+        "featured": false,
+        "sort_order": 24
+    },
+    {
+        "id": 91,
+        "name": "Pastel de Almendra",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 2.5,
+        "image": "/images/products/Pastel-Almendras.webp",
+        "description": "Pastel de almendra con base tierna, merengue ligero y notas de limón y canela. Un dulce clásico con un perfil aromático muy reconocible.",
+        "alt_text": "Pastel tradicional de almendra y merengue aromatizado con limón y canela en Amalis Cafetería.",
+        "image_title": "Pastel de Almendra - Repostería Fina Tradicional",
+        "chef_suggestion": "Las notas de limón, canela y almendra combinan muy bien con un café largo o un té suave, sin tapar el sabor del pastel.",
+        "ingredients": [
+            "Base esponjosa horneada (harina de trigo y huevo)",
+            "enriquecida con almendra",
+            "suave merengue",
+            "fragante ralladura de limón y el inconfundible aroma de la canela en rama."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Huevo",
+            "Frutos de cáscara (Almendra)",
+            "(Posibles trazas de: soja, otros frutos de cáscara)."
+        ],
+        "featured": false,
+        "sort_order": 25
+    },
+    {
+        "id": 92,
+        "name": "Pastel de Manzana",
+        "category": "pasteleria",
+        "subcategory": null,
+        "price": 2.75,
+        "image": "/images/products/Tarta-Manzana.webp",
+        "description": "Pastel de manzana con base tierna, crema pastelera y láminas de manzana confitada, terminado con gelatina de manzana. Meloso, equilibrado y fácil de disfrutar.",
+        "alt_text": "Pastel de manzana con crema, láminas de manzana y brillo de gelatina en Amalis Cafetería.",
+        "image_title": "Pastel de Manzana - Frescura Clásica",
+        "chef_suggestion": "Si buscas un dulce con fruta y un punto suave, es una muy buena opción. La manzana encaja muy bien con tés e infusiones, especialmente con té negro.",
+        "ingredients": [
+            "Masa tierna horneada a base de harina de trigo y manteca",
+            "rellena de una suave crema pastelera dulce y coronada con deliciosa manzana confitada y gelatina brillante de zumo de manzana."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche",
+            "(Posibles trazas de: huevo y soja)."
+        ],
+        "featured": false,
+        "sort_order": 26
+    },
+    {
+        "id": 93,
+        "name": "½ Tostada de Atún, Aceite y Tomate",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 3.35,
+        "image": "/images/products/Tostada-Tomate-Atun.webp",
+        "description": "Media tostada de pan rústico con aceite de oliva, tomate triturado y atún. Una opción mediterránea, saciante y muy práctica para desayuno o almuerzo.",
+        "alt_text": "Media tostada rústica con tomate natural triturado, atún y aceite de oliva virgen en Amalis Cafetería.",
+        "image_title": "Media Tostada de Atún y Tomate - Desayuno Mediterráneo",
+        "chef_suggestion": "Es una opción completa para el almuerzo. Pídela acompañada de un zumo de naranja natural para un contraste muy equilibrado entre lo salado del atún y el dulce cítrico.",
+        "ingredients": [
+            "Pan rústico tostado (harina de trigo y levadura)",
+            "generoso chorrito de aceite de oliva",
+            "tomate natural triturado y una excelente combinación de atún."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Pescado"
+        ],
+        "featured": false,
+        "sort_order": 27
+    },
+    {
+        "id": 94,
+        "name": "½ Tostada de Queso Fresco y Aceite",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 2.55,
+        "image": "/images/products/Tostada-QuesoFresco.webp",
+        "description": "Media tostada de pan crujiente con queso fresco y aceite de oliva virgen. Una opción ligera, suave y equilibrada para empezar la mañana.",
+        "alt_text": "Media tostada de pan rústico con queso fresco y aceite de oliva en Amalis Cafetería.",
+        "image_title": "Media Tostada de Queso Fresco - Ligera y Saludable",
+        "chef_suggestion": "Si buscas algo fresco y poco pesado, funciona muy bien en desayuno. Combínala con café con leche o una infusión.",
+        "ingredients": [
+            "Media rebanada de pan rústico recién tostado (harina de trigo y levadura)",
+            "aderezada con un buen chorrito de aceite de oliva y coronada con suave queso fresco."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 28
+    },
+    {
+        "id": 95,
+        "name": "½ Tostada de Aceite de Oliva",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 1.35,
+        "image": "/images/products/Tostada-Aceite.webp",
+        "description": "Media tostada de pan rústico recién tostado con aceite de oliva. Una opción sencilla y reconfortante para quienes disfrutan de sabores clásicos.",
+        "alt_text": "Media tostada clásica de pan rústico bañada en aceite de oliva en Amalis Cafetería.",
+        "image_title": "Media Tostada de Aceite - El Clásico Sencillo",
+        "chef_suggestion": "Perfecta para acompañar café o infusión por la mañana. El protagonismo está en el crujiente del pan y el sabor del aceite.",
+        "ingredients": [
+            "Media rebanada de pan rústico panadero (harina de trigo y levadura) recién tostada y regada con un generoso chorro de aceite de oliva de calidad."
+        ],
+        "allergens": [
+            "Gluten (Trigo)"
+        ],
+        "featured": false,
+        "sort_order": 29
+    },
+    {
+        "id": 96,
+        "name": "½ Tostada de Jamón York y Queso",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 3.15,
+        "image": "/images/products/Tostada-York-Queso.webp",
+        "description": "Media tostada de pan crujiente con aceite de oliva, jamón york y queso. Un clásico salado, cómodo y sabroso para empezar la mañana o hacer una pausa.",
+        "alt_text": "Media tostada rústica clásica con jamón york, queso y aceite de oliva en Amalis Cafetería.",
+        "image_title": "Media Tostada de York y Queso - El Clásico Salado",
+        "chef_suggestion": "Pídela caliente para que el queso funda ligeramente sobre el pan y el york. Gana mucho en textura.",
+        "ingredients": [
+            "Media rebanada de pan rústico recién tostada (harina de trigo y levadura)",
+            "aderezada con aceite de oliva y cubierta con la clásica combinación de jamón york y queso."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 30
+    },
+    {
+        "id": 97,
+        "name": "½ Tostada de Jamón Serrano y Queso",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 3.35,
+        "image": "/images/products/Tostada-Tomate-Jamon-Queso.webp",
+        "description": "Media tostada de pan rústico con aceite de oliva, jamón serrano y queso. Una opción con más intensidad de sabor para desayunos y almuerzos salados.",
+        "alt_text": "Media tostada rústica tostada con aceite de oliva, jamón serrano y queso en Amalis Cafetería.",
+        "image_title": "Media Tostada de Jamón Serrano y Queso - Clásico Español",
+        "chef_suggestion": "Pídenosla pasadita por la plancha para que el queso se funda y resalte la intensidad del jamón serrano al hacer contacto con el aceite de oliva. Acompáñala de un café solo bien cargado.",
+        "ingredients": [
+            "Media rebanada de pan rústico panadero (harina de trigo y levadura) recién tostada",
+            "bañada en excelente aceite de oliva",
+            "coronada con sabroso jamón serrano y queso."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 31
+    },
+    {
+        "id": 98,
+        "name": "½ Tostada Catalana",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 3.25,
+        "image": "/images/products/Tostada-Tomate-JamonSerrano.webp",
+        "description": "Pan rústico tostado con tomate natural, aceite de oliva y jamón serrano. Una tostada sencilla y muy sabrosa para desayuno o almuerzo.",
+        "alt_text": "Media tostada rústica catalana con tomate natural triturado, aceite de oliva y jamón serrano en Amalis Cafetería.",
+        "image_title": "Media Tostada Catalana - Pan, Tomate y Jamón",
+        "chef_suggestion": "Va muy bien con un zumo de naranja natural para refrescar el paladar entre bocados.",
+        "ingredients": [
+            "Media rebanada de pan rústico recién tostada (harina de trigo y levadura)",
+            "acompañada de tomate natural triturado",
+            "un excelente aceite de oliva y sabroso jamón serrano."
+        ],
+        "allergens": [
+            "Gluten (Trigo)"
+        ],
+        "featured": false,
+        "sort_order": 32
+    },
+    {
+        "id": 99,
+        "name": "½ Tostada de Tomate y Aceite de Oliva",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 2.15,
+        "image": "/images/products/Tostada-Tomate.webp",
+        "description": "Media tostada de pan crujiente con tomate natural triturado y aceite de oliva. Ligera, jugosa y muy buena para un desayuno mediterráneo.",
+        "alt_text": "Media tostada de pan rústico con tomate natural triturado y aceite de oliva en Amalis Cafetería.",
+        "image_title": "Media Tostada de Tomate y Aceite - Sabor Mediterráneo",
+        "chef_suggestion": "Una opción fresca, muy saludable y 100% vegana. Acompañada de un café cortado o un té aromático, se convierte en el bocado ideal para arrancar la mañana con buen pie. Un clásico de desayuno.",
+        "ingredients": [
+            "Media rebanada de pan rústico recién tostada (harina de trigo y levadura)",
+            "generosamente untada con tomate natural triturado y regada con un chorrito de aceite de oliva virgen."
+        ],
+        "allergens": [
+            "Gluten (Trigo)"
+        ],
+        "featured": false,
+        "sort_order": 33
+    },
+    {
+        "id": 100,
+        "name": "½ Tostada de Mantequilla y Mermelada",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 1.7,
+        "image": "/images/products/media-tostada-mantequilla-mermelada.webp",
+        "description": "Media tostada caliente con mantequilla y mermelada, un clásico dulce de desayuno. El pan crujiente y la mantequilla fundida hacen una combinación sencilla que siempre funciona.",
+        "alt_text": "Media tostada dulce clásica con pan rústico, mantequilla y mermelada en Amalis Cafetería.",
+        "image_title": "Media Tostada de Mantequilla y Mermelada - Desayuno Dulce",
+        "chef_suggestion": "Queda muy bien con café con leche o con leche con cacao. Un bocado reconfortante para la mañana.",
+        "ingredients": [
+            "Media rebanada de excelente pan rústico panadero (harina de trigo y levadura) recién tostada",
+            "acompañada de fina mantequilla para fundir y una porción de deliciosa mermelada dulce."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 34
+    },
+    {
+        "id": 101,
+        "name": "½ Tostada de Mantequilla",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 1.75,
+        "image": "/images/products/media-tostada-mantequilla.webp",
+        "description": "Media tostada de pan rústico con mantequilla fundida. Sencilla, dorada y muy agradable para quienes prefieren un desayuno clásico.",
+        "alt_text": "Media tostada rústica clásica con suave mantequilla fundida en Amalis Cafetería.",
+        "image_title": "Media Tostada de Mantequilla - Sencillez Dorada",
+        "chef_suggestion": "Si quieres darle un punto distinto, añade una pizca de sal sobre la mantequilla. Combina muy bien con café bombón o café con leche.",
+        "ingredients": [
+            "Media rebanada de excelente pan rústico panadero (harina de trigo y levadura) recién tostada",
+            "servida con una fina y suave mantequilla dulce para fundir."
+        ],
+        "allergens": [
+            "Gluten (Trigo)",
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 35
+    },
+    {
+        "id": 102,
+        "name": "½ Tostada de Tomate y Aguacate",
+        "category": "tostadas",
+        "subcategory": null,
+        "price": 2.85,
+        "image": "/images/products/media-tostada-tomate-aguacate.webp",
+        "description": "Media tostada de pan rústico con tomate triturado, aguacate fresco y aceite de oliva. Una opción vegana, saciante y muy cómoda para desayuno o media mañana.",
+        "alt_text": "Media tostada de pan rústico con tomate triturado, aguacate y aceite de oliva en Amalis Cafetería.",
+        "image_title": "Media Tostada de Aguacate y Tomate - Desayuno Saludable",
+        "chef_suggestion": "Es un desayuno saludable y vegano muy completo. Combina muy bien con un zumo verde o un té matcha, tanto para empezar la mañana como para reponer fuerzas a mediodía.",
+        "ingredients": [
+            "Media rebanada de nuestro pan rústico (harina de trigo y levadura) tostado al punto",
+            "adornada con tomate natural triturado",
+            "aguacate fresco y un rico chorrito de aceite de oliva."
+        ],
+        "allergens": [
+            "Gluten (Trigo)"
+        ],
+        "featured": false,
+        "sort_order": 36
+    },
+    {
+        "id": 112,
+        "name": "Infusión",
+        "category": "bebidas",
+        "subcategory": "infusiones",
+        "price": 1.5,
+        "image": "/images/products/infuionn-2.webp",
+        "description": "Infusión caliente de hierbas y plantas con sabor suave y natural. Una opción reconfortante para hacer una pausa o tomar algo caliente en cualquier momento.",
+        "alt_text": "Infusión caliente tradicional de hierbas servida en Amalis Cafetería.",
+        "image_title": "Infusión Tradicional - Caliente y Reconfortante",
+        "chef_suggestion": "Va muy bien después de un bocado salado o a media tarde con un bizcocho suave. Ideal para una pausa tranquila.",
+        "ingredients": [
+            "Mezcla seleccionada de hierbas y plantas naturales infusionadas en agua muy caliente."
+        ],
+        "allergens": [
+            "Ninguno"
+        ],
+        "featured": false,
+        "sort_order": 37
+    },
+    {
+        "id": 113,
+        "name": "Infusión Especial",
+        "category": "bebidas",
+        "subcategory": "infusiones",
+        "price": 2.05,
+        "image": "/images/products/infuionn-3.webp",
+        "description": "Selección especial de botánicos, frutas y tés de hoja entera con un perfil más aromático. Ideal para quienes buscan una bebida caliente con matices más delicados.",
+        "alt_text": "Infusión especial aromática con ingredientes premium en Amalis Cafetería.",
+        "image_title": "Infusión Especial - Aromática y Premium",
+        "chef_suggestion": "Tómala sola para apreciar mejor sus matices, o acompáñala con un dulce ligero que no tape su aroma.",
+        "ingredients": [
+            "Cuidadosa selección premium de botánicos",
+            "frutas y tés especiales de hoja entera."
+        ],
+        "allergens": [
+            "Ninguno (confirmar posible presencia de trazas según variedad)"
+        ],
+        "featured": false,
+        "sort_order": 38
+    },
+    {
+        "id": 114,
+        "name": "Café Solo",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 1.4,
+        "image": "/images/products/cafe_solo.webp",
+        "description": "Un espresso intenso y cremoso, con sabor directo y aroma marcado. Una opción rápida para empezar la mañana o cerrar una comida.",
+        "alt_text": "Café solo espresso intenso y aromático servido cremoso en Amalis Cafetería.",
+        "image_title": "Café Solo - Intensidad y Aroma",
+        "chef_suggestion": "Combina muy bien con un dulce de almendra o con chocolate negro, que equilibra su amargor.",
+        "ingredients": [
+            "Extraído con nuestra selección de granos de café tostado de alta calidad y agua."
+        ],
+        "allergens": [
+            "Ninguno"
+        ],
+        "featured": false,
+        "sort_order": 39
+    },
+    {
+        "id": 115,
+        "name": "Café Cortado",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 1.5,
+        "image": "/images/products/cafe_cortado.webp",
+        "description": "Café espresso con una pequeña cantidad de leche para suavizarlo sin perder su intensidad. Equilibrado y aromático, ideal para una pausa de media mañana.",
+        "alt_text": "Café espresso cortado con una nube de leche caliente en Amalis Cafetería.",
+        "image_title": "Café Cortado - El Equilibrio Justo",
+        "chef_suggestion": "Es un clásico para acompañar una media tostada de tomate y aceite de oliva virgen.",
+        "ingredients": [
+            "Granos de café tostado intenso rebajado sutilmente con una nube de leche."
+        ],
+        "allergens": [
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 40
+    },
+    {
+        "id": 116,
+        "name": "Café con Leche",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 1.55,
+        "image": "/images/products/cafe_con_leche.webp",
+        "description": "Café espresso con leche vaporizada en una proporción equilibrada, con textura cremosa y sabor suave. Un clásico de desayuno que apetece a cualquier hora.",
+        "alt_text": "Taza grande de café con leche cremosa servida caliente en Amalis Cafetería.",
+        "image_title": "Café con Leche - Suavidad y Tradición",
+        "chef_suggestion": "Queda muy bien con un croissant crujiente o una tostada para un desayuno clásico y completo.",
+        "ingredients": [
+            "Nuestro café espresso aromático mezclado en proporción ideal con leche vaporizada dulce y suave."
+        ],
+        "allergens": [
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 41
+    },
+    {
+        "id": 117,
+        "name": "Bombón",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 1.65,
+        "image": "/images/products/cafe_bombon.webp",
+        "description": "Café espresso sobre leche condensada, con un contraste intenso y muy dulce. Una opción corta y golosa para después de comer o para darse un capricho.",
+        "alt_text": "Café bombón en vaso de cristal con densa capa de leche condensada en Amalis Cafetería.",
+        "image_title": "Café Bombón - Dulzura Concentrada",
+        "chef_suggestion": "Por su dulzor, funciona muy bien solo o acompañado de una tostada sencilla de mantequilla.",
+        "ingredients": [
+            "Café espresso intenso reposado sobre leche condensada azucarada extracremosa."
+        ],
+        "allergens": [
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 42
+    },
+    {
+        "id": 118,
+        "name": "Americano",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 1.65,
+        "image": "/images/products/cafe_americano.webp",
+        "description": "Un café largo y más suave, con el aroma del espresso y un trago más ligero. Muy buena opción para tomar con calma y alargar la pausa.",
+        "alt_text": "Café americano de taza grande servido humeante en Amalis Cafetería.",
+        "image_title": "Café Americano - Suave y Prolongado",
+        "chef_suggestion": "Va muy bien con pasteles con crema o merengue, porque acompaña sin resultar pesado.",
+        "ingredients": [
+            "Nuestro exquisito café espresso alargado generosamente con agua caliente."
+        ],
+        "allergens": [
+            "Ninguno"
+        ],
+        "featured": false,
+        "sort_order": 43
+    },
+    {
+        "id": 119,
+        "name": "ColaCao",
+        "category": "bebidas",
+        "subcategory": "cacao",
+        "price": 1.8,
+        "image": "/images/products/colacao-2.webp",
+        "description": "Leche caliente con cacao soluble batido, de sabor clásico y muy reconocible. Una bebida suave y reconfortante para desayunar o merendar.",
+        "alt_text": "Taza de rica leche con Cola Cao soluble tradicional en Amalis Cafetería.",
+        "image_title": "Cola Cao - Sabor Tradicional y Casero",
+        "chef_suggestion": "Combina muy bien con bollería dulce, especialmente con una napolitana de chocolate.",
+        "ingredients": [
+            "Preparado de cacao soluble tradicional disuelto y batido en cremosa leche entera."
+        ],
+        "allergens": [
+            "Leche",
+            "Gluten (Trigo)"
+        ],
+        "featured": false,
+        "sort_order": 44
+    },
+    {
+        "id": 120,
+        "name": "Carajillo",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 2,
+        "image": "/images/products/cafe_carajillo.webp",
+        "description": "Café espresso con un toque de licor, intenso y cálido, muy de sobremesa. Un clásico para quienes prefieren un final con más carácter.",
+        "alt_text": "Clásico carajillo en vaso de cristal combinando café y toque de licor en Amalis Cafetería.",
+        "image_title": "Carajillo - Fuerza de Sobremesa",
+        "chef_suggestion": "Encaja muy bien después de comer, tomado despacio y acompañado de un pequeño dulce seco.",
+        "ingredients": [
+            "Café espresso concentrado e intenso mezclado con un generoso toque del licor preferido."
+        ],
+        "allergens": [
+            "Sulfitos (Dependiendo del licor elegido)"
+        ],
+        "featured": false,
+        "sort_order": 45
+    },
+    {
+        "id": 121,
+        "name": "Belmonte",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 2.05,
+        "image": "/images/products/cafe_belmonte.webp",
+        "description": "Un bombón con toque de brandy o cognac: café espresso, leche condensada y un punto de licor. Dulce, intenso y con carácter, ideal para una sobremesa especial.",
+        "alt_text": "Café Belmonte de leche condensada y un toque de brandy servido en Amalis Cafetería.",
+        "image_title": "Café Belmonte - El Bombón Atrevido",
+        "chef_suggestion": "Queda muy bien en días fríos o como capricho de sobremesa, mejor tomado despacio.",
+        "ingredients": [
+            "Combinación del genuino café bombón (espresso y capa de leche condensada) aderezado con un toque de licor brandy o cognac."
+        ],
+        "allergens": [
+            "Leche",
+            "Sulfitos"
+        ],
+        "featured": false,
+        "sort_order": 46
+    },
+    {
+        "id": 122,
+        "name": "Capuchino",
+        "category": "bebidas",
+        "subcategory": "cafes",
+        "price": 2.75,
+        "image": "/images/products/capuchino.webp",
+        "description": "Capuchino de espresso, leche vaporizada y abundante espuma, rematado con cacao. Cremoso y suave, perfecto para disfrutar a sorbos largos.",
+        "alt_text": "Taza grande de capuchino elegante con crema densa de leche en Amalis Cafetería.",
+        "image_title": "Capuchino - Cremosa Abundancia",
+        "chef_suggestion": "Combina muy bien con bizcochos tiernos o bollería sencilla para aprovechar su espuma.",
+        "ingredients": [
+            "Café espresso potente",
+            "leche caliente vaporizada y una espesa cúpula de suave espuma de leche espolvoreada de cacao en polvo."
+        ],
+        "allergens": [
+            "Leche"
+        ],
+        "featured": false,
+        "sort_order": 47
+    },
+    {
+        "id": 127,
+        "name": "Zumo de Naranja",
+        "category": "bebidas",
+        "subcategory": "zumos",
+        "price": 2.5,
+        "image": "/images/products/zumo_de_naranja.webp",
+        "description": "Zumo de naranja natural recién exprimido, fresco y con sabor cítrico intenso. Ideal para desayunos y pausas refrescantes.",
+        "alt_text": null,
+        "image_title": null,
+        "chef_suggestion": null,
+        "ingredients": [
+            "Naranjas naturales recién exprimidas"
+        ],
+        "allergens": [
+            "Ninguno"
+        ],
+        "featured": false,
+        "sort_order": 48
+    }
+]
