@@ -28,7 +28,8 @@ const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
     bizcochos: Cake,
     pasteles: UtensilsCrossed,
     tostadas: Flame,
-    ofertas: Tag
+    ofertas: Tag,
+    bebidas: Coffee
 };
 
 

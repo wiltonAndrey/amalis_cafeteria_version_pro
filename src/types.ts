@@ -30,7 +30,7 @@ export interface GalleryItem {
 }
 
 // Menu Specific Types
-export type MenuCategory = 'all' | 'cocas' | 'empanadillas' | 'bolleria' | 'bizcochos' | 'pasteles' | 'tostadas' | 'ofertas';
+export type MenuCategory = 'all' | 'cocas' | 'empanadillas' | 'bolleria' | 'bizcochos' | 'pasteles' | 'tostadas' | 'ofertas' | 'bebidas';
 
 export interface MenuProduct {
   id: string;
@@ -44,6 +44,7 @@ export interface MenuProduct {
   ingredients: string[];
   allergens: string[];
   featured?: boolean;
+  badge?: string;
 }
 
 export interface MenuCategoryItem {

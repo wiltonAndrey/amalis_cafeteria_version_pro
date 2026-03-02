@@ -44,16 +44,72 @@ export const TESTIMONIALS_SECTION = {
 
 export const MENU_CATEGORIES: MenuCategoryItem[] = [
   { id: 'all', label: 'Todos' },
-  { id: 'cocas', label: 'Cocas' },
-  { id: 'empanadillas', label: 'Empanadillas' },
+  { id: 'ofertas', label: 'Ofertas' },
+  { id: 'tostadas', label: 'Tostadas' },
   { id: 'bolleria', label: 'Bollería' },
   { id: 'bizcochos', label: 'Bizcochos' },
-  { id: 'pasteles', label: 'Pasteles' },
-  { id: 'tostadas', label: 'Tostadas' },
-  { id: 'ofertas', label: 'Ofertas' },
+  { id: 'pasteles', label: 'Pastelería' },
+  { id: 'cocas', label: 'Cocas' },
+  { id: 'empanadillas', label: 'Empanadillas' },
+  { id: 'bebidas', label: 'Bebidas' }
 ];
 
 export const MENU_PRODUCTS: MenuProduct[] = [
+  {
+    id: 'b1',
+    name: 'Café Espresso',
+    price: 1.30,
+    category: 'bebidas',
+    description: 'Café espresso intenso de especialidad, extraído a la perfección.',
+    image: '/images/sections/vertido-cafe-espresso.webp',
+    ingredients: ['Café 100% Arábica'],
+    allergens: [],
+    badge: 'CAFÉS'
+  },
+  {
+    id: 'b2',
+    name: 'Café con Leche',
+    price: 1.50,
+    category: 'bebidas',
+    description: 'Espresso doble con leche texturizada y latte art.',
+    image: '/images/sections/latte-art-cafe-especialidad.webp',
+    ingredients: ['Café Espresso', 'Leche'],
+    allergens: ['Lácteos'],
+    badge: 'CAFÉS'
+  },
+  {
+    id: 'b3',
+    name: 'Capuchino',
+    price: 1.80,
+    category: 'bebidas',
+    description: 'Espresso equilibrado con leche cremosa y una corona de espuma.',
+    image: '/images/sections/latte-art-cafe-especialidad.webp',
+    ingredients: ['Café', 'Leche', 'Cacao (opcional)'],
+    allergens: ['Lácteos'],
+    badge: 'CAFÉS'
+  },
+  {
+    id: 'b4',
+    name: 'Té Verde / Negro',
+    price: 1.50,
+    category: 'bebidas',
+    description: 'Selección de tés orgánicos en hebras servidos en tetera individual.',
+    image: '/images/products/Bizcocho.webp', // Add fallback
+    ingredients: ['Té orgánico'],
+    allergens: [],
+    badge: 'INFUSIONES'
+  },
+  {
+    id: 'b5',
+    name: 'Zumo de Naranja Natural',
+    price: 2.20,
+    category: 'bebidas',
+    description: 'Zumo de naranja 100% natural, recién exprimido cada mañana.',
+    image: '/images/products/Bizcocho-Naranja.webp', // Add fallback
+    ingredients: ['Naranjas frescas'],
+    allergens: [],
+    badge: 'REFRESCOS'
+  },
   {
     id: '1',
     name: 'Coca de Mollitas',
