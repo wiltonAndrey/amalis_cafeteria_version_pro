@@ -29,10 +29,10 @@ const Hero: React.FC = () => {
 
       <div className="relative z-10 text-center px-6 max-w-5xl pt-24 md:pt-0">
         <h1
-          className="font-serif text-cream mb-8 leading-tight tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold [text-wrap:balance] [paint-order:stroke_fill] [-webkit-text-stroke:0.6px_rgba(245,239,231,0.18)] [text-shadow:0_3px_14px_rgba(0,0,0,0.38)]"
+          className="font-serif text-cream mb-8 leading-tight tracking-tight text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold [text-wrap:balance]"
         >
           {HERO_CONTENT.title}
-          <span className="block mt-2 text-caramel italic [text-shadow:0_2px_10px_rgba(0,0,0,0.28)]">
+          <span className="block mt-2 text-caramel italic">
             {HERO_CONTENT.highlight}
           </span>
         </h1>

@@ -13,6 +13,14 @@ const ensureGlobalStyles = (): void => {
   document.head.appendChild(link);
 };
 
+const pathname = window.location.pathname;
+const isHomeRoute = pathname === '/' || pathname.endsWith('/index.html');
+const isMenuRoute = pathname === '/carta' || pathname === '/carta/' || pathname.endsWith('/carta/index.html');
+
+if (!isHomeRoute) {
+  ensureGlobalStyles();
+}
+
 window.addEventListener('load', () => ensureGlobalStyles(), { once: true });
 
 const mountApp = async (): Promise<void> => {
@@ -22,8 +30,6 @@ const mountApp = async (): Promise<void> => {
   }
 
   const root = ReactDOM.createRoot(rootElement);
-  const pathname = window.location.pathname;
-  const isHomeRoute = pathname === '/' || pathname.endsWith('/index.html');
 
   if (isHomeRoute) {
     const { default: HomeApp } = await import('./HomeApp');
@@ -35,10 +41,18 @@ const mountApp = async (): Promise<void> => {
     return;
   }
 
-  const [{ BrowserRouter }, { default: App }] = await Promise.all([
-    import('react-router-dom'),
-    import('./App'),
-  ]);
+  if (isMenuRoute) {
+    const { default: MenuApp } = await import('./MenuApp');
+    root.render(
+      <React.StrictMode>
+        <MenuApp />
+      </React.StrictMode>
+    );
+    return;
+  }
+
+  const { BrowserRouter } = await import('react-router-dom');
+  const { default: App } = await import('./App');
 
   root.render(
     <React.StrictMode>

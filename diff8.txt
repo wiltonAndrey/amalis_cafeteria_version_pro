@@ -1,0 +1,386 @@
+﻿diff --git a/src/components/layout/Navbar.tsx b/src/components/layout/Navbar.tsx
+index c0f8ae5..f593803 100644
+--- a/src/components/layout/Navbar.tsx
++++ b/src/components/layout/Navbar.tsx
+@@ -84,10 +84,7 @@ export const Navbar: React.FC = () => {
+         <div className="max-w-7xl mx-auto flex items-center justify-between">
+           <a href="/" onClick={close} className="flex items-center space-x-2 z-[70]">
+             <div className="w-10 h-10 bg-brownie rounded-full flex items-center justify-center text-beige font-serif text-xl font-bold">A</div>
+-            <span
+-              className={`text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors ${isScrolled || isOpen ? 'text-cream' : 'text-white'}`}
+-              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
+-            >
++            <span className={`text-lg sm:text-xl md:text-2xl font-accent font-bold transition-colors ${isScrolled || isOpen ? 'text-cream' : 'text-white'}`}>
+               Amalis <span className="text-caramel">Cafeter├¡a</span>
+             </span>
+           </a>
+@@ -97,7 +94,7 @@ export const Navbar: React.FC = () => {
+               <a key={link.name}
+                 href={link.href}
+                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
+-                className={`font-bold transition-all duration-300 text-sm uppercase tracking-widest relative group active:scale-95 ${isScrolled ? 'text-cream/90' : 'text-white drop-shadow-md'
++                className={`font-medium transition-colors text-sm uppercase tracking-widest relative group ${isScrolled ? 'text-cream/90' : 'text-white/90'
+                   } hover:text-caramel`}
+               >
+                 {link.name}
+@@ -120,7 +117,7 @@ export const Navbar: React.FC = () => {
+ 
+       {/* Drawer */}
+       <div
+-        className={`fixed inset-0 z-[55] md:hidden transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
++        className={`fixed inset-0 z-[55] lg:hidden transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
+         role="dialog"
+         aria-modal="true"
+         aria-label="Men├║ de navegaci├│n"
+@@ -135,7 +132,7 @@ export const Navbar: React.FC = () => {
+               href={link.href}
+               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
+               ref={idx === 0 ? firstLinkRef : null}
+-              className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all active:scale-95 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
++              className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
+               style={{ transitionDelay: `${100 + idx * 75}ms` }}
+             >
+               {link.name}
+diff --git a/src/components/ui/ProductCard.tsx b/src/components/ui/ProductCard.tsx
+index 9beac3e..fb2c0c4 100644
+--- a/src/components/ui/ProductCard.tsx
++++ b/src/components/ui/ProductCard.tsx
+@@ -1,6 +1,6 @@
+ import React from 'react';
+ import { Badge } from './Badge';
+-import { CATEGORY_TRANSLATIONS } from '../../constants';
++import { CATEGORY_TRANSLATIONS } from '../../constants/menu-category-labels';
+ import { MenuProduct, Product } from '../../types';
+ import { getFallbackProductImage } from '../../utils/error-handling';
+ 
+@@ -11,14 +11,62 @@ interface ProductCardProps {
+   onClick?: (product: ProductCardItem) => void;
+   showPrice?: boolean;
+   aspectRatio?: string;
++  priorityImage?: boolean;
++  titleTag?: 'div' | 'h2' | 'h3';
+ }
+ 
+-export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, showPrice = true, aspectRatio = 'aspect-[16/9]' }) => {
++export const ProductCard: React.FC<ProductCardProps> = ({
++  product,
++  onClick,
++  showPrice = true,
++  aspectRatio = 'aspect-[16/9]',
++  priorityImage = false,
++  titleTag = 'h3',
++}) => {
+   const imageUrl = 'imageUrl' in product ? product.imageUrl : product.image;
+-  const imageAlt = 'imageAlt' in product && product.imageAlt ? product.imageAlt : product.name;
++  const imageAlt =
++    ('imageAlt' in product && product.imageAlt)
++      ? product.imageAlt
++      : ('alt_text' in product && product.alt_text)
++        ? product.alt_text
++        : product.name;
+   const priceDisplay = typeof product.price === 'number' ? `${product.price.toFixed(2)} EUR` : product.price;
+   const categoryLabel = CATEGORY_TRANSLATIONS[product.category] || product.category;
+   const isInteractive = Boolean(onClick);
++  const TitleTag = titleTag as React.ElementType;
++  const isJsDom = typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent);
++  const canDeferImage = !isJsDom && typeof window !== 'undefined' && typeof window.IntersectionObserver === 'function';
++  const [shouldLoadImage, setShouldLoadImage] = React.useState(priorityImage || !canDeferImage);
++  const mediaRef = React.useRef<HTMLDivElement | null>(null);
++
++  React.useEffect(() => {
++    if (shouldLoadImage) {
++      return;
++    }
++
++    if (priorityImage || !canDeferImage) {
++      setShouldLoadImage(true);
++      return;
++    }
++
++    const node = mediaRef.current;
++    if (!node) {
++      return;
++    }
++
++    const observer = new IntersectionObserver(
++      ([entry]) => {
++        if (entry.isIntersecting) {
++          setShouldLoadImage(true);
++          observer.disconnect();
++        }
++      },
++      { rootMargin: '0px 0px' }
++    );
++
++    observer.observe(node);
++    return () => observer.disconnect();
++  }, [canDeferImage, priorityImage, shouldLoadImage]);
+ 
+   const handleKeyDown = (event: React.KeyboardEvent) => {
+     if (!isInteractive) return;
+@@ -36,20 +84,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
+       tabIndex={isInteractive ? 0 : undefined}
+       className={`group relative bg-white/[0.03] backdrop-blur-xl rounded-[2rem] overflow-hidden border border-white/10 hover:border-caramel/40 hover:shadow-[0_30px_60px_-15px_rgba(196,167,125,0.25)] transition-all duration-500 h-full flex flex-col hover:-translate-y-2.5 active:scale-[0.98] ${isInteractive ? 'cursor-pointer' : ''}`}
+     >
+-      <div className={`${aspectRatio} overflow-hidden relative`}>
+-        <img
+-          src={imageUrl}
+-          alt={imageAlt}
+-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+-          loading="lazy"
+-          decoding="async"
+-          width={400}
+-          height={300}
+-          onError={(e) => {
+-            const target = e.target as HTMLImageElement;
+-            target.src = getFallbackProductImage();
+-          }}
+-        />
++      <div ref={mediaRef} className={`${aspectRatio} overflow-hidden relative`}>
++        {shouldLoadImage ? (
++          <img
++            src={imageUrl}
++            alt={imageAlt}
++            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
++            loading={priorityImage ? 'eager' : 'lazy'}
++            decoding={priorityImage ? 'sync' : 'async'}
++            fetchPriority={priorityImage ? 'high' : 'auto'}
++            width={400}
++            height={300}
++            onError={(e) => {
++              const target = e.target as HTMLImageElement;
++              target.src = getFallbackProductImage();
++            }}
++          />
++        ) : (
++          <div
++            aria-hidden="true"
++            className="w-full h-full bg-gradient-to-br from-white/10 via-white/5 to-transparent"
++          />
++        )}
+         <div className="absolute top-4 left-4 z-10">
+           <Badge className="bg-espresso/80 backdrop-blur-md border-white/10 text-caramel uppercase tracking-widest text-[10px] py-1 px-3">
+             {('badge' in product && product.badge) ? product.badge : categoryLabel}
+@@ -71,9 +127,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
+ 
+       <div className="p-6 flex flex-col flex-1 bg-gradient-to-b from-transparent to-white/5">
+         <div className="flex justify-between items-start mb-3 gap-4">
+-          <h3 className="text-xl font-serif font-bold text-cream group-hover:text-caramel transition-colors tracking-tight">
++          <TitleTag className="text-xl font-serif font-bold text-cream group-hover:text-caramel transition-colors tracking-tight">
+             {product.name}
+-          </h3>
++          </TitleTag>
+           {showPrice ? <span className="text-caramel font-black text-xl font-serif whitespace-nowrap">{priceDisplay}</span> : null}
+         </div>
+         <p className="text-beige/60 text-sm leading-relaxed flex-grow font-sans font-light">
+diff --git a/src/hooks/useMenuProducts.ts b/src/hooks/useMenuProducts.ts
+index df4ded0..5b14c82 100644
+--- a/src/hooks/useMenuProducts.ts
++++ b/src/hooks/useMenuProducts.ts
+@@ -1,6 +1,8 @@
+ import { useEffect, useMemo, useState } from 'react';
+-import { MENU_CATEGORIES, MENU_PRODUCTS } from '../constants';
++import { MENU_CRITICAL_PRODUCTS } from '../constants/menu-critical';
++import { MENU_SHELL_CATEGORIES } from '../constants/menu-shell';
+ import type { MenuCategoryItem, MenuProduct } from '../types';
++import { normalizeMenuCategories, normalizeMenuProductTaxonomy } from '../utils/menu-taxonomy';
+ 
+ const parseJson = async (response: Response): Promise<any> => {
+   try {
+@@ -11,16 +13,22 @@ const parseJson = async (response: Response): Promise<any> => {
+ };
+ 
+ export const useMenuProducts = () => {
+-  const [menuCategories, setMenuCategories] = useState<MenuCategoryItem[]>(MENU_CATEGORIES);
+-  const [menuProducts, setMenuProducts] = useState<MenuProduct[]>(MENU_PRODUCTS);
++  const [menuCategories, setMenuCategories] = useState<MenuCategoryItem[]>(MENU_SHELL_CATEGORIES);
++  const [menuProducts, setMenuProducts] = useState<MenuProduct[]>(
++    MENU_CRITICAL_PRODUCTS.map((product) => normalizeMenuProductTaxonomy(product as MenuProduct) as MenuProduct)
++  );
+   const [loading, setLoading] = useState(true);
+   const [error, setError] = useState<string | null>(null);
+ 
+   useEffect(() => {
+     let cancelled = false;
++    let frameId: number | null = null;
+ 
+     const load = async () => {
+       if (typeof fetch !== 'function') {
++        setMenuProducts(
++          MENU_CRITICAL_PRODUCTS.map((product) => normalizeMenuProductTaxonomy(product as MenuProduct) as MenuProduct)
++        );
+         setLoading(false);
+         return;
+       }
+@@ -33,19 +41,33 @@ export const useMenuProducts = () => {
+           throw new Error('fetch_failed');
+         }
+ 
++        if (!Array.isArray(data?.menuProducts)) {
++          throw new Error('invalid_payload');
++        }
++
+         if (cancelled) {
+           return;
+         }
+ 
+-        if (Array.isArray(data?.menuCategories) && data.menuCategories.length > 0) {
+-          setMenuCategories(data.menuCategories as MenuCategoryItem[]);
++        if (Array.isArray(data?.menuCategories)) {
++          setMenuCategories(normalizeMenuCategories(data.menuCategories as MenuCategoryItem[]) as MenuCategoryItem[]);
+         }
+ 
+-        if (Array.isArray(data?.menuProducts) && data.menuProducts.length > 0) {
+-          setMenuProducts(data.menuProducts as MenuProduct[]);
+-        }
++        setMenuProducts(
++          (data.menuProducts as MenuProduct[]).map(
++            (product) => normalizeMenuProductTaxonomy(product as MenuProduct) as MenuProduct
++          )
++        );
+       } catch {
+         if (!cancelled) {
++          const { MENU_PRODUCTS: fallbackProducts } = await import('../constants/menu-fallback');
++          if (Array.isArray(fallbackProducts) && fallbackProducts.length > 0) {
++            setMenuProducts(
++              (fallbackProducts as MenuProduct[]).map(
++                (product) => normalizeMenuProductTaxonomy(product as MenuProduct) as MenuProduct
++              )
++            );
++          }
+           setError('cms_unavailable');
+         }
+       } finally {
+@@ -55,9 +77,19 @@ export const useMenuProducts = () => {
+       }
+     };
+ 
+-    void load();
++    if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') {
++      frameId = window.requestAnimationFrame(() => {
++        void load();
++      });
++    } else {
++      void load();
++    }
++
+     return () => {
+       cancelled = true;
++      if (frameId !== null) {
++        window.cancelAnimationFrame(frameId);
++      }
+     };
+   }, []);
+ 
+@@ -71,4 +103,3 @@ export const useMenuProducts = () => {
+     [menuCategories, menuProducts, loading, error]
+   );
+ };
+-
+diff --git a/src/pages/Menu.tsx b/src/pages/Menu.tsx
+index c151a2d..3b69c9f 100644
+--- a/src/pages/Menu.tsx
++++ b/src/pages/Menu.tsx
+@@ -1,10 +1,10 @@
+-import React, { useState, useMemo, useRef, useEffect } from 'react';
++import React, { Suspense, useState, useMemo, useRef, useEffect } from 'react';
+ import { MenuCategory, MenuProduct } from '../types';
+ import { ProductCard } from '../components/ui/ProductCard';
+-import ProductModal from '../components/ProductModal';
+ import { motion, AnimatePresence } from 'framer-motion';
+ import { handleError } from '../utils/error-handling';
+ import { useMenuProducts } from '../hooks/useMenuProducts';
++import { orderMenuProductsForDisplay } from '../utils/menu-display-order';
+ import {
+     BadgeCheck,
+     Cake,
+@@ -19,8 +19,9 @@ import {
+     UtensilsCrossed,
+     type LucideIcon
+ } from 'lucide-react';
++const ProductModal = React.lazy(() => import('../components/ProductModal'));
+ 
+-const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
++const CATEGORY_ICONS: Record<string, LucideIcon> = {
+     all: Star,
+     cocas: Pizza,
+     empanadillas: PieChart,
+@@ -28,13 +29,15 @@ const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
+     bizcochos: Cake,
+     pasteles: UtensilsCrossed,
+     tostadas: Flame,
+-    ofertas: Tag
++    ofertas: Tag,
++    bebidas: Coffee,
++    bolleria_dulce: Cookie,
++    bolleria_salada: Pizza,
++    pasteleria: UtensilsCrossed
+ };
+ 
+-
+-
+ const Menu: React.FC = () => {
+-    const { menuCategories, menuProducts } = useMenuProducts();
++    const { menuCategories, menuProducts, loading } = useMenuProducts();
+     const [activeCategory, setActiveCategory] = useState<MenuCategory>('all');
+     const [selectedProduct, setSelectedProduct] = useState<MenuProduct | null>(null);
+     const [showLeftArrow, setShowLeftArrow] = useState(false);
+@@ -50,9 +53,9 @@ const Menu: React.FC = () => {
+ 
+     const filteredProducts = useMemo(() => {
+         return activeCategory === 'all'
+-            ? menuProducts
++            ? orderMenuProductsForDisplay(menuProducts, menuCategories)
+             : menuProducts.filter(p => p.category === activeCategory);
+-    }, [activeCategory, menuProducts]);
++    }, [activeCategory, menuCategories, menuProducts]);
+ 
+     const handleScroll = () => {
+         if (sliderRef.current) {
+@@ -140,9 +143,9 @@ const Menu: React.FC = () => {
+     }, [activeCategory]);
+ 
+     return (
+-        <div className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)]">
++        <div id="menu-page" className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)]">
+ 
+-            <section className="pt-24 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
++            <section id="menu-page-hero" className="pt-24 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+                 {/* Background Decoration */}
+                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
+                     <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-caramel)]/10 rounded-full blur-[150px]"></div>
+@@ -224,6 +227,7 @@ const Menu: React.FC = () => {
+                         <motion.div
+                             layout
+                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
++                            aria-busy={loading}
+                         >
+                             <AnimatePresence mode="popLayout">
+                                 {filteredProducts.map((product) => (
+@@ -236,7 +240,11 @@ const Menu: React.FC = () => {
+                                         transition={{ duration: 0.4 }}
+                                         className="h-full"
+                                     >
+-                                        <ProductCard product={product} onClick={setSelectedProduct} />
++                                        <ProductCard
++                                            product={product}
++                                            onClick={setSelectedProduct}
++                                            titleTag="h2"
++                                        />
+                                     </motion.div>
+                                 ))}
+                             </AnimatePresence>
+@@ -250,8 +258,11 @@ const Menu: React.FC = () => {
+                     )}
+                 </div>
+             </section>
+-
+-            <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
++            {selectedProduct ? (
++                <Suspense fallback={null}>
++                    <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
++                </Suspense>
++            ) : null}
+ 
+         </div>
+     );

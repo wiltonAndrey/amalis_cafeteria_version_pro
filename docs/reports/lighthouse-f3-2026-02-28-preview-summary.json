@@ -1,0 +1,182 @@
+{
+    "home_mobile":  {
+                        "url":  "http://127.0.0.1:4173/",
+                        "preset":  "mobile",
+                        "runs":  [
+                                     {
+                                         "file":  "home-mobile-run1.json",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcpMs":  1730.26,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     },
+                                     {
+                                         "file":  "home-mobile-run2.json",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcpMs":  1731.41,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     },
+                                     {
+                                         "file":  "home-mobile-run3.json",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcpMs":  1731.63,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     }
+                                 ],
+                        "median":  {
+                                       "performance":  100,
+                                       "accessibility":  100,
+                                       "bestPractices":  100,
+                                       "seo":  100,
+                                       "lcpMs":  1731.41,
+                                       "tbtMs":  0,
+                                       "cls":  0
+                                   }
+                    },
+    "home_desktop":  {
+                         "url":  "http://127.0.0.1:4173/",
+                         "preset":  "desktop",
+                         "runs":  [
+                                      {
+                                          "file":  "home-desktop-run1.json",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcpMs":  532.21,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "file":  "home-desktop-run2.json",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcpMs":  535.02,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "file":  "home-desktop-run3.json",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcpMs":  532.31,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      }
+                                  ],
+                         "median":  {
+                                        "performance":  100,
+                                        "accessibility":  100,
+                                        "bestPractices":  100,
+                                        "seo":  100,
+                                        "lcpMs":  532.31,
+                                        "tbtMs":  0,
+                                        "cls":  0
+                                    }
+                     },
+    "carta_mobile":  {
+                         "url":  "http://127.0.0.1:4173/carta",
+                         "preset":  "mobile",
+                         "runs":  [
+                                      {
+                                          "file":  "carta-mobile-run1.json",
+                                          "performance":  96,
+                                          "accessibility":  95,
+                                          "bestPractices":  96,
+                                          "seo":  92,
+                                          "lcpMs":  2621.18,
+                                          "tbtMs":  5,
+                                          "cls":  0.0107
+                                      },
+                                      {
+                                          "file":  "carta-mobile-run2.json",
+                                          "performance":  0,
+                                          "accessibility":  0,
+                                          "bestPractices":  0,
+                                          "seo":  0,
+                                          "lcpMs":  0,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "file":  "carta-mobile-run3.json",
+                                          "performance":  0,
+                                          "accessibility":  0,
+                                          "bestPractices":  0,
+                                          "seo":  0,
+                                          "lcpMs":  0,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      }
+                                  ],
+                         "median":  {
+                                        "performance":  0,
+                                        "accessibility":  0,
+                                        "bestPractices":  0,
+                                        "seo":  0,
+                                        "lcpMs":  0,
+                                        "tbtMs":  0,
+                                        "cls":  0
+                                    }
+                     },
+    "carta_desktop":  {
+                          "url":  "http://127.0.0.1:4173/carta",
+                          "preset":  "desktop",
+                          "runs":  [
+                                       {
+                                           "file":  "carta-desktop-run1.json",
+                                           "performance":  0,
+                                           "accessibility":  0,
+                                           "bestPractices":  0,
+                                           "seo":  0,
+                                           "lcpMs":  0,
+                                           "tbtMs":  0,
+                                           "cls":  0
+                                       },
+                                       {
+                                           "file":  "carta-desktop-run2.json",
+                                           "performance":  0,
+                                           "accessibility":  0,
+                                           "bestPractices":  0,
+                                           "seo":  0,
+                                           "lcpMs":  0,
+                                           "tbtMs":  0,
+                                           "cls":  0
+                                       },
+                                       {
+                                           "file":  "carta-desktop-run3.json",
+                                           "performance":  0,
+                                           "accessibility":  0,
+                                           "bestPractices":  0,
+                                           "seo":  0,
+                                           "lcpMs":  0,
+                                           "tbtMs":  0,
+                                           "cls":  0
+                                       }
+                                   ],
+                          "median":  {
+                                         "performance":  0,
+                                         "accessibility":  0,
+                                         "bestPractices":  0,
+                                         "seo":  0,
+                                         "lcpMs":  0,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     }
+                      }
+}

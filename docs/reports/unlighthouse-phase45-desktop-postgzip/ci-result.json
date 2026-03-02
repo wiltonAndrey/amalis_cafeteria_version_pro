@@ -1,0 +1,18 @@
+[
+  {
+    "path": "/",
+    "score": 0.96,
+    "performance": 0.83,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 1
+  },
+  {
+    "path": "/carta",
+    "score": 0.95,
+    "performance": 0.81,
+    "accessibility": 1,
+    "best-practices": 1,
+    "seo": 1
+  }
+]

@@ -1,0 +1,186 @@
+﻿{
+    "menu_desktop":  {
+                         "url":  "http://127.0.0.1:4180/carta",
+                         "preset":  "desktop",
+                         "median":  {
+                                        "run":  3,
+                                        "performance":  99,
+                                        "accessibility":  94,
+                                        "best_practices":  100,
+                                        "seo":  100,
+                                        "lcp_ms":  979.21,
+                                        "tbt_ms":  0,
+                                        "cls":  0.006
+                                    },
+                         "runs":  [
+                                      {
+                                          "run":  1,
+                                          "performance":  99,
+                                          "accessibility":  94,
+                                          "best_practices":  100,
+                                          "seo":  100,
+                                          "lcp_ms":  953.97,
+                                          "tbt_ms":  0,
+                                          "cls":  0.006
+                                      },
+                                      {
+                                          "run":  2,
+                                          "performance":  98,
+                                          "accessibility":  94,
+                                          "best_practices":  100,
+                                          "seo":  100,
+                                          "lcp_ms":  1037.98,
+                                          "tbt_ms":  0,
+                                          "cls":  0.006
+                                      },
+                                      {
+                                          "run":  3,
+                                          "performance":  99,
+                                          "accessibility":  94,
+                                          "best_practices":  100,
+                                          "seo":  100,
+                                          "lcp_ms":  979.21,
+                                          "tbt_ms":  0,
+                                          "cls":  0.006
+                                      }
+                                  ]
+                     },
+    "home_desktop":  {
+                         "url":  "http://127.0.0.1:4180/",
+                         "preset":  "desktop",
+                         "median":  {
+                                        "run":  3,
+                                        "performance":  100,
+                                        "accessibility":  100,
+                                        "best_practices":  100,
+                                        "seo":  100,
+                                        "lcp_ms":  765.85,
+                                        "tbt_ms":  0,
+                                        "cls":  0
+                                    },
+                         "runs":  [
+                                      {
+                                          "run":  1,
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "best_practices":  100,
+                                          "seo":  100,
+                                          "lcp_ms":  698.73,
+                                          "tbt_ms":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "run":  2,
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "best_practices":  100,
+                                          "seo":  100,
+                                          "lcp_ms":  766.7,
+                                          "tbt_ms":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "run":  3,
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "best_practices":  100,
+                                          "seo":  100,
+                                          "lcp_ms":  765.85,
+                                          "tbt_ms":  0,
+                                          "cls":  0
+                                      }
+                                  ]
+                     },
+    "menu_mobile":  {
+                        "url":  "http://127.0.0.1:4180/carta",
+                        "preset":  "mobile",
+                        "median":  {
+                                       "run":  3,
+                                       "performance":  81,
+                                       "accessibility":  94,
+                                       "best_practices":  100,
+                                       "seo":  100,
+                                       "lcp_ms":  4579.08,
+                                       "tbt_ms":  1,
+                                       "cls":  0.011
+                                   },
+                        "runs":  [
+                                     {
+                                         "run":  1,
+                                         "performance":  83,
+                                         "accessibility":  94,
+                                         "best_practices":  100,
+                                         "seo":  100,
+                                         "lcp_ms":  4300.89,
+                                         "tbt_ms":  0.5,
+                                         "cls":  0.011
+                                     },
+                                     {
+                                         "run":  2,
+                                         "performance":  81,
+                                         "accessibility":  94,
+                                         "best_practices":  100,
+                                         "seo":  100,
+                                         "lcp_ms":  4579.22,
+                                         "tbt_ms":  0.5,
+                                         "cls":  0.011
+                                     },
+                                     {
+                                         "run":  3,
+                                         "performance":  81,
+                                         "accessibility":  94,
+                                         "best_practices":  100,
+                                         "seo":  100,
+                                         "lcp_ms":  4579.08,
+                                         "tbt_ms":  1,
+                                         "cls":  0.011
+                                     }
+                                 ]
+                    },
+    "home_mobile":  {
+                        "url":  "http://127.0.0.1:4180/",
+                        "preset":  "mobile",
+                        "median":  {
+                                       "run":  3,
+                                       "performance":  93,
+                                       "accessibility":  100,
+                                       "best_practices":  100,
+                                       "seo":  100,
+                                       "lcp_ms":  3078.52,
+                                       "tbt_ms":  0,
+                                       "cls":  0
+                                   },
+                        "runs":  [
+                                     {
+                                         "run":  1,
+                                         "performance":  92,
+                                         "accessibility":  100,
+                                         "best_practices":  100,
+                                         "seo":  100,
+                                         "lcp_ms":  3150.98,
+                                         "tbt_ms":  0,
+                                         "cls":  0
+                                     },
+                                     {
+                                         "run":  2,
+                                         "performance":  93,
+                                         "accessibility":  100,
+                                         "best_practices":  100,
+                                         "seo":  100,
+                                         "lcp_ms":  3078.09,
+                                         "tbt_ms":  0,
+                                         "cls":  0
+                                     },
+                                     {
+                                         "run":  3,
+                                         "performance":  93,
+                                         "accessibility":  100,
+                                         "best_practices":  100,
+                                         "seo":  100,
+                                         "lcp_ms":  3078.52,
+                                         "tbt_ms":  0,
+                                         "cls":  0
+                                     }
+                                 ]
+                    }
+}

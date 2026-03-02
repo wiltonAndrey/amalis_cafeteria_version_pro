@@ -1,6 +1,6 @@
 import React from 'react';
 import { Badge } from './Badge';
-import { CATEGORY_TRANSLATIONS } from '../../constants';
+import { CATEGORY_TRANSLATIONS } from '../../constants/menu-category-labels';
 import { MenuProduct, Product } from '../../types';
 import { getFallbackProductImage } from '../../utils/error-handling';
 
@@ -11,14 +11,62 @@ interface ProductCardProps {
   onClick?: (product: ProductCardItem) => void;
   showPrice?: boolean;
   aspectRatio?: string;
+  priorityImage?: boolean;
+  titleTag?: 'div' | 'h2' | 'h3';
 }
 
-export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, showPrice = true, aspectRatio = 'aspect-[16/9]' }) => {
+export const ProductCard: React.FC<ProductCardProps> = ({
+  product,
+  onClick,
+  showPrice = true,
+  aspectRatio = 'aspect-[16/9]',
+  priorityImage = false,
+  titleTag = 'h3',
+}) => {
   const imageUrl = 'imageUrl' in product ? product.imageUrl : product.image;
-  const imageAlt = 'imageAlt' in product && product.imageAlt ? product.imageAlt : product.name;
+  const imageAlt =
+    ('imageAlt' in product && product.imageAlt)
+      ? product.imageAlt
+      : ('alt_text' in product && product.alt_text)
+        ? product.alt_text
+        : product.name;
   const priceDisplay = typeof product.price === 'number' ? `${product.price.toFixed(2)} EUR` : product.price;
   const categoryLabel = CATEGORY_TRANSLATIONS[product.category] || product.category;
   const isInteractive = Boolean(onClick);
+  const TitleTag = titleTag as React.ElementType;
+  const isJsDom = typeof navigator !== 'undefined' && /jsdom/i.test(navigator.userAgent);
+  const canDeferImage = !isJsDom && typeof window !== 'undefined' && typeof window.IntersectionObserver === 'function';
+  const [shouldLoadImage, setShouldLoadImage] = React.useState(priorityImage || !canDeferImage);
+  const mediaRef = React.useRef<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    if (shouldLoadImage) {
+      return;
+    }
+
+    if (priorityImage || !canDeferImage) {
+      setShouldLoadImage(true);
+      return;
+    }
+
+    const node = mediaRef.current;
+    if (!node) {
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoadImage(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '0px 0px' }
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [canDeferImage, priorityImage, shouldLoadImage]);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (!isInteractive) return;
@@ -36,20 +84,28 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
       tabIndex={isInteractive ? 0 : undefined}
       className={`group relative bg-white/[0.03] backdrop-blur-xl rounded-[2rem] overflow-hidden border border-white/10 hover:border-caramel/40 hover:shadow-[0_30px_60px_-15px_rgba(196,167,125,0.25)] transition-all duration-500 h-full flex flex-col hover:-translate-y-2.5 active:scale-[0.98] ${isInteractive ? 'cursor-pointer' : ''}`}
     >
-      <div className={`${aspectRatio} overflow-hidden relative`}>
-        <img
-          src={imageUrl}
-          alt={imageAlt}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-          loading="lazy"
-          decoding="async"
-          width={400}
-          height={300}
-          onError={(e) => {
-            const target = e.target as HTMLImageElement;
-            target.src = getFallbackProductImage();
-          }}
-        />
+      <div ref={mediaRef} className={`${aspectRatio} overflow-hidden relative`}>
+        {shouldLoadImage ? (
+          <img
+            src={imageUrl}
+            alt={imageAlt}
+            className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+            loading={priorityImage ? 'eager' : 'lazy'}
+            decoding={priorityImage ? 'sync' : 'async'}
+            fetchPriority={priorityImage ? 'high' : 'auto'}
+            width={400}
+            height={300}
+            onError={(e) => {
+              const target = e.target as HTMLImageElement;
+              target.src = getFallbackProductImage();
+            }}
+          />
+        ) : (
+          <div
+            aria-hidden="true"
+            className="w-full h-full bg-gradient-to-br from-white/10 via-white/5 to-transparent"
+          />
+        )}
         <div className="absolute top-4 left-4 z-10">
           <Badge className="bg-espresso/80 backdrop-blur-md border-white/10 text-caramel uppercase tracking-widest text-[10px] py-1 px-3">
             {('badge' in product && product.badge) ? product.badge : categoryLabel}
@@ -71,9 +127,9 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
 
       <div className="p-6 flex flex-col flex-1 bg-gradient-to-b from-transparent to-white/5">
         <div className="flex justify-between items-start mb-3 gap-4">
-          <h3 className="text-xl font-serif font-bold text-cream group-hover:text-caramel transition-colors tracking-tight">
+          <TitleTag className="text-xl font-serif font-bold text-cream group-hover:text-caramel transition-colors tracking-tight">
             {product.name}
-          </h3>
+          </TitleTag>
           {showPrice ? <span className="text-caramel font-black text-xl font-serif whitespace-nowrap">{priceDisplay}</span> : null}
         </div>
         <p className="text-beige/60 text-sm leading-relaxed flex-grow font-sans font-light">

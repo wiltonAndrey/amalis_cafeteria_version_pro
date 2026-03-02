@@ -84,10 +84,7 @@ export const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <a href="/" onClick={close} className="flex items-center space-x-2 z-[70]">
             <div className="w-10 h-10 bg-brownie rounded-full flex items-center justify-center text-beige font-serif text-xl font-bold">A</div>
-            <span
-              className={`text-lg sm:text-xl md:text-2xl font-bold tracking-tight transition-colors ${isScrolled || isOpen ? 'text-cream' : 'text-white'}`}
-              style={{ fontFamily: 'system-ui, -apple-system, "Segoe UI", sans-serif' }}
-            >
+            <span className={`text-lg sm:text-xl md:text-2xl font-accent font-bold transition-colors ${isScrolled || isOpen ? 'text-cream' : 'text-white'}`}>
               Amalis <span className="text-caramel">Cafetería</span>
             </span>
           </a>
@@ -97,7 +94,7 @@ export const Navbar: React.FC = () => {
               <a key={link.name}
                 href={link.href}
                 onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
-                className={`font-bold transition-all duration-300 text-sm uppercase tracking-widest relative group active:scale-95 ${isScrolled ? 'text-cream/90' : 'text-white drop-shadow-md'
+                className={`font-medium transition-colors text-sm uppercase tracking-widest relative group ${isScrolled ? 'text-cream/90' : 'text-white/90'
                   } hover:text-caramel`}
               >
                 {link.name}
@@ -120,7 +117,7 @@ export const Navbar: React.FC = () => {
 
       {/* Drawer */}
       <div
-        className={`fixed inset-0 z-[55] md:hidden transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
+        className={`fixed inset-0 z-[55] lg:hidden transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menú de navegación"
@@ -135,7 +132,7 @@ export const Navbar: React.FC = () => {
               href={link.href}
               onClick={(e: React.MouseEvent<HTMLAnchorElement>) => handleNavClick(e, link.href)}
               ref={idx === 0 ? firstLinkRef : null}
-              className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all active:scale-95 ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
+              className={`block text-4xl font-serif font-bold text-brownie mb-8 transform transition-all ${isOpen ? 'translate-x-0 opacity-100' : 'translate-x-10 opacity-0'}`}
               style={{ transitionDelay: `${100 + idx * 75}ms` }}
             >
               {link.name}

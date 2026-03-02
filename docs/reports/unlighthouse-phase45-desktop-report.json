@@ -1,0 +1,107 @@
+﻿[90m[[90mUnlighthouse[90m][39m [90mD[39m Starting Unlighthouse at root: [36mC:\Users\USUARIO\Downloads\amalis_cafeteria_version_pro-main\amalis_cafeteria_version_pro-main[39m cwd: C:\Users\USUARIO\Downloads\amalis_cafeteria_version_pro-main\amalis_cafeteria_version_pro-main
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Discovered config definition {}
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Unable to locale page files, disabling route discovery.
+[90m[[90mUnlighthouse[90m][39m [36mi[39m Using system Chrome located at: [36mC:\Program Files\Google\Chrome\Application\chrome.exe[39m.
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Testing system Chrome installation.
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Post config resolution { routerPrefix: '/',
+  apiPrefix: '/api',
+  cache: false,
+  client:
+   { groupRoutesKey: 'route.definition.name',
+     columns:
+      { overview: [Array],
+        performance: [Array],
+        accessibility: [Array],
+        'best-practices': [Array],
+        seo: [Array] } },
+  scanner:
+   { customSampling: {},
+     ignoreI18nPages: true,
+     maxRoutes: 200,
+     skipJavascript: false,
+     samples: 3,
+     throttle: true,
+     crawler: true,
+     dynamicSampling: false,
+     sitemap: false,
+     robotsTxt: false,
+     device: 'desktop',
+     exclude: [ '/cdn-cgi/*' ] },
+  server: { port: 5678, showURL: false, open: true },
+  discovery: false,
+  root:
+   'C:\\Users\\USUARIO\\Downloads\\amalis_cafeteria_version_pro-main\\amalis_cafeteria_version_pro-main',
+  outputPath:
+   'C:\\Users\\USUARIO\\Downloads\\amalis_cafeteria_version_pro-main\\amalis_cafeteria_version_pro-main\\docs\\reports\\unlighthouse-phase45-desktop',
+  debug: false,
+  puppeteerOptions:
+   { headless: true,
+     ignoreHTTPSErrors: true,
+     timeout: 0,
+     protocolTimeout: 0,
+     defaultViewport:
+      { mobile: false, width: 1350, height: 940, deviceScaleFactor: 1, disabled: false },
+     executablePath: 'C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe' },
+  puppeteerClusterOptions:
+   { timeout: 300000,
+     monitor: true,
+     workerCreationDelay: 500,
+     retryLimit: 3,
+     maxConcurrency: 8,
+     skipDuplicateUrls: false,
+     retryDelay: 2000,
+     concurrency: 3,
+     puppeteer:
+      PuppeteerNode {
+        _isPuppeteerCore: true,
+        _changedBrowsers: false,
+        connect: [Function: bound bound connect],
+        defaultBrowserRevision: '145.0.7632.77',
+        configuration: [Object],
+        launch: [Function: bound launch],
+        executablePath: [Function: bound executablePath],
+        defaultArgs: [Function: bound defaultArgs],
+        trimCache: [Function: bound trimCache] AsyncFunction } },
+  lighthouseOptions:
+   { onlyCategories: [ 'performance', 'accessibility', 'best-practices', 'seo' ],
+     throttlingMethod: 'simulate',
+     throttling:
+      { rttMs: 150,
+        throughputKbps: 1638.4,
+        requestLatencyMs: 600,
+        downloadThroughputKbps: 1638.4,
+        uploadThroughputKbps: 750,
+        cpuSlowdownMultiplier: 1 },
+     formFactor: 'desktop',
+     screenEmulation:
+      { mobile: false, width: 1350, height: 940, deviceScaleFactor: 1, disabled: false },
+     emulatedUserAgent:
+      'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36' },
+  urls: [ '/', '/carta' ],
+  samples: 3,
+  site: 'http://127.0.0.1:4180',
+  ci:
+   { budget: undefined,
+     buildStatic: false,
+     reporter: 'jsonExpanded',
+     reporterConfig: { lhciHost: undefined, lhciBuildToken: undefined, lhciAuth: undefined } },
+  hooks: { 'resolved-config': [AsyncFunction: resolved-config] },
+  chrome:
+   { useSystem: true,
+     useDownloadFallback: true,
+     downloadFallbackCacheDir: 'C:\\Users\\USUARIO\\.unlighthouse' } }
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Testing Site [36mhttp://127.0.0.1:4180[39m is valid.
+[90m[[90mUnlighthouse[90m][39m [32m√[39m Successfully connected to [36mhttp://127.0.0.1:4180[39m. (Status: [36m200[39m).
+[90m[[90mUnlighthouse[90m][39m [36mi[39m Creating Unlighthouse using config from [36munlighthouse.config[39m
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Setting Unlighthouse Site URL [Site: http://127.0.0.1:4180/]
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Setting Unlighthouse CI Context [Site: http://127.0.0.1:4180]
+[90m[[90mUnlighthouse[90m][39m [90mD[39m [36mcache[39m is disabled, deleting cache folder: [36mC:\Users\USUARIO\Downloads\amalis_cafeteria_version_pro-main\amalis_cafeteria_version_pro-main\docs\reports\unlighthouse-phase45-desktop[39m
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Starting Unlighthouse [Server: N/A Site: http://127.0.0.1:4180 Debug: [36mfalse[39m]
+[90m[[90mUnlighthouse[90m][39m [36mi[39m The [36murl[39m config has been provided with 2 paths for scanning. Disabling sitemap, robots, sampling and crawler.
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Resolved reportable routes 2
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Route has been queued. Path: [36m/[39m Name: _index.
+[90m[[90mUnlighthouse[90m][39m [90mD[39m Route has been queued. Path: [36m/carta[39m Name: carta.
+[90m[[90mUnlighthouse[90m][39m [90mD[39m HTML extract of [36mhttp://127.0.0.1:4180[39m response succeeded.
+[90m[[90mUnlighthouse[90m][39m [90mD[39m HTML extract of [36mhttp://127.0.0.1:4180/carta[39m response succeeded.
+[90m[[90mUnlighthouse[90m][39m [32m√[39m Unlighthouse has finished scanning [36mhttp://127.0.0.1:4180[39m: 2 routes in [36m48s[39m.
+[90m[[90mUnlighthouse[90m][39m [32m√[39m Generated [36mjsonExpanded[39m report [36m./docs/reports/unlighthouse-phase45-desktop/ci-result.json[39m

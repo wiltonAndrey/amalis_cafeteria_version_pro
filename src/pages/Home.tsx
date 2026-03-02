@@ -30,7 +30,7 @@ const DeferredSection: React.FC<DeferredSectionProps> = ({
         if (!node || shouldRender) return;
 
         const isMobile = window.matchMedia('(max-width: 768px)').matches;
-        const rootMargin = isMobile ? '0px' : '480px';
+        const rootMargin = isMobile ? '0px' : '120px';
         const threshold = isMobile ? 0.15 : 0;
 
         const observer = new IntersectionObserver(

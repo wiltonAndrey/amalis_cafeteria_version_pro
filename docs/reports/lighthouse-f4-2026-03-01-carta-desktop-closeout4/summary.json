@@ -1,0 +1,34 @@
+{
+    "generated_at":  "2026-03-01T10:35:48.8059194+01:00",
+    "url":  "http://127.0.0.1:4180/carta",
+    "preset":  "desktop",
+    "runs":  [
+                 {
+                     "run":  1,
+                     "performance":  99,
+                     "lcp_ms":  873.09,
+                     "tbt_ms":  0,
+                     "cls":  0.0060
+                 },
+                 {
+                     "run":  2,
+                     "performance":  100,
+                     "lcp_ms":  817.65,
+                     "tbt_ms":  0,
+                     "cls":  0.0060
+                 },
+                 {
+                     "run":  3,
+                     "performance":  100,
+                     "lcp_ms":  797.05,
+                     "tbt_ms":  0,
+                     "cls":  0.0060
+                 }
+             ],
+    "median":  {
+                   "performance":  100,
+                   "lcp_ms":  817.65,
+                   "tbt_ms":  0,
+                   "cls":  0.0060
+               }
+}

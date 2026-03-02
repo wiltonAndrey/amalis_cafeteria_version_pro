@@ -1,0 +1,98 @@
+[
+  {
+    "label": "home-mobile-1",
+    "perf": 99,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 1903.2468
+  },
+  {
+    "label": "home-mobile-2",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 1696.4755
+  },
+  {
+    "label": "home-mobile-3",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 1669.071
+  },
+  {
+    "label": "home-desktop-1",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 499.66365
+  },
+  {
+    "label": "home-desktop-2",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 457.86764999999997
+  },
+  {
+    "label": "home-desktop-3",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 455.44210000000004
+  },
+  {
+    "label": "carta-mobile-1",
+    "perf": 99,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2144.6862
+  },
+  {
+    "label": "carta-mobile-2",
+    "perf": 99,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2131.71675
+  },
+  {
+    "label": "carta-mobile-3",
+    "perf": 99,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 2131.27155
+  },
+  {
+    "label": "carta-desktop-1",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 549.12925
+  },
+  {
+    "label": "carta-desktop-2",
+    "perf": 100,
+    "acc": 100,
+    "bp": 96,
+    "seo": 100,
+    "lcp": 668.12235
+  },
+  {
+    "label": "carta-desktop-3",
+    "perf": 100,
+    "acc": 100,
+    "bp": 100,
+    "seo": 100,
+    "lcp": 489.26805
+  }
+]

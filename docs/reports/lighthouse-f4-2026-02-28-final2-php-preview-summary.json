@@ -1,0 +1,206 @@
+{
+  "home-mobile": {
+    "runs": [
+      {
+        "file": "home-mobile-1.json",
+        "performance": 92,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 3105.36765,
+        "fcp": 1900.3063750000001,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 1900.3063750000001
+      },
+      {
+        "file": "home-mobile-2.json",
+        "performance": 93,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 3079.07865,
+        "fcp": 1878.3988749999999,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 1878.3988749999999
+      },
+      {
+        "file": "home-mobile-3.json",
+        "performance": 93,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 3078.4473,
+        "fcp": 1877.87275,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 1877.87275
+      }
+    ],
+    "median": {
+      "performance": 93,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": 3079.07865,
+      "fcp": 1878.3988749999999,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 1878.3988749999999
+    }
+  },
+  "home-desktop": {
+    "runs": [
+      {
+        "file": "home-desktop-1.json",
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 771.3285000000001,
+        "fcp": 487.9299500000001,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 536.4595789929152
+      },
+      {
+        "file": "home-desktop-2.json",
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 769.4895000000001,
+        "fcp": 486.64265000000006,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 535.7254487824082
+      },
+      {
+        "file": "home-desktop-3.json",
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 767.6805,
+        "fcp": 485.37635,
+        "tbt": 0,
+        "cls": 0,
+        "speedIndex": 531.761395123756
+      }
+    ],
+    "median": {
+      "performance": 100,
+      "accessibility": 100,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": 769.4895000000001,
+      "fcp": 486.64265000000006,
+      "tbt": 0,
+      "cls": 0,
+      "speedIndex": 535.7254487824082
+    }
+  },
+  "menu-mobile": {
+    "runs": [
+      {
+        "file": "menu-mobile-1.json",
+        "performance": 79,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 5034.222,
+        "fcp": 2254.611,
+        "tbt": 2,
+        "cls": 0.01100180954926509,
+        "speedIndex": 2460.4466452102993
+      },
+      {
+        "file": "menu-mobile-2.json",
+        "performance": 79,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 5083.229,
+        "fcp": 2254.6145,
+        "tbt": 0,
+        "cls": 0.01100180954926509,
+        "speedIndex": 2458.310401675991
+      },
+      {
+        "file": "menu-mobile-3.json",
+        "performance": 79,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 5034.1525,
+        "fcp": 2254.57625,
+        "tbt": 2,
+        "cls": 0.01100180954926509,
+        "speedIndex": 2512.4414135763673
+      }
+    ],
+    "median": {
+      "performance": 79,
+      "accessibility": 94,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": 5034.222,
+      "fcp": 2254.611,
+      "tbt": 2,
+      "cls": 0.01100180954926509,
+      "speedIndex": 2460.4466452102993
+    }
+  },
+  "menu-desktop": {
+    "runs": [
+      {
+        "file": "menu-desktop-1.json",
+        "performance": 98,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 1034.3926000000001,
+        "fcp": 488.99537499999997,
+        "tbt": 0,
+        "cls": 0.006030759423061599,
+        "speedIndex": 926.8124747531534
+      },
+      {
+        "file": "menu-desktop-2.json",
+        "performance": 98,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 1031.7889999999998,
+        "fcp": 487.368125,
+        "tbt": 0,
+        "cls": 0.006030759423061599,
+        "speedIndex": 920.5338585233693
+      },
+      {
+        "file": "menu-desktop-3.json",
+        "performance": 95,
+        "accessibility": 94,
+        "best-practices": 100,
+        "seo": 100,
+        "lcp": 1446.0592000000001,
+        "fcp": 488.78700000000003,
+        "tbt": 0,
+        "cls": 0.006030759423061599,
+        "speedIndex": 844.704104709986
+      }
+    ],
+    "median": {
+      "performance": 98,
+      "accessibility": 94,
+      "best-practices": 100,
+      "seo": 100,
+      "lcp": 1034.3926000000001,
+      "fcp": 488.78700000000003,
+      "tbt": 0,
+      "cls": 0.006030759423061599,
+      "speedIndex": 920.5338585233693
+    }
+  }
+}

@@ -1,10 +1,10 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { Suspense, useState, useMemo, useRef, useEffect } from 'react';
 import { MenuCategory, MenuProduct } from '../types';
 import { ProductCard } from '../components/ui/ProductCard';
-import ProductModal from '../components/ProductModal';
 import { motion, AnimatePresence } from 'framer-motion';
 import { handleError } from '../utils/error-handling';
 import { useMenuProducts } from '../hooks/useMenuProducts';
+import { orderMenuProductsForDisplay } from '../utils/menu-display-order';
 import {
     BadgeCheck,
     Cake,
@@ -19,8 +19,9 @@ import {
     UtensilsCrossed,
     type LucideIcon
 } from 'lucide-react';
+const ProductModal = React.lazy(() => import('../components/ProductModal'));
 
-const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
+const CATEGORY_ICONS: Record<string, LucideIcon> = {
     all: Star,
     cocas: Pizza,
     empanadillas: PieChart,
@@ -28,13 +29,15 @@ const CATEGORY_ICONS: Record<MenuCategory, LucideIcon> = {
     bizcochos: Cake,
     pasteles: UtensilsCrossed,
     tostadas: Flame,
-    ofertas: Tag
+    ofertas: Tag,
+    bebidas: Coffee,
+    bolleria_dulce: Cookie,
+    bolleria_salada: Pizza,
+    pasteleria: UtensilsCrossed
 };
 
-
-
 const Menu: React.FC = () => {
-    const { menuCategories, menuProducts } = useMenuProducts();
+    const { menuCategories, menuProducts, loading } = useMenuProducts();
     const [activeCategory, setActiveCategory] = useState<MenuCategory>('all');
     const [selectedProduct, setSelectedProduct] = useState<MenuProduct | null>(null);
     const [showLeftArrow, setShowLeftArrow] = useState(false);
@@ -50,9 +53,9 @@ const Menu: React.FC = () => {
 
     const filteredProducts = useMemo(() => {
         return activeCategory === 'all'
-            ? menuProducts
+            ? orderMenuProductsForDisplay(menuProducts, menuCategories)
             : menuProducts.filter(p => p.category === activeCategory);
-    }, [activeCategory, menuProducts]);
+    }, [activeCategory, menuCategories, menuProducts]);
 
     const handleScroll = () => {
         if (sliderRef.current) {
@@ -140,9 +143,9 @@ const Menu: React.FC = () => {
     }, [activeCategory]);
 
     return (
-        <div className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)]">
+        <div id="menu-page" className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)]">
 
-            <section className="pt-24 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+            <section id="menu-page-hero" className="pt-24 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-caramel)]/10 rounded-full blur-[150px]"></div>
@@ -224,6 +227,7 @@ const Menu: React.FC = () => {
                         <motion.div
                             layout
                             className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+                            aria-busy={loading}
                         >
                             <AnimatePresence mode="popLayout">
                                 {filteredProducts.map((product) => (
@@ -236,7 +240,11 @@ const Menu: React.FC = () => {
                                         transition={{ duration: 0.4 }}
                                         className="h-full"
                                     >
-                                        <ProductCard product={product} onClick={setSelectedProduct} />
+                                        <ProductCard
+                                            product={product}
+                                            onClick={setSelectedProduct}
+                                            titleTag="h2"
+                                        />
                                     </motion.div>
                                 ))}
                             </AnimatePresence>
@@ -250,8 +258,11 @@ const Menu: React.FC = () => {
                     )}
                 </div>
             </section>
-
-            <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+            {selectedProduct ? (
+                <Suspense fallback={null}>
+                    <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
+                </Suspense>
+            ) : null}
 
         </div>
     );

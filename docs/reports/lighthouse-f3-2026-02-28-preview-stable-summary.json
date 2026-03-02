@@ -1,0 +1,194 @@
+{
+    "home_mobile":  {
+                        "url":  "http://127.0.0.1:4173/",
+                        "preset":  "mobile",
+                        "invalidAttempts":  [
+
+                                            ],
+                        "runs":  [
+                                     {
+                                         "file":  "home-mobile-attempt1.json",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcpMs":  1733.09,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     },
+                                     {
+                                         "file":  "home-mobile-attempt2.json",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcpMs":  1730.9,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     },
+                                     {
+                                         "file":  "home-mobile-attempt3.json",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcpMs":  1730.31,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     }
+                                 ],
+                        "median":  {
+                                       "performance":  100,
+                                       "accessibility":  100,
+                                       "bestPractices":  100,
+                                       "seo":  100,
+                                       "lcpMs":  1730.9,
+                                       "tbtMs":  0,
+                                       "cls":  0
+                                   }
+                    },
+    "home_desktop":  {
+                         "url":  "http://127.0.0.1:4173/",
+                         "preset":  "desktop",
+                         "invalidAttempts":  [
+
+                                             ],
+                         "runs":  [
+                                      {
+                                          "file":  "home-desktop-attempt1.json",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcpMs":  533.15,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "file":  "home-desktop-attempt2.json",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcpMs":  531.2,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      },
+                                      {
+                                          "file":  "home-desktop-attempt3.json",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcpMs":  533.11,
+                                          "tbtMs":  0,
+                                          "cls":  0
+                                      }
+                                  ],
+                         "median":  {
+                                        "performance":  100,
+                                        "accessibility":  100,
+                                        "bestPractices":  100,
+                                        "seo":  100,
+                                        "lcpMs":  533.11,
+                                        "tbtMs":  0,
+                                        "cls":  0
+                                    }
+                     },
+    "carta_mobile":  {
+                         "url":  "http://127.0.0.1:4173/carta",
+                         "preset":  "mobile",
+                         "invalidAttempts":  [
+
+                                             ],
+                         "runs":  [
+                                      {
+                                          "file":  "carta-mobile-attempt1.json",
+                                          "performance":  85,
+                                          "accessibility":  95,
+                                          "bestPractices":  96,
+                                          "seo":  100,
+                                          "lcpMs":  4176.09,
+                                          "tbtMs":  6.5,
+                                          "cls":  0.0107
+                                      },
+                                      {
+                                          "file":  "carta-mobile-attempt2.json",
+                                          "performance":  87,
+                                          "accessibility":  95,
+                                          "bestPractices":  96,
+                                          "seo":  100,
+                                          "lcpMs":  4073.65,
+                                          "tbtMs":  4,
+                                          "cls":  0.0107
+                                      },
+                                      {
+                                          "file":  "carta-mobile-attempt3.json",
+                                          "performance":  85,
+                                          "accessibility":  95,
+                                          "bestPractices":  96,
+                                          "seo":  100,
+                                          "lcpMs":  4251.04,
+                                          "tbtMs":  7,
+                                          "cls":  0.0107
+                                      }
+                                  ],
+                         "median":  {
+                                        "performance":  85,
+                                        "accessibility":  95,
+                                        "bestPractices":  96,
+                                        "seo":  100,
+                                        "lcpMs":  4176.09,
+                                        "tbtMs":  6.5,
+                                        "cls":  0.0107
+                                    }
+                     },
+    "carta_desktop":  {
+                          "url":  "http://127.0.0.1:4173/carta",
+                          "preset":  "desktop",
+                          "invalidAttempts":  [
+
+                                              ],
+                          "runs":  [
+                                       {
+                                           "file":  "carta-desktop-attempt1.json",
+                                           "performance":  99,
+                                           "accessibility":  95,
+                                           "bestPractices":  96,
+                                           "seo":  100,
+                                           "lcpMs":  919.29,
+                                           "tbtMs":  0,
+                                           "cls":  0
+                                       },
+                                       {
+                                           "file":  "carta-desktop-attempt2.json",
+                                           "performance":  99,
+                                           "accessibility":  95,
+                                           "bestPractices":  96,
+                                           "seo":  100,
+                                           "lcpMs":  919.17,
+                                           "tbtMs":  0,
+                                           "cls":  0
+                                       },
+                                       {
+                                           "file":  "carta-desktop-attempt3.json",
+                                           "performance":  99,
+                                           "accessibility":  95,
+                                           "bestPractices":  96,
+                                           "seo":  100,
+                                           "lcpMs":  923.38,
+                                           "tbtMs":  0,
+                                           "cls":  0
+                                       }
+                                   ],
+                          "median":  {
+                                         "performance":  99,
+                                         "accessibility":  95,
+                                         "bestPractices":  96,
+                                         "seo":  100,
+                                         "lcpMs":  919.29,
+                                         "tbtMs":  0,
+                                         "cls":  0
+                                     }
+                      }
+}

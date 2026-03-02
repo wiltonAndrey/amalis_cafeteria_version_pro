@@ -30,13 +30,27 @@ export interface GalleryItem {
 }
 
 // Menu Specific Types
-export type MenuCategory = 'all' | 'cocas' | 'empanadillas' | 'bolleria' | 'bizcochos' | 'pasteles' | 'tostadas' | 'ofertas';
+export type MenuCategory =
+  | 'all'
+  | 'tostadas'
+  | 'bolleria_dulce'
+  | 'bolleria_salada'
+  | 'pasteleria'
+  | 'ofertas'
+  | 'bebidas'
+  | 'cocas'
+  | 'empanadillas'
+  | 'bolleria'
+  | 'bizcochos'
+  | 'pasteles'
+  | (string & {});
 
 export interface MenuProduct {
   id: string;
   name: string;
   price: number;
   category: MenuCategory;
+  subcategory?: string | null;
   description: string;
   image: string;
   alt_text?: string;
@@ -49,6 +63,9 @@ export interface MenuProduct {
 export interface MenuCategoryItem {
   id: MenuCategory;
   label: string;
+  sort_order?: number;
+  active?: boolean;
+  visible_in_menu?: boolean;
 }
 
 export interface PromotionCard {

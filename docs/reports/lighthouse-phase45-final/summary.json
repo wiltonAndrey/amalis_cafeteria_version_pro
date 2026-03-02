@@ -1,0 +1,246 @@
+﻿[
+    {
+        "combo":  "home-mobile",
+        "runs":  [
+                     {
+                         "combo":  "home-mobile",
+                         "run":  1,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-mobile-run1.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-mobile-run1.report.html",
+                         "performance":  99,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  1660.49,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  1510.49,
+                         "speedIndexMs":  1510.49
+                     },
+                     {
+                         "combo":  "home-mobile",
+                         "run":  2,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-mobile-run2.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-mobile-run2.report.html",
+                         "performance":  99,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  1659.23,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  1509.23,
+                         "speedIndexMs":  1509.23
+                     },
+                     {
+                         "combo":  "home-mobile",
+                         "run":  3,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-mobile-run3.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-mobile-run3.report.html",
+                         "performance":  99,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  1659.79,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  1509.79,
+                         "speedIndexMs":  1509.79
+                     }
+                 ],
+        "median":  {
+                       "performance":  99,
+                       "accessibility":  100,
+                       "bestPractices":  100,
+                       "seo":  100,
+                       "lcpMs":  1659.79,
+                       "tbtMs":  0,
+                       "cls":  0,
+                       "fcpMs":  1509.79,
+                       "speedIndexMs":  1509.79
+                   }
+    },
+    {
+        "combo":  "home-desktop",
+        "runs":  [
+                     {
+                         "combo":  "home-desktop",
+                         "run":  1,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-desktop-run1.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-desktop-run1.report.html",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  457.10,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  372.58,
+                         "speedIndexMs":  372.58
+                     },
+                     {
+                         "combo":  "home-desktop",
+                         "run":  2,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-desktop-run2.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-desktop-run2.report.html",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  456.77,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  372.31,
+                         "speedIndexMs":  372.31
+                     },
+                     {
+                         "combo":  "home-desktop",
+                         "run":  3,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-desktop-run3.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-home-desktop-run3.report.html",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  455.33,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  371.44,
+                         "speedIndexMs":  371.44
+                     }
+                 ],
+        "median":  {
+                       "performance":  100,
+                       "accessibility":  100,
+                       "bestPractices":  100,
+                       "seo":  100,
+                       "lcpMs":  456.77,
+                       "tbtMs":  0,
+                       "cls":  0,
+                       "fcpMs":  372.31,
+                       "speedIndexMs":  372.31
+                   }
+    },
+    {
+        "combo":  "menu-mobile",
+        "runs":  [
+                     {
+                         "combo":  "menu-mobile",
+                         "run":  1,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-mobile-run1.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-mobile-run1.report.html",
+                         "performance":  99,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  2122.11,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  1514.74,
+                         "speedIndexMs":  1514.74
+                     },
+                     {
+                         "combo":  "menu-mobile",
+                         "run":  2,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-mobile-run2.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-mobile-run2.report.html",
+                         "performance":  99,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  1667.43,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  1517.43,
+                         "speedIndexMs":  1517.43
+                     },
+                     {
+                         "combo":  "menu-mobile",
+                         "run":  3,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-mobile-run3.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-mobile-run3.report.html",
+                         "performance":  99,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  2121.40,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  1364.27,
+                         "speedIndexMs":  1364.27
+                     }
+                 ],
+        "median":  {
+                       "performance":  99,
+                       "accessibility":  100,
+                       "bestPractices":  100,
+                       "seo":  100,
+                       "lcpMs":  2121.4,
+                       "tbtMs":  0,
+                       "cls":  0,
+                       "fcpMs":  1514.74,
+                       "speedIndexMs":  1514.74
+                   }
+    },
+    {
+        "combo":  "menu-desktop",
+        "runs":  [
+                     {
+                         "combo":  "menu-desktop",
+                         "run":  1,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-desktop-run1.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-desktop-run1.report.html",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  542.32,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  334.88,
+                         "speedIndexMs":  334.88
+                     },
+                     {
+                         "combo":  "menu-desktop",
+                         "run":  2,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-desktop-run2.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-desktop-run2.report.html",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  376.16,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  336.16,
+                         "speedIndexMs":  336.16
+                     },
+                     {
+                         "combo":  "menu-desktop",
+                         "run":  3,
+                         "json":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-desktop-run3.report.json",
+                         "html":  "docs\\reports\\lighthouse-phase45-final\\phase45-final-menu-desktop-run3.report.html",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "bestPractices":  100,
+                         "seo":  100,
+                         "lcpMs":  375.68,
+                         "tbtMs":  0,
+                         "cls":  0,
+                         "fcpMs":  335.68,
+                         "speedIndexMs":  335.68
+                     }
+                 ],
+        "median":  {
+                       "performance":  100,
+                       "accessibility":  100,
+                       "bestPractices":  100,
+                       "seo":  100,
+                       "lcpMs":  376.16,
+                       "tbtMs":  0,
+                       "cls":  0,
+                       "fcpMs":  335.68,
+                       "speedIndexMs":  335.68
+                   }
+    }
+]

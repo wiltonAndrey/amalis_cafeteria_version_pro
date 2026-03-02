@@ -1,0 +1,218 @@
+﻿[
+    {
+        "key":  "home-mobile",
+        "url":  "/",
+        "device":  "mobile",
+        "runs":  [
+                     {
+                         "file":  "home-mobile-run1.json",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  1733.13,
+                         "tbt_ms":  0,
+                         "cls":  0,
+                         "fcp_ms":  1206.78,
+                         "si_ms":  1206.78
+                     },
+                     {
+                         "file":  "home-mobile-run2.json",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  1731.55,
+                         "tbt_ms":  0,
+                         "cls":  0,
+                         "fcp_ms":  1205.46,
+                         "si_ms":  1205.46
+                     },
+                     {
+                         "file":  "home-mobile-run3.json",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  1731.79,
+                         "tbt_ms":  0,
+                         "cls":  0,
+                         "fcp_ms":  1205.66,
+                         "si_ms":  1205.66
+                     }
+                 ],
+        "median":  {
+                       "performance":  100,
+                       "accessibility":  100,
+                       "best_practices":  100,
+                       "seo":  100,
+                       "lcp_ms":  1731.79,
+                       "tbt_ms":  0,
+                       "cls":  0,
+                       "fcp_ms":  1205.66,
+                       "si_ms":  1205.66
+                   }
+    },
+    {
+        "key":  "home-desktop",
+        "url":  "/",
+        "device":  "desktop",
+        "runs":  [
+                     {
+                         "file":  "home-desktop-run1.json",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  535.33,
+                         "tbt_ms":  0,
+                         "cls":  0,
+                         "fcp_ms":  370.73,
+                         "si_ms":  370.73
+                     },
+                     {
+                         "file":  "home-desktop-run2.json",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  539.13,
+                         "tbt_ms":  0,
+                         "cls":  0,
+                         "fcp_ms":  373.39,
+                         "si_ms":  373.39
+                     },
+                     {
+                         "file":  "home-desktop-run3.json",
+                         "performance":  100,
+                         "accessibility":  100,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  515.71,
+                         "tbt_ms":  0,
+                         "cls":  0,
+                         "fcp_ms":  351,
+                         "si_ms":  351
+                     }
+                 ],
+        "median":  {
+                       "performance":  100,
+                       "accessibility":  100,
+                       "best_practices":  100,
+                       "seo":  100,
+                       "lcp_ms":  535.33,
+                       "tbt_ms":  0,
+                       "cls":  0,
+                       "fcp_ms":  370.73,
+                       "si_ms":  370.73
+                   }
+    },
+    {
+        "key":  "carta-mobile",
+        "url":  "/carta",
+        "device":  "mobile",
+        "runs":  [
+                     {
+                         "file":  "carta-mobile-run1.json",
+                         "performance":  59,
+                         "accessibility":  95,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  5757.45,
+                         "tbt_ms":  30,
+                         "cls":  0.4327,
+                         "fcp_ms":  1586.35,
+                         "si_ms":  2776.9
+                     },
+                     {
+                         "file":  "carta-mobile-run2.json",
+                         "performance":  59,
+                         "accessibility":  95,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  5756.47,
+                         "tbt_ms":  32.5,
+                         "cls":  0.434,
+                         "fcp_ms":  1509.36,
+                         "si_ms":  2719.37
+                     },
+                     {
+                         "file":  "carta-mobile-run3.json",
+                         "performance":  65,
+                         "accessibility":  95,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  4899.78,
+                         "tbt_ms":  27,
+                         "cls":  0.3286,
+                         "fcp_ms":  1663.34,
+                         "si_ms":  2675.11
+                     }
+                 ],
+        "median":  {
+                       "performance":  59,
+                       "accessibility":  95,
+                       "best_practices":  100,
+                       "seo":  100,
+                       "lcp_ms":  5756.47,
+                       "tbt_ms":  30,
+                       "cls":  0.4327,
+                       "fcp_ms":  1586.35,
+                       "si_ms":  2719.37
+                   }
+    },
+    {
+        "key":  "carta-desktop",
+        "url":  "/carta",
+        "device":  "desktop",
+        "runs":  [
+                     {
+                         "file":  "carta-desktop-run1.json",
+                         "performance":  86,
+                         "accessibility":  95,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  1062.74,
+                         "tbt_ms":  0,
+                         "cls":  0.2471,
+                         "fcp_ms":  396.92,
+                         "si_ms":  709.03
+                     },
+                     {
+                         "file":  "carta-desktop-run2.json",
+                         "performance":  86,
+                         "accessibility":  95,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  1083.16,
+                         "tbt_ms":  0,
+                         "cls":  0.2469,
+                         "fcp_ms":  416.21,
+                         "si_ms":  725.59
+                     },
+                     {
+                         "file":  "carta-desktop-run3.json",
+                         "performance":  81,
+                         "accessibility":  95,
+                         "best_practices":  100,
+                         "seo":  100,
+                         "lcp_ms":  1070.69,
+                         "tbt_ms":  0,
+                         "cls":  0.3411,
+                         "fcp_ms":  401.35,
+                         "si_ms":  749.54
+                     }
+                 ],
+        "median":  {
+                       "performance":  86,
+                       "accessibility":  95,
+                       "best_practices":  100,
+                       "seo":  100,
+                       "lcp_ms":  1070.69,
+                       "tbt_ms":  0,
+                       "cls":  0.2471,
+                       "fcp_ms":  401.35,
+                       "si_ms":  725.59
+                   }
+    }
+]

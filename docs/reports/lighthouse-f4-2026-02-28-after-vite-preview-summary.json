@@ -1,0 +1,190 @@
+﻿{
+    "menu-desktop":  {
+                         "runs":  [
+                                      {
+                                          "name":  "menu-desktop-1",
+                                          "performance":  83.00,
+                                          "accessibility":  95.00,
+                                          "bestPractices":  96.00,
+                                          "seo":  100,
+                                          "lcp":  934.76,
+                                          "tbt":  0,
+                                          "cls":  0.3115,
+                                          "errorsInConsole":  0
+                                      },
+                                      {
+                                          "name":  "menu-desktop-2",
+                                          "performance":  84.00,
+                                          "accessibility":  95.00,
+                                          "bestPractices":  96.00,
+                                          "seo":  100,
+                                          "lcp":  770.06,
+                                          "tbt":  0,
+                                          "cls":  0.3115,
+                                          "errorsInConsole":  0
+                                      },
+                                      {
+                                          "name":  "menu-desktop-3",
+                                          "performance":  84.00,
+                                          "accessibility":  95.00,
+                                          "bestPractices":  96.00,
+                                          "seo":  100,
+                                          "lcp":  833.89,
+                                          "tbt":  0,
+                                          "cls":  0.3115,
+                                          "errorsInConsole":  0
+                                      }
+                                  ],
+                         "median":  {
+                                        "performance":  84.00,
+                                        "accessibility":  95.00,
+                                        "bestPractices":  96.00,
+                                        "seo":  100,
+                                        "lcp":  833.89,
+                                        "tbt":  0,
+                                        "cls":  0.3115,
+                                        "errorsInConsole":  0
+                                    }
+                     },
+    "home-mobile":  {
+                        "runs":  [
+                                     {
+                                         "name":  "home-mobile-1",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcp":  1730.96,
+                                         "tbt":  0,
+                                         "cls":  0,
+                                         "errorsInConsole":  1
+                                     },
+                                     {
+                                         "name":  "home-mobile-2",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcp":  1732.35,
+                                         "tbt":  0,
+                                         "cls":  0,
+                                         "errorsInConsole":  1
+                                     },
+                                     {
+                                         "name":  "home-mobile-3",
+                                         "performance":  100,
+                                         "accessibility":  100,
+                                         "bestPractices":  100,
+                                         "seo":  100,
+                                         "lcp":  1731.41,
+                                         "tbt":  0,
+                                         "cls":  0,
+                                         "errorsInConsole":  1
+                                     }
+                                 ],
+                        "median":  {
+                                       "performance":  100,
+                                       "accessibility":  100,
+                                       "bestPractices":  100,
+                                       "seo":  100,
+                                       "lcp":  1731.41,
+                                       "tbt":  0,
+                                       "cls":  0,
+                                       "errorsInConsole":  1
+                                   }
+                    },
+    "menu-mobile":  {
+                        "runs":  [
+                                     {
+                                         "name":  "menu-mobile-1",
+                                         "performance":  64.00,
+                                         "accessibility":  95.00,
+                                         "bestPractices":  96.00,
+                                         "seo":  100,
+                                         "lcp":  4060.34,
+                                         "tbt":  0,
+                                         "cls":  0.5929,
+                                         "errorsInConsole":  0
+                                     },
+                                     {
+                                         "name":  "menu-mobile-2",
+                                         "performance":  64.00,
+                                         "accessibility":  95.00,
+                                         "bestPractices":  96.00,
+                                         "seo":  100,
+                                         "lcp":  4059.93,
+                                         "tbt":  0,
+                                         "cls":  0.5929,
+                                         "errorsInConsole":  0
+                                     },
+                                     {
+                                         "name":  "menu-mobile-3",
+                                         "performance":  65.00,
+                                         "accessibility":  95.00,
+                                         "bestPractices":  96.00,
+                                         "seo":  100,
+                                         "lcp":  3986.37,
+                                         "tbt":  0,
+                                         "cls":  0.5929,
+                                         "errorsInConsole":  0
+                                     }
+                                 ],
+                        "median":  {
+                                       "performance":  64.00,
+                                       "accessibility":  95.00,
+                                       "bestPractices":  96.00,
+                                       "seo":  100,
+                                       "lcp":  4059.93,
+                                       "tbt":  0,
+                                       "cls":  0.5929,
+                                       "errorsInConsole":  0
+                                   }
+                    },
+    "home-desktop":  {
+                         "runs":  [
+                                      {
+                                          "name":  "home-desktop-1",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcp":  531.23,
+                                          "tbt":  0,
+                                          "cls":  0,
+                                          "errorsInConsole":  1
+                                      },
+                                      {
+                                          "name":  "home-desktop-2",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcp":  531.40,
+                                          "tbt":  0,
+                                          "cls":  0,
+                                          "errorsInConsole":  1
+                                      },
+                                      {
+                                          "name":  "home-desktop-3",
+                                          "performance":  100,
+                                          "accessibility":  100,
+                                          "bestPractices":  100,
+                                          "seo":  100,
+                                          "lcp":  531.68,
+                                          "tbt":  0,
+                                          "cls":  0,
+                                          "errorsInConsole":  1
+                                      }
+                                  ],
+                         "median":  {
+                                        "performance":  100,
+                                        "accessibility":  100,
+                                        "bestPractices":  100,
+                                        "seo":  100,
+                                        "lcp":  531.40,
+                                        "tbt":  0,
+                                        "cls":  0,
+                                        "errorsInConsole":  1
+                                    }
+                     }
+}

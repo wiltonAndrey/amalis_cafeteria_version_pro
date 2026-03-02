@@ -1,0 +1,552 @@
+- generic [ref=e1]:
+  - generic [ref=e3]:
+    - link "Saltar al contenido principal" [ref=e4] [cursor=pointer]:
+      - /url: "#main-content"
+    - banner [ref=e5]:
+      - generic [ref=e6]:
+        - link "A Amalis Cafetería" [ref=e7] [cursor=pointer]:
+          - /url: /
+          - generic [ref=e8]: A
+          - generic [ref=e9]: Amalis Cafetería
+        - button "Abrir menú" [ref=e11]
+    - main [ref=e16]:
+      - generic [ref=e20]:
+        - generic [ref=e22]:
+          - generic [ref=e23]:
+            - generic [ref=e24]:
+              - img [ref=e25]
+              - text: Artesanos de Santa Pola
+            - heading "Nuestra Carta" [level=1] [ref=e28]
+          - navigation "Categorías del menú" [ref=e29]:
+            - generic [ref=e30]:
+              - button "Todos" [pressed] [ref=e31] [cursor=pointer]:
+                - generic [ref=e33]:
+                  - img [ref=e34]
+                  - generic [ref=e36]: Todos
+              - button "Tostadas" [ref=e37] [cursor=pointer]:
+                - generic [ref=e38]:
+                  - img [ref=e39]
+                  - generic [ref=e41]: Tostadas
+              - button "Bollería Dulce" [ref=e42] [cursor=pointer]:
+                - generic [ref=e43]:
+                  - img [ref=e44]
+                  - generic [ref=e46]: Bollería Dulce
+              - button "Bollería Salada" [ref=e47] [cursor=pointer]:
+                - generic [ref=e48]:
+                  - img [ref=e49]
+                  - generic [ref=e55]: Bollería Salada
+              - button "Pastelería" [ref=e56] [cursor=pointer]:
+                - generic [ref=e57]:
+                  - img [ref=e58]
+                  - generic [ref=e61]: Pastelería
+              - button "Ofertas" [ref=e62] [cursor=pointer]:
+                - generic [ref=e63]:
+                  - img [ref=e64]
+                  - generic [ref=e67]: Ofertas
+        - generic [ref=e70]:
+          - button "Media tostada rústica con tomate natural triturado, atún y aceite de oliva virgen en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Atún, Aceite y Tomate 3.35 EUR Media tostada de pan rústico con aceite de oliva, tomate triturado y atún. Una opción mediterránea, saciante y muy práctica para desayuno o almuerzo." [ref=e72] [cursor=pointer]:
+            - generic [ref=e73]:
+              - img "Media tostada rústica con tomate natural triturado, atún y aceite de oliva virgen en Amalis Cafetería." [ref=e74]
+              - generic [ref=e75]: Tostadas
+              - generic [ref=e77]:
+                - img [ref=e78]
+                - generic [ref=e81]: Ver detalles
+            - generic [ref=e82]:
+              - generic [ref=e83]:
+                - heading "½ Tostada de Atún, Aceite y Tomate" [level=3] [ref=e84]
+                - generic [ref=e85]: 3.35 EUR
+              - paragraph [ref=e86]: Media tostada de pan rústico con aceite de oliva, tomate triturado y atún. Una opción mediterránea, saciante y muy práctica para desayuno o almuerzo.
+          - button "Media tostada de pan rústico con queso fresco y aceite de oliva en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Queso Fresco y Aceite 2.55 EUR Media tostada de pan crujiente con queso fresco y aceite de oliva virgen. Una opción ligera, suave y equilibrada para empezar la mañana." [ref=e88] [cursor=pointer]:
+            - generic [ref=e89]:
+              - img "Media tostada de pan rústico con queso fresco y aceite de oliva en Amalis Cafetería." [ref=e90]
+              - generic [ref=e91]: Tostadas
+              - generic [ref=e93]:
+                - img [ref=e94]
+                - generic [ref=e97]: Ver detalles
+            - generic [ref=e98]:
+              - generic [ref=e99]:
+                - heading "½ Tostada de Queso Fresco y Aceite" [level=3] [ref=e100]
+                - generic [ref=e101]: 2.55 EUR
+              - paragraph [ref=e102]: Media tostada de pan crujiente con queso fresco y aceite de oliva virgen. Una opción ligera, suave y equilibrada para empezar la mañana.
+          - button "Media tostada clásica de pan rústico bañada en aceite de oliva en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Aceite de Oliva 1.35 EUR Media tostada de pan rústico recién tostado con aceite de oliva. Una opción sencilla y reconfortante para quienes disfrutan de sabores clásicos." [ref=e104] [cursor=pointer]:
+            - generic [ref=e105]:
+              - img "Media tostada clásica de pan rústico bañada en aceite de oliva en Amalis Cafetería." [ref=e106]
+              - generic [ref=e107]: Tostadas
+              - generic [ref=e109]:
+                - img [ref=e110]
+                - generic [ref=e113]: Ver detalles
+            - generic [ref=e114]:
+              - generic [ref=e115]:
+                - heading "½ Tostada de Aceite de Oliva" [level=3] [ref=e116]
+                - generic [ref=e117]: 1.35 EUR
+              - paragraph [ref=e118]: Media tostada de pan rústico recién tostado con aceite de oliva. Una opción sencilla y reconfortante para quienes disfrutan de sabores clásicos.
+          - button "Media tostada rústica clásica con jamón york, queso y aceite de oliva en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Jamón York y Queso 3.15 EUR Media tostada de pan crujiente con aceite de oliva, jamón york y queso. Un clásico salado, cómodo y sabroso para empezar la mañana o hacer una pausa." [ref=e120] [cursor=pointer]:
+            - generic [ref=e121]:
+              - img "Media tostada rústica clásica con jamón york, queso y aceite de oliva en Amalis Cafetería." [ref=e122]
+              - generic [ref=e123]: Tostadas
+              - generic [ref=e125]:
+                - img [ref=e126]
+                - generic [ref=e129]: Ver detalles
+            - generic [ref=e130]:
+              - generic [ref=e131]:
+                - heading "½ Tostada de Jamón York y Queso" [level=3] [ref=e132]
+                - generic [ref=e133]: 3.15 EUR
+              - paragraph [ref=e134]: Media tostada de pan crujiente con aceite de oliva, jamón york y queso. Un clásico salado, cómodo y sabroso para empezar la mañana o hacer una pausa.
+          - button "Media tostada rústica tostada con aceite de oliva, jamón serrano y queso en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Jamón Serrano y Queso 3.35 EUR Media tostada de pan rústico con aceite de oliva, jamón serrano y queso. Una opción con más intensidad de sabor para desayunos y almuerzos salados." [ref=e136] [cursor=pointer]:
+            - generic [ref=e137]:
+              - img "Media tostada rústica tostada con aceite de oliva, jamón serrano y queso en Amalis Cafetería." [ref=e138]
+              - generic [ref=e139]: Tostadas
+              - generic [ref=e141]:
+                - img [ref=e142]
+                - generic [ref=e145]: Ver detalles
+            - generic [ref=e146]:
+              - generic [ref=e147]:
+                - heading "½ Tostada de Jamón Serrano y Queso" [level=3] [ref=e148]
+                - generic [ref=e149]: 3.35 EUR
+              - paragraph [ref=e150]: Media tostada de pan rústico con aceite de oliva, jamón serrano y queso. Una opción con más intensidad de sabor para desayunos y almuerzos salados.
+          - button "Media tostada rústica catalana con tomate natural triturado, aceite de oliva y jamón serrano en Amalis Cafetería. Tostadas Ver detalles ½ Tostada Catalana 3.25 EUR Pan rústico tostado con tomate natural, aceite de oliva y jamón serrano. Una tostada sencilla y muy sabrosa para desayuno o almuerzo." [ref=e152] [cursor=pointer]:
+            - generic [ref=e153]:
+              - img "Media tostada rústica catalana con tomate natural triturado, aceite de oliva y jamón serrano en Amalis Cafetería." [ref=e154]
+              - generic [ref=e155]: Tostadas
+              - generic [ref=e157]:
+                - img [ref=e158]
+                - generic [ref=e161]: Ver detalles
+            - generic [ref=e162]:
+              - generic [ref=e163]:
+                - heading "½ Tostada Catalana" [level=3] [ref=e164]
+                - generic [ref=e165]: 3.25 EUR
+              - paragraph [ref=e166]: Pan rústico tostado con tomate natural, aceite de oliva y jamón serrano. Una tostada sencilla y muy sabrosa para desayuno o almuerzo.
+          - button "Media tostada de pan rústico con tomate natural triturado y aceite de oliva en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Tomate y Aceite de Oliva 2.15 EUR Media tostada de pan crujiente con tomate natural triturado y aceite de oliva. Ligera, jugosa y muy buena para un desayuno mediterráneo." [ref=e168] [cursor=pointer]:
+            - generic [ref=e169]:
+              - img "Media tostada de pan rústico con tomate natural triturado y aceite de oliva en Amalis Cafetería." [ref=e170]
+              - generic [ref=e171]: Tostadas
+              - generic [ref=e173]:
+                - img [ref=e174]
+                - generic [ref=e177]: Ver detalles
+            - generic [ref=e178]:
+              - generic [ref=e179]:
+                - heading "½ Tostada de Tomate y Aceite de Oliva" [level=3] [ref=e180]
+                - generic [ref=e181]: 2.15 EUR
+              - paragraph [ref=e182]: Media tostada de pan crujiente con tomate natural triturado y aceite de oliva. Ligera, jugosa y muy buena para un desayuno mediterráneo.
+          - button "Media tostada dulce clásica con pan rústico, mantequilla y mermelada en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Mantequilla y Mermelada 1.70 EUR Media tostada caliente con mantequilla y mermelada, un clásico dulce de desayuno. El pan crujiente y la mantequilla fundida hacen una combinación sencilla que siempre funciona." [ref=e184] [cursor=pointer]:
+            - generic [ref=e185]:
+              - img "Media tostada dulce clásica con pan rústico, mantequilla y mermelada en Amalis Cafetería." [ref=e186]
+              - generic [ref=e187]: Tostadas
+              - generic [ref=e189]:
+                - img [ref=e190]
+                - generic [ref=e193]: Ver detalles
+            - generic [ref=e194]:
+              - generic [ref=e195]:
+                - heading "½ Tostada de Mantequilla y Mermelada" [level=3] [ref=e196]
+                - generic [ref=e197]: 1.70 EUR
+              - paragraph [ref=e198]: Media tostada caliente con mantequilla y mermelada, un clásico dulce de desayuno. El pan crujiente y la mantequilla fundida hacen una combinación sencilla que siempre funciona.
+          - button "Media tostada rústica clásica con suave mantequilla fundida en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Mantequilla 1.75 EUR Media tostada de pan rústico con mantequilla fundida. Sencilla, dorada y muy agradable para quienes prefieren un desayuno clásico." [ref=e200] [cursor=pointer]:
+            - generic [ref=e201]:
+              - img "Media tostada rústica clásica con suave mantequilla fundida en Amalis Cafetería." [ref=e202]
+              - generic [ref=e203]: Tostadas
+              - generic [ref=e205]:
+                - img [ref=e206]
+                - generic [ref=e209]: Ver detalles
+            - generic [ref=e210]:
+              - generic [ref=e211]:
+                - heading "½ Tostada de Mantequilla" [level=3] [ref=e212]
+                - generic [ref=e213]: 1.75 EUR
+              - paragraph [ref=e214]: Media tostada de pan rústico con mantequilla fundida. Sencilla, dorada y muy agradable para quienes prefieren un desayuno clásico.
+          - button "Media tostada de pan rústico con tomate triturado, aguacate y aceite de oliva en Amalis Cafetería. Tostadas Ver detalles ½ Tostada de Tomate y Aguacate 2.85 EUR Media tostada de pan rústico con tomate triturado, aguacate fresco y aceite de oliva. Una opción vegana, saciante y muy cómoda para desayuno o media mañana." [ref=e216] [cursor=pointer]:
+            - generic [ref=e217]:
+              - img "Media tostada de pan rústico con tomate triturado, aguacate y aceite de oliva en Amalis Cafetería." [ref=e218]
+              - generic [ref=e219]: Tostadas
+              - generic [ref=e221]:
+                - img [ref=e222]
+                - generic [ref=e225]: Ver detalles
+            - generic [ref=e226]:
+              - generic [ref=e227]:
+                - heading "½ Tostada de Tomate y Aguacate" [level=3] [ref=e228]
+                - generic [ref=e229]: 2.85 EUR
+              - paragraph [ref=e230]: Media tostada de pan rústico con tomate triturado, aguacate fresco y aceite de oliva. Una opción vegana, saciante y muy cómoda para desayuno o media mañana.
+          - button "Esponjoso bizcocho de canela entero con toques de azúcar perlado, ideal para compartir en Amalis Cafetería. Bollería Dulce Ver detalles Bizcocho de Canela 14.70 EUR Bizcocho de canela con miga esponjosa y aroma casero, rematado con azúcar perlado. Su formato grande va muy bien para compartir en casa o en una merienda." [ref=e232] [cursor=pointer]:
+            - generic [ref=e233]:
+              - img "Esponjoso bizcocho de canela entero con toques de azúcar perlado, ideal para compartir en Amalis Cafetería." [ref=e234]
+              - generic [ref=e235]: Bollería Dulce
+              - generic [ref=e237]:
+                - img [ref=e238]
+                - generic [ref=e241]: Ver detalles
+            - generic [ref=e242]:
+              - generic [ref=e243]:
+                - heading "Bizcocho de Canela" [level=3] [ref=e244]
+                - generic [ref=e245]: 14.70 EUR
+              - paragraph [ref=e246]: Bizcocho de canela con miga esponjosa y aroma casero, rematado con azúcar perlado. Su formato grande va muy bien para compartir en casa o en una merienda.
+          - button "Esponjoso bizcocho de naranja entero decorado con discos de naranja y azúcar perlado en Amalis Cafetería. Bollería Dulce Ver detalles Bizcocho de Naranja 16.00 EUR Bizcocho de naranja con miga esponjosa, toque cítrico y discos de naranja confitada. El azúcar perlado aporta contraste y su formato grande lo convierte en una muy buena opción para compartir." [ref=e248] [cursor=pointer]:
+            - generic [ref=e249]:
+              - img "Esponjoso bizcocho de naranja entero decorado con discos de naranja y azúcar perlado en Amalis Cafetería." [ref=e250]
+              - generic [ref=e251]: Bollería Dulce
+              - generic [ref=e253]:
+                - img [ref=e254]
+                - generic [ref=e257]: Ver detalles
+            - generic [ref=e258]:
+              - generic [ref=e259]:
+                - heading "Bizcocho de Naranja" [level=3] [ref=e260]
+                - generic [ref=e261]: 16.00 EUR
+              - paragraph [ref=e262]: Bizcocho de naranja con miga esponjosa, toque cítrico y discos de naranja confitada. El azúcar perlado aporta contraste y su formato grande lo convierte en una muy buena opción para compartir.
+          - button "Bizcocho de chocolate entero con pepitas de chocolate en Amalis Cafetería. Bollería Dulce Ver detalles Bizcocho de Pepitas de Chocolate 18.00 EUR Bizcocho de chocolate con miga jugosa, sabor intenso a cacao y abundantes pepitas de chocolate en cada porción. Un formato grande para compartir o disfrutar durante varios días." [ref=e264] [cursor=pointer]:
+            - generic [ref=e265]:
+              - img "Bizcocho de chocolate entero con pepitas de chocolate en Amalis Cafetería." [ref=e266]
+              - generic [ref=e267]: Bollería Dulce
+              - generic [ref=e269]:
+                - img [ref=e270]
+                - generic [ref=e273]: Ver detalles
+            - generic [ref=e274]:
+              - generic [ref=e275]:
+                - heading "Bizcocho de Pepitas de Chocolate" [level=3] [ref=e276]
+                - generic [ref=e277]: 18.00 EUR
+              - paragraph [ref=e278]: Bizcocho de chocolate con miga jugosa, sabor intenso a cacao y abundantes pepitas de chocolate en cada porción. Un formato grande para compartir o disfrutar durante varios días.
+          - button "Jugoso bizcocho de piña entero con rodajas de fruta tropical en Amalis Cafetería. Bollería Dulce Ver detalles Bizcocho de Piña 14.70 EUR Bizcocho de piña con miga tierna y jugosa gracias al jugo natural, rematado con rodajas de fruta y azúcar perlado. Una opción diferente y fresca para compartir." [ref=e280] [cursor=pointer]:
+            - generic [ref=e281]:
+              - img "Jugoso bizcocho de piña entero con rodajas de fruta tropical en Amalis Cafetería." [ref=e282]
+              - generic [ref=e283]: Bollería Dulce
+              - generic [ref=e285]:
+                - img [ref=e286]
+                - generic [ref=e289]: Ver detalles
+            - generic [ref=e290]:
+              - generic [ref=e291]:
+                - heading "Bizcocho de Piña" [level=3] [ref=e292]
+                - generic [ref=e293]: 14.70 EUR
+              - paragraph [ref=e294]: Bizcocho de piña con miga tierna y jugosa gracias al jugo natural, rematado con rodajas de fruta y azúcar perlado. Una opción diferente y fresca para compartir.
+          - button "Bizcocho de pistacho 100% tostado de formato entero en Amalis Cafetería. Bollería Dulce Ver detalles Bizcocho de Pistacho 26.00 EUR Nuestro bizcocho de pistacho 100% tostado destaca por su sabor intenso y elegante. La miga tierna y el aroma tostado lo convierten en una opción muy buena para momentos especiales." [ref=e296] [cursor=pointer]:
+            - generic [ref=e297]:
+              - img "Bizcocho de pistacho 100% tostado de formato entero en Amalis Cafetería." [ref=e298]
+              - generic [ref=e299]: Bollería Dulce
+              - generic [ref=e301]:
+                - img [ref=e302]
+                - generic [ref=e305]: Ver detalles
+            - generic [ref=e306]:
+              - generic [ref=e307]:
+                - heading "Bizcocho de Pistacho" [level=3] [ref=e308]
+                - generic [ref=e309]: 26.00 EUR
+              - paragraph [ref=e310]: Nuestro bizcocho de pistacho 100% tostado destaca por su sabor intenso y elegante. La miga tierna y el aroma tostado lo convierten en una opción muy buena para momentos especiales.
+          - button "Bizcocho de zanahoria entero, esponjoso y horneado al estilo tradicional en Amalis Cafetería. Bollería Dulce Ver detalles Bizcocho de Zanahoria 15.70 EUR Bizcocho de zanahoria con miga jugosa, dulzor suave y un toque de azúcar perlado. Un dulce reconfortante para quienes buscan sabores clásicos y equilibrados." [ref=e312] [cursor=pointer]:
+            - generic [ref=e313]:
+              - img "Bizcocho de zanahoria entero, esponjoso y horneado al estilo tradicional en Amalis Cafetería." [ref=e314]
+              - generic [ref=e315]: Bollería Dulce
+              - generic [ref=e317]:
+                - img [ref=e318]
+                - generic [ref=e321]: Ver detalles
+            - generic [ref=e322]:
+              - generic [ref=e323]:
+                - heading "Bizcocho de Zanahoria" [level=3] [ref=e324]
+                - generic [ref=e325]: 15.70 EUR
+              - paragraph [ref=e326]: Bizcocho de zanahoria con miga jugosa, dulzor suave y un toque de azúcar perlado. Un dulce reconfortante para quienes buscan sabores clásicos y equilibrados.
+          - button "Croissant clásico horneado y hojaldrado, tierno por dentro y dorado por fuera, en Amalis Cafetería. Bollería Dulce Ver detalles Croissant 1.65 EUR Croissant clásico de hojaldre, crujiente por fuera y tierno por dentro, con miga alveolada y dorado uniforme. Una pieza sencilla que encaja en desayuno, almuerzo o merienda." [ref=e328] [cursor=pointer]:
+            - generic [ref=e329]:
+              - img "Croissant clásico horneado y hojaldrado, tierno por dentro y dorado por fuera, en Amalis Cafetería." [ref=e330]
+              - generic [ref=e331]: Bollería Dulce
+              - generic [ref=e333]:
+                - img [ref=e334]
+                - generic [ref=e337]: Ver detalles
+            - generic [ref=e338]:
+              - generic [ref=e339]:
+                - heading "Croissant" [level=3] [ref=e340]
+                - generic [ref=e341]: 1.65 EUR
+              - paragraph [ref=e342]: Croissant clásico de hojaldre, crujiente por fuera y tierno por dentro, con miga alveolada y dorado uniforme. Una pieza sencilla que encaja en desayuno, almuerzo o merienda.
+          - button "Ensaimada clásica tradicional, esponjosa y espolvoreada con azúcar en Amalis Cafetería. Bollería Dulce Ver detalles Ensaimada 1.60 EUR Ensaimada clásica, ligera y esponjosa, con forma en espiral y dulzor suave. Su miga muy alveolada y el toque de azúcar la hacen una opción tradicional para desayunar." [ref=e344] [cursor=pointer]:
+            - generic [ref=e345]:
+              - img "Ensaimada clásica tradicional, esponjosa y espolvoreada con azúcar en Amalis Cafetería." [ref=e346]
+              - generic [ref=e347]: Bollería Dulce
+              - generic [ref=e349]:
+                - img [ref=e350]
+                - generic [ref=e353]: Ver detalles
+            - generic [ref=e354]:
+              - generic [ref=e355]:
+                - heading "Ensaimada" [level=3] [ref=e356]
+                - generic [ref=e357]: 1.60 EUR
+              - paragraph [ref=e358]: Ensaimada clásica, ligera y esponjosa, con forma en espiral y dulzor suave. Su miga muy alveolada y el toque de azúcar la hacen una opción tradicional para desayunar.
+          - button "Milhoja clásica de crujiente hojaldre rellena de abundante crema pastelera dulce en Amalis Cafetería. Bollería Dulce Ver detalles Milhoja de Crema 2.50 EUR Capas de hojaldre dorado y crujiente con una crema suave y generosa en el centro, terminadas con azúcar glas y canela. Un clásico de textura marcada y sabor redondo." [ref=e360] [cursor=pointer]:
+            - generic [ref=e361]:
+              - img "Milhoja clásica de crujiente hojaldre rellena de abundante crema pastelera dulce en Amalis Cafetería." [ref=e362]
+              - generic [ref=e363]: Bollería Dulce
+              - generic [ref=e365]:
+                - img [ref=e366]
+                - generic [ref=e369]: Ver detalles
+            - generic [ref=e370]:
+              - generic [ref=e371]:
+                - heading "Milhoja de Crema" [level=3] [ref=e372]
+                - generic [ref=e373]: 2.50 EUR
+              - paragraph [ref=e374]: Capas de hojaldre dorado y crujiente con una crema suave y generosa en el centro, terminadas con azúcar glas y canela. Un clásico de textura marcada y sabor redondo.
+          - button "Clásica napolitana de hojaldre crujiente rellena de crema de cacao y avellana en Amalis Cafetería. Bollería Dulce Ver detalles Napolitana de Chocolate 1.80 EUR Napolitana clásica de hojaldre crujiente con relleno de crema de cacao y avellana. Un dulce fácil de elegir para desayuno o merienda." [ref=e376] [cursor=pointer]:
+            - generic [ref=e377]:
+              - img "Clásica napolitana de hojaldre crujiente rellena de crema de cacao y avellana en Amalis Cafetería." [ref=e378]
+              - generic [ref=e379]: Bollería Dulce
+              - generic [ref=e381]:
+                - img [ref=e382]
+                - generic [ref=e385]: Ver detalles
+            - generic [ref=e386]:
+              - generic [ref=e387]:
+                - heading "Napolitana de Chocolate" [level=3] [ref=e388]
+                - generic [ref=e389]: 1.80 EUR
+              - paragraph [ref=e390]: Napolitana clásica de hojaldre crujiente con relleno de crema de cacao y avellana. Un dulce fácil de elegir para desayuno o merienda.
+          - button "Crujiente pizza de jamón york y queso mozzarella fundido, un clásico infalible en Amalis Cafetería. Bollería Salada Ver detalles Pizza de Jamón York y Queso 2.55 EUR Una opción salada que siempre funciona. Base crujiente, salsa de tomate, jamón york y queso mozzarella fundido en un bocado cómodo para almorzar o merendar." [ref=e392] [cursor=pointer]:
+            - generic [ref=e393]:
+              - img "Crujiente pizza de jamón york y queso mozzarella fundido, un clásico infalible en Amalis Cafetería." [ref=e394]
+              - generic [ref=e395]: Bollería Salada
+              - generic [ref=e397]:
+                - img [ref=e398]
+                - generic [ref=e401]: Ver detalles
+            - generic [ref=e402]:
+              - generic [ref=e403]:
+                - heading "Pizza de Jamón York y Queso" [level=3] [ref=e404]
+                - generic [ref=e405]: 2.55 EUR
+              - paragraph [ref=e406]: Una opción salada que siempre funciona. Base crujiente, salsa de tomate, jamón york y queso mozzarella fundido en un bocado cómodo para almorzar o merendar.
+          - button "Tradicional coca salada con mollitas, jamón york y queso fundido horneada en Amalis Cafetería. Bollería Salada Ver detalles Coca de Jamón York y Queso 2.30 EUR Coca salada de masa rústica con aceite de oliva, mollitas y jamón york con queso fundido. Una opción sabrosa para recargar energías a media mañana." [ref=e408] [cursor=pointer]:
+            - generic [ref=e409]:
+              - img "Tradicional coca salada con mollitas, jamón york y queso fundido horneada en Amalis Cafetería." [ref=e410]
+              - generic [ref=e411]: Bollería Salada
+              - generic [ref=e413]:
+                - img [ref=e414]
+                - generic [ref=e417]: Ver detalles
+            - generic [ref=e418]:
+              - generic [ref=e419]:
+                - heading "Coca de Jamón York y Queso" [level=3] [ref=e420]
+                - generic [ref=e421]: 2.30 EUR
+              - paragraph [ref=e422]: Coca salada de masa rústica con aceite de oliva, mollitas y jamón york con queso fundido. Una opción sabrosa para recargar energías a media mañana.
+          - button "Coca salada tradicional cubierta de tiernas verduras horneadas (pimientos y cebolla) en Amalis Cafetería. Bollería Salada Ver detalles Coca de Verdura 2.30 EUR Coca de verdura sobre masa rústica con aceite de oliva y una cobertura de pimiento rojo, pimiento verde y cebolla pochada. Una opción sabrosa y más ligera para almuerzo o merienda." [ref=e424] [cursor=pointer]:
+            - generic [ref=e425]:
+              - img "Coca salada tradicional cubierta de tiernas verduras horneadas (pimientos y cebolla) en Amalis Cafetería." [ref=e426]
+              - generic [ref=e427]: Bollería Salada
+              - generic [ref=e429]:
+                - img [ref=e430]
+                - generic [ref=e433]: Ver detalles
+            - generic [ref=e434]:
+              - generic [ref=e435]:
+                - heading "Coca de Verdura" [level=3] [ref=e436]
+                - generic [ref=e437]: 2.30 EUR
+              - paragraph [ref=e438]: Coca de verdura sobre masa rústica con aceite de oliva y una cobertura de pimiento rojo, pimiento verde y cebolla pochada. Una opción sabrosa y más ligera para almuerzo o merienda.
+          - button "Coca de hojaldre rellena de pisto de verduras y atún claro en Amalis Cafetería. Bollería Salada Ver detalles Coca Rellena 2.30 EUR Hojaldre crujiente con relleno de pisto de verduras y atún claro, jugoso y con sabor equilibrado. Una opción salada que funciona bien cuando necesitas algo completo." [ref=e440] [cursor=pointer]:
+            - generic [ref=e441]:
+              - img "Coca de hojaldre rellena de pisto de verduras y atún claro en Amalis Cafetería." [ref=e442]
+              - generic [ref=e443]: Bollería Salada
+              - generic [ref=e445]:
+                - img [ref=e446]
+                - generic [ref=e449]: Ver detalles
+            - generic [ref=e450]:
+              - generic [ref=e451]:
+                - heading "Coca Rellena" [level=3] [ref=e452]
+                - generic [ref=e453]: 2.30 EUR
+              - paragraph [ref=e454]: Hojaldre crujiente con relleno de pisto de verduras y atún claro, jugoso y con sabor equilibrado. Una opción salada que funciona bien cuando necesitas algo completo.
+          - button "Tradicional coca salada valenciana con sardina salada en panadería Amalis Cafetería. Bollería Salada Ver detalles Coca Salada 2.30 EUR Una coca salada muy ligada al almuerzo tradicional. La masa con aceite de oliva y un toque de leche se hornea hasta quedar crujiente, y la sardina salada aporta el punto de carácter." [ref=e456] [cursor=pointer]:
+            - generic [ref=e457]:
+              - img "Tradicional coca salada valenciana con sardina salada en panadería Amalis Cafetería." [ref=e458]
+              - generic [ref=e459]: Bollería Salada
+              - generic [ref=e461]:
+                - img [ref=e462]
+                - generic [ref=e465]: Ver detalles
+            - generic [ref=e466]:
+              - generic [ref=e467]:
+                - heading "Coca Salada" [level=3] [ref=e468]
+                - generic [ref=e469]: 2.30 EUR
+              - paragraph [ref=e470]: Una coca salada muy ligada al almuerzo tradicional. La masa con aceite de oliva y un toque de leche se hornea hasta quedar crujiente, y la sardina salada aporta el punto de carácter.
+          - button "Mini empanadilla salada dorada y hojaldrada, rellena de atún claro y huevo en Amalis Cafetería. Bollería Salada Ver detalles Mini Empanadilla de Atún y Huevo 1.05 EUR Mini empanadilla de masa fina y dorada con relleno de atún y huevo. Un bocado salado práctico, sabroso y económico para cualquier hora." [ref=e472] [cursor=pointer]:
+            - generic [ref=e473]:
+              - img "Mini empanadilla salada dorada y hojaldrada, rellena de atún claro y huevo en Amalis Cafetería." [ref=e474]
+              - generic [ref=e475]: Bollería Salada
+              - generic [ref=e477]:
+                - img [ref=e478]
+                - generic [ref=e481]: Ver detalles
+            - generic [ref=e482]:
+              - generic [ref=e483]:
+                - heading "Mini Empanadilla de Atún y Huevo" [level=3] [ref=e484]
+                - generic [ref=e485]: 1.05 EUR
+              - paragraph [ref=e486]: Mini empanadilla de masa fina y dorada con relleno de atún y huevo. Un bocado salado práctico, sabroso y económico para cualquier hora.
+          - button "Mini empanadilla salada dorada rellena de sofrito de atún y cebolla dulce frita en Amalis Cafetería. Bollería Salada Ver detalles Mini Empanadilla de Atún y Cebolla 1.05 EUR Masa fina horneada con relleno de atún claro y cebolla frita, con un punto dulce muy agradable. Un bocado sabroso para picar o acompañar una bebida." [ref=e488] [cursor=pointer]:
+            - generic [ref=e489]:
+              - img "Mini empanadilla salada dorada rellena de sofrito de atún y cebolla dulce frita en Amalis Cafetería." [ref=e490]
+              - generic [ref=e491]: Bollería Salada
+              - generic [ref=e493]:
+                - img [ref=e494]
+                - generic [ref=e497]: Ver detalles
+            - generic [ref=e498]:
+              - generic [ref=e499]:
+                - heading "Mini Empanadilla de Atún y Cebolla" [level=3] [ref=e500]
+                - generic [ref=e501]: 1.05 EUR
+              - paragraph [ref=e502]: Masa fina horneada con relleno de atún claro y cebolla frita, con un punto dulce muy agradable. Un bocado sabroso para picar o acompañar una bebida.
+          - button "Empanadilla salada grande rellena de pisto tradicional de verduras y atún claro, horneada en Amalis Cafetería. Bollería Salada Ver detalles Empanadilla de Pisto y Atún 1.55 EUR Empanadilla clásica de buen tamaño, con masa tierna y relleno de pisto de verduras con atún. Muy buena para almorzar o merendar cuando buscas algo salado y completo." [ref=e504] [cursor=pointer]:
+            - generic [ref=e505]:
+              - img "Empanadilla salada grande rellena de pisto tradicional de verduras y atún claro, horneada en Amalis Cafetería." [ref=e506]
+              - generic [ref=e507]: Bollería Salada
+              - generic [ref=e509]:
+                - img [ref=e510]
+                - generic [ref=e513]: Ver detalles
+            - generic [ref=e514]:
+              - generic [ref=e515]:
+                - heading "Empanadilla de Pisto y Atún" [level=3] [ref=e516]
+                - generic [ref=e517]: 1.55 EUR
+              - paragraph [ref=e518]: Empanadilla clásica de buen tamaño, con masa tierna y relleno de pisto de verduras con atún. Muy buena para almorzar o merendar cuando buscas algo salado y completo.
+          - button "Napolitana salada de hojaldre dorada y crujiente, rellena de jamón york y queso fundido en Amalis Cafetería. Bollería Salada Ver detalles Napolitana de Jamón York y Queso 1.85 EUR Napolitana salada de hojaldre con relleno de jamón york y crema de queso. Una opción cómoda y sabrosa para desayuno o almuerzo." [ref=e520] [cursor=pointer]:
+            - generic [ref=e521]:
+              - img "Napolitana salada de hojaldre dorada y crujiente, rellena de jamón york y queso fundido en Amalis Cafetería." [ref=e522]
+              - generic [ref=e523]: Bollería Salada
+              - generic [ref=e525]:
+                - img [ref=e526]
+                - generic [ref=e529]: Ver detalles
+            - generic [ref=e530]:
+              - generic [ref=e531]:
+                - heading "Napolitana de Jamón York y Queso" [level=3] [ref=e532]
+                - generic [ref=e533]: 1.85 EUR
+              - paragraph [ref=e534]: Napolitana salada de hojaldre con relleno de jamón york y crema de queso. Una opción cómoda y sabrosa para desayuno o almuerzo.
+          - button "Almojábena dulce horneada a diario para el desayuno en Amalis Cafetería. Pastelería Ver detalles Almojábena 1.05 EUR Un dulce clásico para acompañar tu café. Nuestra almojábena tiene masa tierna, borde dorado y el punto justo de azúcar. Una elección sencilla y apetecible para cualquier mañana." [ref=e536] [cursor=pointer]:
+            - generic [ref=e537]:
+              - img "Almojábena dulce horneada a diario para el desayuno en Amalis Cafetería." [ref=e538]
+              - generic [ref=e539]: Pastelería
+              - generic [ref=e541]:
+                - img [ref=e542]
+                - generic [ref=e545]: Ver detalles
+            - generic [ref=e546]:
+              - generic [ref=e547]:
+                - heading "Almojábena" [level=3] [ref=e548]
+                - generic [ref=e549]: 1.05 EUR
+              - paragraph [ref=e550]: Un dulce clásico para acompañar tu café. Nuestra almojábena tiene masa tierna, borde dorado y el punto justo de azúcar. Una elección sencilla y apetecible para cualquier mañana.
+          - button "Dulce Borracho tradicional bañado en almíbar de canela con un toque de naranja en Amalis Cafetería. Pastelería Ver detalles Borracho 2.50 EUR Dulce tradicional de almendra molida, ralladura de naranja y jarabe de canela. Su textura húmeda y melosa lo convierte en una opción muy agradable para la sobremesa." [ref=e552] [cursor=pointer]:
+            - generic [ref=e553]:
+              - img "Dulce Borracho tradicional bañado en almíbar de canela con un toque de naranja en Amalis Cafetería." [ref=e554]
+              - generic [ref=e555]: Pastelería
+              - generic [ref=e557]:
+                - img [ref=e558]
+                - generic [ref=e561]: Ver detalles
+            - generic [ref=e562]:
+              - generic [ref=e563]:
+                - heading "Borracho" [level=3] [ref=e564]
+                - generic [ref=e565]: 2.50 EUR
+              - paragraph [ref=e566]: Dulce tradicional de almendra molida, ralladura de naranja y jarabe de canela. Su textura húmeda y melosa lo convierte en una opción muy agradable para la sobremesa.
+          - button "Media luna dulce y jugosa elaborada con almendra, naranja y almíbar de canela en Amalis Cafetería. Pastelería Ver detalles Media Lunas 2.70 EUR Bocado de repostería fina con almendra, ralladura de naranja y jarabe de canela. Su textura tierna y jugosa la convierte en una muy buena opción para merienda o sobremesa." [ref=e568] [cursor=pointer]:
+            - generic [ref=e569]:
+              - img "Media luna dulce y jugosa elaborada con almendra, naranja y almíbar de canela en Amalis Cafetería." [ref=e570]
+              - generic [ref=e571]: Pastelería
+              - generic [ref=e573]:
+                - img [ref=e574]
+                - generic [ref=e577]: Ver detalles
+            - generic [ref=e578]:
+              - generic [ref=e579]:
+                - heading "Media Lunas" [level=3] [ref=e580]
+                - generic [ref=e581]: 2.70 EUR
+              - paragraph [ref=e582]: Bocado de repostería fina con almendra, ralladura de naranja y jarabe de canela. Su textura tierna y jugosa la convierte en una muy buena opción para merienda o sobremesa.
+          - button "Milhoja de hojaldre rellena de merengue montado en Amalis Cafetería. Pastelería Ver detalles Milhoja de Merengue 3.50 EUR Láminas de hojaldre crujiente con un relleno abundante de merengue suave y ligero, aromatizado con vainilla. El contraste de texturas la convierte en una de las piezas más llamativas de la vitrina." [ref=e584] [cursor=pointer]:
+            - generic [ref=e585]:
+              - img "Milhoja de hojaldre rellena de merengue montado en Amalis Cafetería." [ref=e586]
+              - generic [ref=e587]: Pastelería
+              - generic [ref=e589]:
+                - img [ref=e590]
+                - generic [ref=e593]: Ver detalles
+            - generic [ref=e594]:
+              - generic [ref=e595]:
+                - heading "Milhoja de Merengue" [level=3] [ref=e596]
+                - generic [ref=e597]: 3.50 EUR
+              - paragraph [ref=e598]: Láminas de hojaldre crujiente con un relleno abundante de merengue suave y ligero, aromatizado con vainilla. El contraste de texturas la convierte en una de las piezas más llamativas de la vitrina.
+          - button "Dulce tradicional Teta de Monja hecho de merengue suave y yema confitada en Amalis Cafetería. Pastelería Ver detalles Teta de Monja 2.60 EUR Dulce tradicional de merengue suave con yema confitada en la parte superior. Llamativo en vitrina y ligero en boca." [ref=e600] [cursor=pointer]:
+            - generic [ref=e601]:
+              - img "Dulce tradicional Teta de Monja hecho de merengue suave y yema confitada en Amalis Cafetería." [ref=e602]
+              - generic [ref=e603]: Pastelería
+              - generic [ref=e605]:
+                - img [ref=e606]
+                - generic [ref=e609]: Ver detalles
+            - generic [ref=e610]:
+              - generic [ref=e611]:
+                - heading "Teta de Monja" [level=3] [ref=e612]
+                - generic [ref=e613]: 2.60 EUR
+              - paragraph [ref=e614]: Dulce tradicional de merengue suave con yema confitada en la parte superior. Llamativo en vitrina y ligero en boca.
+          - button "Pastel tradicional de almendra y merengue aromatizado con limón y canela en Amalis Cafetería. Pastelería Ver detalles Pastel de Almendra 2.50 EUR Pastel de almendra con base tierna, merengue ligero y notas de limón y canela. Un dulce clásico con un perfil aromático muy reconocible." [ref=e616] [cursor=pointer]:
+            - generic [ref=e617]:
+              - img "Pastel tradicional de almendra y merengue aromatizado con limón y canela en Amalis Cafetería." [ref=e618]
+              - generic [ref=e619]: Pastelería
+              - generic [ref=e621]:
+                - img [ref=e622]
+                - generic [ref=e625]: Ver detalles
+            - generic [ref=e626]:
+              - generic [ref=e627]:
+                - heading "Pastel de Almendra" [level=3] [ref=e628]
+                - generic [ref=e629]: 2.50 EUR
+              - paragraph [ref=e630]: Pastel de almendra con base tierna, merengue ligero y notas de limón y canela. Un dulce clásico con un perfil aromático muy reconocible.
+          - button "Pastel de manzana con crema, láminas de manzana y brillo de gelatina en Amalis Cafetería. Pastelería Ver detalles Pastel de Manzana 2.75 EUR Pastel de manzana con base tierna, crema pastelera y láminas de manzana confitada, terminado con gelatina de manzana. Meloso, equilibrado y fácil de disfrutar." [ref=e632] [cursor=pointer]:
+            - generic [ref=e633]:
+              - img "Pastel de manzana con crema, láminas de manzana y brillo de gelatina en Amalis Cafetería." [ref=e634]
+              - generic [ref=e635]: Pastelería
+              - generic [ref=e637]:
+                - img [ref=e638]
+                - generic [ref=e641]: Ver detalles
+            - generic [ref=e642]:
+              - generic [ref=e643]:
+                - heading "Pastel de Manzana" [level=3] [ref=e644]
+                - generic [ref=e645]: 2.75 EUR
+              - paragraph [ref=e646]: Pastel de manzana con base tierna, crema pastelera y láminas de manzana confitada, terminado con gelatina de manzana. Meloso, equilibrado y fácil de disfrutar.
+    - contentinfo [ref=e647]:
+      - generic [ref=e648]:
+        - generic [ref=e649]:
+          - generic [ref=e650]:
+            - generic [ref=e651]:
+              - generic [ref=e652]: A
+              - generic [ref=e653]: Amalis Cafetería
+            - paragraph [ref=e654]: No dejes que te lo cuenten. Ven a probar la diferencia de lo recién hecho.
+            - generic [ref=e655]:
+              - link "Síguenos en Instagram" [ref=e656] [cursor=pointer]:
+                - /url: https://instagram.com/amaliscafeteria
+                - img [ref=e657]
+              - link "Síguenos en Facebook" [ref=e659] [cursor=pointer]:
+                - /url: https://facebook.com/amaliscafeteria
+                - img [ref=e660]
+              - link "Síguenos en Twitter" [ref=e662] [cursor=pointer]:
+                - /url: https://twitter.com/amaliscafeteria
+                - img [ref=e663]
+          - generic [ref=e665]:
+            - heading "Explora" [level=4] [ref=e666]
+            - list [ref=e667]:
+              - listitem [ref=e668]:
+                - link "Carta" [ref=e669] [cursor=pointer]:
+                  - /url: /carta
+              - listitem [ref=e670]:
+                - link "Sobre Nosotros" [ref=e671] [cursor=pointer]:
+                  - /url: /#about
+              - listitem [ref=e672]:
+                - link "Galería" [ref=e673] [cursor=pointer]:
+                  - /url: /#gallery
+              - listitem [ref=e674]:
+                - link "Ubicación" [ref=e675] [cursor=pointer]:
+                  - /url: /#location
+          - generic [ref=e676]:
+            - heading "Contacto" [level=4] [ref=e677]
+            - list [ref=e678]:
+              - listitem [ref=e679]:
+                - link "Visítanos en Santa Pola" [ref=e680] [cursor=pointer]:
+                  - /url: /#location
+              - listitem [ref=e681]:
+                - link "Contacto" [ref=e682] [cursor=pointer]:
+                  - /url: /#location
+          - generic [ref=e683]:
+            - heading "Horario" [level=4] [ref=e684]
+            - list [ref=e685]:
+              - listitem [ref=e686]:
+                - text: Lunes - Domingo
+                - text: 07:00 - 21:00
+        - generic [ref=e687]:
+          - paragraph [ref=e688]: © 2026 Amalis Cafetería. Todos los derechos reservados.
+          - generic [ref=e689]:
+            - button "Privacidad" [ref=e690] [cursor=pointer]
+            - button "Cookies" [ref=e691] [cursor=pointer]
+  - dialog "Bizcocho de Pepitas de Chocolate" [ref=e724]:
+    - button "Cerrar modal" [ref=e725]:
+      - img [ref=e726]
+    - img "Bizcocho de chocolate entero con pepitas de chocolate en Amalis Cafetería." [ref=e730]
+    - generic [ref=e731]:
+      - generic [ref=e732]:
+        - generic [ref=e733]: Bollería Dulce
+        - heading "Bizcocho de Pepitas de Chocolate" [level=2] [ref=e734]
+      - generic [ref=e735]:
+        - generic [ref=e736]:
+          - button "Descripción" [active] [ref=e737]
+          - button "Ingredientes" [ref=e738]
+          - button "Alérgenos" [ref=e739]
+        - generic [ref=e792]:
+          - paragraph [ref=e793]: Bizcocho de chocolate con miga jugosa, sabor intenso a cacao y abundantes pepitas de chocolate en cada porción. Un formato grande para compartir o disfrutar durante varios días.
+          - generic [ref=e794]:
+            - img [ref=e796]
+            - heading "Sugerencia del Chef" [level=4] [ref=e798]:
+              - img [ref=e799]
+              - text: Sugerencia del Chef
+            - paragraph [ref=e801]: Queda muy bien con leche fría o con café. Si lo calientas ligeramente, las pepitas se funden y la textura gana jugosidad.

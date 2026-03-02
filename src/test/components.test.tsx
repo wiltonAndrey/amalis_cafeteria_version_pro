@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest'
-import { render, screen, fireEvent } from '@testing-library/react'
+import { render, screen, fireEvent, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { readFileSync } from 'node:fs'
 import path from 'node:path'
@@ -118,6 +118,22 @@ describe('ProductCard', () => {
     it('renders category badge', () => {
         render(<ProductCard product={mockProduct} />)
         expect(screen.getByText('Pan')).toBeInTheDocument()
+    })
+
+    it('eagerly loads prioritized images for the first visible menu card', () => {
+        render(<ProductCard product={mockProduct} priorityImage />)
+        const image = screen.getByAltText('Pan artesanal')
+
+        expect(image).toHaveAttribute('loading', 'eager')
+        expect(image).toHaveAttribute('decoding', 'sync')
+        expect(image).toHaveAttribute('fetchpriority', 'high')
+    })
+
+    it('supports a semantic title tag override for page heading order', () => {
+        const { container } = render(<ProductCard product={mockProduct} titleTag="h2" />)
+
+        expect(container.querySelector('h2')).toBeInTheDocument()
+        expect(container.querySelector('h3')).not.toBeInTheDocument()
     })
 })
 
@@ -339,6 +355,18 @@ describe('Navbar', () => {
         expect(screen.getByText('Cafetería')).toBeInTheDocument()
     })
 
+    it('keeps the approved branding and desktop nav typography classes', () => {
+        render(<MemoryRouter><Navbar /></MemoryRouter>)
+
+        const brand = screen.getByText('Amalis').closest('span')
+        const desktopNav = screen.getByRole('navigation', { name: /navegación principal/i })
+        const homeLink = within(desktopNav).getByRole('link', { name: 'Inicio' })
+
+        expect(brand?.className).toContain('font-accent')
+        expect(brand?.getAttribute('style')).toBeNull()
+        expect(homeLink.className).toContain('font-medium')
+    })
+
     it('renders hamburger menu button', () => {
         render(<MemoryRouter><Navbar /></MemoryRouter>)
         expect(screen.getByLabelText(/abrir menú/i)).toBeInTheDocument()
@@ -384,6 +412,34 @@ describe('Navbar', () => {
         await user.click(hamburger)
 
         expect(screen.getByRole('dialog')).toHaveAttribute('aria-modal', 'true')
+    })
+
+    it('keeps the hamburger trigger and drawer hidden at desktop widths', () => {
+        render(<MemoryRouter><Navbar /></MemoryRouter>)
+
+        const hamburger = screen.getByRole('button', { name: /abrir men/i })
+        const drawer = screen.getByRole('dialog')
+
+        expect(hamburger.className).toContain('lg:hidden')
+        expect(drawer.className).toContain('lg:hidden')
+    })
+
+    it('shows the full mobile drawer link set when the hamburger opens', async () => {
+        const user = userEvent.setup()
+        render(<MemoryRouter><Navbar /></MemoryRouter>)
+
+        await user.click(screen.getByRole('button', { name: /abrir men/i }))
+
+        const drawer = screen.getByRole('dialog')
+        const drawerLinks = drawer.querySelectorAll('a[href]')
+        const drawerScope = within(drawer)
+
+        expect(drawerLinks).toHaveLength(5)
+        expect(drawerScope.getByRole('link', { name: 'Inicio' })).toBeInTheDocument()
+        expect(drawerScope.getByRole('link', { name: 'Carta' })).toBeInTheDocument()
+        expect(drawerScope.getByRole('link', { name: 'Nosotros' })).toBeInTheDocument()
+        expect(drawerScope.getByRole('link', { name: 'Galería' })).toBeInTheDocument()
+        expect(drawerScope.getByRole('link', { name: 'Contacto' })).toBeInTheDocument()
     })
 
     it('closes drawer on Escape key', async () => {

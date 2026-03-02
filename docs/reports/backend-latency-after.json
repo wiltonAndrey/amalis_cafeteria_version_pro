@@ -1,0 +1,14 @@
+﻿{
+    "measured_at":  "2026-02-27T11:39:39",
+    "samples":  30,
+    "read_p95_ms":  75.82,
+    "write_p95_ms":  46.66,
+    "read_avg_ms":  61.24,
+    "write_avg_ms":  35.36,
+    "objectives":  {
+                       "read_p95_target_ms":  300,
+                       "write_p95_target_ms":  500,
+                       "read_p95_ok":  true,
+                       "write_p95_ok":  true
+                   }
+}
