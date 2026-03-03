@@ -71,7 +71,7 @@ const AdminPromotionModal: React.FC<Props> = ({ open, card, saving, onClose, onS
     setError(null);
     const normalizedItems = form.items.map((item) => item.trim()).filter(Boolean);
     if (normalizedItems.length === 0) {
-      setError('Debes agregar al menos un item.');
+      setError('Debes agregar al menos un ítem.');
       return;
     }
     await onSave({
@@ -134,13 +134,13 @@ const AdminPromotionModal: React.FC<Props> = ({ open, card, saving, onClose, onS
     <div className="fixed inset-0 z-50 p-4 overflow-y-auto">
       <button
         type="button"
-        aria-label="Cerrar modal de promocion"
+        aria-label="Cerrar modal de promoción"
         onClick={onClose}
         className="absolute inset-0 bg-black/60 backdrop-blur-sm"
       />
       <div className="relative max-w-3xl mx-auto bg-[var(--color-espresso)] border border-white/10 rounded-3xl p-6 md:p-8">
         <div className="flex items-center justify-between mb-6">
-          <h4 className="text-2xl font-serif text-cream">Editar promocion</h4>
+          <h4 className="text-2xl font-serif text-cream">Editar promoción</h4>
           <button type="button" className="text-sm text-cream/70 cursor-pointer" onClick={onClose}>
             Cerrar
           </button>
@@ -153,7 +153,7 @@ const AdminPromotionModal: React.FC<Props> = ({ open, card, saving, onClose, onS
           </label>
 
           <label className="space-y-1">
-            <span className="text-xs uppercase tracking-widest text-cream/70">Titulo</span>
+            <span className="text-xs uppercase tracking-widest text-cream/70">Título</span>
             <input className="w-full bg-white/5 border border-white/10 rounded-xl p-3" value={form.title} onChange={(event) => updateField('title', event.target.value)} />
           </label>
 
@@ -166,14 +166,14 @@ const AdminPromotionModal: React.FC<Props> = ({ open, card, saving, onClose, onS
             <span className="text-xs uppercase tracking-widest text-cream/70">Imagen</span>
             <div className="flex gap-2">
               <input
-                aria-label="URL de imagen de promocion"
+                aria-label="URL de imagen de promoción"
                 className="w-full bg-white/5 border border-white/10 rounded-xl p-3"
                 value={form.image}
                 onChange={(event) => updateField('image', event.target.value)}
               />
               <label className="px-4 py-3 border border-caramel/40 rounded-xl text-caramel text-xs uppercase tracking-widest cursor-pointer">
                 <input
-                  aria-label="Subir imagen de promocion"
+                  aria-label="Subir imagen de promoción"
                   type="file"
                   accept="image/*"
                   className="hidden"
@@ -196,7 +196,7 @@ const AdminPromotionModal: React.FC<Props> = ({ open, card, saving, onClose, onS
           </label>
 
           <label className="space-y-1 md:col-span-2">
-            <span className="text-xs uppercase tracking-widest text-cream/70">Descripcion</span>
+            <span className="text-xs uppercase tracking-widest text-cream/70">Descripción</span>
             <textarea className="w-full bg-white/5 border border-white/10 rounded-xl p-3 min-h-24" value={form.description} onChange={(event) => updateField('description', event.target.value)} />
           </label>
 
@@ -204,7 +204,7 @@ const AdminPromotionModal: React.FC<Props> = ({ open, card, saving, onClose, onS
             <div className="flex items-center justify-between">
               <span className="text-xs uppercase tracking-widest text-cream/70">Items</span>
               <button type="button" onClick={addItem} className="text-xs text-caramel">
-                Agregar item
+                Agregar ítem
               </button>
             </div>
             {form.items.map((item, index) => (

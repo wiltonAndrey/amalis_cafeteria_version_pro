@@ -61,7 +61,7 @@ describe('Admin auth flow', () => {
     await user.click(screen.getByRole('button', { name: /entrar/i }));
 
     await waitFor(() => {
-      expect(screen.getByRole('heading', { name: /panel de administracion/i })).toBeInTheDocument();
+      expect(screen.getByRole('heading', { name: /panel de administración/i })).toBeInTheDocument();
     });
   });
 });

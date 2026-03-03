@@ -148,7 +148,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
     const sortOrderValue = hasSortOrder ? Number(rawSortOrder) : null;
 
     if (!form.name.trim() || !form.description.trim() || !form.category || Number.isNaN(priceValue) || priceValue <= 0) {
-      setError('Completa nombre, categoria, descripcion y precio valido.');
+      setError('Completa nombre, categoría, descripción y precio válido.');
       return;
     }
 
@@ -161,7 +161,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
         sortOrderValue < 1
       )
     ) {
-      setError('La posicion en la categoria debe ser un numero entero mayor que 0.');
+      setError('La posición en la categoría debe ser un número entero mayor que 0.');
       return;
     }
 
@@ -252,7 +252,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                       />
                     </label>
                     <label className="block space-y-2 text-sm text-cream/80">
-                      <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Categoria</span>
+                      <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Categoría</span>
                       <select
                         value={form.category}
                         onChange={handleChange('category')}
@@ -267,7 +267,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                       </select>
                     </label>
                     <label className="block space-y-2 text-sm text-cream/80">
-                      <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Posicion en la categoria</span>
+                      <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Posición en la categoría</span>
                       <input
                         type="number"
                         min="1"
@@ -284,7 +284,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
 
               <div className="rounded-2xl border border-white/10 bg-espresso/60 p-5 shadow-lg shadow-black/20">
                 <label className="block space-y-2 text-sm text-cream/80">
-                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Descripcion (SEO)</span>
+                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Descripción (SEO)</span>
                   <textarea
                     value={form.description}
                     onChange={handleChange('description')}
@@ -299,7 +299,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
 
               <div className="rounded-2xl border border-white/10 bg-espresso/60 p-5 shadow-lg shadow-black/20">
                 <label className="block space-y-2 text-sm text-cream/80">
-                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Recomendacion del chef</span>
+                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Recomendación del chef</span>
                   <textarea
                     value={form.chef_suggestion}
                     onChange={handleChange('chef_suggestion')}
@@ -350,11 +350,11 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 </label>
 
                 <label className="block space-y-2 text-sm text-cream/80">
-                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Titulo de la imagen (SEO)</span>
+                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Título de la imagen (SEO)</span>
                   <input
                     value={form.image_title}
                     onChange={handleChange('image_title')}
-                    placeholder="Titulo descriptivo para SEO"
+                    placeholder="Título descriptivo para SEO"
                     className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-cream placeholder:text-cream/40 focus:border-caramel/60 focus:outline-none focus:ring-2 focus:ring-caramel/30"
                   />
                 </label>
@@ -370,11 +370,11 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 </label>
 
                 <label className="block space-y-2 text-sm text-cream/80">
-                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Alergenos</span>
+                  <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Alérgenos</span>
                   <input
                     value={form.allergens}
                     onChange={handleChange('allergens')}
-                    placeholder="Gluten, lacteos"
+                    placeholder="Gluten, lácteos"
                     className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-cream placeholder:text-cream/40 focus:border-caramel/60 focus:outline-none focus:ring-2 focus:ring-caramel/30"
                   />
                 </label>
@@ -384,7 +384,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                 <label className="flex items-center justify-between gap-4 text-sm text-cream/80">
                   <div className="space-y-1">
                     <p className="text-xs uppercase tracking-[0.3em] text-caramel/80">Destacado</p>
-                    <p className="text-xs text-cream/50">Aparece en la portada y seccion especial.</p>
+                    <p className="text-xs text-cream/50">Aparece en la portada y sección especial.</p>
                   </div>
                   <input
                     type="checkbox"

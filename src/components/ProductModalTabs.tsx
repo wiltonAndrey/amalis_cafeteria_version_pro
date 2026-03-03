@@ -1,7 +1,7 @@
 import React from 'react';
-import { MenuProduct } from '../types';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lightbulb, AlertCircle, Info, ChevronRight } from 'lucide-react';
+import type { MenuProduct } from '../types';
 
 export type ModalTab = 'desc' | 'ing' | 'ale';
 
@@ -12,16 +12,27 @@ interface ProductModalTabsProps {
 }
 
 const TAB_LABELS: Record<ModalTab, string> = {
-  desc: 'Descripción',
+  desc: 'Descripci\u00f3n',
   ing: 'Ingredientes',
-  ale: 'Alérgenos',
+  ale: 'Al\u00e9rgenos',
 };
+
+const DEFAULT_CHEF_SUGGESTION =
+  'Consejo rapido: mejor recien hecho para disfrutar su punto.';
+
+const ALLERGEN_TRACE_NOTE =
+  'Informaci\u00f3n sobre trazas: Puede contener trazas de frutos secos, s\u00e9samo y soja debido al proceso artesanal. Por favor, consulte a nuestro personal si tiene alguna duda grave.';
+
+const decodeEscapedUnicode = (value?: string) =>
+  value?.replace(/\\u([\dA-Fa-f]{4})/g, (_, hex) => String.fromCharCode(parseInt(hex, 16))) ?? '';
 
 export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
   product,
   activeTab,
   onTabChange,
 }) => {
+  const chefSuggestion = decodeEscapedUnicode(product.chef_suggestion?.trim()) || DEFAULT_CHEF_SUGGESTION;
+
   return (
     <>
       <div className="flex space-x-1 bg-white/[0.03] p-1 rounded-2xl mb-8 border border-white/5">
@@ -53,7 +64,7 @@ export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
               className="space-y-6"
             >
               <p className="text-beige/70 leading-relaxed font-light font-sans text-sm md:text-base">
-                {product.description}
+                {decodeEscapedUnicode(product.description)}
               </p>
 
               <div className="p-6 bg-caramel/5 rounded-2xl border border-caramel/20 relative overflow-hidden group">
@@ -65,7 +76,7 @@ export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
                   Sugerencia del Chef
                 </h4>
                 <p className="text-sm text-beige/50 font-sans font-light leading-relaxed">
-                  Ideal para acompañar con nuestro café de especialidad o un zumo natural recién exprimido del día.
+                  {chefSuggestion}
                 </p>
               </div>
             </motion.div>
@@ -85,7 +96,7 @@ export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
                   className="flex items-center text-beige/80 bg-white/5 p-4 rounded-xl border border-white/5 hover:border-caramel/20 transition-colors group"
                 >
                   <ChevronRight className="w-4 h-4 text-caramel mr-3 opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <span className="text-sm font-light tracking-wide">{ing}</span>
+                  <span className="text-sm font-light tracking-wide">{decodeEscapedUnicode(ing)}</span>
                 </div>
               ))}
             </motion.div>
@@ -105,14 +116,14 @@ export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
                     className="inline-flex items-center bg-cta/10 text-cta px-5 py-2.5 rounded-xl text-xs font-bold border border-cta/20 shadow-sm"
                   >
                     <AlertCircle className="w-4 h-4 mr-2" />
-                    {ale}
+                    {decodeEscapedUnicode(ale)}
                   </span>
                 ))}
               </div>
               <div className="mt-8 p-4 bg-white/5 rounded-xl border border-white/10 flex items-start space-x-3">
                 <Info className="w-5 h-5 text-beige/30 shrink-0 mt-0.5" />
                 <p className="text-[11px] text-beige/40 italic font-light leading-relaxed">
-                  Información sobre trazas: Puede contener trazas de frutos secos, sésamo y soja debido al proceso artesanal. Por favor, consulte a nuestro personal si tiene alguna duda grave.
+                  {ALLERGEN_TRACE_NOTE}
                 </p>
               </div>
             </motion.div>

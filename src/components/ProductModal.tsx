@@ -95,7 +95,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               <img
                 src={product.image}
                 alt={product.name}
-                className="w-full h-full object-cover img-unified scale-105"
+                className="w-full h-full object-cover object-center img-unified"
                 loading="lazy"
                 decoding="async"
                 onError={(e) => {
@@ -103,7 +103,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                   target.src = getFallbackProductImage();
                 }}
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-espresso via-transparent to-transparent md:bg-gradient-to-r"></div>
+              <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_top,rgba(26,26,26,0.64),transparent)] md:hidden pointer-events-none"></div>
+              <div className="product-image-scrim absolute inset-0 hidden bg-[linear-gradient(to_right,transparent_88%,rgba(26,26,26,0.72)_100%)] md:block pointer-events-none"></div>
 
               <div className="absolute bottom-6 left-6 right-6 text-white md:hidden">
                 <span className="bg-caramel/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block shadow-lg">

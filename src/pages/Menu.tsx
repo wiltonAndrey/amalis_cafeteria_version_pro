@@ -178,9 +178,17 @@ const Menu: React.FC = () => {
     }, [activeCategory]);
 
     return (
-        <div className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)]">
+        <div
+            data-testid="menu-shell"
+            className="h-[100dvh] min-h-[100dvh] bg-[var(--color-espresso)] text-[var(--color-cream)] flex flex-col overflow-hidden"
+        >
+            <div data-testid="menu-header-spacer" className="h-[72px] md:h-[76px] shrink-0" aria-hidden="true" />
+            <div
+                data-testid="menu-scroll-body"
+                className="flex-1 min-h-0 overflow-y-auto overflow-x-hidden overscroll-y-contain no-scrollbar pb-16 md:pb-20"
+            >
 
-            <section className="pt-24 pb-16 md:pt-40 md:pb-24 relative overflow-hidden">
+            <section className="pt-8 pb-12 md:pt-10 md:pb-16 relative overflow-hidden">
                 {/* Background Decoration */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute top-[-20%] left-[-10%] w-[50%] h-[50%] bg-[var(--color-caramel)]/10 rounded-full blur-[150px]"></div>
@@ -188,7 +196,7 @@ const Menu: React.FC = () => {
                 </div>
 
                 <div className="max-w-7xl mx-auto text-center relative z-10 px-6">
-                    <header className="mb-12">
+                    <header className="mb-8 md:mb-10">
                         <span className="inline-flex items-center text-[var(--color-caramel)] font-bold uppercase tracking-[0.5em] text-[10px] md:text-xs mb-4">
                             <BadgeCheck className="w-4 h-4 mr-3" />
                             Artesanos de Santa Pola
@@ -256,7 +264,7 @@ const Menu: React.FC = () => {
                 </div>
             </section>
 
-            <section className="py-12 md:py-24">
+            <section className="py-12 md:py-20">
                 <div className="max-w-7xl mx-auto px-6">
                     {hasVisibleProducts ? (
                         activeCategory === 'all' ? (
@@ -288,6 +296,7 @@ const Menu: React.FC = () => {
                     )}
                 </div>
             </section>
+            </div>
 
             <ProductModal product={selectedProduct} onClose={() => setSelectedProduct(null)} />
 

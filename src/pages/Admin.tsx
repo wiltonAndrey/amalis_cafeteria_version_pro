@@ -13,7 +13,7 @@ const Admin: React.FC = () => {
   if (loading) {
     return (
       <div className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)] flex items-center justify-center">
-        <p className="text-sm uppercase tracking-[0.3em] text-caramel">Verificando sesion...</p>
+        <p className="text-sm uppercase tracking-[0.3em] text-caramel">Verificando sesión...</p>
       </div>
     );
   }
@@ -26,7 +26,7 @@ const Admin: React.FC = () => {
     <div className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)] px-6 py-20">
       <div className="max-w-6xl mx-auto space-y-8">
         <header>
-          <h1 className="text-4xl md:text-5xl font-serif font-bold">Panel de Administracion</h1>
+          <h1 className="text-4xl md:text-5xl font-serif font-bold">Panel de Administración</h1>
           <p className="text-cream/60 mt-2">Gestiona la carta de productos en tiempo real.</p>
         </header>
         <ProductCRUD products={items} loading={productsLoading} />

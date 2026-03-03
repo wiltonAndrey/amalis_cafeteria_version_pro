@@ -144,7 +144,7 @@ const ProductCRUD: React.FC<Props> = ({ products, loading = false }) => {
 
         {!isLoading && items.length === 0 && (
           <div className="rounded-2xl border border-dashed border-white/20 bg-white/5 p-8 text-center">
-            <p className="text-lg font-serif text-cream">Aun no hay productos</p>
+            <p className="text-lg font-serif text-cream">Aún no hay productos</p>
             <p className="mt-2 text-sm text-cream/60">
               Crea el primer producto para empezar a gestionar la carta.
             </p>
@@ -170,7 +170,7 @@ const ProductCRUD: React.FC<Props> = ({ products, loading = false }) => {
               <section key={group.category} className="space-y-4">
                 <div className="flex flex-wrap items-end justify-between gap-3 border-b border-white/10 pb-3">
                   <div className="space-y-1">
-                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-caramel/80">Categoria</p>
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.24em] text-caramel/80">Categoría</p>
                     <h4 className="text-xl font-serif text-cream">{group.label}</h4>
                   </div>
                   <span className="rounded-full border border-white/10 bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.18em] text-cream/65">

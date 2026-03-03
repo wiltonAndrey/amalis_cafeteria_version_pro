@@ -33,9 +33,9 @@ describe('AdminProductModal', () => {
       />
     );
 
-    expect(screen.getByLabelText(/titulo de la imagen/i)).toHaveValue('Titulo SEO actual');
-    expect(screen.getByLabelText(/recomendacion del chef/i)).toHaveValue('Acompanarla con cafe solo');
-    expect(screen.getByLabelText(/posicion en la categoria/i)).toHaveValue(2);
+    expect(screen.getByLabelText(/título de la imagen/i)).toHaveValue('Titulo SEO actual');
+    expect(screen.getByLabelText(/recomendación del chef/i)).toHaveValue('Acompanarla con cafe solo');
+    expect(screen.getByLabelText(/posición en la categoría/i)).toHaveValue(2);
   });
 
   it('envia image_title, chef_suggestion y sort_order al guardar', async () => {
@@ -50,13 +50,13 @@ describe('AdminProductModal', () => {
       />
     );
 
-    fireEvent.change(screen.getByLabelText(/titulo de la imagen/i), {
+    fireEvent.change(screen.getByLabelText(/título de la imagen/i), {
       target: { value: 'Nuevo titulo SEO' },
     });
-    fireEvent.change(screen.getByLabelText(/recomendacion del chef/i), {
+    fireEvent.change(screen.getByLabelText(/recomendación del chef/i), {
       target: { value: 'Servir con mermelada casera' },
     });
-    fireEvent.change(screen.getByLabelText(/posicion en la categoria/i), {
+    fireEvent.change(screen.getByLabelText(/posición en la categoría/i), {
       target: { value: '4' },
     });
     fireEvent.click(screen.getByRole('button', { name: /guardar/i }));

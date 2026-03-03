@@ -120,7 +120,7 @@ export const Navbar: React.FC = () => {
 
       {/* Drawer */}
       <div
-        className={`fixed inset-0 z-[55] md:hidden transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
+        className={`fixed inset-0 z-[55] lg:hidden transition-all duration-500 ${isOpen ? 'visible' : 'invisible'}`}
         role="dialog"
         aria-modal="true"
         aria-label="Menú de navegación"

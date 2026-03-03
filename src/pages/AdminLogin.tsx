@@ -2,6 +2,13 @@ import React, { useState } from 'react';
 import { Navigate, useNavigate } from 'react-router-dom';
 import { useAdminAuth } from '../hooks/useAdminAuth';
 
+const AUTH_ERROR_MESSAGES: Record<string, string | null> = {
+  unauthorized: null,
+  network_error: 'No se pudo verificar la sesión. Intenta de nuevo.',
+  fetch_unavailable: 'El servicio de acceso no está disponible ahora mismo.',
+  invalid_credentials: 'Las credenciales no son correctas.',
+};
+
 const AdminLogin: React.FC = () => {
   const navigate = useNavigate();
   const { loading, isAuthenticated, login, error } = useAdminAuth(true);
@@ -12,6 +19,12 @@ const AdminLogin: React.FC = () => {
   if (!loading && isAuthenticated) {
     return <Navigate to="/admin" replace />;
   }
+
+  const authErrorMessage =
+    error == null
+      ? null
+      : (AUTH_ERROR_MESSAGES[error] ?? 'No se pudo completar el acceso. Intenta de nuevo.');
+  const visibleError = formError ?? authErrorMessage;
 
   const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -28,14 +41,14 @@ const AdminLogin: React.FC = () => {
       return;
     }
 
-    setFormError('Credenciales invalidas o sesion no disponible.');
+    setFormError('Credenciales inválidas o sesión no disponible.');
   };
 
   return (
     <div className="min-h-screen bg-[var(--color-espresso)] text-[var(--color-cream)] flex items-center justify-center px-6">
       <div className="w-full max-w-md rounded-3xl border border-white/10 bg-white/5 p-8 backdrop-blur-xl">
         <h1 className="text-3xl font-serif font-bold mb-2">Panel de acceso</h1>
-        <p className="text-sm text-cream/60 mb-6">Inicia sesion para editar la carta.</p>
+        <p className="text-sm text-cream/60 mb-6">Inicia sesión para editar la carta.</p>
 
         <form onSubmit={handleSubmit} className="space-y-4">
           <label className="block text-sm space-y-2">
@@ -73,9 +86,9 @@ const AdminLogin: React.FC = () => {
           </button>
         </form>
 
-        {(formError || error) && (
+        {visibleError && (
           <p role="alert" className="mt-4 text-sm text-rose-200">
-            {formError || error}
+            {visibleError}
           </p>
         )}
       </div>

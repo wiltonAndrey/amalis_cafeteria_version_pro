@@ -39,11 +39,11 @@ describe('AdminPromotionModal', () => {
     );
 
     const file = new File(['image-content'], 'promo.png', { type: 'image/png' });
-    const uploadInput = screen.getByLabelText(/subir imagen de promocion/i);
+    const uploadInput = screen.getByLabelText(/subir imagen de promoción/i);
     await user.upload(uploadInput, file);
 
     await waitFor(() => {
-      const imageInput = screen.getByLabelText(/url de imagen de promocion/i) as HTMLInputElement;
+      const imageInput = screen.getByLabelText(/url de imagen de promoción/i) as HTMLInputElement;
       expect(imageInput.value).toMatch(/^data:image\/png;base64,/);
     });
   });

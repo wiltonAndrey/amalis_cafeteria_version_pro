@@ -11,9 +11,9 @@ const CATEGORY_GROUPS: Record<AdminMenuCategory, readonly MenuCategory[]> = {
 
 export const ADMIN_MENU_CATEGORY_OPTIONS: ReadonlyArray<{ id: AdminMenuCategory; label: string }> = [
   { id: 'tostadas', label: 'Tostadas' },
-  { id: 'bolleria-salada', label: 'Bolleria salada' },
-  { id: 'bolleria-dulce', label: 'Bolleria dulce' },
-  { id: 'pasteleria', label: 'Pasteleria' },
+  { id: 'bolleria-salada', label: 'Bollería salada' },
+  { id: 'bolleria-dulce', label: 'Bollería dulce' },
+  { id: 'pasteleria', label: 'Pastelería' },
   { id: 'ofertas', label: 'Ofertas' },
   { id: 'bebidas', label: 'Bebidas' },
 ];
