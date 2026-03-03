@@ -50,20 +50,29 @@ if ($image === '') {
 
 $altText = Validator::string_trim($input['alt_text'] ?? '');
 $imageTitle = Validator::string_trim($input['image_title'] ?? '');
+$chefSuggestion = Validator::string_trim($input['chef_suggestion'] ?? '');
 
 $ingredients = normalize_list($input['ingredients'] ?? []);
 $allergens = normalize_list($input['allergens'] ?? []);
 $featured = !empty($input['featured']) ? 1 : 0;
 $active = isset($input['active']) ? (int) ((bool) $input['active']) : 1;
-$sortOrder = isset($input['sort_order']) && is_numeric($input['sort_order'])
-  ? (int) $input['sort_order']
-  : 0;
+$sortOrder = null;
+
+if (array_key_exists('sort_order', $input) && $input['sort_order'] !== '' && $input['sort_order'] !== null) {
+  if (filter_var($input['sort_order'], FILTER_VALIDATE_INT) === false || (int) $input['sort_order'] < 1) {
+    Response::json(['ok' => false, 'error' => 'invalid_sort_order'], 400);
+    return;
+  }
+
+  $sortOrder = (int) $input['sort_order'];
+}
 
 $pdo = null;
 
 try {
   $pdo = get_pdo();
   $pdo->beginTransaction();
+  $hasChefSuggestion = table_has_column($pdo, 'menu_products', 'chef_suggestion');
 
   $categoryCheck = $pdo->prepare('SELECT id FROM menu_categories WHERE id = ? LIMIT 1');
   $categoryCheck->execute([$category]);
@@ -73,11 +82,13 @@ try {
     return;
   }
 
-  $stmt = $pdo->prepare(
-    'INSERT INTO menu_products (name, price, category, description, image, alt_text, image_title, ingredients, allergens, featured, active, sort_order)
-     VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
-  );
-  $stmt->execute([
+  normalize_menu_product_sort_orders($pdo, $category);
+  $resolvedSortOrder = resolve_menu_product_sort_order($pdo, $category, $sortOrder);
+  shift_menu_product_sort_orders($pdo, $category, $resolvedSortOrder);
+
+  $insertColumns = 'name, price, category, description, image, alt_text, image_title, ingredients, allergens, featured, active, sort_order';
+  $placeholders = '?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?';
+  $params = [
     $name,
     (float) $price,
     $category,
@@ -89,8 +100,20 @@ try {
     json_encode($allergens, JSON_UNESCAPED_UNICODE),
     $featured,
     $active,
-    $sortOrder,
-  ]);
+    $resolvedSortOrder,
+  ];
+
+  if ($hasChefSuggestion) {
+    $insertColumns .= ', chef_suggestion';
+    $placeholders .= ', ?';
+    $params[] = $chefSuggestion;
+  }
+
+  $stmt = $pdo->prepare(
+    "INSERT INTO menu_products ($insertColumns)
+     VALUES ($placeholders)"
+  );
+  $stmt->execute($params);
 
   $createdId = (int) $pdo->lastInsertId();
   $pdo->commit();

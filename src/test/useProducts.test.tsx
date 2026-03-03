@@ -1,5 +1,5 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { renderHook, act } from '@testing-library/react';
+import { renderHook, act, waitFor } from '@testing-library/react';
 import { useProducts, ProductPayload } from '../hooks/useProducts';
 import type { MenuProduct } from '../types';
 
@@ -76,5 +76,242 @@ describe('useProducts', () => {
     });
 
     expect(result.current.items[0].name).toBe('Despues');
+  });
+
+  it('sincroniza la lista canonica tras reordenar un producto para evitar duplicados de sort_order', async () => {
+    const initial: MenuProduct[] = [
+      {
+        id: '1',
+        name: 'Tostada 1',
+        price: 2.5,
+        category: 'tostadas',
+        sort_order: 1,
+        description: 'Primera',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      },
+      {
+        id: '2',
+        name: 'Tostada 2',
+        price: 2.7,
+        category: 'tostadas',
+        sort_order: 2,
+        description: 'Segunda',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      },
+    ];
+
+    global.fetch = vi.fn()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ ok: true }),
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          menuProducts: [
+            {
+              id: '2',
+              name: 'Tostada 2',
+              price: 2.7,
+              category: 'tostadas',
+              sort_order: 1,
+              description: 'Segunda',
+              image: '/images/sections/pan-artesano-horneado.webp',
+              ingredients: [],
+              allergens: [],
+              featured: false,
+            },
+            {
+              id: '1',
+              name: 'Tostada 1',
+              price: 2.5,
+              category: 'tostadas',
+              sort_order: 2,
+              description: 'Primera',
+              image: '/images/sections/pan-artesano-horneado.webp',
+              ingredients: [],
+              allergens: [],
+              featured: false,
+            },
+          ],
+        }),
+      } as Response);
+
+    const { result } = renderHook(() => useProducts(initial));
+
+    await act(async () => {
+      await result.current.updateProduct({
+        id: '2',
+        name: 'Tostada 2',
+        price: 2.7,
+        category: 'tostadas',
+        sort_order: 1,
+        description: 'Segunda',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      });
+    });
+
+    expect(result.current.items.map((product) => ({ id: product.id, sort_order: product.sort_order }))).toEqual([
+      { id: '2', sort_order: 1 },
+      { id: '1', sort_order: 2 },
+    ]);
+  });
+
+  it('sincroniza la lista canonica tras borrar para compactar sort_order de inmediato', async () => {
+    const initial: MenuProduct[] = [
+      {
+        id: '1',
+        name: 'Tostada 1',
+        price: 2.5,
+        category: 'tostadas',
+        sort_order: 1,
+        description: 'Primera',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      },
+      {
+        id: '2',
+        name: 'Tostada 2',
+        price: 2.7,
+        category: 'tostadas',
+        sort_order: 2,
+        description: 'Segunda',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      },
+    ];
+
+    global.fetch = vi.fn()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ ok: true }),
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          menuProducts: [
+            {
+              id: '2',
+              name: 'Tostada 2',
+              price: 2.7,
+              category: 'tostadas',
+              sort_order: 1,
+              description: 'Segunda',
+              image: '/images/sections/pan-artesano-horneado.webp',
+              ingredients: [],
+              allergens: [],
+              featured: false,
+            },
+          ],
+        }),
+      } as Response);
+
+    const { result } = renderHook(() => useProducts(initial));
+
+    await act(async () => {
+      await result.current.deleteProduct('1');
+    });
+
+    expect(result.current.items.map((product) => ({ id: product.id, sort_order: product.sort_order }))).toEqual([
+      { id: '2', sort_order: 1 },
+    ]);
+  });
+
+  it('normaliza productos del admin por categoria y sort_order aunque la API los devuelva mezclados', async () => {
+    const initial: MenuProduct[] = [];
+
+    global.fetch = vi.fn().mockResolvedValue({
+      ok: true,
+      json: async () => ({
+        menuProducts: [
+          {
+            id: 'bebida-1',
+            name: 'Cafe',
+            price: 1.5,
+            category: 'bebidas',
+            sort_order: 0,
+            description: 'Cafe',
+            image: '/images/sections/pan-artesano-horneado.webp',
+            ingredients: [],
+            allergens: [],
+            featured: false,
+          },
+          {
+            id: 'dulce-z',
+            name: 'Zeta Dulce',
+            price: 2.5,
+            category: 'bolleria-dulce',
+            description: 'Zeta',
+            image: '/images/sections/pan-artesano-horneado.webp',
+            ingredients: [],
+            allergens: [],
+            featured: false,
+          },
+          {
+            id: 'tostada-2',
+            name: 'Tostada 2',
+            price: 2.9,
+            category: 'tostadas',
+            sort_order: 2,
+            description: 'Tostada 2',
+            image: '/images/sections/pan-artesano-horneado.webp',
+            ingredients: [],
+            allergens: [],
+            featured: false,
+          },
+          {
+            id: 'dulce-a',
+            name: 'Alfa Dulce',
+            price: 2.3,
+            category: 'bolleria-dulce',
+            description: 'Alfa',
+            image: '/images/sections/pan-artesano-horneado.webp',
+            ingredients: [],
+            allergens: [],
+            featured: false,
+          },
+          {
+            id: 'tostada-1',
+            name: 'Tostada 1',
+            price: 2.7,
+            category: 'tostadas',
+            sort_order: 1,
+            description: 'Tostada 1',
+            image: '/images/sections/pan-artesano-horneado.webp',
+            ingredients: [],
+            allergens: [],
+            featured: false,
+          },
+        ],
+      }),
+    } as Response);
+
+    const { result } = renderHook(() => useProducts(initial, { autoRefresh: true }));
+
+    await waitFor(() => {
+      expect(result.current.loading).toBe(false);
+      expect(result.current.items).toHaveLength(5);
+    });
+
+    expect(result.current.items.map((product) => product.id)).toEqual([
+      'tostada-1',
+      'tostada-2',
+      'dulce-a',
+      'dulce-z',
+      'bebida-1',
+    ]);
   });
 });

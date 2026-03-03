@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { handleError } from '../utils/error-handling';
 import { useMenuProducts } from '../hooks/useMenuProducts';
 import { matchesVisibleMenuCategory } from '../utils/menu-categories';
+import { groupMenuProductsForAllView, sortMenuProductsWithinCategory } from '../utils/menu-products';
 import {
     BadgeCheck,
     Cake,
@@ -46,11 +47,50 @@ const Menu: React.FC = () => {
     const sliderRef = useRef<HTMLDivElement>(null);
     const pendingCategoryRef = useRef<VisibleMenuCategory | null>(null);
 
-    const filteredProducts = useMemo(() => {
-        return activeCategory === 'all'
-            ? menuProducts
-            : menuProducts.filter((product) => matchesVisibleMenuCategory(product.category, activeCategory));
+    const allViewGroups = useMemo(() => {
+        if (activeCategory !== 'all') {
+            return [];
+        }
+
+        return groupMenuProductsForAllView(menuProducts);
     }, [activeCategory, menuProducts]);
+
+    const filteredProducts = useMemo(() => {
+        if (activeCategory === 'all') {
+            return [];
+        }
+
+        return sortMenuProductsWithinCategory(
+            menuProducts.filter((product) => matchesVisibleMenuCategory(product.category, activeCategory))
+        );
+    }, [activeCategory, menuProducts]);
+
+    const hasVisibleProducts = activeCategory === 'all'
+        ? allViewGroups.length > 0
+        : filteredProducts.length > 0;
+
+    const renderProductGrid = (products: MenuProduct[]) => (
+        <motion.div
+            layout
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+        >
+            <AnimatePresence mode="popLayout">
+                {products.map((product) => (
+                    <motion.div
+                        key={product.id}
+                        layout
+                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                        animate={{ opacity: 1, scale: 1, y: 0 }}
+                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                        transition={{ duration: 0.4 }}
+                        className="h-full"
+                    >
+                        <ProductCard product={product} onClick={setSelectedProduct} />
+                    </motion.div>
+                ))}
+            </AnimatePresence>
+        </motion.div>
+    );
 
     const handleScroll = () => {
         if (sliderRef.current) {
@@ -218,27 +258,27 @@ const Menu: React.FC = () => {
 
             <section className="py-12 md:py-24">
                 <div className="max-w-7xl mx-auto px-6">
-                    {filteredProducts.length > 0 ? (
-                        <motion.div
-                            layout
-                            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
-                        >
-                            <AnimatePresence mode="popLayout">
-                                {filteredProducts.map((product) => (
-                                    <motion.div
-                                        key={product.id}
-                                        layout
-                                        initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                                        animate={{ opacity: 1, scale: 1, y: 0 }}
-                                        exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                                        transition={{ duration: 0.4 }}
-                                        className="h-full"
-                                    >
-                                        <ProductCard product={product} onClick={setSelectedProduct} />
-                                    </motion.div>
+                    {hasVisibleProducts ? (
+                        activeCategory === 'all' ? (
+                            <div className="space-y-16">
+                                {allViewGroups.map((group) => (
+                                    <section key={group.category} className="space-y-6" aria-labelledby={`menu-group-${group.category}`}>
+                                        <div className="flex items-center justify-between gap-4">
+                                            <h2
+                                                id={`menu-group-${group.category}`}
+                                                className="text-3xl md:text-4xl font-serif font-black text-[var(--color-cream)] tracking-tight"
+                                            >
+                                                {group.label}
+                                            </h2>
+                                            <div className="h-px flex-1 bg-gradient-to-r from-[var(--color-caramel)]/40 to-transparent" aria-hidden="true" />
+                                        </div>
+                                        {renderProductGrid(group.products)}
+                                    </section>
                                 ))}
-                            </AnimatePresence>
-                        </motion.div>
+                            </div>
+                        ) : (
+                            renderProductGrid(filteredProducts)
+                        )
                     ) : (
                         <div className="text-center py-32 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">
                             <Utensils className="text-[var(--color-caramel)] text-4xl mb-6 opacity-80" />

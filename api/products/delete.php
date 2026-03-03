@@ -18,7 +18,7 @@ if ($id <= 0) {
 
 try {
   $pdo = get_pdo();
-  $exists = $pdo->prepare('SELECT id, active FROM menu_products WHERE id = ? LIMIT 1');
+  $exists = $pdo->prepare('SELECT id, active, category FROM menu_products WHERE id = ? LIMIT 1');
   $exists->execute([$id]);
   $row = $exists->fetch();
 
@@ -27,10 +27,18 @@ try {
     return;
   }
 
+  $pdo->beginTransaction();
+
   $stmt = $pdo->prepare('UPDATE menu_products SET active = 0 WHERE id = ?');
   $stmt->execute([$id]);
+  normalize_menu_product_sort_orders($pdo, (string) $row['category']);
+  $pdo->commit();
 
   Response::json(['ok' => true, 'updated' => $stmt->rowCount()]);
 } catch (Throwable $error) {
+  if (isset($pdo) && $pdo instanceof PDO && $pdo->inTransaction()) {
+    $pdo->rollBack();
+  }
+
   Response::json(['ok' => false, 'error' => 'db_error'], 500);
 }

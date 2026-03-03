@@ -59,7 +59,9 @@ export interface MenuProduct {
   name: string;
   price: number;
   category: MenuCategory;
+  sort_order?: number;
   description: string;
+  chef_suggestion?: string;
   image: string;
   alt_text?: string;
   image_title?: string;

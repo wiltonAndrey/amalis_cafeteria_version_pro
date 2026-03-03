@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { MenuCategory, MenuProduct } from '../types';
+import { sortMenuProductsForAllView } from '../utils/menu-products';
 
 export interface ProductPayload {
   id?: string;
@@ -7,6 +8,7 @@ export interface ProductPayload {
   price: number;
   category: MenuCategory;
   description: string;
+  chef_suggestion?: string;
   image: string;
   alt_text?: string;
   image_title?: string;
@@ -28,7 +30,9 @@ const buildProduct = (payload: ProductPayload, id: string): MenuProduct => ({
   name: payload.name,
   price: payload.price,
   category: payload.category,
+  sort_order: payload.sort_order,
   description: payload.description,
+  chef_suggestion: payload.chef_suggestion,
   image: payload.image || DEFAULT_IMAGE,
   alt_text: payload.alt_text,
   image_title: payload.image_title,
@@ -110,6 +114,11 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
 
       const newId = String(data?.id ?? tempId);
       setItems(prev => prev.map(item => (item.id === tempId ? { ...item, id: newId } : item)));
+
+      if (typeof payload.sort_order === 'number') {
+        await refresh();
+      }
+
       return newId;
     } catch (err) {
       setItems(prev => prev.filter(item => item.id !== tempId));
@@ -118,7 +127,7 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
     } finally {
       setIsMutating(false);
     }
-  }, []);
+  }, [refresh]);
 
   const updateProduct = useCallback(async (payload: ProductPayload) => {
     if (!payload.id) {
@@ -147,6 +156,10 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
       if (!response.ok || data?.ok === false) {
         throw new Error(data?.error || 'save_failed');
       }
+
+      if (typeof payload.sort_order === 'number') {
+        await refresh();
+      }
     } catch (err) {
       if (previous) {
         setItems(prev => prev.map(item => (item.id === previous.id ? previous : item)));
@@ -156,7 +169,7 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
     } finally {
       setIsMutating(false);
     }
-  }, []);
+  }, [refresh]);
 
   const deleteProduct = useCallback(async (id: string) => {
     if (typeof fetch !== 'function') {
@@ -181,6 +194,8 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
       if (!response.ok || data?.ok === false) {
         throw new Error(data?.error || 'delete_failed');
       }
+
+      await refresh();
     } catch (err) {
       setItems(previous);
       setError('No se pudo eliminar el producto.');
@@ -188,10 +203,12 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
     } finally {
       setIsMutating(false);
     }
-  }, []);
+  }, [refresh]);
+
+  const normalizedItems = useMemo(() => sortMenuProductsForAllView(items), [items]);
 
   return useMemo(() => ({
-    items,
+    items: normalizedItems,
     loading,
     isMutating,
     error,
@@ -199,5 +216,5 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
     createProduct,
     updateProduct,
     deleteProduct,
-  }), [items, loading, isMutating, error, refresh, createProduct, updateProduct, deleteProduct]);
+  }), [normalizedItems, loading, isMutating, error, refresh, createProduct, updateProduct, deleteProduct]);
 };

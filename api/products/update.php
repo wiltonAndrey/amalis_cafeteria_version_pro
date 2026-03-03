@@ -36,6 +36,10 @@ if ($id <= 0) {
 
 $fields = [];
 $params = [];
+$hasCategoryInput = false;
+$targetCategoryInput = null;
+$sortOrderRequested = false;
+$requestedSortOrder = null;
 
 if (array_key_exists('name', $input)) {
   $name = Validator::string_trim($input['name']);
@@ -63,8 +67,9 @@ if (array_key_exists('category', $input)) {
     Response::json(['ok' => false, 'error' => 'invalid_category'], 400);
     return;
   }
-  $fields[] = 'category = ?';
-  $params[] = $category;
+
+  $hasCategoryInput = true;
+  $targetCategoryInput = $category;
 }
 
 if (array_key_exists('description', $input)) {
@@ -98,6 +103,12 @@ if (array_key_exists('image_title', $input)) {
   $params[] = $imageTitle;
 }
 
+if (array_key_exists('chef_suggestion', $input)) {
+  $chefSuggestion = Validator::string_trim($input['chef_suggestion']);
+  $fields[] = 'chef_suggestion = ?';
+  $params[] = $chefSuggestion;
+}
+
 if (array_key_exists('ingredients', $input)) {
   $ingredients = normalize_list($input['ingredients']);
   $fields[] = 'ingredients = ?';
@@ -120,19 +131,36 @@ if (array_key_exists('active', $input)) {
   $params[] = !empty($input['active']) ? 1 : 0;
 }
 
-if (array_key_exists('sort_order', $input) && is_numeric($input['sort_order'])) {
-  $fields[] = 'sort_order = ?';
-  $params[] = (int) $input['sort_order'];
+if (array_key_exists('sort_order', $input) && $input['sort_order'] !== '' && $input['sort_order'] !== null) {
+  if (filter_var($input['sort_order'], FILTER_VALIDATE_INT) === false || (int) $input['sort_order'] < 1) {
+    Response::json(['ok' => false, 'error' => 'invalid_sort_order'], 400);
+    return;
+  }
+
+  $sortOrderRequested = true;
+  $requestedSortOrder = (int) $input['sort_order'];
 }
 
-if (empty($fields)) {
-  Response::json(['ok' => false, 'error' => 'no_fields'], 400);
-  return;
-}
+$pdo = null;
 
 try {
   $pdo = get_pdo();
-  $exists = $pdo->prepare('SELECT id, active FROM menu_products WHERE id = ? LIMIT 1');
+  $hasChefSuggestion = table_has_column($pdo, 'menu_products', 'chef_suggestion');
+
+  if (array_key_exists('chef_suggestion', $input) && !$hasChefSuggestion) {
+    $chefFieldIndex = array_search('chef_suggestion = ?', $fields, true);
+    if ($chefFieldIndex !== false) {
+      array_splice($fields, $chefFieldIndex, 1);
+      array_splice($params, $chefFieldIndex, 1);
+    }
+  }
+
+  if (empty($fields) && !$hasCategoryInput && !$sortOrderRequested) {
+    Response::json(['ok' => false, 'error' => 'no_fields'], 400);
+    return;
+  }
+
+  $exists = $pdo->prepare('SELECT id, active, category, sort_order FROM menu_products WHERE id = ? LIMIT 1');
   $exists->execute([$id]);
   $row = $exists->fetch();
   if (!$row || (int) $row['active'] === 0) {
@@ -140,21 +168,49 @@ try {
     return;
   }
 
-  if (array_key_exists('category', $input)) {
-    $categoryValue = Validator::string_trim($input['category']);
+  $currentCategory = (string) $row['category'];
+  $targetCategory = $hasCategoryInput ? (string) $targetCategoryInput : $currentCategory;
+
+  if ($hasCategoryInput) {
     $categoryCheck = $pdo->prepare('SELECT id FROM menu_categories WHERE id = ? LIMIT 1');
-    $categoryCheck->execute([$categoryValue]);
+    $categoryCheck->execute([$targetCategory]);
     if (!$categoryCheck->fetch()) {
       Response::json(['ok' => false, 'error' => 'invalid_category'], 400);
       return;
     }
   }
 
+  $pdo->beginTransaction();
+
+  normalize_menu_product_sort_orders($pdo, $currentCategory, $id);
+
+  if ($targetCategory !== $currentCategory) {
+    normalize_menu_product_sort_orders($pdo, $targetCategory);
+  }
+
+  $positionReference = $sortOrderRequested
+    ? $requestedSortOrder
+    : ($targetCategory === $currentCategory ? (int) $row['sort_order'] : null);
+  $excludeProductId = $targetCategory === $currentCategory ? $id : null;
+  $resolvedSortOrder = resolve_menu_product_sort_order($pdo, $targetCategory, $positionReference, $excludeProductId);
+
+  shift_menu_product_sort_orders($pdo, $targetCategory, $resolvedSortOrder, $excludeProductId);
+
+  $fields[] = 'category = ?';
+  $params[] = $targetCategory;
+  $fields[] = 'sort_order = ?';
+  $params[] = $resolvedSortOrder;
   $params[] = $id;
+
   $stmt = $pdo->prepare('UPDATE menu_products SET ' . implode(', ', $fields) . ' WHERE id = ?');
   $stmt->execute($params);
+  $pdo->commit();
 
   Response::json(['ok' => true, 'updated' => $stmt->rowCount()]);
 } catch (Throwable $error) {
+  if ($pdo && $pdo->inTransaction()) {
+    $pdo->rollBack();
+  }
+
   Response::json(['ok' => false, 'error' => 'db_error'], 500);
 }
