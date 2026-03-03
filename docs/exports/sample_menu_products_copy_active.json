@@ -1,0 +1,43 @@
+[
+  {
+    "id": 98,
+    "name": "1/2 Tostada Catalana",
+    "category": "tostadas",
+    "subcategory": null,
+    "price": 3.25,
+    "image": "/images/products/Tostada-Catalana.webp",
+    "description": "Pan rústico tostado con tomate natural, aceite de oliva y jamón serrano.",
+    "alt_text": "Tostada catalana con jamón servida en plato claro en Amalis Cafetería.",
+    "image_title": "Media Tostada Catalana con Jamón Serrano",
+    "chef_suggestion": "Recién hecha es cuando mejor funciona.",
+    "ingredients": [
+      "Pan rústico",
+      "Tomate natural",
+      "Aceite de oliva",
+      "Jamón serrano"
+    ],
+    "allergens": [
+      "Gluten (Trigo)"
+    ],
+    "featured": false,
+    "sort_order": 1
+  },
+  {
+    "id": 127,
+    "name": "Zumo de Naranja Natural",
+    "category": "bebidas",
+    "subcategory": null,
+    "price": 2.2,
+    "image": "/images/products/Zumo-Naranja.webp",
+    "description": "Zumo exprimido al momento con sabor limpio y fresco.",
+    "alt_text": "Vaso de zumo de naranja natural recién exprimido en Amalis Cafetería.",
+    "image_title": "Zumo de Naranja Natural Recién Exprimido",
+    "chef_suggestion": "Recién exprimido es cuando mejor está; pídelo al momento.",
+    "ingredients": [
+      "Naranja natural"
+    ],
+    "allergens": [],
+    "featured": false,
+    "sort_order": 1
+  }
+]

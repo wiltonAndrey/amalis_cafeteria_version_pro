@@ -1,0 +1,41 @@
+{
+  "database": "amalis_cms",
+  "generated_at": "2026-03-03T12:54:04+00:00",
+  "tables": {
+    "features": [
+      {
+        "id": 1,
+        "title": "Tradición",
+        "description": "Creemos que la tradición es el alma de cada receta que sale del horno.",
+        "icon": "/images/editada-02.webp",
+        "sort_order": 1
+      }
+    ],
+    "menu_categories": [
+      {
+        "id": 1,
+        "slug": "tostadas",
+        "label": "Tostadas",
+        "active": 1
+      }
+    ],
+    "menu_products": [
+      {
+        "id": 98,
+        "name": "1/2 Tostada Catalana",
+        "category": "tostadas",
+        "price": 3.25,
+        "description": "Pan rústico tostado con tomate natural, aceite de oliva y jamón serrano.",
+        "chef_suggestion": "Recién hecha es cuando mejor funciona.",
+        "active": 1
+      }
+    ],
+    "settings": [
+      {
+        "id": 1,
+        "setting_key": "site_name",
+        "setting_value": "Amalis Cafetería"
+      }
+    ]
+  }
+}
