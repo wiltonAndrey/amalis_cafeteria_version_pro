@@ -73,9 +73,20 @@ if (empty($success['ok']) || empty($success['url'])) {
 }
 
 $uploadedRelative = (string) $success['url'];
-$uploadedAbsolute = realpath(__DIR__ . '/../public/images') . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . basename($uploadedRelative);
-if (is_string($uploadedAbsolute) && file_exists($uploadedAbsolute)) {
-  @unlink($uploadedAbsolute);
+$uploadBases = [
+  realpath(__DIR__ . '/../public/images'),
+  realpath(__DIR__ . '/../images'),
+];
+
+foreach ($uploadBases as $uploadBase) {
+  if (!is_string($uploadBase) || $uploadBase === '') {
+    continue;
+  }
+
+  $uploadedAbsolute = $uploadBase . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . basename($uploadedRelative);
+  if (file_exists($uploadedAbsolute)) {
+    @unlink($uploadedAbsolute);
+  }
 }
 
 echo "PASS\n";

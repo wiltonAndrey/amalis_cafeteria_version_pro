@@ -5,6 +5,36 @@ if (empty($auth['ok'])) {
   return;
 }
 
+if (!function_exists('resolve_upload_base_dir')) {
+  function resolve_upload_base_dir()
+  {
+    $documentRoot = isset($_SERVER['DOCUMENT_ROOT']) ? trim((string) $_SERVER['DOCUMENT_ROOT']) : '';
+    $candidates = [
+      __DIR__ . '/../public/images',
+      __DIR__ . '/../images',
+    ];
+
+    if ($documentRoot !== '') {
+      $candidates[] = rtrim($documentRoot, DIRECTORY_SEPARATOR) . DIRECTORY_SEPARATOR . 'images';
+    }
+
+    foreach ($candidates as $candidate) {
+      if (!is_dir($candidate)) {
+        continue;
+      }
+
+      $resolved = realpath($candidate);
+      if (is_string($resolved) && $resolved !== '') {
+        return $resolved;
+      }
+
+      return rtrim($candidate, DIRECTORY_SEPARATOR);
+    }
+
+    return false;
+  }
+}
+
 if (empty($_FILES['image'])) {
   Response::json(['ok' => false, 'error' => 'missing_file'], 400);
   return;
@@ -51,7 +81,7 @@ if ($mime === '' || empty($allowed[$mime])) {
   return;
 }
 
-$uploadDir = realpath(__DIR__ . '/../public/images');
+$uploadDir = resolve_upload_base_dir();
 if ($uploadDir === false) {
   Response::json(['ok' => false, 'error' => 'upload_dir_missing'], 500);
   return;

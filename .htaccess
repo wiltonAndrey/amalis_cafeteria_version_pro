@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Keep real files and directories reachable as-is.
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# SPA fallback for React Router routes.
+RewriteRule ^ index.html [L]
