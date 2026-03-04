@@ -210,6 +210,26 @@ describe('Menu Integration', () => {
     })
   })
 
+  it('mantiene visible el titulo de la categoria cuando se filtra una categoria concreta', async () => {
+    render(<MemoryRouter><Menu /></MemoryRouter>)
+
+    const tostadasButton = getCategoryButton('tostadas')
+    if (tostadasButton) {
+      await act(async () => {
+        fireEvent.pointerDown(tostadasButton, { pageX: 100, pointerId: 1 })
+        fireEvent.pointerUp(tostadasButton, { pageX: 100, pointerId: 1 })
+        await new Promise(r => setTimeout(r, 200))
+      })
+    }
+
+    const filteredHeading = await screen.findByRole('heading', { name: 'Tostadas' })
+
+    expect(filteredHeading).toBeInTheDocument()
+    expect(filteredHeading).toHaveClass('font-serif')
+    expect(filteredHeading).toHaveClass('text-3xl')
+    expect(screen.getByText('Tostada de Tomate y AOVE')).toBeInTheDocument()
+  })
+
   it('filtra bebidas por categoria', async () => {
     render(<MemoryRouter><Menu /></MemoryRouter>)
 

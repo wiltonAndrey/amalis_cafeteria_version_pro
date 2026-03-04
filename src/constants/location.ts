@@ -1,4 +1,5 @@
 import type { LocationInfo } from '../types';
+import { BUSINESS_MAP_URL } from './core';
 
 export const LOCATION_INFO: LocationInfo = {
   title: 'Encuéntranos en Santa Pola',
@@ -7,7 +8,7 @@ export const LOCATION_INFO: LocationInfo = {
   ctaLabel: 'Descubre nuestra ubicación',
   address: ['Carrer Almirante Antequera, 11', '03130 Santa Pola, Alicante'],
   reference: 'A 2 calles del Castillo de Santa Pola',
-  mapUrl: 'https://www.google.com/maps?q=38.19156,-0.55558',
+  mapUrl: BUSINESS_MAP_URL,
   hours: '7:00–21:00',
   phone: '656 91 35 39',
   contactCard: {

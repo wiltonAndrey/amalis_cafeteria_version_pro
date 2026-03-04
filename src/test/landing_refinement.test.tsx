@@ -154,7 +154,7 @@ describe('Landing refinement', () => {
     render(<LocationSection />);
 
     const locationCta = screen.getByRole('link', { name: /descubre nuestra ubicaci[oó]n/i });
-    expect(locationCta).toHaveAttribute('href', 'https://www.google.com/maps?q=38.19156,-0.55558');
+    expect(locationCta).toHaveAttribute('href', 'https://maps.app.goo.gl/pjmdGPLnPDWcudXs6');
     expect(locationCta).toHaveAttribute('target', '_blank');
     expect(locationCta).toHaveAttribute('rel', expect.stringContaining('noopener'));
     expect(locationCta).toHaveAttribute('rel', expect.stringContaining('noreferrer'));

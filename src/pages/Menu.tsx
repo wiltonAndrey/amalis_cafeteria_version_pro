@@ -69,6 +69,10 @@ const Menu: React.FC = () => {
         ? allViewGroups.length > 0
         : filteredProducts.length > 0;
 
+    const activeCategoryLabel = activeCategory === 'all'
+        ? null
+        : menuCategories.find((category) => category.id === activeCategory)?.label ?? activeCategory;
+
     const renderProductGrid = (products: MenuProduct[]) => (
         <motion.div
             layout
@@ -90,6 +94,21 @@ const Menu: React.FC = () => {
                 ))}
             </AnimatePresence>
         </motion.div>
+    );
+
+    const renderCategorySection = (categoryId: string, label: string, products: MenuProduct[]) => (
+        <section key={categoryId} className="space-y-6" aria-labelledby={`menu-group-${categoryId}`}>
+            <div className="flex items-center justify-between gap-4">
+                <h2
+                    id={`menu-group-${categoryId}`}
+                    className="text-3xl md:text-4xl font-serif font-black text-[var(--color-cream)] tracking-tight"
+                >
+                    {label}
+                </h2>
+                <div className="h-px flex-1 bg-gradient-to-r from-[var(--color-caramel)]/40 to-transparent" aria-hidden="true" />
+            </div>
+            {renderProductGrid(products)}
+        </section>
     );
 
     const handleScroll = () => {
@@ -270,22 +289,13 @@ const Menu: React.FC = () => {
                         activeCategory === 'all' ? (
                             <div className="space-y-16">
                                 {allViewGroups.map((group) => (
-                                    <section key={group.category} className="space-y-6" aria-labelledby={`menu-group-${group.category}`}>
-                                        <div className="flex items-center justify-between gap-4">
-                                            <h2
-                                                id={`menu-group-${group.category}`}
-                                                className="text-3xl md:text-4xl font-serif font-black text-[var(--color-cream)] tracking-tight"
-                                            >
-                                                {group.label}
-                                            </h2>
-                                            <div className="h-px flex-1 bg-gradient-to-r from-[var(--color-caramel)]/40 to-transparent" aria-hidden="true" />
-                                        </div>
-                                        {renderProductGrid(group.products)}
-                                    </section>
+                                    renderCategorySection(group.category, group.label, group.products)
                                 ))}
                             </div>
                         ) : (
-                            renderProductGrid(filteredProducts)
+                            activeCategoryLabel
+                                ? renderCategorySection(activeCategory, activeCategoryLabel, filteredProducts)
+                                : renderProductGrid(filteredProducts)
                         )
                     ) : (
                         <div className="text-center py-32 bg-white/5 rounded-3xl border border-white/10 backdrop-blur-sm">

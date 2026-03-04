@@ -7,7 +7,9 @@ export const HERO_CONTENT = {
   microcopy: 'Abierto desde primera hora · Para llevar y para disfrutar aquí',
 };
 
-export const HERO_MAP_URL = 'https://www.google.com/maps?q=38.19156,-0.55558';
+export const BUSINESS_MAP_URL = 'https://maps.app.goo.gl/pjmdGPLnPDWcudXs6';
+
+export const HERO_MAP_URL = BUSINESS_MAP_URL;
 
 export const FOOTER_CONTENT = {
   slogan: 'No dejes que te lo cuenten. Ven a probar la diferencia de lo recién hecho.',
@@ -25,7 +27,7 @@ export const FOOTER_CONTENT = {
     contacto: {
       title: 'Contacto',
       items: [
-        { name: 'Visítanos en Santa Pola', href: '/#location' },
+        { name: 'Visítanos en Santa Pola', href: BUSINESS_MAP_URL },
         { name: 'Contacto', href: '/#location' },
       ],
     },

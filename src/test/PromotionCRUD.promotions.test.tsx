@@ -47,10 +47,10 @@ describe('PromotionCRUD', () => {
 
     await waitFor(() => expect(screen.getByText('Promo Admin')).toBeInTheDocument());
 
-    await user.click(screen.getByRole('button', { name: /editar promocion/i }));
-    expect(screen.getByRole('heading', { name: /editar promocion/i })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /editar promoci[oó]n/i }));
+    expect(screen.getByRole('heading', { name: /editar promoci[oó]n/i })).toBeInTheDocument();
     expect(screen.getByLabelText(/badge/i)).toHaveValue('Mananas');
-    expect(screen.getByLabelText(/titulo/i)).toHaveValue('Promo Admin');
+    expect(screen.getByLabelText(/t[ií]tulo/i)).toHaveValue('Promo Admin');
   });
 
   it('updates promotion from modal form', async () => {
@@ -58,9 +58,9 @@ describe('PromotionCRUD', () => {
     render(<PromotionCRUD />);
 
     await waitFor(() => expect(screen.getByText('Promo Admin')).toBeInTheDocument());
-    await user.click(screen.getByRole('button', { name: /editar promocion/i }));
+    await user.click(screen.getByRole('button', { name: /editar promoci[oó]n/i }));
 
-    const titleInput = screen.getByLabelText(/titulo/i);
+    const titleInput = screen.getByLabelText(/t[ií]tulo/i);
     await user.clear(titleInput);
     await user.type(titleInput, 'Promo Editada');
     await user.click(screen.getByRole('button', { name: /guardar cambios/i }));
@@ -83,12 +83,12 @@ describe('PromotionCRUD', () => {
     render(<PromotionCRUD />);
 
     await waitFor(() => expect(screen.getByText('Promo Admin')).toBeInTheDocument());
-    await user.click(screen.getByRole('button', { name: /editar promocion/i }));
-    expect(screen.getByRole('heading', { name: /editar promocion/i })).toBeInTheDocument();
+    await user.click(screen.getByRole('button', { name: /editar promoci[oó]n/i }));
+    expect(screen.getByRole('heading', { name: /editar promoci[oó]n/i })).toBeInTheDocument();
 
     await user.click(screen.getByRole('button', { name: /^cerrar$/i }));
     await waitFor(() => {
-      expect(screen.queryByRole('heading', { name: /editar promocion/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('heading', { name: /editar promoci[oó]n/i })).not.toBeInTheDocument();
     });
   });
 
@@ -111,15 +111,15 @@ describe('PromotionCRUD', () => {
 
     render(<PromotionCRUD />);
     await waitFor(() => expect(screen.getByText('Promo Admin')).toBeInTheDocument());
-    await user.click(screen.getByRole('button', { name: /editar promocion/i }));
+    await user.click(screen.getByRole('button', { name: /editar promoci[oó]n/i }));
 
-    const titleInput = screen.getByLabelText(/titulo/i);
+    const titleInput = screen.getByLabelText(/t[ií]tulo/i);
     await user.clear(titleInput);
     await user.type(titleInput, 'Promo Local');
     await user.click(screen.getByRole('button', { name: /guardar cambios/i }));
 
     await waitFor(() => {
-      expect(screen.queryByRole('heading', { name: /editar promocion/i })).not.toBeInTheDocument();
+      expect(screen.queryByRole('heading', { name: /editar promoci[oó]n/i })).not.toBeInTheDocument();
     });
     expect(screen.getByText('Promo Local')).toBeInTheDocument();
   });

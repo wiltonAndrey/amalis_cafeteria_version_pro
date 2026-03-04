@@ -22,9 +22,24 @@ const TwitterIcon = () => (
 );
 
 const SOCIAL_LINKS = [
-  { name: 'Instagram', icon: InstagramIcon, href: 'https://instagram.com/amaliscafeteria' },
-  { name: 'Facebook', icon: FacebookIcon, href: 'https://facebook.com/amaliscafeteria' },
-  { name: 'Twitter', icon: TwitterIcon, href: 'https://twitter.com/amaliscafeteria' },
+  {
+    name: 'Instagram',
+    icon: InstagramIcon,
+    href: 'https://www.instagram.com/amalis_cafeteria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==',
+    hidden: false,
+  },
+  {
+    name: 'Facebook',
+    icon: FacebookIcon,
+    href: 'https://facebook.com/amaliscafeteria',
+    hidden: true,
+  },
+  {
+    name: 'Twitter',
+    icon: TwitterIcon,
+    href: 'https://twitter.com/amaliscafeteria',
+    hidden: true,
+  },
 ];
 
 const HORARIO = [
@@ -57,7 +72,7 @@ const Footer: React.FC = () => {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-cream hover:bg-caramel hover:text-white transition-all"
+                  className={`${social.hidden ? 'hidden ' : ''}w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-cream hover:bg-caramel hover:text-white transition-all`}
                   aria-label={`Síguenos en ${social.name}`}
                 >
                   <social.icon />
@@ -102,13 +117,13 @@ const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="pt-10 border-t border-white/10 flex flex-col md:flex-row justify-center items-center gap-6">
           <p className="text-cream/65 text-sm">
             © {currentYear} {FOOTER_CONTENT.copyright}
           </p>
-          <div className="flex space-x-8 text-sm text-cream/65">
-            <button type="button" className="text-cream/65 hover:text-caramel cursor-pointer transition-colors">Privacidad</button>
-            <button type="button" className="text-cream/65 hover:text-caramel cursor-pointer transition-colors">Cookies</button>
+          <div className="hidden flex space-x-8 text-sm text-cream/65">
+            <button type="button" className="hidden text-cream/65 hover:text-caramel cursor-pointer transition-colors">Privacidad</button>
+            <button type="button" className="hidden text-cream/65 hover:text-caramel cursor-pointer transition-colors">Cookies</button>
           </div>
         </div>
       </div>
