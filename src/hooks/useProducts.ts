@@ -114,10 +114,7 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
 
       const newId = String(data?.id ?? tempId);
       setItems(prev => prev.map(item => (item.id === tempId ? { ...item, id: newId } : item)));
-
-      if (typeof payload.sort_order === 'number') {
-        await refresh();
-      }
+      await refresh();
 
       return newId;
     } catch (err) {
@@ -157,9 +154,7 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
         throw new Error(data?.error || 'save_failed');
       }
 
-      if (typeof payload.sort_order === 'number') {
-        await refresh();
-      }
+      await refresh();
     } catch (err) {
       if (previous) {
         setItems(prev => prev.map(item => (item.id === previous.id ? previous : item)));

@@ -24,10 +24,30 @@ describe('useProducts', () => {
       featured: false,
     };
 
-    global.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ ok: true, id: 10 }),
-    } as Response);
+    global.fetch = vi.fn()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ ok: true, id: 10 }),
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          menuProducts: [
+            {
+              id: '10',
+              name: 'Nuevo',
+              price: 2.5,
+              category: 'cocas',
+              description: 'Descripcion',
+              image: '/images/sections/pan-artesano-horneado.webp',
+              ingredients: [],
+              allergens: [],
+              featured: false,
+              sort_order: 1,
+            },
+          ],
+        }),
+      } as Response);
 
     const { result } = renderHook(() => useProducts(initial));
 
@@ -37,6 +57,8 @@ describe('useProducts', () => {
 
     expect(result.current.items).toHaveLength(1);
     expect(result.current.items[0].id).toBe('10');
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+    expect((global.fetch as any).mock.calls[1][0]).toBe('/api/get_products.php');
   });
 
   it('actualiza un producto existente', async () => {
@@ -54,10 +76,30 @@ describe('useProducts', () => {
       },
     ];
 
-    global.fetch = vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({ ok: true }),
-    } as Response);
+    global.fetch = vi.fn()
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ ok: true }),
+      } as Response)
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({
+          menuProducts: [
+            {
+              id: '1',
+              name: 'Despues',
+              price: 1.2,
+              category: 'cocas',
+              description: 'Nuevo',
+              image: '/images/sections/pan-artesano-horneado.webp',
+              ingredients: [],
+              allergens: [],
+              featured: true,
+              sort_order: 1,
+            },
+          ],
+        }),
+      } as Response);
 
     const { result } = renderHook(() => useProducts(initial));
 
@@ -76,6 +118,8 @@ describe('useProducts', () => {
     });
 
     expect(result.current.items[0].name).toBe('Despues');
+    expect(global.fetch).toHaveBeenCalledTimes(2);
+    expect((global.fetch as any).mock.calls[1][0]).toBe('/api/get_products.php');
   });
 
   it('sincroniza la lista canonica tras reordenar un producto para evitar duplicados de sort_order', async () => {
