@@ -38,3 +38,4 @@ devserver.err.log
 docs/exports/database_snapshot_*.json
 docs/exports/menu_products_chef_suggestions_*.sql
 docs/exports/menu_products_copy_active_*.json
+docs/exports/menu_products_import_report_*.json
