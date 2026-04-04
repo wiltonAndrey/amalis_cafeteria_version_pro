@@ -6,6 +6,7 @@ export interface AdminProductFormData {
   id?: string;
   name: string;
   price: number;
+  price_unit: 'unit' | 'kg';
   category: MenuCategory;
   sort_order?: number;
   description: string;
@@ -27,6 +28,10 @@ interface AdminProductModalProps {
 }
 
 const DEFAULT_IMAGE = '/images/sections/pan-artesano-horneado.webp';
+const PRICE_UNIT_OPTIONS = [
+  { value: 'unit', label: 'Por unidad' },
+  { value: 'kg', label: 'Por kilo' },
+] as const;
 
 const AdminProductModal: React.FC<AdminProductModalProps> = ({
   isOpen,
@@ -42,6 +47,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
   const [form, setForm] = useState({
     name: '',
     price: '',
+    price_unit: 'unit' as 'unit' | 'kg',
     category: defaultCategory,
     sort_order: '',
     description: '',
@@ -62,6 +68,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
     setForm({
       name: product?.name ?? '',
       price: product?.price != null ? String(product.price) : '',
+      price_unit: product?.price_unit === 'kg' ? 'kg' : 'unit',
       category: normalizeAdminMenuCategory(product?.category, defaultCategory),
       sort_order: product?.sort_order != null ? String(product.sort_order) : '',
       description: product?.description ?? '',
@@ -169,6 +176,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
       id: product?.id,
       name: form.name.trim(),
       price: priceValue,
+      price_unit: form.price_unit,
       category: form.category as MenuCategory,
       sort_order: sortOrderValue ?? undefined,
       description: form.description.trim(),
@@ -237,7 +245,7 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                     />
                   </label>
 
-                  <div className="grid gap-4 md:grid-cols-3">
+                  <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
                     <label className="block space-y-2 text-sm text-cream/80">
                       <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Precio</span>
                       <input
@@ -250,6 +258,21 @@ const AdminProductModal: React.FC<AdminProductModalProps> = ({
                         className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-cream placeholder:text-cream/40 focus:border-caramel/60 focus:outline-none focus:ring-2 focus:ring-caramel/30"
                         required
                       />
+                    </label>
+                    <label className="block space-y-2 text-sm text-cream/80">
+                      <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Unidad de precio</span>
+                      <select
+                        value={form.price_unit}
+                        onChange={handleChange('price_unit')}
+                        className="w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-cream focus:border-caramel/60 focus:outline-none focus:ring-2 focus:ring-caramel/30"
+                        aria-label="Unidad de precio"
+                      >
+                        {PRICE_UNIT_OPTIONS.map((option) => (
+                          <option key={option.value} value={option.value} className="bg-espresso text-cream">
+                            {option.label}
+                          </option>
+                        ))}
+                      </select>
                     </label>
                     <label className="block space-y-2 text-sm text-cream/80">
                       <span className="text-xs uppercase tracking-[0.3em] text-caramel/80">Categoría</span>
