@@ -69,4 +69,64 @@ describe('ProductModal', () => {
     expect(modalZ).not.toBeNull();
     expect(modalZ!).toBeGreaterThan(headerZ!);
   });
+
+  it('muestra bizcochos al público con precio principal por 100 g', () => {
+    render(
+      <ProductModal
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'bolleria',
+          price_unit: 'kg',
+        })}
+        onClose={vi.fn()}
+      />
+    );
+
+    expect(screen.getByRole('dialog')).toHaveTextContent('2,60 €/100 g');
+    expect(screen.queryByText('26.00€')).not.toBeInTheDocument();
+  });
+
+  it('normaliza la etiqueta de categoría para payloads legacy de bizcochos', () => {
+    render(
+      <ProductModal
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'bizcochos',
+          price_unit: undefined,
+        })}
+        onClose={vi.fn()}
+      />
+    );
+
+    const categoryBadges = screen.getAllByText('Pastelería');
+
+    expect(categoryBadges.length).toBeGreaterThan(0);
+    expect(screen.queryByText('bizcochos')).not.toBeInTheDocument();
+  });
+
+  it('reutiliza el formato público estándar para productos no pesados', () => {
+    render(<ProductModal product={createProduct({ price: 3.5, category: 'tostadas' })} onClose={vi.fn()} />);
+
+    expect(screen.getByRole('dialog')).toHaveTextContent('3.50 EUR');
+    expect(screen.queryByText('3.50€')).not.toBeInTheDocument();
+  });
+
+  it('prioriza price_unit unit sobre la heurística legacy de bizcocho', () => {
+    render(
+      <ProductModal
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'bizcochos',
+          price_unit: 'unit',
+        })}
+        onClose={vi.fn()}
+      />
+    );
+
+    expect(screen.getByRole('dialog')).toHaveTextContent('26.00 EUR');
+    expect(screen.queryByText('2,60 €/100 g')).not.toBeInTheDocument();
+  });
 });

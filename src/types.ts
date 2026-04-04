@@ -58,6 +58,7 @@ export interface MenuProduct {
   id: string;
   name: string;
   price: number;
+  price_unit?: 'unit' | 'kg';
   category: MenuCategory;
   sort_order?: number;
   description: string;

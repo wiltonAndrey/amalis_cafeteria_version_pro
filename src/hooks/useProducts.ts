@@ -6,6 +6,7 @@ export interface ProductPayload {
   id?: string;
   name: string;
   price: number;
+  price_unit?: 'unit' | 'kg';
   category: MenuCategory;
   description: string;
   chef_suggestion?: string;
@@ -29,6 +30,7 @@ const buildProduct = (payload: ProductPayload, id: string): MenuProduct => ({
   id,
   name: payload.name,
   price: payload.price,
+  price_unit: payload.price_unit,
   category: payload.category,
   sort_order: payload.sort_order,
   description: payload.description,
@@ -40,6 +42,10 @@ const buildProduct = (payload: ProductPayload, id: string): MenuProduct => ({
   allergens: payload.allergens ?? [],
   featured: payload.featured ?? false,
 });
+
+const getCanonicalPriceUnit = (value: unknown): 'unit' | 'kg' | undefined => (
+  value === 'unit' || value === 'kg' ? value : undefined
+);
 
 export const useProducts = (initialProducts: MenuProduct[] = [], options: UseProductsOptions = {}) => {
   const [items, setItems] = useState<MenuProduct[]>(initialProducts);
@@ -138,7 +144,10 @@ export const useProducts = (initialProducts: MenuProduct[] = [], options: UsePro
     setError(null);
 
     const previous = itemsRef.current.find(item => item.id === payload.id);
-    const optimistic = buildProduct(payload, payload.id);
+    const optimistic = {
+      ...buildProduct(payload, payload.id),
+      price_unit: getCanonicalPriceUnit(payload.price_unit) ?? previous?.price_unit,
+    };
     setItems(prev => prev.map(item => (item.id === payload.id ? optimistic : item)));
 
     try {

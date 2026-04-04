@@ -1,22 +1,41 @@
 <?php
 require __DIR__ . '/../bootstrap.php';
 
-function normalize_list($value): array
-{
-  if (is_array($value)) {
-    return array_values(array_filter(array_map('trim', $value), 'strlen'));
-  }
-
-  if (is_string($value) && $value !== '') {
-    $decoded = json_decode($value, true);
-    if (is_array($decoded)) {
-      return array_values(array_filter(array_map('trim', $decoded), 'strlen'));
+if (!function_exists('normalize_list')) {
+  function normalize_list($value): array
+  {
+    if (is_array($value)) {
+      return array_values(array_filter(array_map('trim', $value), 'strlen'));
     }
-    $parts = array_map('trim', explode(',', $value));
-    return array_values(array_filter($parts, 'strlen'));
-  }
 
-  return [];
+    if (is_string($value) && $value !== '') {
+      $decoded = json_decode($value, true);
+      if (is_array($decoded)) {
+        return array_values(array_filter(array_map('trim', $decoded), 'strlen'));
+      }
+      $parts = array_map('trim', explode(',', $value));
+      return array_values(array_filter($parts, 'strlen'));
+    }
+
+    return [];
+  }
+}
+
+if (!function_exists('normalize_price_unit')) {
+  function normalize_price_unit($value)
+  {
+    $normalized = Validator::string_trim((string) ($value ?? ''));
+
+    if ($normalized === '') {
+      return null;
+    }
+
+    if (!in_array($normalized, ['unit', 'kg'], true)) {
+      return false;
+    }
+
+    return $normalized;
+  }
 }
 
 $auth = require_auth();
@@ -32,6 +51,8 @@ $name = Validator::string_trim($input['name'] ?? '');
 $description = Validator::string_trim($input['description'] ?? '');
 $category = Validator::string_trim($input['category'] ?? '');
 $price = $input['price'] ?? null;
+$priceUnitProvided = array_key_exists('price_unit', $input);
+$priceUnit = $priceUnitProvided ? normalize_price_unit($input['price_unit']) : null;
 
 if (!Validator::required($name) || !Validator::required($description) || !Validator::required($category) || $price === null) {
   Response::json(['ok' => false, 'error' => 'missing_fields'], 400);
@@ -40,6 +61,11 @@ if (!Validator::required($name) || !Validator::required($description) || !Valida
 
 if (!Validator::positive($price)) {
   Response::json(['ok' => false, 'error' => 'invalid_price'], 400);
+  return;
+}
+
+if ($priceUnit === false) {
+  Response::json(['ok' => false, 'error' => 'invalid_price_unit'], 400);
   return;
 }
 
@@ -73,6 +99,13 @@ try {
   $pdo = get_pdo();
   $pdo->beginTransaction();
   $hasChefSuggestion = table_has_column($pdo, 'menu_products', 'chef_suggestion');
+  $hasPriceUnit = table_has_column($pdo, 'menu_products', 'price_unit');
+
+  if ($priceUnitProvided && $priceUnit !== null && !$hasPriceUnit) {
+    $pdo->rollBack();
+    Response::json(['ok' => false, 'error' => 'price_unit_requires_migration'], 409);
+    return;
+  }
 
   $categoryCheck = $pdo->prepare('SELECT id FROM menu_categories WHERE id = ? LIMIT 1');
   $categoryCheck->execute([$category]);
@@ -102,6 +135,26 @@ try {
     $active,
     $resolvedSortOrder,
   ];
+
+  if ($hasPriceUnit) {
+    $insertColumns = 'name, price, price_unit, category, description, image, alt_text, image_title, ingredients, allergens, featured, active, sort_order';
+    $placeholders = '?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?';
+    $params = [
+      $name,
+      (float) $price,
+      $priceUnit,
+      $category,
+      $description,
+      $image,
+      $altText,
+      $imageTitle,
+      json_encode($ingredients, JSON_UNESCAPED_UNICODE),
+      json_encode($allergens, JSON_UNESCAPED_UNICODE),
+      $featured,
+      $active,
+      $resolvedSortOrder,
+    ];
+  }
 
   if ($hasChefSuggestion) {
     $insertColumns .= ', chef_suggestion';

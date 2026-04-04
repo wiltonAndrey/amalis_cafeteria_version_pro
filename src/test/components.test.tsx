@@ -67,7 +67,7 @@ describe('Badge', () => {
 
 // Tests para ProductCard
 import { ProductCard } from '../components/ui/ProductCard'
-import { Product } from '../types'
+ import { MenuProduct, Product } from '../types'
 
 const mockProduct: Product = {
     id: '1',
@@ -77,6 +77,94 @@ const mockProduct: Product = {
     category: 'Bread',
     imageUrl: 'https://example.com/bread.jpg',
     imageAlt: 'Pan artesanal'
+}
+
+const mockMenuBizcocho: MenuProduct = {
+    id: 'biz-1',
+    name: 'Bizcocho de Pistacho',
+    description: 'Nuestro bizcocho de pistacho 100% tostado destaca por su sabor intenso y elegante.',
+    price: '26.00' as any,
+    price_unit: 'kg',
+    category: 'bolleria-dulce',
+    image: 'https://example.com/bizcocho.jpg',
+    ingredients: ['Harina'],
+    allergens: ['Gluten']
+}
+
+const mockMenuBizcochoPasteleria: MenuProduct = {
+    ...mockMenuBizcocho,
+    id: 'biz-2',
+    category: 'pasteleria'
+}
+
+const mockMenuBizcochoUnderscore: MenuProduct = {
+    ...mockMenuBizcocho,
+    id: 'biz-3',
+    category: 'bolleria_dulce'
+}
+
+const mockMenuBizcochoAlias: MenuProduct = {
+    ...mockMenuBizcocho,
+    id: 'biz-4',
+    category: 'bolleria',
+    price_unit: undefined
+}
+
+const mockMenuBizcochoPasteles: MenuProduct = {
+    ...mockMenuBizcocho,
+    id: 'biz-5',
+    category: 'pasteles',
+    price_unit: undefined
+}
+
+const mockMenuBizcochoLegacyPasteleriaAlias: MenuProduct = {
+    ...mockMenuBizcocho,
+    id: 'biz-6',
+    category: 'bizcochos',
+    price_unit: undefined
+}
+
+const mockMenuCanonicalUnitBizcocho: MenuProduct = {
+    ...mockMenuBizcocho,
+    id: 'biz-7',
+    category: 'bizcochos',
+    price_unit: 'unit'
+}
+
+const mockMenuSweetPastry: MenuProduct = {
+    id: 'sweet-1',
+    name: 'Croissant de Mantequilla',
+    description: 'Hojaldre artesanal con auténtica mantequilla',
+    price: 1.4,
+    category: 'bolleria-dulce',
+    image: 'https://example.com/croissant.jpg',
+    ingredients: ['Harina'],
+    allergens: ['Gluten']
+}
+
+const mockMenuSweetPastryLegacyPasteleriaAlias: MenuProduct = {
+    ...mockMenuSweetPastry,
+    id: 'sweet-2',
+    category: 'bizcochos'
+}
+
+const mockMenuToast: MenuProduct = {
+    id: 'toast-1',
+    name: 'Tostada Catalana',
+    description: 'Pan tostado con tomate y jamón',
+    price: '3.50' as any,
+    category: 'tostadas',
+    image: 'https://example.com/toast.jpg',
+    ingredients: ['Pan'],
+    allergens: ['Gluten']
+}
+
+const mockMenuCanonicalKgToast: MenuProduct = {
+    ...mockMenuToast,
+    id: 'toast-2',
+    name: 'Tostada por peso',
+    price: 18,
+    price_unit: 'kg'
 }
 
 describe('ProductCard', () => {
@@ -118,6 +206,79 @@ describe('ProductCard', () => {
     it('renders category badge', () => {
         render(<ProductCard product={mockProduct} />)
         expect(screen.getByText('Pan')).toBeInTheDocument()
+    })
+
+    it('renders bizcocho public price per 100 g and weight note', () => {
+        render(<ProductCard product={mockMenuBizcocho} />)
+        expect(screen.getByText('2,60 €/100 g')).toBeInTheDocument()
+        expect(screen.getByText(/Precio por peso · 26,00 €\/kg/)).toBeInTheDocument()
+    })
+
+    it('normalizes supported bizcocho category shapes for badge and public pricing', () => {
+        const { rerender } = render(<ProductCard product={mockMenuBizcochoPasteleria} />)
+
+        expect(screen.getByText('Pastelería')).toBeInTheDocument()
+        expect(screen.getByText('2,60 €/100 g')).toBeInTheDocument()
+
+        rerender(<ProductCard product={mockMenuBizcochoUnderscore} />)
+
+        expect(screen.getByText('Bollería dulce')).toBeInTheDocument()
+        expect(screen.getByText('2,60 €/100 g')).toBeInTheDocument()
+        expect(screen.queryByText('bolleria_dulce')).not.toBeInTheDocument()
+
+        rerender(<ProductCard product={mockMenuBizcochoAlias} />)
+
+        expect(screen.getByText('Bollería dulce')).toBeInTheDocument()
+        expect(screen.getByText('2,60 €/100 g')).toBeInTheDocument()
+
+        rerender(<ProductCard product={mockMenuBizcochoPasteles} />)
+
+        expect(screen.getByText('Pastelería')).toBeInTheDocument()
+        expect(screen.getByText('2,60 €/100 g')).toBeInTheDocument()
+
+        rerender(<ProductCard product={mockMenuBizcochoLegacyPasteleriaAlias} />)
+
+        expect(screen.getByText('Pastelería')).toBeInTheDocument()
+        expect(screen.getByText('2,60 €/100 g')).toBeInTheDocument()
+        expect(screen.queryByText('bizcochos')).not.toBeInTheDocument()
+    })
+
+    it('keeps standard formatting for non-bizcocho items within bolleria dulce', () => {
+        render(<ProductCard product={mockMenuSweetPastry} />)
+        expect(screen.getByText('1.40 EUR')).toBeInTheDocument()
+        expect(screen.queryByText(/Precio por peso · 1,40 €\/kg/)).not.toBeInTheDocument()
+    })
+
+    it('does not let the bizcochos alias force weight pricing for non-bizcocho names', () => {
+        render(<ProductCard product={mockMenuSweetPastryLegacyPasteleriaAlias} />)
+        expect(screen.getByText('Pastelería')).toBeInTheDocument()
+        expect(screen.getByText('1.40 EUR')).toBeInTheDocument()
+        expect(screen.queryByText(/Precio por peso · 1,40 €\/kg/)).not.toBeInTheDocument()
+    })
+
+    it('prioritizes canonical price_unit over legacy bizcocho heuristics', () => {
+        const { rerender } = render(<ProductCard product={mockMenuCanonicalUnitBizcocho} />)
+
+        expect(screen.getByText('26.00 EUR')).toBeInTheDocument()
+        expect(screen.queryByText('2,60 €/100 g')).not.toBeInTheDocument()
+        expect(screen.queryByText(/Precio por peso · 26,00 €\/kg/)).not.toBeInTheDocument()
+
+        rerender(<ProductCard product={mockMenuCanonicalKgToast} />)
+
+        expect(screen.getByText('1,80 €/100 g')).toBeInTheDocument()
+        expect(screen.getByText(/Precio por peso · 18,00 €\/kg/)).toBeInTheDocument()
+    })
+
+    it('keeps standard public price formatting for non-weight-priced menu items', () => {
+        render(<ProductCard product={mockMenuToast} />)
+        expect(screen.getByText('3.50 EUR')).toBeInTheDocument()
+        expect(screen.queryByText('3.50€')).not.toBeInTheDocument()
+    })
+
+    it('normalizes legacy menu category labels instead of showing raw slugs', () => {
+        render(<ProductCard product={{ ...mockMenuToast, category: 'cocas' }} />)
+        expect(screen.getByText('Bollería salada')).toBeInTheDocument()
+        expect(screen.queryByText('cocas')).not.toBeInTheDocument()
     })
 })
 

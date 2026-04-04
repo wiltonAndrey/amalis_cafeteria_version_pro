@@ -9,22 +9,26 @@ $categories = $pdo->query(
 )->fetchAll();
 
 $hasChefSuggestion = table_has_column($pdo, 'menu_products', 'chef_suggestion');
+$hasPriceUnit = table_has_column($pdo, 'menu_products', 'price_unit');
 $chefSuggestionSelect = $hasChefSuggestion
   ? ', menu_products.chef_suggestion'
   : ", '' AS chef_suggestion";
+$priceUnitSelect = $hasPriceUnit
+  ? ', menu_products.price_unit'
+  : '';
 
 $menuRows = $pdo->query(
   'SELECT menu_products.id, menu_products.name, menu_products.price, menu_products.category, menu_products.sort_order,
           menu_products.description, menu_products.image, menu_products.alt_text, menu_products.image_title,
-          menu_products.ingredients, menu_products.allergens, menu_products.featured' . $chefSuggestionSelect . '
+          menu_products.ingredients, menu_products.allergens, menu_products.featured' . $chefSuggestionSelect . $priceUnitSelect . '
    FROM menu_products
    LEFT JOIN menu_categories AS category_meta ON category_meta.id = menu_products.category
    WHERE menu_products.active = 1
    ORDER BY COALESCE(category_meta.sort_order, 9999), menu_products.sort_order, menu_products.id'
 )->fetchAll();
 
-$menuProducts = array_map(function (array $row): array {
-  return [
+$menuProducts = array_map(function (array $row) use ($hasPriceUnit): array {
+  $product = [
     'id' => (string) $row['id'],
     'name' => $row['name'],
     'price' => (float) $row['price'],
@@ -39,6 +43,15 @@ $menuProducts = array_map(function (array $row): array {
     'allergens' => json_decode($row['allergens'], true) ?: [],
     'featured' => (bool) $row['featured'],
   ];
+
+  if ($hasPriceUnit) {
+    $priceUnit = trim((string) ($row['price_unit'] ?? ''));
+    if (in_array($priceUnit, ['unit', 'kg'], true)) {
+      $product['price_unit'] = $priceUnit;
+    }
+  }
+
+  return $product;
 }, $menuRows);
 
 $featuredRows = $pdo->query(

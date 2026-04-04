@@ -1,22 +1,41 @@
 <?php
 require __DIR__ . '/../bootstrap.php';
 
-function normalize_list($value): array
-{
-  if (is_array($value)) {
-    return array_values(array_filter(array_map('trim', $value), 'strlen'));
-  }
-
-  if (is_string($value) && $value !== '') {
-    $decoded = json_decode($value, true);
-    if (is_array($decoded)) {
-      return array_values(array_filter(array_map('trim', $decoded), 'strlen'));
+if (!function_exists('normalize_list')) {
+  function normalize_list($value): array
+  {
+    if (is_array($value)) {
+      return array_values(array_filter(array_map('trim', $value), 'strlen'));
     }
-    $parts = array_map('trim', explode(',', $value));
-    return array_values(array_filter($parts, 'strlen'));
-  }
 
-  return [];
+    if (is_string($value) && $value !== '') {
+      $decoded = json_decode($value, true);
+      if (is_array($decoded)) {
+        return array_values(array_filter(array_map('trim', $decoded), 'strlen'));
+      }
+      $parts = array_map('trim', explode(',', $value));
+      return array_values(array_filter($parts, 'strlen'));
+    }
+
+    return [];
+  }
+}
+
+if (!function_exists('normalize_price_unit')) {
+  function normalize_price_unit($value): ?string
+  {
+    $normalized = Validator::string_trim((string) ($value ?? 'unit'));
+
+    if ($normalized === '') {
+      $normalized = 'unit';
+    }
+
+    if (!in_array($normalized, ['unit', 'kg'], true)) {
+      return null;
+    }
+
+    return $normalized;
+  }
 }
 
 $auth = require_auth();
@@ -40,6 +59,7 @@ $hasCategoryInput = false;
 $targetCategoryInput = null;
 $sortOrderRequested = false;
 $requestedSortOrder = null;
+$priceUnitShouldPersist = false;
 
 if (array_key_exists('name', $input)) {
   $name = Validator::string_trim($input['name']);
@@ -59,6 +79,23 @@ if (array_key_exists('price', $input)) {
   }
   $fields[] = 'price = ?';
   $params[] = (float) $price;
+}
+
+if (array_key_exists('price_unit', $input)) {
+  $rawPriceUnit = $input['price_unit'];
+  $priceUnit = normalize_price_unit($rawPriceUnit);
+  $priceUnitProvided = !($rawPriceUnit === null || (is_string($rawPriceUnit) && Validator::string_trim($rawPriceUnit) === ''));
+
+  if ($priceUnitProvided && $priceUnit === null) {
+    Response::json(['ok' => false, 'error' => 'invalid_price_unit'], 400);
+    return;
+  }
+
+  if ($priceUnitProvided && $priceUnit !== null) {
+    $fields[] = 'price_unit = ?';
+    $params[] = $priceUnit;
+    $priceUnitShouldPersist = true;
+  }
 }
 
 if (array_key_exists('category', $input)) {
@@ -146,6 +183,12 @@ $pdo = null;
 try {
   $pdo = get_pdo();
   $hasChefSuggestion = table_has_column($pdo, 'menu_products', 'chef_suggestion');
+  $hasPriceUnit = table_has_column($pdo, 'menu_products', 'price_unit');
+
+  if ($priceUnitShouldPersist && !$hasPriceUnit) {
+    Response::json(['ok' => false, 'error' => 'price_unit_requires_migration'], 409);
+    return;
+  }
 
   if (array_key_exists('chef_suggestion', $input) && !$hasChefSuggestion) {
     $chefFieldIndex = array_search('chef_suggestion = ?', $fields, true);

@@ -57,4 +57,70 @@ describe('ProductModalTabs', () => {
     expect(screen.getByText(/Información sobre trazas:/i)).toBeInTheDocument();
     expect(container.textContent).not.toContain('\\u00');
   });
+
+  it('agrega la referencia por kilo en la descripción de bizcochos', () => {
+    render(
+      <ProductModalTabs
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'bolleria',
+          price_unit: 'kg',
+        })}
+        activeTab="desc"
+        onTabChange={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText('Precio por peso · 26,00 €/kg')).toBeInTheDocument();
+  });
+
+  it('agrega la referencia por kilo para payloads públicos y legacy soportados', () => {
+    const { rerender } = render(
+      <ProductModalTabs
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'pasteles',
+          price_unit: undefined,
+        })}
+        activeTab="desc"
+        onTabChange={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText('Precio por peso · 26,00 €/kg')).toBeInTheDocument();
+
+    rerender(
+      <ProductModalTabs
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'bizcochos',
+          price_unit: undefined,
+        })}
+        activeTab="desc"
+        onTabChange={vi.fn()}
+      />
+    );
+
+    expect(screen.getByText('Precio por peso · 26,00 €/kg')).toBeInTheDocument();
+  });
+
+  it('prioriza price_unit unit y evita la referencia legacy por kilo', () => {
+    render(
+      <ProductModalTabs
+        product={createProduct({
+          name: 'Bizcocho de Pistacho',
+          price: '26.00' as any,
+          category: 'bizcochos',
+          price_unit: 'unit',
+        })}
+        activeTab="desc"
+        onTabChange={vi.fn()}
+      />
+    );
+
+    expect(screen.queryByText('Precio por peso · 26,00 €/kg')).not.toBeInTheDocument();
+  });
 });
