@@ -18,6 +18,8 @@ export const ADMIN_MENU_CATEGORY_OPTIONS: ReadonlyArray<{ id: AdminMenuCategory;
   { id: 'bebidas', label: 'Bebidas' },
 ];
 
+const MENU_CATEGORY_LABELS = new Map(ADMIN_MENU_CATEGORY_OPTIONS.map((category) => [category.id, category.label]));
+
 export const normalizeMenuCategory = (
   category: MenuCategory | VisibleMenuCategory | undefined | null
 ): VisibleMenuCategory | null => {
@@ -61,4 +63,20 @@ export const normalizeAdminMenuCategory = (
   }
 
   return fallback;
+};
+
+export const getMenuCategoryLabel = (category: MenuCategory | VisibleMenuCategory | undefined | null): string => {
+  const normalizedCategory = normalizeMenuCategory(category);
+
+  if (normalizedCategory && normalizedCategory !== 'all') {
+    return MENU_CATEGORY_LABELS.get(normalizedCategory) ?? normalizedCategory;
+  }
+
+  if (!category) {
+    return '';
+  }
+
+  return category
+    .replace(/[-_]/g, ' ')
+    .replace(/\b\w/g, (char) => char.toLocaleUpperCase('es-ES'));
 };

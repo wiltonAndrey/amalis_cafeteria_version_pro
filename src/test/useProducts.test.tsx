@@ -16,6 +16,7 @@ describe('useProducts', () => {
     const payload: ProductPayload = {
       name: 'Nuevo',
       price: 2.5,
+      price_unit: 'kg',
       category: 'cocas',
       description: 'Descripcion',
       image: '/images/sections/pan-artesano-horneado.webp',
@@ -37,6 +38,7 @@ describe('useProducts', () => {
               id: '10',
               name: 'Nuevo',
               price: 2.5,
+              price_unit: 'kg',
               category: 'cocas',
               description: 'Descripcion',
               image: '/images/sections/pan-artesano-horneado.webp',
@@ -57,8 +59,10 @@ describe('useProducts', () => {
 
     expect(result.current.items).toHaveLength(1);
     expect(result.current.items[0].id).toBe('10');
+    expect(result.current.items[0].price_unit).toBe('kg');
     expect(global.fetch).toHaveBeenCalledTimes(2);
     expect((global.fetch as any).mock.calls[1][0]).toBe('/api/get_products.php');
+    expect(JSON.parse((global.fetch as any).mock.calls[0][1].body).price_unit).toBe('kg');
   });
 
   it('actualiza un producto existente', async () => {
@@ -89,6 +93,7 @@ describe('useProducts', () => {
               id: '1',
               name: 'Despues',
               price: 1.2,
+              price_unit: 'kg',
               category: 'cocas',
               description: 'Nuevo',
               image: '/images/sections/pan-artesano-horneado.webp',
@@ -108,6 +113,7 @@ describe('useProducts', () => {
         id: '1',
         name: 'Despues',
         price: 1.2,
+        price_unit: 'kg',
         category: 'cocas',
         description: 'Nuevo',
         image: '/images/sections/pan-artesano-horneado.webp',
@@ -118,8 +124,131 @@ describe('useProducts', () => {
     });
 
     expect(result.current.items[0].name).toBe('Despues');
+    expect(result.current.items[0].price_unit).toBe('kg');
     expect(global.fetch).toHaveBeenCalledTimes(2);
     expect((global.fetch as any).mock.calls[1][0]).toBe('/api/get_products.php');
+    expect(JSON.parse((global.fetch as any).mock.calls[0][1].body).price_unit).toBe('kg');
+  });
+
+  it('preserva price_unit en el optimista cuando el payload lo omite', async () => {
+    const initial: MenuProduct[] = [
+      {
+        id: '1',
+        name: 'Antes',
+        price: 1,
+        price_unit: 'kg',
+        category: 'cocas',
+        description: 'Viejo',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      },
+    ];
+
+    let resolveUpdate: (() => void) | undefined;
+
+    global.fetch = vi.fn()
+      .mockImplementationOnce(() => new Promise<Response>((resolve) => {
+        resolveUpdate = () => resolve({
+          ok: true,
+          json: async () => ({ ok: true }),
+        } as Response);
+      }))
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ menuProducts: initial }),
+      } as Response);
+
+    const { result } = renderHook(() => useProducts(initial));
+
+    let updatePromise: Promise<void>;
+
+    act(() => {
+      updatePromise = result.current.updateProduct({
+        id: '1',
+        name: 'Despues',
+        price: 1.2,
+        category: 'cocas',
+        description: 'Nuevo',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: true,
+      });
+    });
+
+    await waitFor(() => {
+      expect(result.current.items[0].name).toBe('Despues');
+      expect(result.current.items[0].price_unit).toBe('kg');
+    });
+
+    resolveUpdate?.();
+
+    await act(async () => {
+      await updatePromise;
+    });
+  });
+
+  it('preserva price_unit en el optimista cuando el payload trae null', async () => {
+    const initial: MenuProduct[] = [
+      {
+        id: '1',
+        name: 'Antes',
+        price: 1,
+        price_unit: 'unit',
+        category: 'cocas',
+        description: 'Viejo',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: false,
+      },
+    ];
+
+    let resolveUpdate: (() => void) | undefined;
+
+    global.fetch = vi.fn()
+      .mockImplementationOnce(() => new Promise<Response>((resolve) => {
+        resolveUpdate = () => resolve({
+          ok: true,
+          json: async () => ({ ok: true }),
+        } as Response);
+      }))
+      .mockResolvedValueOnce({
+        ok: true,
+        json: async () => ({ menuProducts: initial }),
+      } as Response);
+
+    const { result } = renderHook(() => useProducts(initial));
+
+    let updatePromise: Promise<void>;
+
+    act(() => {
+      updatePromise = result.current.updateProduct({
+        id: '1',
+        name: 'Despues',
+        price: 1.2,
+        price_unit: null as unknown as 'unit' | 'kg',
+        category: 'cocas',
+        description: 'Nuevo',
+        image: '/images/sections/pan-artesano-horneado.webp',
+        ingredients: [],
+        allergens: [],
+        featured: true,
+      });
+    });
+
+    await waitFor(() => {
+      expect(result.current.items[0].name).toBe('Despues');
+      expect(result.current.items[0].price_unit).toBe('unit');
+    });
+
+    resolveUpdate?.();
+
+    await act(async () => {
+      await updatePromise;
+    });
   });
 
   it('sincroniza la lista canonica tras reordenar un producto para evitar duplicados de sort_order', async () => {

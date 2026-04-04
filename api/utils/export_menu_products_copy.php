@@ -2,16 +2,32 @@
 require __DIR__ . '/../bootstrap.php';
 
 $pdo = get_pdo();
+$hasSubcategory = table_has_column($pdo, 'menu_products', 'subcategory');
+$hasPriceUnit = table_has_column($pdo, 'menu_products', 'price_unit');
+$hasAltText = table_has_column($pdo, 'menu_products', 'alt_text');
+$hasImageTitle = table_has_column($pdo, 'menu_products', 'image_title');
+$hasChefSuggestion = table_has_column($pdo, 'menu_products', 'chef_suggestion');
+
+$optionalColumns = [
+  $hasSubcategory ? 'subcategory' : 'NULL AS subcategory',
+  $hasAltText ? 'alt_text' : "'' AS alt_text",
+  $hasImageTitle ? 'image_title' : "'' AS image_title",
+  $hasChefSuggestion ? 'chef_suggestion' : "'' AS chef_suggestion",
+];
+
+if ($hasPriceUnit) {
+  array_splice($optionalColumns, 1, 0, ['price_unit']);
+}
 
 $rows = $pdo->query(
-  'SELECT id, name, category, subcategory, price, image, description, alt_text, image_title, chef_suggestion, ingredients, allergens, featured, sort_order
+  'SELECT id, name, category, ' . implode(', ', $optionalColumns) . ', price, image, description, ingredients, allergens, featured, sort_order
    FROM menu_products
-   WHERE active = 1
-   ORDER BY sort_order, id'
+    WHERE active = 1
+    ORDER BY sort_order, id'
 )->fetchAll();
 
 $payload = array_map(static function (array $row): array {
-  return [
+  $product = [
     'id' => (int) $row['id'],
     'name' => $row['name'],
     'category' => $row['category'],
@@ -27,6 +43,12 @@ $payload = array_map(static function (array $row): array {
     'featured' => (bool) $row['featured'],
     'sort_order' => (int) $row['sort_order'],
   ];
+
+  if (in_array(($row['price_unit'] ?? null), ['unit', 'kg'], true)) {
+    $product['price_unit'] = $row['price_unit'];
+  }
+
+  return $product;
 }, $rows);
 
 $json = json_encode($payload, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

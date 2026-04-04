@@ -3,8 +3,12 @@ import { Badge } from './Badge';
 import { CATEGORY_TRANSLATIONS } from '../../constants';
 import { MenuProduct, Product } from '../../types';
 import { getFallbackProductImage } from '../../utils/error-handling';
+import { getMenuCategoryLabel } from '../../utils/menu-categories';
+import { getPublicMenuDescription, getPublicMenuPriceDisplay } from '../../utils/menu-pricing';
 
 type ProductCardItem = Product | MenuProduct;
+
+const isMenuProduct = (product: ProductCardItem): product is MenuProduct => 'image' in product;
 
 interface ProductCardProps {
   product: ProductCardItem;
@@ -16,8 +20,11 @@ interface ProductCardProps {
 export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, showPrice = true, aspectRatio = 'aspect-[16/9]' }) => {
   const imageUrl = 'imageUrl' in product ? product.imageUrl : product.image;
   const imageAlt = 'imageAlt' in product && product.imageAlt ? product.imageAlt : product.name;
-  const priceDisplay = typeof product.price === 'number' ? `${product.price.toFixed(2)} EUR` : product.price;
-  const categoryLabel = CATEGORY_TRANSLATIONS[product.category] || product.category;
+  const priceDisplay = isMenuProduct(product) ? getPublicMenuPriceDisplay(product) : product.price;
+  const description = isMenuProduct(product) ? getPublicMenuDescription(product) : product.description;
+  const categoryLabel = isMenuProduct(product)
+    ? getMenuCategoryLabel(product.category)
+    : CATEGORY_TRANSLATIONS[product.category] || product.category;
   const isInteractive = Boolean(onClick);
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
@@ -77,7 +84,7 @@ export const ProductCard: React.FC<ProductCardProps> = ({ product, onClick, show
           {showPrice ? <span className="text-caramel font-black text-xl font-serif whitespace-nowrap">{priceDisplay}</span> : null}
         </div>
         <p className="text-beige/60 text-sm leading-relaxed flex-grow font-sans font-light">
-          {product.description}
+          {description}
         </p>
       </div>
     </div>

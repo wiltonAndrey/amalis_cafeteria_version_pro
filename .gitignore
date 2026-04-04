@@ -27,6 +27,8 @@ dist-ssr
 worktrees/
 api/db_config.local.php
 .npm-cache/
+.playwright-cli/
+output/
 vite_output.txt
 tmp_*.txt
 tmp_*.json

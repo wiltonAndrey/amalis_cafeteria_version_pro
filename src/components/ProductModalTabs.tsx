@@ -2,6 +2,7 @@ import React from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Lightbulb, AlertCircle, Info, ChevronRight } from 'lucide-react';
 import type { MenuProduct } from '../types';
+import { getPublicBizcochoPriceReference } from '../utils/menu-pricing';
 
 export type ModalTab = 'desc' | 'ing' | 'ale';
 
@@ -32,6 +33,8 @@ export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
   onTabChange,
 }) => {
   const chefSuggestion = decodeEscapedUnicode(product.chef_suggestion?.trim()) || DEFAULT_CHEF_SUGGESTION;
+  const description = decodeEscapedUnicode(product.description);
+  const priceReference = getPublicBizcochoPriceReference(product);
 
   return (
     <>
@@ -63,9 +66,16 @@ export const ProductModalTabs: React.FC<ProductModalTabsProps> = ({
               exit={{ opacity: 0, y: -10 }}
               className="space-y-6"
             >
-              <p className="text-beige/70 leading-relaxed font-light font-sans text-sm md:text-base">
-                {decodeEscapedUnicode(product.description)}
-              </p>
+              <div className="space-y-3">
+                <p className="text-beige/70 leading-relaxed font-light font-sans text-sm md:text-base">
+                  {description}
+                </p>
+                {priceReference ? (
+                  <p className="text-xs md:text-sm font-medium uppercase tracking-wide text-caramel/90">
+                    {priceReference}
+                  </p>
+                ) : null}
+              </div>
 
               <div className="p-6 bg-caramel/5 rounded-2xl border border-caramel/20 relative overflow-hidden group">
                 <div className="absolute top-0 right-0 p-3 opacity-10 group-hover:opacity-20 transition-opacity">

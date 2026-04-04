@@ -10,6 +10,7 @@ const createProduct = (overrides: Partial<EditableMenuProduct> = {}): EditableMe
   id: '1',
   name: 'Tostada Chef',
   price: 3.2,
+  price_unit: 'unit',
   category: 'tostadas',
   sort_order: 2,
   description: 'Descripcion de prueba',
@@ -36,6 +37,7 @@ describe('AdminProductModal', () => {
     expect(screen.getByLabelText(/título de la imagen/i)).toHaveValue('Titulo SEO actual');
     expect(screen.getByLabelText(/recomendación del chef/i)).toHaveValue('Acompanarla con cafe solo');
     expect(screen.getByLabelText(/posición en la categoría/i)).toHaveValue(2);
+    expect(screen.getByLabelText(/unidad de precio/i)).toHaveValue('unit');
   });
 
   it('envia image_title, chef_suggestion y sort_order al guardar', async () => {
@@ -59,14 +61,30 @@ describe('AdminProductModal', () => {
     fireEvent.change(screen.getByLabelText(/posición en la categoría/i), {
       target: { value: '4' },
     });
+    fireEvent.change(screen.getByLabelText(/unidad de precio/i), {
+      target: { value: 'kg' },
+    });
     fireEvent.click(screen.getByRole('button', { name: /guardar/i }));
 
     expect(onSave).toHaveBeenCalledWith(
       expect.objectContaining({
         image_title: 'Nuevo titulo SEO',
         chef_suggestion: 'Servir con mermelada casera',
+        price_unit: 'kg',
         sort_order: 4,
       })
     );
+  });
+
+  it('precarga kg al editar productos por kilo', () => {
+    render(
+      <AdminProductModal
+        isOpen={true}
+        onClose={() => {}}
+        product={createProduct({ name: 'Bizcocho de Naranja', category: 'pasteleria', price_unit: 'kg' })}
+      />
+    );
+
+    expect(screen.getByLabelText(/unidad de precio/i)).toHaveValue('kg');
   });
 });

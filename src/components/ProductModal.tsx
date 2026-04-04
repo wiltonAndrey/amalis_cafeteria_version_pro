@@ -5,6 +5,8 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLockBodyScroll } from '../hooks/useLockBodyScroll';
 import { getFallbackProductImage } from '../utils/error-handling';
+import { getMenuCategoryLabel } from '../utils/menu-categories';
+import { getPublicMenuPriceDisplay } from '../utils/menu-pricing';
 import { ProductModalTabs, type ModalTab } from './ProductModalTabs';
 
 interface ProductModalProps {
@@ -58,6 +60,8 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
   if (!product) return null;
 
   const titleId = `product-modal-title-${product.id}`;
+  const priceDisplay = getPublicMenuPriceDisplay(product);
+  const categoryLabel = getMenuCategoryLabel(product.category);
 
   return createPortal(
     <AnimatePresence>
@@ -106,22 +110,25 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
               <div className="absolute inset-x-0 bottom-0 h-28 bg-[linear-gradient(to_top,rgba(26,26,26,0.64),transparent)] md:hidden pointer-events-none"></div>
               <div className="product-image-scrim absolute inset-0 hidden bg-[linear-gradient(to_right,transparent_88%,rgba(26,26,26,0.72)_100%)] md:block pointer-events-none"></div>
 
-              <div className="absolute bottom-6 left-6 right-6 text-white md:hidden">
-                <span className="bg-caramel/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block shadow-lg">
-                  {product.category}
-                </span>
-                <h2 className="text-3xl font-bold font-serif leading-none tracking-tight">
-                  {product.name}
-                </h2>
-              </div>
-            </div>
+               <div className="absolute bottom-6 left-6 right-6 text-white md:hidden">
+                  <span className="bg-caramel/90 backdrop-blur-md text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full mb-3 inline-block shadow-lg">
+                    {categoryLabel}
+                  </span>
+                 <h2 className="text-3xl font-bold font-serif leading-none tracking-tight">
+                   {product.name}
+                 </h2>
+                 <p className="mt-3 text-xl font-semibold text-caramel font-serif">
+                   {priceDisplay}
+                 </p>
+               </div>
+             </div>
 
             <div className="w-full md:w-1/2 flex flex-col relative bg-espresso">
               <div className="hidden md:block pt-10 px-10 pb-6 border-b border-white/5 bg-white/[0.02]">
                 <div className="flex justify-between items-start mb-4">
                   <span className="text-caramel text-xs font-bold uppercase tracking-[0.25em]">
-                    {product.category}
-                  </span>
+                     {categoryLabel}
+                   </span>
                   <button
                     onClick={onClose}
                     aria-label="Cerrar modal"
@@ -134,7 +141,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, onClose }) => {
                   {product.name}
                 </h2>
                 <p className="text-2xl font-normal text-caramel font-serif">
-                  {typeof product.price === 'number' ? `${product.price.toFixed(2)}€` : product.price}
+                  {priceDisplay}
                 </p>
               </div>
 

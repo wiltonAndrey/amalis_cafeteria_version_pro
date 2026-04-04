@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS menu_products (
   id INT AUTO_INCREMENT PRIMARY KEY,
   name VARCHAR(120) NOT NULL,
   price DECIMAL(10,2) NOT NULL,
+  price_unit VARCHAR(8) DEFAULT NULL,
   category VARCHAR(32) NOT NULL,
   description TEXT NOT NULL,
   image VARCHAR(255) NOT NULL,
@@ -53,6 +54,30 @@ SET @add_image_title = (
 PREPARE add_image_title_stmt FROM @add_image_title;
 EXECUTE add_image_title_stmt;
 DEALLOCATE PREPARE add_image_title_stmt;
+
+SET @add_price_unit = (
+  SELECT IF(
+    EXISTS(
+      SELECT 1
+      FROM information_schema.COLUMNS
+      WHERE TABLE_SCHEMA = DATABASE()
+        AND TABLE_NAME = 'menu_products'
+        AND COLUMN_NAME = 'price_unit'
+    ),
+    'SELECT 1',
+    "ALTER TABLE menu_products ADD COLUMN price_unit VARCHAR(8) DEFAULT NULL AFTER price"
+  )
+);
+PREPARE add_price_unit_stmt FROM @add_price_unit;
+EXECUTE add_price_unit_stmt;
+DEALLOCATE PREPARE add_price_unit_stmt;
+
+UPDATE menu_products
+SET price_unit = NULL
+WHERE TRIM(COALESCE(price_unit, '')) = '' OR price_unit NOT IN ('unit', 'kg');
+
+ALTER TABLE menu_products
+MODIFY COLUMN price_unit VARCHAR(8) DEFAULT NULL;
 
 CREATE TABLE IF NOT EXISTS products (
   id INT AUTO_INCREMENT PRIMARY KEY,
@@ -139,14 +164,14 @@ INSERT INTO menu_categories (id, label, sort_order) VALUES
   ('bebidas', 'Bebidas', 6);
 
 DELETE FROM menu_products;
-INSERT INTO menu_products (name, price, category, description, image, ingredients, allergens, featured, active, sort_order) VALUES
-  ('Coca de Mollitas', 1.50, 'bolleria-salada', 'La clásica coca alicantina con su característica capa crujiente de harina y aceite.', '/images/products/Coca-Sardina.webp', JSON_ARRAY('Harina de trigo', 'Aceite de oliva', 'Vino blanco', 'Sal'), JSON_ARRAY('Gluten'), 1, 1, 1),
-  ('Coca de Verdura', 2.50, 'bolleria-salada', 'Deliciosa masa artesanal cubierta con pimiento, tomate y cebolla asada.', '/images/products/Coca-Pisto.webp', JSON_ARRAY('Harina', 'Pimiento rojo', 'Tomate', 'Cebolla', 'Aceite'), JSON_ARRAY('Gluten'), 1, 1, 2),
-  ('Empanadilla de Pisto', 1.80, 'bolleria-salada', 'Rellena de nuestro pisto casero elaborado a fuego lento.', '/images/products/Empanada-Pisto.webp', JSON_ARRAY('Tomate', 'Pimiento', 'Huevo duro', 'Atún'), JSON_ARRAY('Gluten', 'Pescado', 'Huevo'), 0, 1, 3),
-  ('Croissant de Mantequilla', 1.40, 'bolleria-dulce', 'Hojaldre artesanal con auténtica mantequilla, crujiente por fuera y tierno por dentro.', '/images/products/Croissant-Mantequilla.webp', JSON_ARRAY('Harina', 'Mantequilla', 'Leche', 'Azúcar'), JSON_ARRAY('Gluten', 'Lácteos'), 0, 1, 1),
-  ('Bizcocho de Yogur y Limón', 12.00, 'pasteleria', 'Bizcocho esponjoso ideal para compartir en desayunos o meriendas.', '/images/products/Bizcocho.webp', JSON_ARRAY('Huevo', 'Yogur', 'Limón', 'Azúcar', 'Harina'), JSON_ARRAY('Gluten', 'Huevo', 'Lácteos'), 0, 1, 1),
-  ('Tostada de Tomate y AOVE', 2.80, 'tostadas', 'Pan artesanal tostado con tomate natural rallado y aceite de oliva virgen extra.', '/images/products/Tostada-Tomate.webp', JSON_ARRAY('Pan artesanal', 'Tomate', 'Aceite de oliva', 'Sal'), JSON_ARRAY('Gluten'), 0, 1, 1),
-  ('Pack Desayuno Amalis', 4.50, 'ofertas', 'Café + Zumo de Naranja Natural + Tostada o Pieza de Bollería.', '/images/sections/editada-04.webp', JSON_ARRAY('Varios según elección'), JSON_ARRAY('Varios según elección'), 1, 1, 1);
+INSERT INTO menu_products (name, price, price_unit, category, description, image, ingredients, allergens, featured, active, sort_order) VALUES
+  ('Coca de Mollitas', 1.50, 'unit', 'bolleria-salada', 'La clásica coca alicantina con su característica capa crujiente de harina y aceite.', '/images/products/Coca-Sardina.webp', JSON_ARRAY('Harina de trigo', 'Aceite de oliva', 'Vino blanco', 'Sal'), JSON_ARRAY('Gluten'), 1, 1, 1),
+  ('Coca de Verdura', 2.50, 'unit', 'bolleria-salada', 'Deliciosa masa artesanal cubierta con pimiento, tomate y cebolla asada.', '/images/products/Coca-Pisto.webp', JSON_ARRAY('Harina', 'Pimiento rojo', 'Tomate', 'Cebolla', 'Aceite'), JSON_ARRAY('Gluten'), 1, 1, 2),
+  ('Empanadilla de Pisto', 1.80, 'unit', 'bolleria-salada', 'Rellena de nuestro pisto casero elaborado a fuego lento.', '/images/products/Empanada-Pisto.webp', JSON_ARRAY('Tomate', 'Pimiento', 'Huevo duro', 'Atún'), JSON_ARRAY('Gluten', 'Pescado', 'Huevo'), 0, 1, 3),
+  ('Croissant de Mantequilla', 1.40, 'unit', 'bolleria-dulce', 'Hojaldre artesanal con auténtica mantequilla, crujiente por fuera y tierno por dentro.', '/images/products/Croissant-Mantequilla.webp', JSON_ARRAY('Harina', 'Mantequilla', 'Leche', 'Azúcar'), JSON_ARRAY('Gluten', 'Lácteos'), 0, 1, 1),
+  ('Bizcocho de Yogur y Limón', 12.00, 'kg', 'pasteleria', 'Bizcocho esponjoso ideal para compartir en desayunos o meriendas.', '/images/products/Bizcocho.webp', JSON_ARRAY('Huevo', 'Yogur', 'Limón', 'Azúcar', 'Harina'), JSON_ARRAY('Gluten', 'Huevo', 'Lácteos'), 0, 1, 1),
+  ('Tostada de Tomate y AOVE', 2.80, 'unit', 'tostadas', 'Pan artesanal tostado con tomate natural rallado y aceite de oliva virgen extra.', '/images/products/Tostada-Tomate.webp', JSON_ARRAY('Pan artesanal', 'Tomate', 'Aceite de oliva', 'Sal'), JSON_ARRAY('Gluten'), 0, 1, 1),
+  ('Pack Desayuno Amalis', 4.50, 'unit', 'ofertas', 'Café + Zumo de Naranja Natural + Tostada o Pieza de Bollería.', '/images/sections/editada-04.webp', JSON_ARRAY('Varios según elección'), JSON_ARRAY('Varios según elección'), 1, 1, 1);
 
 DELETE FROM products;
 INSERT INTO products (name, description, price_text, category, image_url, image_alt, active, sort_order) VALUES
